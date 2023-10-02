@@ -7,11 +7,18 @@ import base64
 import re
 import json
 import urllib.parse
+import argparse
 
 logging.basicConfig(level=logging.DEBUG)
 
 # Load configuration from external JSON file
-with open("config.json", "r") as file:
+# Accept configuration file path from command-line argument
+parser = argparse.ArgumentParser(description="SLIM Best Practices Leaderboard Script")
+parser.add_argument("config_path", help="Path to the JSON configuration file")
+args = parser.parse_args()
+
+# Load configuration from provided file path
+with open(args.config_path, "r") as file:
     config = json.load(file)
 
 auth_token = config["auth_token"]
@@ -36,7 +43,7 @@ for target in config["targets"]:
         while org_url:
             response = requests.get(org_url, headers=headers)
             org_repos = response.json()
-            
+
             # Check for the next page in pagination
             org_url = None
             link_header = response.headers.get('Link')
@@ -90,7 +97,7 @@ for repo_full_name in repos_list:
     issue_templates = '✅' if 'bug_report.md' in issue_template_files and 'feature_request.md' in issue_template_files else '❌'
     code_of_conduct = '✅' if 'CODE_OF_CONDUCT.md' in files else '❌'
     contributing_guide = '✅' if 'CONTRIBUTING.md' in files else '❌'
-    license = '✅' if 'LICENSE' or 'LICENSE.txt' in files else '❌'
+    license = '✅' if 'LICENSE' in files or 'LICENSE.txt' in files else '❌'
     change_log = '✅' if 'CHANGELOG.md' in files else '❌'
 
     required_sections = ["Features", "Contents", "Quick Start", "Changelog", "Frequently Asked Questions (FAQ)", "Contributing", "License", "Support"]
