@@ -31,6 +31,7 @@ This repository serves to create a leaderboard report (markdown table) that rank
 - [Features](#features)
 - [Contents](#contents)
 - [Quick Start](#quick-start)
+  - [Setup Instructions](#setup-instructions)
   - [Run Instructions](#run-instructions)
 - [Changelog](#changelog)
 - [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
@@ -41,6 +42,40 @@ This repository serves to create a leaderboard report (markdown table) that rank
 ## Quick Start
 
 Use this quick start guide to generate a fresh leaderboard table. 
+
+### Setup Instructions
+
+You must have a configuration file to use this script. The purpose of the configuration file is:
+- List the repositories to scan
+- List the organizations to scan for repositories
+- Point to the output file that will list the results
+- Cite the GitHub personal access token used for authorization
+  
+This configuration file will be pointed to at runtime as an agrgument (see run instructions below). 
+
+Below is a sample of a configuration file named `slim-config.json`:
+
+```
+{
+    "gh_personal_access_token": "[INSERT_GITHUB_TOKEN_HERE]",
+    "targets": [
+        {
+            "type": "organization",
+            "name": "https://github.com/nasa-ammos"
+        },
+        {
+            "type": "repository",
+            "name": "https://github.com/nasa/FEI"
+        },
+        {
+            "type": "repository",
+            "name": "https://github.com/rzellem/EXOTIC"
+        }
+    ],
+    "output": "slim-oss-leaderboard.md"
+  }
+  
+```
 
 ### Run Instructions
 
@@ -54,10 +89,23 @@ Setup:
 To generate a fresh leaderboard markdown table (printed to `stdout`), run the following command:
 
 ```
-python leaderboard.py
+python leaderboard.py [CONFIG_FILE]
 ```
 
-You'll see an output similar to the contents of [leaderboard.md](leaderboard.md)
+Example:
+```
+python leaderboard.py slim-config.json
+```
+
+You'll see an output similar to the contents of the below sample:
+| Project | Repository | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |
+|---|---|---|---|---|---|---|---|---|---|
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [nasa-ammos](https://github.com/nasa-ammos) | [parent-ammos](https://github.com/nasa-ammos/parent-ammos) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim](https://github.com/nasa-ammos/slim) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| [nasa-ammos](https://github.com/nasa-ammos) | [MMGIS](https://github.com/nasa-ammos/MMGIS) | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| 
 
 How to interpret the leaderboard contents:
 - A ✅ indicates successful compliance, where as a ❌ indicates not fully compliant
@@ -67,19 +115,19 @@ How to interpret the leaderboard contents:
 
 ## Changelog
 
-See our root [CHANGELOG.md](../CHANGELOG.md) for a history of our changes.
+See our root [CHANGELOG.md](CHANGELOG.md) for a history of our changes.
 
 ## Frequently Asked Questions (FAQ)
 
-None. Please post a PR to ask a question.
+None. Please post a PR for this section to ask your question and the development team will add an answer.
 
 ## Contributing
 
-Interested in contributing to our project? Please see our: [CONTRIBUTING.md](../CONTRIBUTING.md)
+Interested in contributing to our project? Please see our: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
 
-See our: [LICENSE](../LICENSE)
+See our: [LICENSE](LICENSE)
 
 ## Support
 
