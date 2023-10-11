@@ -3,8 +3,6 @@
 
 <div align="center">
 
-![logo](https://user-images.githubusercontent.com/3129134/163255685-857aa780-880f-4c09-b08c-4b53bf4af54d.png)
-
 <h1 align="center">SLIM Best Practices Leaderboard</h1>
 
 </div>
