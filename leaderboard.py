@@ -21,15 +21,18 @@ args = parser.parse_args()
 with open(args.config_path, "r") as file:
     config = json.load(file)
 
-auth_token = config["auth_token"]
+auth_token = config["gh_personal_access_token"]
+if not auth_token:
+    raise ValueError("Error: gh_personal_access_token in the configuration file is empty. Please provide a valid GitHub Personal Access Token.")
+
 headers = {'Authorization': f'token {auth_token}'}
 repos_list = []
 
 # Iterate over targets and fetch repositories
 for target in config["targets"]:
+    base_url = target['name'].split('/')[2]
 
     if target["type"] == "repository":
-        base_url = target['name'].split('/')[2]
         repo_name = "/".join(target['name'].split('/')[-2:])
         repos_list.append(f"https://{base_url}/{repo_name}")
 
@@ -37,9 +40,9 @@ for target in config["targets"]:
 
 
     elif target["type"] == "organization":
-        base_url = target['name'].split('/')[2]
         org_name = target['name'].split('/')[-1]
-        org_url = f"https://api.{base_url}/orgs/{org_name}/repos?per_page=100"
+        api_url = "api.github.com" if base_url == "github.com" else base_url # to support compatibility between github.com and github enterprise
+        org_url = f"https://{api_url}/orgs/{org_name}/repos?per_page=100"
         while org_url:
             response = requests.get(org_url, headers=headers)
             org_repos = response.json()
@@ -48,7 +51,7 @@ for target in config["targets"]:
             org_url = None
             link_header = response.headers.get('Link')
             if link_header:
-                match = re.search(r'<(https://api\..+?/orgs/.+?/repos\?page=\d+)>; rel="next"', link_header)
+                match = re.search(r'<(https://\..+?/orgs/.+?/repos\?page=\d+)>; rel="next"', link_header)
                 if match:
                     org_url = match.group(1)
 
@@ -58,7 +61,7 @@ for target in config["targets"]:
             org_url = None
             link_header = response.headers.get('Link')
             if link_header:
-                match = re.search(r'<(https://api\..+?/orgs/.+?/repos\?page=\d+)>; rel="next"', link_header)
+                match = re.search(r'<(https://\..+?/orgs/.+?/repos\?page=\d+)>; rel="next"', link_header)
                 if match:
                     org_url = match.group(1)
 
@@ -72,11 +75,12 @@ for repo_full_name in repos_list:
     owner, repo_name = repo_full_name.split('/')[-2:]
     hostname = urllib.parse.urlparse(repo_full_name).hostname
     repo_url = f"https://{hostname}/{owner}/{repo_name}"
+    api_url_prefix = f"https://api.github.com/repos/{org_name}/{repo_name}/contents" if hostname == "github.com" else f"https://{hostname}/api/v3/repos/{owner}/{repo_name}/contents"
 
-    issue_template_url = f"https://{hostname}/api/v3/repos/{owner}/{repo_name}/contents/.github/ISSUE_TEMPLATE"
-    pr_template_url = f"https://{hostname}/api/v3/repos/{owner}/{repo_name}/contents/.github/PULL_REQUEST_TEMPLATE.md"
-    contents_url = f"https://{hostname}/api/v3/repos/{owner}/{repo_name}/contents"
-    readme_url = f"https://{hostname}/api/v3/repos/{owner}/{repo_name}/contents/README.md"
+    issue_template_url = f"{api_url_prefix}/.github/ISSUE_TEMPLATE"
+    pr_template_url = f"{api_url_prefix}/.github/PULL_REQUEST_TEMPLATE.md"
+    contents_url = f"{api_url_prefix}"
+    readme_url = f"{api_url_prefix}/README.md"
 
     jitter = random.uniform(0.5, 1.5)
     time.sleep(jitter)  # jittering
