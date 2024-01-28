@@ -1,0 +1,19 @@
+{
+    "gh_personal_access_token": "",
+    "targets": [
+        {
+            "type": "organization",
+            "name": "https://github.com/nasa-ammos"
+        },
+        {
+            "type": "repository",
+            "name": "https://github.com/nasa/FEI"
+        },
+        {
+            "type": "repository",
+            "name": "https://github.com/rzellem/EXOTIC"
+        }
+    ],
+    "output": "slim-oss-leaderboard.md"
+  }
+  

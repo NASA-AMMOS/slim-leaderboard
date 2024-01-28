@@ -33,6 +33,8 @@ This repository serves to create a leaderboard report (markdown table) that rank
 - [Quick Start](#quick-start)
   - [Setup Instructions](#setup-instructions)
   - [Run Instructions](#run-instructions)
+- [Table of Contents](#table-of-contents)
+- [Leaderboard Table](#leaderboard-table)
 - [Changelog](#changelog)
 - [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
 - [Contributing](#contributing)
@@ -77,11 +79,14 @@ Below is a sample of a configuration file named `slim-config.json`:
   
 ```
 
+You can see more examples in the `examples/` sub-folder within this repository. 
+
 ### Run Instructions
 
 Requirements: 
 * Python 3
 * `requests` module
+* `requests-cache` module
 
 Setup:
 - Generate a GitHub personal access token and replace the string `TOKEN_GOES_HERE` with the value of your token. NOTE: make sure the "repo" group permission is enabled for your token within GitHub.com's personal access token setup.
@@ -98,20 +103,25 @@ python leaderboard.py slim-config.json
 ```
 
 You'll see an output similar to the contents of the below sample:
+
+## Table of Contents
+- [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
+- [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
+- [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
+
+
+## Leaderboard Table
 | Project | Repository | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |
 |---|---|---|---|---|---|---|---|---|---|
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [nasa-ammos](https://github.com/nasa-ammos) | [parent-ammos](https://github.com/nasa-ammos/parent-ammos) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim](https://github.com/nasa-ammos/slim) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| [nasa-ammos](https://github.com/nasa-ammos) | [MMGIS](https://github.com/nasa-ammos/MMGIS) | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
-| 
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim-leaderboard](https://github.com/nasa-ammos/slim-leaderboard) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅
+| [nasa-ammos](https://github.com/nasa-ammos) | [parent-ammos](https://github.com/nasa-ammos/parent-ammos) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅
+| [nasa-ammos](https://github.com/nasa-ammos) | [slim](https://github.com/nasa-ammos/slim) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌
+| [nasa-ammos](https://github.com/nasa-ammos) | [VICAR](https://github.com/nasa-ammos/VICAR) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅
+| [nasa-ammos](https://github.com/nasa-ammos) | [MMGIS](https://github.com/nasa-ammos/MMGIS) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅
 
-How to interpret the leaderboard contents:
-- A ✅ indicates successful compliance, where as a ❌ indicates not fully compliant
-- Most checks verify whether files within your repository that should exist, do in fact exist. Some checks are more specialized, such as:
-  - "README" - checks if your README conforms to the [SLIM standard README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/)
-  - "Dev/User Documentation" check for links to be present in your README that point to specific Dev or User docs - this is part of the SLIM standard README
+See the `examples/*-leaderboard.md` sub-folder for sample reports and the explanations for what the checks mean. 
 
 ## Changelog
 
