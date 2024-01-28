@@ -1,0 +1,10 @@
+{
+  "gh_personal_access_token": "",
+  "targets": [
+      {
+          "type": "organization",
+          "name": "https://github.com/unity-sds"
+      }
+  ],
+  "output": "slim-unity-leaderboard.md"
+}
