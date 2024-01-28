@@ -222,11 +222,111 @@ rows.sort(reverse=True)
 table = table_header + '\n'.join(row for _, row in rows)
 report = f"\n#REPORT:\n- Infused Count: {infused_count}\n- Pull Requests Count: {pr_count}\n- Issue Count: {issue_count}\n- Total Count: {total_count}"
 
+markdown_toc = """
+## Table of Contents
+- [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
+- [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
+- [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
+
+"""
+
+markdown_table = f"""
+## Leaderboard Table
+{table}
+
+"""
+
+markdown_report = f"""
+## Summary Report 
+
+The below table summarizes the effect of generating the above leaderboard table. Here's an explanation of each summarization statistic: 
+- Infused Count: the total number of best practices that have been detected infused into code repositories
+- Proposed PR Count: the total number of best practices that are currently in proposal state as pull-requests to code repositories
+- Proposed Issues Count: the total number of best practices that are currently in proposal state as issue tickets to code repositories
+- Total Checks Run Count: the total number of best practice checks that have been run against the total number of repositories evaluated
+
+| Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
+| ---------------------- | --------------------- | ------------------------- | --------------------- |
+| {infused_count}        | {pr_count}            | {issue_count}             | {total_count}        |
+
+"""
+
+markdown_directions = """
+## Repository Check Explanation 
+
+Each check against a repository will result in one of the following statuses:
+- ✅: The check passed, indicating that the repository meets the requirement.
+- 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
+- ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
+
+### 1. Issue Templates:
+- The repository must have the following issue templates:
+  - `bug_report.md`: Template for bug reports.
+  - `feature_request.md`: Template for feature requests.
+- ✅ The check will pass with a green check mark if both templates are present.
+- 🅿️ If a pull-request is proposed to add missing templates.
+- ℹ️ If an issue is opened to suggest adding missing templates.
+
+### 2. PR Templates:
+- The repository must have a pull request (PR) template.
+- ✅ The check will pass with a green check mark if the PR template is present.
+- 🅿️ If a pull-request is proposed to add a PR template.
+- ℹ️ If an issue is opened to suggest adding a PR template.
+
+### 3. Code of Conduct:
+- The repository must contain a file named `CODE_OF_CONDUCT.md`.
+- ✅ The check will pass with a green check mark if this file is present.
+- 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+- ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+
+### 4. Contributing Guide:
+- The repository must contain a file named `CONTRIBUTING.md`.
+- ✅ The check will pass with a green check mark if this file is present.
+- 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
+- ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+
+### 5. License:
+- The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
+- ✅ The check will pass with a green check mark if either of these files is present.
+- 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+- ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+
+### 6. README Sections:
+- The README must contain sections with the following titles: 
+  - "Features"
+  - "Contents"
+  - "Quick Start"
+  - "Changelog"
+  - "Frequently Asked Questions (FAQ)"
+  - "Contributing"
+  - "License"
+  - "Support"
+- ✅ If all these sections are present, the check will pass with a green check mark.
+- ☑️ If only the sections "Contributing", "License", and "Support" are present, the check will pass with a different check mark.
+- 🅿️ If a pull-request is proposed to add missing sections.
+- ℹ️ If an issue is opened to suggest adding missing sections.
+
+### 7. Change Log:
+- The repository must contain a file named `CHANGELOG.md`.
+- ✅ The check will pass with a green check mark if this file is present.
+- 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
+- ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
+
+### 8. Docs Link in README:
+- The README must contain a link with a label containing either "Docs" or "Documentation". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation"
+- ✅ The check will pass with a green check mark if this link is present.
+- 🅿️ If a pull-request is proposed to add the "Docs" or "Documentation" link.
+- ℹ️ If an issue is opened to suggest adding the "Docs" or "Documentation" link.
+
+"""
+
 # either write to file or print based on config
 if "output" in config:
     with open(config["output"], "w") as file:
-        file.write(table)
-        file.write(report)
+        file.write(markdown_toc)
+        file.write(markdown_table)
+        file.write(markdown_report)
+        file.write(markdown_directions)
 else:
     print("\n")
-    print(table)
+    print(markdown_table)
