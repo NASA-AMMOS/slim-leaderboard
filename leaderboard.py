@@ -208,7 +208,7 @@ with ThreadPoolExecutor(max_workers=1) as executor: # keep max_workers=1 because
             owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
             hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
             repo_url = f"https://{hostname}/{owner}/{repo_name}"
-            row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('changelog_check', '❌')} | {repo_data.get('docs_link_check', '❌')}"
+            row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('change_log', '❌')} | {repo_data.get('docs_link_check', '❌')}"
             tmp_infused_count = row.count('✅') + row.count('☑️')
             infused_count += row.count('✅') + row.count('☑️')
             pr_count += row.count('🅿️') 
