@@ -10,7 +10,6 @@ import json
 import urllib.parse
 import argparse
 from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import traceback
 
 logging.basicConfig(level=logging.ERROR)
@@ -62,6 +61,9 @@ def process_repository(repo_full_name, headers, cache):
             if github_contents is not None:
                 files.extend([file['name'] for file in github_contents if 'name' in file])
 
+        logging.debug(f"--- PROCESS REPOSITORY: {repo_full_name} ---")
+        logging.debug(f"Files found under repo root /: {files}")
+
         results = {
             'repo_full_name': repo_full_name,
             'issue_templates': '✅' if 'ISSUE_TEMPLATE' in files and 'ISSUE_TEMPLATE' in files else (check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache) and check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache)),
@@ -90,7 +92,7 @@ def process_repository(repo_full_name, headers, cache):
                 readme_check = check_issue_pr(hostname, owner, repo_name, 'README.md', headers, cache)
             
             docs_link_check = '✅' if re.search(r'\[.*?\b(?:Docs|Documentation)\b.*?\]\(.*\)', readme, re.IGNORECASE) else '❌'
-                
+            logging.debug("Readme contents: {readme}")     
 
         results['readme_check'] = readme_check   
         results['docs_link_check'] = docs_link_check     
@@ -197,25 +199,21 @@ table_header += "|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
 infused_count = pr_count = issue_count = total_count = 0
-with ThreadPoolExecutor(max_workers=1) as executor: # keep max_workers=1 because of bug where multithreading doesn't work with requests-cache well
-    future_to_repo = {executor.submit(process_repository, repo, headers, cache): repo for repo in repos_list}
-   
+for repo in tqdm(repos_list, desc="Analyzing Repository", unit="repo"):
+    repo_data = process_repository(repo, headers, cache)
 
-    for future in tqdm(as_completed(future_to_repo), total=len(repos_list), desc="Processing Repositories"):
-        repo_data = future.result()
-
-        if repo_data:
-            owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
-            hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
-            repo_url = f"https://{hostname}/{owner}/{repo_name}"
-            row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('change_log', '❌')} | {repo_data.get('docs_link_check', '❌')}"
-            tmp_infused_count = row.count('✅') + row.count('☑️')
-            infused_count += row.count('✅') + row.count('☑️')
-            pr_count += row.count('🅿️') 
-            issue_count += row.count('ℹ️')
-            total_count += 7
-            rows.append((tmp_infused_count, row))
-            logging.info(row)
+    if repo_data:
+        owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
+        hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
+        repo_url = f"https://{hostname}/{owner}/{repo_name}"
+        row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('change_log', '❌')} | {repo_data.get('docs_link_check', '❌')}"
+        tmp_infused_count = row.count('✅') + row.count('☑️')
+        infused_count += row.count('✅') + row.count('☑️')
+        pr_count += row.count('🅿️') 
+        issue_count += row.count('ℹ️')
+        total_count += 7
+        rows.append((tmp_infused_count, row))
+        logging.info(row)
 
 # sort rows by the number of '✅' values and add them to the table
 rows.sort(reverse=True)
