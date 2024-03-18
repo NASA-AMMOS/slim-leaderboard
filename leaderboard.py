@@ -31,6 +31,8 @@ def fetch_data(url, headers, cache):
             return response.json()
         elif response.status_code == 304:
             return cache[url].get('data', None) if url in cache else None
+        elif response.status_code == 401:
+            raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
         else:
             logging.error(f"Failed to fetch data from {url}: {response.status_code} - {response.text}")
             return None
@@ -149,9 +151,10 @@ if not auth_token:
 
 # make a test request to the GitHub API to check if the token is valid
 headers = {"Authorization": f"token {auth_token}"}
-response = requests.get("https://api.github.com/user", headers=headers)
-if response.status_code == 401:
-    raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
+
+# response = requests.get("https://api.github.com/user", headers=headers) or requests.get("https://api.github.com/user", headers=headers)
+# if response.status_code == 401:
+#     raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
 
 headers = {'Authorization': f'token {auth_token}'}
 cache = {}  # dictionary to store ETag values
@@ -172,6 +175,8 @@ for target in config["targets"]:
 
         while org_url:
             response = requests.get(org_url, headers=headers)
+            if response.status_code == 401:
+                raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
             org_repos = response.json()
 
             if isinstance(org_repos, list) and all(isinstance(repo, dict) for repo in org_repos):
@@ -199,7 +204,7 @@ table_header += "|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
 infused_count = pr_count = issue_count = total_count = 0
-for repo in tqdm(repos_list, desc="Analyzing Repository", unit="repo"):
+for repo in tqdm(repos_list, desc="Scanning Repository", unit="repo"):
     repo_data = process_repository(repo, headers, cache)
 
     if repo_data:
