@@ -14,6 +14,7 @@
 | [unity-sds](https://github.com/unity-sds) | [unity-sps-workflows](https://github.com/unity-sds/unity-sps-workflows) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-sps-prototype](https://github.com/unity-sds/unity-sps-prototype) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-sps-prototype-fork](https://github.com/unity-sds/unity-sps-prototype-fork) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
+| [unity-sds](https://github.com/unity-sds) | [unity-sps-ogc-processes-api](https://github.com/unity-sds/unity-sps-ogc-processes-api) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-sds-portal](https://github.com/unity-sds/unity-sds-portal) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-repo-template](https://github.com/unity-sds/unity-repo-template) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-project-management](https://github.com/unity-sds/unity-project-management) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
@@ -31,8 +32,8 @@
 | [unity-sds](https://github.com/unity-sds) | [unity-ads-deployment](https://github.com/unity-sds/unity-ads-deployment) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [sounder-sips-tutorial](https://github.com/unity-sds/sounder-sips-tutorial) | ✅ | ✅ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [ades_wpst](https://github.com/unity-sds/ades_wpst) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
+| [unity-sds](https://github.com/unity-sds) | [SBG-unity-frac-cover](https://github.com/unity-sds/SBG-unity-frac-cover) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-py](https://github.com/unity-sds/unity-py) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-api](https://github.com/unity-sds/unity-sps-api) | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [unity-on-demand-api](https://github.com/unity-sds/unity-on-demand-api) | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 | [unity-sds](https://github.com/unity-sds) | [issue-triage](https://github.com/unity-sds/issue-triage) | ✅ | ❌ | ✅ | ✅ | ✅ | ☑️ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [unity-ads](https://github.com/unity-sds/unity-ads) | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌
@@ -52,6 +53,7 @@
 | [unity-sds](https://github.com/unity-sds) | [unity-jobs-ui](https://github.com/unity-sds/unity-jobs-ui) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [unity-docker-stacks](https://github.com/unity-sds/unity-docker-stacks) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [unity-cs-auth-lambda](https://github.com/unity-sds/unity-cs-auth-lambda) | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
+| [unity-sds](https://github.com/unity-sds) | [stac-merge](https://github.com/unity-sds/stac-merge) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [sounder-sips-application](https://github.com/unity-sds/sounder-sips-application) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [sbg-workflows](https://github.com/unity-sds/sbg-workflows) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [hysds_ui_with_auth](https://github.com/unity-sds/hysds_ui_with_auth) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
@@ -68,6 +70,8 @@
 | [unity-sds](https://github.com/unity-sds) | [sounder-sips-chirp-workflows](https://github.com/unity-sds/sounder-sips-chirp-workflows) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [maap-ci-stage-io](https://github.com/unity-sds/maap-ci-stage-io) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [common-cwl](https://github.com/unity-sds/common-cwl) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
+| [unity-sds](https://github.com/unity-sds) | [application-development-lifecycle](https://github.com/unity-sds/application-development-lifecycle) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
+| [unity-sds](https://github.com/unity-sds) | [SBG-unity-trait-estimate](https://github.com/unity-sds/SBG-unity-trait-estimate) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [SBG-unity-resample](https://github.com/unity-sds/SBG-unity-resample) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
 | [unity-sds](https://github.com/unity-sds) | [SBG-unity-reflect-correct](https://github.com/unity-sds/SBG-unity-reflect-correct) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
 
@@ -82,7 +86,7 @@ The below table summarizes the effect of generating the above leaderboard table.
 
 | Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
 | ---------------------- | --------------------- | ------------------------- | --------------------- |
-| 251        | 32            | 0             | 434        |
+| 262        | 32            | 0             | 462        |
 
 
 ## Repository Check Explanation 
