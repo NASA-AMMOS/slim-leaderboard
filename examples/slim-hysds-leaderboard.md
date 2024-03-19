@@ -1,6 +1,6 @@
 
 ## Table of Contents
-- [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
+- [Leaderboard Table](#leaderboard-table) - a ranked listing of repositories in order of how many best practice / compliance checks have been met.
 - [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
 - [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
 
@@ -162,7 +162,7 @@ Each check against a repository will result in one of the following statuses:
 - ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
 
 ### 8. Docs Link in README:
-- The README must contain a link with a label containing either "Docs" or "Documentation". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation"
+- The README must contain a link with a label containing either "Docs" or "Documentation". Ex: "MyProject Docs", "docs", or "MyProject Documentation"
 - ✅ The check will pass with a green check mark if this link is present.
 - 🅿️ If a pull-request is proposed to add the "Docs" or "Documentation" link.
 - ℹ️ If an issue is opened to suggest adding the "Docs" or "Documentation" link.
