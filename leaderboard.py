@@ -83,7 +83,7 @@ def process_repository(repo_full_name, headers, cache):
             else:
                 readme_check = check_issue_pr(hostname, owner, repo_name, 'README.md', headers, cache)
             
-            docs_link_check = '✅' if re.search(r'\[.*?\b(?:Docs|Documentation)\b.*?\]\(.*\)', readme, re.IGNORECASE) else '❌'
+            docs_link_check = '✅' if re.search(r'\[.*?\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b.*?\]\([^)]*\)', readme, re.IGNORECASE) else '❌'
             logging.debug("Readme contents: {readme}")     
 
         results = {
@@ -198,7 +198,7 @@ for target in config["targets"]:
                 if match:
                     org_url = match.group(1)
 
-table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |\n"
+table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | [Additional Docs](https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/) |\n"
 table_header += "|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
