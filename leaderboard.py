@@ -78,7 +78,7 @@ def process_repository(repo_full_name, headers, cache):
             readme_sections = re.findall(r'^#+\s*(.*)$', readme, re.MULTILINE)
             if all(section in readme_sections for section in readme_required_sections):
                 readme_check = '✅'
-            elif all(section in readme_sections for section in readme_minimum_required_sections):
+            elif len(readme_sections) > 0:
                 readme_check = '☑️'
             else:
                 readme_check = check_issue_pr(hostname, owner, repo_name, 'README.md', headers, cache)
