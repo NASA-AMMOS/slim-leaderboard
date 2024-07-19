@@ -261,39 +261,13 @@ Each check against a repository will result in one of the following statuses:
 - 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
 - ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
 
-### 1. Issue Templates:
-- The repository must have the following issue templates:
-  - `bug_report.md`: Template for bug reports.
-  - `feature_request.md`: Template for feature requests.
-- ✅ The check will pass with a green check mark if both templates are present.
-- 🅿️ If a pull-request is proposed to add missing templates.
-- ℹ️ If an issue is opened to suggest adding missing templates.
-
-### 2. PR Templates:
-- The repository must have a pull request (PR) template.
-- ✅ The check will pass with a green check mark if the PR template is present.
-- 🅿️ If a pull-request is proposed to add a PR template.
-- ℹ️ If an issue is opened to suggest adding a PR template.
-
-### 3. Code of Conduct:
-- The repository must contain a file named `CODE_OF_CONDUCT.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-- ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
-
-### 4. Contributing Guide:
-- The repository must contain a file named `CONTRIBUTING.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
-- ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
-
-### 5. License:
+### 1. License:
 - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
 - ✅ The check will pass with a green check mark if either of these files is present.
 - 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
 - ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-### 6. README Sections:
+### 2. README Sections:
 - The README must contain sections with the following titles: 
   - "Features"
   - "Contents"
@@ -304,9 +278,35 @@ Each check against a repository will result in one of the following statuses:
   - "License"
   - "Support"
 - ✅ If all these sections are present, the check will pass with a green check mark.
-- ☑️ If only the sections "Contributing", "License", and "Support" are present, the check will pass with a different check mark.
+- ☑️ If the README file exists and has at least one section header.
 - 🅿️ If a pull-request is proposed to add missing sections.
 - ℹ️ If an issue is opened to suggest adding missing sections.
+
+### 3. Contributing Guide:
+- The repository must contain a file named `CONTRIBUTING.md`.
+- ✅ The check will pass with a green check mark if this file is present.
+- 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
+- ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+
+### 4. Code of Conduct:
+- The repository must contain a file named `CODE_OF_CONDUCT.md`.
+- ✅ The check will pass with a green check mark if this file is present.
+- 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+- ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+
+### 5. Issue Templates:
+- The repository must have the following issue templates:
+  - `bug_report.md`: Template for bug reports.
+  - `feature_request.md`: Template for feature requests.
+- ✅ The check will pass with a green check mark if both templates are present.
+- 🅿️ If a pull-request is proposed to add missing templates.
+- ℹ️ If an issue is opened to suggest adding missing templates.
+
+### 6. PR Templates:
+- The repository must have a pull request (PR) template.
+- ✅ The check will pass with a green check mark if the PR template is present.
+- 🅿️ If a pull-request is proposed to add a PR template.
+- ℹ️ If an issue is opened to suggest adding a PR template.
 
 ### 7. Change Log:
 - The repository must contain a file named `CHANGELOG.md`.
@@ -314,11 +314,11 @@ Each check against a repository will result in one of the following statuses:
 - 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
 - ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
 
-### 8. Docs Link in README:
-- The README must contain a link with a label containing either "Docs" or "Documentation". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation"
+### 8. Additional Docs:
+- The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation".
 - ✅ The check will pass with a green check mark if this link is present.
-- 🅿️ If a pull-request is proposed to add the "Docs" or "Documentation" link.
-- ℹ️ If an issue is opened to suggest adding the "Docs" or "Documentation" link.
+- 🅿️ If a pull-request is proposed to add the link.
+- ℹ️ If an issue is opened to suggest adding the link.
 
 """
 
