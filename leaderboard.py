@@ -66,16 +66,6 @@ def process_repository(repo_full_name, headers, cache):
         logging.debug(f"--- PROCESS REPOSITORY: {repo_full_name} ---")
         logging.debug(f"Files found under repo root /: {files}")
 
-        results = {
-            'repo_full_name': repo_full_name,
-            'issue_templates': '✅' if 'ISSUE_TEMPLATE' in files and 'ISSUE_TEMPLATE' in files else (check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache) and check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache)),
-            'pr_template': '✅' if 'PULL_REQUEST_TEMPLATE.md' in files else check_issue_pr(hostname, owner, repo_name, 'PULL_REQUEST_TEMPLATE.md', headers, cache),
-            'code_of_conduct': '✅' if 'CODE_OF_CONDUCT.md' in files else check_issue_pr(hostname, owner, repo_name, 'CODE_OF_CONDUCT.md', headers, cache),
-            'contributing_guide': '✅' if 'CONTRIBUTING.md' in files else check_issue_pr(hostname, owner, repo_name, 'CONTRIBUTING.md', headers, cache),
-            'license': '✅' if 'LICENSE' in files or 'LICENSE.txt' in files else (check_issue_pr(hostname, owner, repo_name, 'LICENSE', headers, cache) or check_issue_pr(hostname, owner, repo_name, 'LICENSE.txt', headers, cache)),
-            'change_log': '✅' if 'CHANGELOG.md' in files else check_issue_pr(hostname, owner, repo_name, 'CHANGELOG.md', headers, cache),
-        }
-
         # special check for README contents, or if doesn't meet criteria then check for PR/issues
         readme_check = '❌'
         docs_link_check = '❌'
@@ -96,8 +86,17 @@ def process_repository(repo_full_name, headers, cache):
             docs_link_check = '✅' if re.search(r'\[.*?\b(?:Docs|Documentation)\b.*?\]\(.*\)', readme, re.IGNORECASE) else '❌'
             logging.debug("Readme contents: {readme}")     
 
-        results['readme_check'] = readme_check   
-        results['docs_link_check'] = docs_link_check     
+        results = {
+            'repo_full_name': repo_full_name,
+            'license': '✅' if 'LICENSE' in files or 'LICENSE.txt' in files else (check_issue_pr(hostname, owner, repo_name, 'LICENSE', headers, cache) or check_issue_pr(hostname, owner, repo_name, 'LICENSE.txt', headers, cache)),
+            'readme_check': readme_check,
+            'contributing_guide': '✅' if 'CONTRIBUTING.md' in files else check_issue_pr(hostname, owner, repo_name, 'CONTRIBUTING.md', headers, cache),
+            'code_of_conduct': '✅' if 'CODE_OF_CONDUCT.md' in files else check_issue_pr(hostname, owner, repo_name, 'CODE_OF_CONDUCT.md', headers, cache),
+            'issue_templates': '✅' if 'ISSUE_TEMPLATE' in files and 'ISSUE_TEMPLATE' in files else (check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache) and check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache)),
+            'pr_template': '✅' if 'PULL_REQUEST_TEMPLATE.md' in files else check_issue_pr(hostname, owner, repo_name, 'PULL_REQUEST_TEMPLATE.md', headers, cache),
+            'docs_link_check': docs_link_check,
+            'change_log': '✅' if 'CHANGELOG.md' in files else check_issue_pr(hostname, owner, repo_name, 'CHANGELOG.md', headers, cache),
+        }
 
         return results
 
@@ -199,7 +198,7 @@ for target in config["targets"]:
                 if match:
                     org_url = match.group(1)
 
-table_header = "| Project | Repository | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |\n"
+table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |\n"
 table_header += "|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
@@ -211,7 +210,7 @@ for repo in tqdm(repos_list, desc="Scanning Repository", unit="repo"):
         owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
         hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
         repo_url = f"https://{hostname}/{owner}/{repo_name}"
-        row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('change_log', '❌')} | {repo_data.get('docs_link_check', '❌')}"
+        row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('change_log', '❌')} | {repo_data.get('docs_link_check', '❌')}"
         tmp_infused_count = row.count('✅') + row.count('☑️')
         infused_count += row.count('✅') + row.count('☑️')
         pr_count += row.count('🅿️') 
