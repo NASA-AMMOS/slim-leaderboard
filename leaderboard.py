@@ -11,11 +11,12 @@ import urllib.parse
 import argparse
 from tqdm import tqdm
 import traceback
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from rich.console import Console
+from rich.table import Table
+from rich.tree import Tree
 
-logging.basicConfig(level=logging.ERROR)
-
-# initialize requests-cache
-requests_cache.install_cache('github_cache', expire_after=18000)  # cache expires after 5 hours
+logging.basicConfig(level=logging.INFO)
 
 def fetch_data(url, headers, cache):
     try:
@@ -41,138 +42,215 @@ def fetch_data(url, headers, cache):
         traceback.print_exc()
         return None
     
-def fetch_status_code(url, headers, cache):
+def fetch_status_code(url, headers):
+    """Fetch the status code for a given URL."""
     try:
-        # Check if the URL is in cache and an ETag is available
-        if url in cache:
-            #print(f"url({url} is in cache({cache[url].get('status_code', None)}))")
-            return cache[url].get('status_code', None)
+        logging.debug(f"Fetching URL {url}")
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code == 200:
+            logging.debug(f"URL {url} fetched successfully with status 200")
         else:
-            response = requests.get(url, headers=headers)
-            cache[url] = {
-                'etag': response.headers.get('ETag'),
-                'status_code': response.status_code
-            }
-            #print(f"url({url} is NOT in cache but status code is ({response.status_code})")
-            return response.status_code
-
+            logging.debug(f"URL {url} returned status {response.status_code}")
+        return response.status_code
     except requests.exceptions.RequestException as e:
         logging.error(f"Request to {url} failed: {e}")
-        traceback.print_exc()
         return None
 
+def fetch_status_codes(rest_api_url, endpoints, headers):
+    """Fetch status codes for multiple URLs in parallel with retries and exponential backoff."""
+    results = {}
+    urls = [f"{rest_api_url}{endpoint}" for endpoint in endpoints]
+    max_workers = min(10, len(urls))  # Use a reasonable number of workers
+    logging.debug(f"Starting to fetch status codes for {len(urls)} URLs with {max_workers} workers.")
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_url = {
+            executor.submit(fetch_status_code, url, headers): url
+            for url in urls
+        }
+        for future in as_completed(future_to_url):
+            url = future_to_url[future]
+            endpoint = url.replace(rest_api_url, "")
+            try:
+                result = future.result()
+                results[endpoint] = result
+                logging.debug(f"Received result for URL {url}: {result}")
+            except Exception as exc:
+                results[endpoint] = None
+                logging.error(f"{url} generated an exception: {exc}")
+    logging.debug("Completed fetching all URLs.")
+    return results
+
+def run_graphql_query(hostname, headers, query):
+    api_url_prefix = f"https://api.github.com/graphql" if hostname == "github.com" else f"https://{hostname}/api/graphql"
+    request = requests.post(api_url_prefix, json={'query': query}, headers=headers)
+    if request.status_code == 200:
+        return request.json()
+    else:
+        raise Exception("GraphQL query failed to run by returning code of {}. {}".format(request.status_code, query))
+
+def check_files_existence(owner, repo_name, api_url, headers):
+    """Check if specific files exist in the repository by path names."""
+    query = """
+    query CheckFilesExistence($owner: String!, $name: String!) {
+      repository(owner: $owner, name: $name) {
+        readme: object(expression: "HEAD:README.md") {
+          ... on Blob {
+            text
+          }
+        }
+        license: object(expression: "HEAD:LICENSE") {
+          ... on Blob {
+            id
+          }
+        }
+        licenseTxt: object(expression: "HEAD:LICENSE.txt") {
+        ... on Blob {
+            id
+        }
+        }
+        contributing: object(expression: "HEAD:CONTRIBUTING.md") {
+          ... on Blob {
+            id
+          }
+        }
+        code_of_conduct: object(expression: "HEAD:CODE_OF_CONDUCT.md") {
+          ... on Blob {
+            id
+          }
+        }
+        issue_templates: object(expression: "HEAD:.github/ISSUE_TEMPLATE") {
+          ... on Blob {
+            id
+          }
+        }
+        pull_request_template: object(expression: "HEAD:.github/PULL_REQUEST_TEMPLATE.md") {
+          ... on Blob {
+            id
+          }
+        }
+        changelog: object(expression: "HEAD:CHANGELOG.md") {
+          ... on Blob {
+            id
+          }
+        }
+        secrets_baseline: object(expression: "HEAD:.secrets.baseline") {
+          ... on Blob {
+            id
+          }
+        }
+        governance: object(expression: "HEAD:GOVERNANCE.md") {
+          ... on Blob {
+            id
+          }
+        }
+        issues(first: 100) {
+          nodes {
+            title
+          }
+        }
+        pullRequests(first: 100) {
+          nodes {
+            title
+            files(first: 100) {
+              nodes {
+                path
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+    variables = {
+        'owner': owner,
+        'name': repo_name
+    }
+    response = requests.post(
+        api_url,
+        json={'query': query, 'variables': variables},
+        headers=headers
+    )
+
+    def generate_check_mark(file_name, file_status, issues, prs):
+        if file_status is not None: 
+            return 'PASS'
+        elif any(file_name in issue for issue in issues):
+            return 'TICKET'
+        elif any(file_name in pr['title'] or any(file_name in file for file in pr['files']) for pr in prs):
+            return 'PR'
+        else:
+            return 'FAIL'
+
+    if response.status_code == 200:
+        result = response.json()
+        issues = [issue['title'] for issue in result['data']['repository']['issues']['nodes']]
+        pull_requests = [{
+            'title': pr['title'],
+            'files': [file['path'] for file in pr['files']['nodes']]
+        } for pr in result['data']['repository']['pullRequests']['nodes']]
+
+        # README in-depth checks
+        readme_text = result['data']['repository']['readme']['text'] if result['data']['repository']['readme'] else ""
+        readme_required_sections = ["Features", "Contents", "Quick Start", "Changelog", "Frequently Asked Questions (FAQ)", "Contributing", "License", "Support"]
+        readme_sections = re.findall(r'^#+\s*(.*)$', readme_text, re.MULTILINE)
+        if all(section in readme_sections for section in readme_required_sections):
+            readme_check = 'PASS'
+        elif len(readme_sections) > 0:
+            readme_check = 'WARN'
+        else:
+            readme_check = generate_check_mark('README.md', False, issues, pull_requests)
+
+        docs_link_check = 'PASS' if re.search(r'\[.*?\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b.*?\]\([^)]*\)', readme_text, re.IGNORECASE) else 'FAIL'
 
 
+        checks = {
+            'owner': owner,
+            'repo': repo_name,
+            'readme': readme_check,
+            'license': generate_check_mark('LICENSE', result['data']['repository']['license'] or result['data']['repository']['licenseTxt'], issues, pull_requests),
+            'contributing': generate_check_mark('CONTRIBUTING.md', result['data']['repository']['contributing'], issues, pull_requests),
+            'code_of_conduct': generate_check_mark('CODE_OF_CONDUCT.md', result['data']['repository']['code_of_conduct'], issues, pull_requests),
+            'issue_templates': generate_check_mark('.github/ISSUE_TEMPLATE', result['data']['repository']['issue_templates'], issues, pull_requests),
+            'pull_request_template': generate_check_mark('PULL_REQUEST_TEMPLATE.md', result['data']['repository']['pull_request_template'], issues, pull_requests),
+            'changelog': generate_check_mark('CHANGELOG.md', result['data']['repository']['changelog'], issues, pull_requests),
+            'docs_link_check': docs_link_check,
+            'secrets_baseline': generate_check_mark('.secrets.baseline', result['data']['repository']['secrets_baseline'], issues, pull_requests),
+            'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests)
+        }
+        return checks
+    else:
+        logging.error(f"Failed to check file existence for {owner}/{repo_name} at {api_url}: {response.status_code} - {response.text}")
+        return None
 
-def process_repository(repo_full_name, headers, cache):
+def process_repository(repo_full_name, headers):
     try:
         owner, repo_name = repo_full_name.split('/')[-2:]
         hostname = urllib.parse.urlparse(repo_full_name).hostname
-        api_url_prefix = f"https://api.github.com/repos/{owner}/{repo_name}" if hostname == "github.com" else f"https://{hostname}/api/v3/repos/{owner}/{repo_name}"
+        graphql_api_url = f"https://api.github.com/graphql" if hostname == "github.com" else f"https://{hostname}/api/graphql"
+        rest_api_url = f"https://api.github.com/repos/{owner}/{repo_name}" if hostname == "github.com" else f"https://{hostname}/api/v3/repos/{owner}/{repo_name}"
 
-        # get file list of repository root
-        root_contents_url = f"{api_url_prefix}/contents"
-        root_contents = fetch_data(root_contents_url, headers, cache)
-        if root_contents is None:
-            logging.error(f"Failed to fetch root contents for {repo_full_name}")
-            return {'repo_full_name': repo_full_name}
-        files = [file['name'] for file in root_contents if 'name' in file]
+        checks = check_files_existence(owner, repo_name, graphql_api_url, headers)
+        status_codes = fetch_status_codes(rest_api_url,
+            ["/vulnerability-alerts",
+             "/code-scanning/alerts",
+             "/secret-scanning/alerts"],
+             headers
+        )
+        #print(status_codes)
+        status_checks = {}
+        status_checks['/vulnerability-alerts'] = 'PASS' if status_codes['/vulnerability-alerts'] == 204 else 'FAIL'
+        status_checks['/code-scanning/alerts'] = 'PASS' if status_codes['/code-scanning/alerts'] == 200 else 'FAIL'
+        status_checks['/secret-scanning/alerts'] = 'PASS' if status_codes['/secret-scanning/alerts'] == 200 else 'FAIL'
+        
+        # Safely merge checks
+        result = {**checks, **status_checks} if checks else status_checks
 
-        # get file list of .github
-        if ('.github' in files):
-            github_contents_url = f"{api_url_prefix}/contents/.github"
-            github_contents = fetch_data(github_contents_url, headers, cache)
-            if github_contents is not None:
-                files.extend([file['name'] for file in github_contents if 'name' in file])
-
-        logging.debug(f"--- PROCESS REPOSITORY: {repo_full_name} ---")
-        logging.debug(f"Files found under repo root /: {files}")
-
-        # special check for README contents, or if doesn't meet criteria then check for PR/issues
-        readme_check = '❌'
-        docs_link_check = '❌'
-        if ('README.md' in files):
-            readme_url = f"{api_url_prefix}/contents/README.md"
-            readme_response = fetch_data(readme_url, headers, cache)
-            readme = base64.b64decode(readme_response['content']).decode() if readme_response else ""
-            readme_required_sections = ["Features", "Contents", "Quick Start", "Changelog", "Frequently Asked Questions (FAQ)", "Contributing", "License", "Support"]
-            readme_minimum_required_sections = [ "Contributing", "License", "Support" ]
-            readme_sections = re.findall(r'^#+\s*(.*)$', readme, re.MULTILINE)
-            if all(section in readme_sections for section in readme_required_sections):
-                readme_check = '✅'
-            elif len(readme_sections) > 0:
-                readme_check = '☑️'
-            else:
-                readme_check = check_issue_pr(hostname, owner, repo_name, 'README.md', headers, cache)
-            
-            docs_link_check = '✅' if re.search(r'\[.*?\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b.*?\]\([^)]*\)', readme, re.IGNORECASE) else '❌'
-            logging.debug("Readme contents: {readme}")     
-
-        # Check if Dependabot Vulnerability Alerts are enabled
-        vulnerability_alerts_url = f"{api_url_prefix}/vulnerability-alerts"
-        vulnerability_alerts_status_code = fetch_status_code(vulnerability_alerts_url, headers, cache)  #requests.get(vulnerability_alerts_url, headers=headers)
-        dependabot_alerts_enabled = '✅' if vulnerability_alerts_status_code == 204 else '❌'
-
-        # Check if GitHub Code Scanning is enabled
-        code_scanning_url = f"{api_url_prefix}/code-scanning/alerts"
-        code_scanning_url_status_code = fetch_status_code(code_scanning_url, headers, cache)  #requests.get(vulnerability_alerts_url, headers=headers)
-        code_scanning_enabled = '✅' if code_scanning_url_status_code == 200 else '❌'
-
-        # Check if GitHub Secret Scanning is enabled
-        secret_scanning_url = f"{api_url_prefix}/secret-scanning/alerts"
-        secret_scanning_url_status_code = fetch_status_code(secret_scanning_url, headers, cache)  #requests.get(vulnerability_alerts_url, headers=headers)
-        secret_scanning_enabled = '✅' if secret_scanning_url_status_code == 200 else '❌'
-
-        results = {
-            'repo_full_name': repo_full_name,
-            'license': '✅' if 'LICENSE' in files or 'LICENSE.txt' in files else (check_issue_pr(hostname, owner, repo_name, 'LICENSE', headers, cache) or check_issue_pr(hostname, owner, repo_name, 'LICENSE.txt', headers, cache)),
-            'readme_check': readme_check,
-            'contributing_guide': '✅' if 'CONTRIBUTING.md' in files else check_issue_pr(hostname, owner, repo_name, 'CONTRIBUTING.md', headers, cache),
-            'code_of_conduct': '✅' if 'CODE_OF_CONDUCT.md' in files else check_issue_pr(hostname, owner, repo_name, 'CODE_OF_CONDUCT.md', headers, cache),
-            'issue_templates': '✅' if 'ISSUE_TEMPLATE' in files and 'ISSUE_TEMPLATE' in files else (check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache) and check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache)),
-            'pr_template': '✅' if 'PULL_REQUEST_TEMPLATE.md' in files else check_issue_pr(hostname, owner, repo_name, 'PULL_REQUEST_TEMPLATE.md', headers, cache),
-            'change_log': '✅' if 'CHANGELOG.md' in files else check_issue_pr(hostname, owner, repo_name, 'CHANGELOG.md', headers, cache),
-            'docs_link_check': docs_link_check,
-            'security_scanning_dependabot': dependabot_alerts_enabled,
-            'security_scanning_code_scanning': code_scanning_enabled,
-            'security_scanning_secrets': secret_scanning_enabled,
-            'detect_secrets_check': '✅' if '.secrets.baseline' in files else check_issue_pr(hostname, owner, repo_name, '.secrets.baseline', headers, cache),
-            'governance_check': '✅' if 'GOVERNANCE.md' in files else check_issue_pr(hostname, owner, repo_name, 'GOVERNANCE.md', headers, cache)
-        }
-
-        return results
+        return result
 
     except Exception as e:
         logging.error(f"Error processing repository {repo_full_name}: {e}")
         traceback.print_exc()
         return {'repo_full_name': repo_full_name}
-
-def check_issue_pr(hostname, owner, repo_name, file_name, headers, cache):
-    api_url_prefix = f"https://api.github.com/repos/{owner}/{repo_name}" if hostname == "github.com" else f"https://{hostname}/api/v3/repos/{owner}/{repo_name}"
-
-    issues_url = f"{api_url_prefix}/issues"
-    pulls_url = f"{api_url_prefix}/pulls"
-
-    issues = fetch_data(issues_url, headers, cache)
-    pulls = fetch_data(pulls_url, headers, cache)
-
-    issue_condition = False
-    pull_request_condition = False
-
-    if issues is not None:
-        issue_condition = any(file_name in issue['title'] for issue in issues)
-
-    if pulls is not None:
-        for pull in pulls:
-            pull_files_url = pull['url'] + "/files"
-            pull_files = fetch_data(pull_files_url, headers, cache)
-            if pull_files is not None and any(file_name in file['filename'] for file in pull_files):
-                pull_request_condition = True
-                break
-
-    return '🅿️' if pull_request_condition else ('ℹ️' if issue_condition else '❌')
-
-
 
 
 # load configuration from external JSON file
@@ -193,12 +271,11 @@ if not auth_token:
 # make a test request to the GitHub API to check if the token is valid
 headers = {"Authorization": f"token {auth_token}"}
 
-# response = requests.get("https://api.github.com/user", headers=headers) or requests.get("https://api.github.com/user", headers=headers)
-# if response.status_code == 401:
-#     raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
+response = requests.get("https://api.github.com/user", headers=headers) or requests.get("https://api.github.com/user", headers=headers)
+if response.status_code == 401:
+    raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
 
-headers = {'Authorization': f'token {auth_token}'}
-cache = {}  # dictionary to store ETag values
+#cache = {}  # dictionary to store ETag values
 repos_list = []
 
 # iterate over targets and fetch repositories
@@ -240,153 +317,235 @@ for target in config["targets"]:
                 if match:
                     org_url = match.group(1)
 
-table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | [Additional Docs](https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/) | [GitHub Security: Vulnerability Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/) | [GitHub Security: Code Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [GitHub Security: Secrets Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [Secrets Detection](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/) | [Governance Model](https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/) |\n"
-table_header += "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+#table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | [Additional Docs](https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/) | [GitHub Security: Vulnerability Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/) | [GitHub Security: Code Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [GitHub Security: Secrets Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [Secrets Detection](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/) | [Governance Model](https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/) |\n"
+#table_header += "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
 infused_count = pr_count = issue_count = total_count = 0
 for repo in tqdm(repos_list, desc="Scanning Repository", unit="repo"):
-    repo_data = process_repository(repo, headers, cache)
+    rows.append(process_repository2(repo, headers))
+    # print(repo_data)
 
-    if repo_data:
-        owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
-        hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
-        repo_url = f"https://{hostname}/{owner}/{repo_name}"
-        row = (
-            f"| [{owner}](https://{hostname}/{owner}) "
-            f"| [{repo_name}]({repo_url}) "
-            f"| {repo_data.get('license', '❌')} "
-            f"| {repo_data.get('readme_check', '❌')} "
-            f"| {repo_data.get('contributing_guide', '❌')} "
-            f"| {repo_data.get('code_of_conduct', '❌')} "
-            f"| {repo_data.get('issue_templates', '❌')} "
-            f"| {repo_data.get('pr_template', '❌')} "
-            f"| {repo_data.get('change_log', '❌')} "
-            f"| {repo_data.get('docs_link_check', '❌')} "
-            f"| {repo_data.get('security_scanning_dependabot', '❌')} "
-            f"| {repo_data.get('security_scanning_code_scanning', '❌')} "
-            f"| {repo_data.get('security_scanning_secrets', '❌')} "
-            f"| {repo_data.get('detect_secrets_check', '❌')} "
-            f"| {repo_data.get('governance_check', '❌')} |"
-        )
-        tmp_infused_count = row.count('✅') + row.count('☑️')
-        infused_count += row.count('✅') + row.count('☑️')
-        pr_count += row.count('🅿️') 
-        issue_count += row.count('ℹ️')
-        total_count += 7
-        rows.append((tmp_infused_count, row))
-        logging.info(row)
+console = Console()
+# Create the root of the tree
+tree = Tree("Repository Information")
 
-# sort rows by the number of '✅' values and add them to the table
-rows.sort(reverse=True)
-table = table_header + '\n'.join(row for _, row in rows)
-report = f"\n#REPORT:\n- Infused Count: {infused_count}\n- Pull Requests Count: {pr_count}\n- Issue Count: {issue_count}\n- Total Count: {total_count}"
+def colorize_status(status):
+    """Apply color based on status."""
+    if status == 'PASS':
+        return f"[green]{status}[/green]"
+    elif status == 'FAIL':
+        return f"[red]{status}[/red]"
+    elif status == 'WARN':
+        return f"[yellow]{status}[/yellow]"
+    elif status == 'ISSUE':
+        return f"[blue]{status}[/blue]"
+    elif status == 'PR':
+        return f"[blue]{status}[/blue]"
+    else:
+        return status  # No color if not one of the above
 
-markdown_toc = """
-## Table of Contents
-- [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
-- [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
-- [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
+# Add branches and leaves to the tree
+for row in rows:
+    repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
 
-"""
+    # Adding each field manually with customized labels
+    repo_branch.add(f"License: {colorize_status(row['license'])}")
+    repo_branch.add(f"Readme: {colorize_status(row['readme'])}")
+    repo_branch.add(f"Contributing Guide: {colorize_status(row['contributing'])}")
+    repo_branch.add(f"Code of Conduct: {colorize_status(row['code_of_conduct'])}")
+    repo_branch.add(f"Issue Templates: {colorize_status(row['issue_templates'])}")
+    repo_branch.add(f"PR Templates: {colorize_status(row['pull_request_template'])}")
+    repo_branch.add(f"Changelog: {colorize_status(row['changelog'])}")
+    repo_branch.add(f"Additional Documentation: {colorize_status(row['docs_link_check'])}")
+    repo_branch.add(f"Secrets Detection: {colorize_status(row['secrets_baseline'])}")
+    repo_branch.add(f"Governance Model: {colorize_status(row['governance'])}")
 
-markdown_table = f"""
-## Leaderboard Table
-{table}
+    # Alerts and scanning status with customized labels
+    alerts_branch = repo_branch.add("[bold yellow]GitHub Configuration[/bold yellow]")
+    alerts_branch.add(f"Vulnerability Alerts: {colorize_status(row['/vulnerability-alerts'])}")
+    alerts_branch.add(f"Code Scanning Status: {colorize_status(row['/code-scanning/alerts'])}")
+    alerts_branch.add(f"Secret Scanning Effectiveness: {colorize_status(row['/secret-scanning/alerts'])}")
 
-"""
+# Print the tree to the console
+console.print(tree)
 
-markdown_report = f"""
-## Summary Report 
+# table = Table(show_header=True, header_style="bold magenta", show_lines=True, overflow="fold")
 
-The below table summarizes the effect of generating the above leaderboard table. Here's an explanation of each summarization statistic: 
-- Infused Count: the total number of best practices that have been detected infused into code repositories
-- Proposed PR Count: the total number of best practices that are currently in proposal state as pull-requests to code repositories
-- Proposed Issues Count: the total number of best practices that are currently in proposal state as issue tickets to code repositories
-- Total Checks Run Count: the total number of best practice checks that have been run against the total number of repositories evaluated
+# # Define the headers
+# headers = [
+#     "Owner", "Repo",  "License", "Readme", "Contributing", "Code of Conduct",
+#     "Issue Templates", "PR Template", "Changelog", "Additional Docs", 
+#     "GitHub: Vulnerability Alerts", "GitHub: Code Alerts", "GitHub: Secrets Alerts", 
+#     "Secrets Detection", "Governance"
+# ]
 
-| Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
-| ---------------------- | --------------------- | ------------------------- | --------------------- |
-| {infused_count}        | {pr_count}            | {issue_count}             | {total_count}        |
+# # Add columns to the table
+# for header in headers:
+#     table.add_column(header)
 
-"""
+# # Add rows to the table
+# for row in rows:
+#     table.add_row(
+#         row['owner'],
+#         row['repo'],
+#         row['license'],
+#         row['readme'],
+#         row['contributing'],
+#         row['code_of_conduct'],
+#         row['issue_templates'],
+#         row['pull_request_template'],
+#         row['changelog'],
+#         row['docs_link_check'],
+#         str(row['/vulnerability-alerts']),
+#         str(row['/code-scanning/alerts']),
+#         str(row['/secret-scanning/alerts']),
+#         row['secrets_baseline'],
+#         row['governance']
+#     )
 
-markdown_directions = """
-## Repository Check Explanation 
+# # Print the table to the console
+# console.print(table)
 
-Each check against a repository will result in one of the following statuses:
-- ✅: The check passed, indicating that the repository meets the requirement.
-- 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
-- ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
+#     if repo_data:
+#         owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
+#         hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
+#         repo_url = f"https://{hostname}/{owner}/{repo_name}"
+#         row = (
+#             f"| [{owner}](https://{hostname}/{owner}) "
+#             f"| [{repo_name}]({repo_url}) "
+#             f"| {repo_data.get('license', '❌')} "
+#             f"| {repo_data.get('readme_check', '❌')} "
+#             f"| {repo_data.get('contributing_guide', '❌')} "
+#             f"| {repo_data.get('code_of_conduct', '❌')} "
+#             f"| {repo_data.get('issue_templates', '❌')} "
+#             f"| {repo_data.get('pr_template', '❌')} "
+#             f"| {repo_data.get('change_log', '❌')} "
+#             f"| {repo_data.get('docs_link_check', '❌')} "
+#             f"| {repo_data.get('security_scanning_dependabot', '❌')} "
+#             f"| {repo_data.get('security_scanning_code_scanning', '❌')} "
+#             f"| {repo_data.get('security_scanning_secrets', '❌')} "
+#             f"| {repo_data.get('detect_secrets_check', '❌')} "
+#             f"| {repo_data.get('governance_check', '❌')} |"
+#         )
+#         tmp_infused_count = row.count('✅') + row.count('☑️')
+#         infused_count += row.count('✅') + row.count('☑️')
+#         pr_count += row.count('🅿️') 
+#         issue_count += row.count('ℹ️')
+#         total_count += 7
+#         rows.append((tmp_infused_count, row))
+#         logging.info(row)
 
-### 1. License:
-- The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-- ✅ The check will pass with a green check mark if either of these files is present.
-- 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
-- ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+# # sort rows by the number of '✅' values and add them to the table
+# rows.sort(reverse=True)
+# table = table_header + '\n'.join(row for _, row in rows)
+# report = f"\n#REPORT:\n- Infused Count: {infused_count}\n- Pull Requests Count: {pr_count}\n- Issue Count: {issue_count}\n- Total Count: {total_count}"
 
-### 2. README Sections:
-- The README must contain sections with the following titles: 
-  - "Features"
-  - "Contents"
-  - "Quick Start"
-  - "Changelog"
-  - "Frequently Asked Questions (FAQ)"
-  - "Contributing"
-  - "License"
-  - "Support"
-- ✅ If all these sections are present, the check will pass with a green check mark.
-- ☑️ If the README file exists and has at least one section header.
-- 🅿️ If a pull-request is proposed to add missing sections.
-- ℹ️ If an issue is opened to suggest adding missing sections.
+# markdown_toc = """
+# ## Table of Contents
+# - [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
+# - [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
+# - [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
 
-### 3. Contributing Guide:
-- The repository must contain a file named `CONTRIBUTING.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
-- ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+# """
 
-### 4. Code of Conduct:
-- The repository must contain a file named `CODE_OF_CONDUCT.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-- ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+# markdown_table = f"""
+# ## Leaderboard Table
+# {table}
 
-### 5. Issue Templates:
-- The repository must have the following issue templates:
-  - `bug_report.md`: Template for bug reports.
-  - `feature_request.md`: Template for feature requests.
-- ✅ The check will pass with a green check mark if both templates are present.
-- 🅿️ If a pull-request is proposed to add missing templates.
-- ℹ️ If an issue is opened to suggest adding missing templates.
+# """
 
-### 6. PR Templates:
-- The repository must have a pull request (PR) template.
-- ✅ The check will pass with a green check mark if the PR template is present.
-- 🅿️ If a pull-request is proposed to add a PR template.
-- ℹ️ If an issue is opened to suggest adding a PR template.
+# markdown_report = f"""
+# ## Summary Report 
 
-### 7. Change Log:
-- The repository must contain a file named `CHANGELOG.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
-- ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
+# The below table summarizes the effect of generating the above leaderboard table. Here's an explanation of each summarization statistic: 
+# - Infused Count: the total number of best practices that have been detected infused into code repositories
+# - Proposed PR Count: the total number of best practices that are currently in proposal state as pull-requests to code repositories
+# - Proposed Issues Count: the total number of best practices that are currently in proposal state as issue tickets to code repositories
+# - Total Checks Run Count: the total number of best practice checks that have been run against the total number of repositories evaluated
 
-### 8. Additional Docs:
-- The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation".
-- ✅ The check will pass with a green check mark if this link is present.
-- 🅿️ If a pull-request is proposed to add the link.
-- ℹ️ If an issue is opened to suggest adding the link.
+# | Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
+# | ---------------------- | --------------------- | ------------------------- | --------------------- |
+# | {infused_count}        | {pr_count}            | {issue_count}             | {total_count}        |
 
-"""
+# """
 
-# either write to file or print based on config
-if "output" in config:
-    with open(config["output"], "w") as file:
-        file.write(markdown_toc)
-        file.write(markdown_table)
-        file.write(markdown_report)
-        file.write(markdown_directions)
-else:
-    print("\n")
-    print(markdown_table)
+# markdown_directions = """
+# ## Repository Check Explanation 
+
+# Each check against a repository will result in one of the following statuses:
+# - ✅: The check passed, indicating that the repository meets the requirement.
+# - 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
+# - ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
+
+# ### 1. License:
+# - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
+# - ✅ The check will pass with a green check mark if either of these files is present.
+# - 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+# - ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+
+# ### 2. README Sections:
+# - The README must contain sections with the following titles: 
+#   - "Features"
+#   - "Contents"
+#   - "Quick Start"
+#   - "Changelog"
+#   - "Frequently Asked Questions (FAQ)"
+#   - "Contributing"
+#   - "License"
+#   - "Support"
+# - ✅ If all these sections are present, the check will pass with a green check mark.
+# - ☑️ If the README file exists and has at least one section header.
+# - 🅿️ If a pull-request is proposed to add missing sections.
+# - ℹ️ If an issue is opened to suggest adding missing sections.
+
+# ### 3. Contributing Guide:
+# - The repository must contain a file named `CONTRIBUTING.md`.
+# - ✅ The check will pass with a green check mark if this file is present.
+# - 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
+# - ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+
+# ### 4. Code of Conduct:
+# - The repository must contain a file named `CODE_OF_CONDUCT.md`.
+# - ✅ The check will pass with a green check mark if this file is present.
+# - 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+# - ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+
+# ### 5. Issue Templates:
+# - The repository must have the following issue templates:
+#   - `bug_report.md`: Template for bug reports.
+#   - `feature_request.md`: Template for feature requests.
+# - ✅ The check will pass with a green check mark if both templates are present.
+# - 🅿️ If a pull-request is proposed to add missing templates.
+# - ℹ️ If an issue is opened to suggest adding missing templates.
+
+# ### 6. PR Templates:
+# - The repository must have a pull request (PR) template.
+# - ✅ The check will pass with a green check mark if the PR template is present.
+# - 🅿️ If a pull-request is proposed to add a PR template.
+# - ℹ️ If an issue is opened to suggest adding a PR template.
+
+# ### 7. Change Log:
+# - The repository must contain a file named `CHANGELOG.md`.
+# - ✅ The check will pass with a green check mark if this file is present.
+# - 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
+# - ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
+
+# ### 8. Additional Docs:
+# - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation".
+# - ✅ The check will pass with a green check mark if this link is present.
+# - 🅿️ If a pull-request is proposed to add the link.
+# - ℹ️ If an issue is opened to suggest adding the link.
+
+# """
+
+# # either write to file or print based on config
+# if "output" in config:
+#     with open(config["output"], "w") as file:
+#         file.write(markdown_toc)
+#         file.write(markdown_table)
+#         file.write(markdown_report)
+#         file.write(markdown_directions)
+# else:
+#     print("\n")
+#     print(markdown_table)
