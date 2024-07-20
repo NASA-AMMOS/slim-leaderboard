@@ -40,6 +40,28 @@ def fetch_data(url, headers, cache):
         logging.error(f"Request to {url} failed: {e}")
         traceback.print_exc()
         return None
+    
+def fetch_status_code(url, headers, cache):
+    try:
+        # Check if the URL is in cache and an ETag is available
+        if url in cache:
+            #print(f"url({url} is in cache({cache[url].get('status_code', None)}))")
+            return cache[url].get('status_code', None)
+        else:
+            response = requests.get(url, headers=headers)
+            cache[url] = {
+                'etag': response.headers.get('ETag'),
+                'status_code': response.status_code
+            }
+            #print(f"url({url} is NOT in cache but status code is ({response.status_code})")
+            return response.status_code
+
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Request to {url} failed: {e}")
+        traceback.print_exc()
+        return None
+
+
 
 
 def process_repository(repo_full_name, headers, cache):
@@ -86,6 +108,21 @@ def process_repository(repo_full_name, headers, cache):
             docs_link_check = '✅' if re.search(r'\[.*?\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b.*?\]\([^)]*\)', readme, re.IGNORECASE) else '❌'
             logging.debug("Readme contents: {readme}")     
 
+        # Check if Dependabot Vulnerability Alerts are enabled
+        vulnerability_alerts_url = f"{api_url_prefix}/vulnerability-alerts"
+        vulnerability_alerts_status_code = fetch_status_code(vulnerability_alerts_url, headers, cache)  #requests.get(vulnerability_alerts_url, headers=headers)
+        dependabot_alerts_enabled = '✅' if vulnerability_alerts_status_code == 204 else '❌'
+
+        # Check if GitHub Code Scanning is enabled
+        code_scanning_url = f"{api_url_prefix}/code-scanning/alerts"
+        code_scanning_url_status_code = fetch_status_code(code_scanning_url, headers, cache)  #requests.get(vulnerability_alerts_url, headers=headers)
+        code_scanning_enabled = '✅' if code_scanning_url_status_code == 200 else '❌'
+
+        # Check if GitHub Secret Scanning is enabled
+        secret_scanning_url = f"{api_url_prefix}/secret-scanning/alerts"
+        secret_scanning_url_status_code = fetch_status_code(secret_scanning_url, headers, cache)  #requests.get(vulnerability_alerts_url, headers=headers)
+        secret_scanning_enabled = '✅' if secret_scanning_url_status_code == 200 else '❌'
+
         results = {
             'repo_full_name': repo_full_name,
             'license': '✅' if 'LICENSE' in files or 'LICENSE.txt' in files else (check_issue_pr(hostname, owner, repo_name, 'LICENSE', headers, cache) or check_issue_pr(hostname, owner, repo_name, 'LICENSE.txt', headers, cache)),
@@ -94,8 +131,13 @@ def process_repository(repo_full_name, headers, cache):
             'code_of_conduct': '✅' if 'CODE_OF_CONDUCT.md' in files else check_issue_pr(hostname, owner, repo_name, 'CODE_OF_CONDUCT.md', headers, cache),
             'issue_templates': '✅' if 'ISSUE_TEMPLATE' in files and 'ISSUE_TEMPLATE' in files else (check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache) and check_issue_pr(hostname, owner, repo_name, 'ISSUE_TEMPLATE', headers, cache)),
             'pr_template': '✅' if 'PULL_REQUEST_TEMPLATE.md' in files else check_issue_pr(hostname, owner, repo_name, 'PULL_REQUEST_TEMPLATE.md', headers, cache),
-            'docs_link_check': docs_link_check,
             'change_log': '✅' if 'CHANGELOG.md' in files else check_issue_pr(hostname, owner, repo_name, 'CHANGELOG.md', headers, cache),
+            'docs_link_check': docs_link_check,
+            'security_scanning_dependabot': dependabot_alerts_enabled,
+            'security_scanning_code_scanning': code_scanning_enabled,
+            'security_scanning_secrets': secret_scanning_enabled,
+            'detect_secrets_check': '✅' if '.secrets.baseline' in files else check_issue_pr(hostname, owner, repo_name, '.secrets.baseline', headers, cache),
+            'governance_check': '✅' if 'GOVERNANCE.md' in files else check_issue_pr(hostname, owner, repo_name, 'GOVERNANCE.md', headers, cache)
         }
 
         return results
@@ -198,8 +240,8 @@ for target in config["targets"]:
                 if match:
                     org_url = match.group(1)
 
-table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | [Additional Docs](https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/) |\n"
-table_header += "|---|---|---|---|---|---|---|---|---|---|\n"
+table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | [Additional Docs](https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/) | [GitHub Security: Vulnerability Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/) | [GitHub Security: Code Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [GitHub Security: Secrets Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [Secrets Detection](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/) | [Governance Model](https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/) |\n"
+table_header += "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
 infused_count = pr_count = issue_count = total_count = 0
@@ -210,7 +252,23 @@ for repo in tqdm(repos_list, desc="Scanning Repository", unit="repo"):
         owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
         hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
         repo_url = f"https://{hostname}/{owner}/{repo_name}"
-        row = f"| [{owner}](https://{hostname}/{owner}) | [{repo_name}]({repo_url}) | {repo_data.get('license', '❌')} | {repo_data.get('readme_check', '❌')} | {repo_data.get('contributing_guide', '❌')} | {repo_data.get('code_of_conduct', '❌')} | {repo_data.get('issue_templates', '❌')} | {repo_data.get('pr_template', '❌')} | {repo_data.get('change_log', '❌')} | {repo_data.get('docs_link_check', '❌')}"
+        row = (
+            f"| [{owner}](https://{hostname}/{owner}) "
+            f"| [{repo_name}]({repo_url}) "
+            f"| {repo_data.get('license', '❌')} "
+            f"| {repo_data.get('readme_check', '❌')} "
+            f"| {repo_data.get('contributing_guide', '❌')} "
+            f"| {repo_data.get('code_of_conduct', '❌')} "
+            f"| {repo_data.get('issue_templates', '❌')} "
+            f"| {repo_data.get('pr_template', '❌')} "
+            f"| {repo_data.get('change_log', '❌')} "
+            f"| {repo_data.get('docs_link_check', '❌')} "
+            f"| {repo_data.get('security_scanning_dependabot', '❌')} "
+            f"| {repo_data.get('security_scanning_code_scanning', '❌')} "
+            f"| {repo_data.get('security_scanning_secrets', '❌')} "
+            f"| {repo_data.get('detect_secrets_check', '❌')} "
+            f"| {repo_data.get('governance_check', '❌')} |"
+        )
         tmp_infused_count = row.count('✅') + row.count('☑️')
         infused_count += row.count('✅') + row.count('☑️')
         pr_count += row.count('🅿️') 
