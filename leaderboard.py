@@ -15,6 +15,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from rich.console import Console
 from rich.table import Table
 from rich.tree import Tree
+from rich.markdown import Markdown
+from collections import Counter
 
 logging.basicConfig(level=logging.INFO)
 
@@ -186,7 +188,7 @@ def check_files_existence(owner, repo_name, api_url, headers):
         issues = [issue['title'] for issue in result['data']['repository']['issues']['nodes']]
         pull_requests = [{
             'title': pr['title'],
-            'files': [file['path'] for file in pr['files']['nodes']]
+            'files': [file['path'] for file in pr.get('files', {}).get('nodes', [])] if pr.get('files') else []
         } for pr in result['data']['repository']['pullRequests']['nodes']]
 
         # README in-depth checks
@@ -200,7 +202,7 @@ def check_files_existence(owner, repo_name, api_url, headers):
         else:
             readme_check = generate_check_mark('README.md', False, issues, pull_requests)
 
-        docs_link_check = 'PASS' if re.search(r'\[.*?\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b.*?\]\([^)]*\)', readme_text, re.IGNORECASE) else 'FAIL'
+        docs_link_check = 'PASS' if re.search(r'\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b(?:\s*\[\s*.*?\s*\]\s*\(\s*[^)]*\s*\))?', readme_text, re.IGNORECASE) else 'FAIL'
 
 
         checks = {
@@ -243,7 +245,11 @@ def process_repository(repo_full_name, headers):
         status_checks['/secret-scanning/alerts'] = 'PASS' if status_codes['/secret-scanning/alerts'] == 200 else 'FAIL'
         
         # Safely merge checks
-        result = {**checks, **status_checks} if checks else status_checks
+        if checks and status_checks:
+            result = checks | status_checks
+        else:
+            result = None
+        #result = {**checks, **status_checks} if checks elif status_checks
 
         return result
 
@@ -257,6 +263,9 @@ def process_repository(repo_full_name, headers):
 # accept configuration file path from command-line argument
 parser = argparse.ArgumentParser(description="SLIM Best Practices Leaderboard Script")
 parser.add_argument("config_path", help="Path to the JSON configuration file")
+parser.add_argument('--output_format', choices=['TREE', 'TABLE', 'MARKDOWN', 'CSV'], default='TREE', type=str, help='Output formatting')
+parser.add_argument('--unsorted', action='store_true', default=False, help='Do not sort results')
+parser.add_argument('--verbose', action='store_true', default=False, help='Output verbose information, inluding statistics and explanations')
 args = parser.parse_args()
 
 # load configuration from provided file path
@@ -268,14 +277,7 @@ auth_token = config["gh_personal_access_token"]
 if not auth_token:
     raise ValueError("Error: gh_personal_access_token in the configuration file is empty. Please provide a valid GitHub Personal Access Token.")
 
-# make a test request to the GitHub API to check if the token is valid
 headers = {"Authorization": f"token {auth_token}"}
-
-response = requests.get("https://api.github.com/user", headers=headers) or requests.get("https://api.github.com/user", headers=headers)
-if response.status_code == 401:
-    raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
-
-#cache = {}  # dictionary to store ETag values
 repos_list = []
 
 # iterate over targets and fetch repositories
@@ -323,14 +325,26 @@ rows = []
 
 infused_count = pr_count = issue_count = total_count = 0
 for repo in tqdm(repos_list, desc="Scanning Repository", unit="repo"):
-    rows.append(process_repository2(repo, headers))
+    processed_repo = process_repository(repo, headers)
+    if processed_repo:
+        rows.append(processed_repo)
     # print(repo_data)
 
-console = Console()
-# Create the root of the tree
-tree = Tree("Repository Information")
+# Optionally sort rows by highest passing score to lowest
+if not args.unsorted:
+    def count_pass_values(row):
+        """Count the number of 'PASS' values in the dictionary."""
+        return sum(1 for key in row if row[key] == 'PASS')
+    rows = sorted(rows, key=count_pass_values, reverse=True)
 
-def colorize_status(status):
+# Calculate stats
+status_counts = Counter()
+for row in rows:
+    status_counts.update(row.values())  # Update the counter based on values in each row
+
+console = Console()
+
+def colorize_status_for_terminal(status):
     """Apply color based on status."""
     if status == 'PASS':
         return f"[green]{status}[/green]"
@@ -345,207 +359,187 @@ def colorize_status(status):
     else:
         return status  # No color if not one of the above
 
-# Add branches and leaves to the tree
-for row in rows:
-    repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
+def colorize_status_for_markdown(status):
+    """Apply color based on status using HTML for Markdown compatibility."""
+    color_mapping = {
+        'PASS': 'green',
+        'FAIL': 'red',
+        'WARN': 'orange',
+        'ISSUE': 'blue',
+        'PR': 'blue'
+    }
+    color = color_mapping.get(status, 'black')  # Default to black if status not found
+    return f'<span style="color: {color};">{status}</span>'
 
-    # Adding each field manually with customized labels
-    repo_branch.add(f"License: {colorize_status(row['license'])}")
-    repo_branch.add(f"Readme: {colorize_status(row['readme'])}")
-    repo_branch.add(f"Contributing Guide: {colorize_status(row['contributing'])}")
-    repo_branch.add(f"Code of Conduct: {colorize_status(row['code_of_conduct'])}")
-    repo_branch.add(f"Issue Templates: {colorize_status(row['issue_templates'])}")
-    repo_branch.add(f"PR Templates: {colorize_status(row['pull_request_template'])}")
-    repo_branch.add(f"Changelog: {colorize_status(row['changelog'])}")
-    repo_branch.add(f"Additional Documentation: {colorize_status(row['docs_link_check'])}")
-    repo_branch.add(f"Secrets Detection: {colorize_status(row['secrets_baseline'])}")
-    repo_branch.add(f"Governance Model: {colorize_status(row['governance'])}")
+# Define the headers and corresponding labels
+headers = [
+    ("owner", "Owner"),
+    ("repo", "Repository"),
+    ("license", "License"),
+    ("readme", "Readme"),
+    ("contributing", "Contributing Guide"),
+    ("code_of_conduct", "Code of Conduct"),
+    ("issue_templates", "Issue Templates"),
+    ("pull_request_template", "PR Templates"),
+    ("changelog", "Changelog"),
+    ("docs_link_check", "Additional Documentation"),
+    ("secrets_baseline", "Secrets Detection"),
+    ("governance", "Governance Model"),
+    ("/vulnerability-alerts", "GitHub: Vulnerability Alerts"),
+    ("/code-scanning/alerts", "GitHub: Code Scanning Alerts"),
+    ("/secret-scanning/alerts", "GitHub: Secret Scanning Alerts")
+]
 
-    # Alerts and scanning status with customized labels
-    alerts_branch = repo_branch.add("[bold yellow]GitHub Configuration[/bold yellow]")
-    alerts_branch.add(f"Vulnerability Alerts: {colorize_status(row['/vulnerability-alerts'])}")
-    alerts_branch.add(f"Code Scanning Status: {colorize_status(row['/code-scanning/alerts'])}")
-    alerts_branch.add(f"Secret Scanning Effectiveness: {colorize_status(row['/secret-scanning/alerts'])}")
+if args.output_format == 'TREE':
+    tree = Tree("SLIM Best Practices Repository Scan Report")
+    for row in rows:
+        repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
+        for key, label in headers:
+            if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
+                repo_branch.add(f"{label}: {colorize_status_for_terminal(row[key])}") 
+    console.print(tree)
 
-# Print the tree to the console
-console.print(tree)
+elif args.output_format == 'TABLE':
+    table = Table(show_header=True, header_style="bold magenta", show_lines=True)
+    for _, label in headers:
+        table.add_column(label)
+    for row in rows:
+        table.add_row(*[colorize_status_for_terminal(row[key]) for key, _ in headers])
+    console.print(table)
 
-# table = Table(show_header=True, header_style="bold magenta", show_lines=True, overflow="fold")
+elif args.output_format == 'MARKDOWN':
+    # Create the header row
+    header_row = '| ' + ' | '.join([label for _, label in headers]) + ' |'
+    # Create the separator row
+    separator_row = '| ' + ' | '.join(['---'] * len(headers)) + ' |'
+    # Create all data rows
+    data_rows = [
+        '| ' + ' | '.join([colorize_status_for_markdown(row[key]) for key, _ in headers]) + ' |'
+        for row in rows
+    ]
+    markdown_table = '\n'.join([header_row, separator_row] + data_rows)
+    print(markdown_table)  # Or use Markdown rendering if required
 
-# # Define the headers
-# headers = [
-#     "Owner", "Repo",  "License", "Readme", "Contributing", "Code of Conduct",
-#     "Issue Templates", "PR Template", "Changelog", "Additional Docs", 
-#     "GitHub: Vulnerability Alerts", "GitHub: Code Alerts", "GitHub: Secrets Alerts", 
-#     "Secrets Detection", "Governance"
-# ]
+else:
+    logging.error(f"Invalid --output_format specified: {args.output_format}.")
 
-# # Add columns to the table
-# for header in headers:
-#     table.add_column(header)
 
-# # Add rows to the table
-# for row in rows:
-#     table.add_row(
-#         row['owner'],
-#         row['repo'],
-#         row['license'],
-#         row['readme'],
-#         row['contributing'],
-#         row['code_of_conduct'],
-#         row['issue_templates'],
-#         row['pull_request_template'],
-#         row['changelog'],
-#         row['docs_link_check'],
-#         str(row['/vulnerability-alerts']),
-#         str(row['/code-scanning/alerts']),
-#         str(row['/secret-scanning/alerts']),
-#         row['secrets_baseline'],
-#         row['governance']
-#     )
+if args.verbose:
+    # Summary statistics
+    print()
+    table = Table(title="Summary Statistics", show_header=True, header_style="bold")
+    table.add_column("Status", style="dim", width=12)
+    table.add_column("Count", justify="right")
+    for status, count in status_counts.items():
+        if status in ['PASS', 'FAIL', 'WARN', 'PR', 'ISSUE']:
+            table.add_row(status, str(count))
+    console.print(table)
 
-# # Print the table to the console
-# console.print(table)
+    # Explanations
+    markdown_explanations = """
+    ## Repository Check Explanation 
 
-#     if repo_data:
-#         owner, repo_name = repo_data['repo_full_name'].split('/')[-2:]
-#         hostname = urllib.parse.urlparse(repo_data['repo_full_name']).hostname
-#         repo_url = f"https://{hostname}/{owner}/{repo_name}"
-#         row = (
-#             f"| [{owner}](https://{hostname}/{owner}) "
-#             f"| [{repo_name}]({repo_url}) "
-#             f"| {repo_data.get('license', '❌')} "
-#             f"| {repo_data.get('readme_check', '❌')} "
-#             f"| {repo_data.get('contributing_guide', '❌')} "
-#             f"| {repo_data.get('code_of_conduct', '❌')} "
-#             f"| {repo_data.get('issue_templates', '❌')} "
-#             f"| {repo_data.get('pr_template', '❌')} "
-#             f"| {repo_data.get('change_log', '❌')} "
-#             f"| {repo_data.get('docs_link_check', '❌')} "
-#             f"| {repo_data.get('security_scanning_dependabot', '❌')} "
-#             f"| {repo_data.get('security_scanning_code_scanning', '❌')} "
-#             f"| {repo_data.get('security_scanning_secrets', '❌')} "
-#             f"| {repo_data.get('detect_secrets_check', '❌')} "
-#             f"| {repo_data.get('governance_check', '❌')} |"
-#         )
-#         tmp_infused_count = row.count('✅') + row.count('☑️')
-#         infused_count += row.count('✅') + row.count('☑️')
-#         pr_count += row.count('🅿️') 
-#         issue_count += row.count('ℹ️')
-#         total_count += 7
-#         rows.append((tmp_infused_count, row))
-#         logging.info(row)
+    Each check against a repository will result in one of the following statuses:
+    - <span style="color:green">**PASS**</span>: The check passed, indicating that the repository meets the requirement.
+    - <span style="color:red">**FAIL**</span>: The check failed, indicating that the repository does not meet the requirement.
+    - <span style="color:orange">**WARN**</span>: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+    - <span style="color:blue">**ISSUE**</span>: Indicates there's an open issue ticket regarding the repository.
+    - <span style="color:blue">**PR**</span>: Indicates there's an open pull-request proposing a best practice.
 
-# # sort rows by the number of '✅' values and add them to the table
-# rows.sort(reverse=True)
-# table = table_header + '\n'.join(row for _, row in rows)
-# report = f"\n#REPORT:\n- Infused Count: {infused_count}\n- Pull Requests Count: {pr_count}\n- Issue Count: {issue_count}\n- Total Count: {total_count}"
+    ### 1. License:
+    - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
+    - <span style="color:green">**PASS**</span>: The check will pass if either of these files is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if neither file is present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-# markdown_toc = """
-# ## Table of Contents
-# - [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
-# - [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
-# - [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
+    ### 2. README Sections:
+    - The README must contain sections with the following titles: 
+    - "Features"
+    - "Contents"
+    - "Quick Start"
+    - "Changelog"
+    - "Frequently Asked Questions (FAQ)"
+    - "Contributing"
+    - "License"
+    - "Support"
+    - <span style="color:green">**PASS**</span>: If all these sections are present.
+    - <span style="color:orange">**WARN**</span>: If the README file exists and has at least one section header.
+    - <span style="color:red">**FAIL**</span>: If the README is missing or contains none of the required sections.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add missing sections.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding missing sections.
 
-# """
+    ### 3. Contributing Guide:
+    - The repository must contain a file named `CONTRIBUTING.md`.
+    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if this file is not present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `CONTRIBUTING.md`.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
 
-# markdown_table = f"""
-# ## Leaderboard Table
-# {table}
+    ### 4. Code of Conduct:
+    - The repository must contain a file named `CODE_OF_CONDUCT.md`.
+    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if this file is not present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
 
-# """
+    ### 5. Issue Templates:
+    - The repository must have the following issue templates:
+    - `bug_report.md`: Template for bug reports.
+    - `feature_request.md`: Template for feature requests.
+    - <span style="color:green">**PASS**</span>: The check will pass if both templates are present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if the templates are absent.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add missing templates.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding missing templates.
 
-# markdown_report = f"""
-# ## Summary Report 
+    ### 6. PR Templates:
+    - The repository must have a pull request (PR) template.
+    - <span style="color:green">**PASS**</span>: The check will pass if the PR template is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if the PR template is absent.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add a PR template.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding a PR template.
 
-# The below table summarizes the effect of generating the above leaderboard table. Here's an explanation of each summarization statistic: 
-# - Infused Count: the total number of best practices that have been detected infused into code repositories
-# - Proposed PR Count: the total number of best practices that are currently in proposal state as pull-requests to code repositories
-# - Proposed Issues Count: the total number of best practices that are currently in proposal state as issue tickets to code repositories
-# - Total Checks Run Count: the total number of best practice checks that have been run against the total number of repositories evaluated
+    ### 7. Change Log:
+    - The repository must contain a file named `CHANGELOG.md`.
+    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if this file is not present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `CHANGELOG.md`.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
-# | Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
-# | ---------------------- | --------------------- | ------------------------- | --------------------- |
-# | {infused_count}        | {pr_count}            | {issue_count}             | {total_count}        |
+    ### 8. Additional Documentation:
+    - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
+    - <span style="color:green">**PASS**</span>: The check will pass if this link is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if no such link is present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the link.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the link.
 
-# """
+    ### 9. Secrets Detection:
+    - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool
+    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if no such file is present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the file.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the file.
 
-# markdown_directions = """
-# ## Repository Check Explanation 
+    ### 10. Governance Model:
+    - The repository must contain a file named `GOVERNANCE.md`
+    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
+    - <span style="color:red">**FAIL**</span>: The check will fail if no such file is present.
+    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the file.
+    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the file.
 
-# Each check against a repository will result in one of the following statuses:
-# - ✅: The check passed, indicating that the repository meets the requirement.
-# - 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
-# - ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
+    ### 11. GitHub: Vulnerability Alerts:
+    - The repository must have GitHub Dependabot vulnerability alerts enabled
+    - <span style="color:green">**PASS**</span>: The check will pass if this setting is enabled.
+    - <span style="color:red">**FAIL**</span>: The check will fail if no such setting is enabled.
 
-# ### 1. License:
-# - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-# - ✅ The check will pass with a green check mark if either of these files is present.
-# - 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
-# - ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+    ### 12. GitHub: Code Scanning Alerts:
+    - The repository must have GitHub code scanning alerts enabled
+    - <span style="color:green">**PASS**</span>: The check will pass if this setting is enabled.
+    - <span style="color:red">**FAIL**</span>: The check will fail if no such setting is enabled.
 
-# ### 2. README Sections:
-# - The README must contain sections with the following titles: 
-#   - "Features"
-#   - "Contents"
-#   - "Quick Start"
-#   - "Changelog"
-#   - "Frequently Asked Questions (FAQ)"
-#   - "Contributing"
-#   - "License"
-#   - "Support"
-# - ✅ If all these sections are present, the check will pass with a green check mark.
-# - ☑️ If the README file exists and has at least one section header.
-# - 🅿️ If a pull-request is proposed to add missing sections.
-# - ℹ️ If an issue is opened to suggest adding missing sections.
-
-# ### 3. Contributing Guide:
-# - The repository must contain a file named `CONTRIBUTING.md`.
-# - ✅ The check will pass with a green check mark if this file is present.
-# - 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
-# - ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
-
-# ### 4. Code of Conduct:
-# - The repository must contain a file named `CODE_OF_CONDUCT.md`.
-# - ✅ The check will pass with a green check mark if this file is present.
-# - 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-# - ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
-
-# ### 5. Issue Templates:
-# - The repository must have the following issue templates:
-#   - `bug_report.md`: Template for bug reports.
-#   - `feature_request.md`: Template for feature requests.
-# - ✅ The check will pass with a green check mark if both templates are present.
-# - 🅿️ If a pull-request is proposed to add missing templates.
-# - ℹ️ If an issue is opened to suggest adding missing templates.
-
-# ### 6. PR Templates:
-# - The repository must have a pull request (PR) template.
-# - ✅ The check will pass with a green check mark if the PR template is present.
-# - 🅿️ If a pull-request is proposed to add a PR template.
-# - ℹ️ If an issue is opened to suggest adding a PR template.
-
-# ### 7. Change Log:
-# - The repository must contain a file named `CHANGELOG.md`.
-# - ✅ The check will pass with a green check mark if this file is present.
-# - 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
-# - ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
-
-# ### 8. Additional Docs:
-# - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation".
-# - ✅ The check will pass with a green check mark if this link is present.
-# - 🅿️ If a pull-request is proposed to add the link.
-# - ℹ️ If an issue is opened to suggest adding the link.
-
-# """
-
-# # either write to file or print based on config
-# if "output" in config:
-#     with open(config["output"], "w") as file:
-#         file.write(markdown_toc)
-#         file.write(markdown_table)
-#         file.write(markdown_report)
-#         file.write(markdown_directions)
-# else:
-#     print("\n")
-#     print(markdown_table)
+    ### 13. GitHub: Secrets Scanning Alerts:
+    - The repository must have GitHub secrets scanning alerts enabled
+    - <span style="color:green">**PASS**</span>: The check will pass if this setting is enabled.
+    - <span style="color:red">**FAIL**</span>: The check will fail if no such setting is enabled.
+    """
+    console.print(Markdown(markdown_explanations))
