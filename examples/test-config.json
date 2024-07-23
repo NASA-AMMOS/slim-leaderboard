@@ -1,0 +1,12 @@
+{
+  "targets": [
+      {
+        "type": "repository",
+        "name": "https://github.com/nasa-ammos/slim"
+      },
+      {
+        "type": "repository",
+        "name": "https://github.com/NASA-AMMOS/slim-starterkit-python"
+      }
+  ]
+}

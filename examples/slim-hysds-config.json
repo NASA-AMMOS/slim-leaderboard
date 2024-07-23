@@ -1,11 +1,9 @@
 {
-    "gh_personal_access_token": "",
     "targets": [
         {
             "type": "organization",
             "name": "https://github.com/hysds"
         }
-    ],
-    "output": "slim-hysds-leaderboard.md"
+    ]
   }
   

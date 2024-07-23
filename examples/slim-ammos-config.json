@@ -1,5 +1,4 @@
 {
-    "gh_personal_access_token": "",
     "targets": [
         {
             "type": "organization",
@@ -13,7 +12,6 @@
             "type": "repository",
             "name": "https://github.com/rzellem/EXOTIC"
         }
-    ],
-    "output": "slim-ammos-leaderboard.md"
+    ]
   }
   

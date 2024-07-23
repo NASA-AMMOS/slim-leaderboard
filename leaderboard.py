@@ -18,32 +18,9 @@ from rich.tree import Tree
 from rich.markdown import Markdown
 from collections import Counter
 import textwrap
+import os, sys
 
 logging.basicConfig(level=logging.INFO)
-
-def fetch_data(url, headers, cache):
-    try:
-        if url in cache:
-            headers['If-None-Match'] = cache[url].get('etag')
-
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            cache[url] = {
-                'etag': response.headers.get('ETag'),
-                'data': response.json()
-            }
-            return response.json()
-        elif response.status_code == 304:
-            return cache[url].get('data', None) if url in cache else None
-        elif response.status_code == 401:
-            raise ValueError("Error: gh_personal_access_token is expired or invalid. Please provide a valid GitHub Personal Access Token.")
-        else:
-            logging.error(f"Failed to fetch data from {url}: {response.status_code} - {response.text}")
-            return None
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Request to {url} failed: {e}")
-        traceback.print_exc()
-        return None
     
 def fetch_status_code(url, headers):
     """Fetch the status code for a given URL."""
@@ -267,16 +244,19 @@ parser.add_argument("config_path", help="Path to the JSON configuration file")
 parser.add_argument('--output_format', choices=['TREE', 'TABLE', 'MARKDOWN', 'CSV'], default='TREE', type=str, help='Output formatting')
 parser.add_argument('--unsorted', action='store_true', default=False, help='Do not sort results')
 parser.add_argument('--verbose', action='store_true', default=False, help='Output verbose information, inluding statistics and explanations')
+parser.add_argument('--emoji', action='store_true', default=False, help='Use pretty emojis for status instead of text')
 args = parser.parse_args()
 
 # load configuration from provided file path
 with open(args.config_path, "r") as file:
     config = json.load(file)
 
-auth_token = config["gh_personal_access_token"]
+# Get the GitHub authentication token from the environment variable
+auth_token = os.getenv("GITHUB_TOKEN")
 
 if not auth_token:
-    raise ValueError("Error: gh_personal_access_token in the configuration file is empty. Please provide a valid GitHub Personal Access Token.")
+    sys.stderr.write("Error: GITHUB_TOKEN environment variable is empty. Please provide a valid GitHub Personal Access Token.\n")
+    sys.exit(1)
 
 headers = {"Authorization": f"token {auth_token}"}
 repos_list = []
@@ -342,32 +322,47 @@ for row in rows:
 
 console = Console()
 
-def colorize_status_for_terminal(status):
-    """Apply color based on status."""
-    if status == 'PASS':
-        return f"[green]{status}[/green]"
-    elif status == 'FAIL':
-        return f"[red]{status}[/red]"
-    elif status == 'WARN':
-        return f"[yellow]{status}[/yellow]"
-    elif status == 'ISSUE':
-        return f"[blue]{status}[/blue]"
-    elif status == 'PR':
-        return f"[blue]{status}[/blue]"
+def style_status_for_terminal(status, emoji=False):
+    styled_status = ''
+    if emoji:
+        mapping = {
+            'PASS': '✅',
+            'FAIL': '❌',
+            'WARN': '⚠️',
+            'ISSUE': 'ℹ️',
+            'PR': '🅿️'
+        }
+        icon = mapping.get(status, status) # Default to text if emoji mapping not found
+        styled_status = icon
     else:
-        return status  # No color if not one of the above
+        mapping = {
+            'PASS': 'green',
+            'FAIL': 'red',
+            'WARN': 'yellow',
+            'ISSUE': 'blue',
+            'PR': 'blue'
+        }
+        color = mapping.get(status, 'black') # Default to black if emoji mapping not found
+        styled_status = f"[{color}]{status}[/{color}]"
+    
+    return styled_status
 
-def colorize_status_for_markdown(status):
-    """Apply color based on status using HTML for Markdown compatibility."""
-    color_mapping = {
-        'PASS': 'green',
-        'FAIL': 'red',
-        'WARN': 'orange',
-        'ISSUE': 'blue',
-        'PR': 'blue'
-    }
-    color = color_mapping.get(status, 'black')  # Default to black if status not found
-    return f'<span style="color: {color};">{status}</span>'
+def style_status_for_markdown(status, emoji=False):
+    styled_status = ''
+    if emoji:
+        mapping = {
+            'PASS': '✅',
+            'FAIL': '❌',
+            'WARN': '⚠️',
+            'ISSUE': 'ℹ️',
+            'PR': '🅿️'
+        }
+        icon = mapping.get(status, status) # Default to text if emoji mapping not found
+        styled_status = icon
+    else:
+        styled_status = status # Markdown doesn't support colored text, so just use no styling
+    
+    return styled_status
 
 # Define the headers and corresponding labels
 headers = [
@@ -394,7 +389,7 @@ if args.output_format == 'TREE':
         repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
         for key, label in headers:
             if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
-                repo_branch.add(f"{label}: {colorize_status_for_terminal(row[key])}") 
+                repo_branch.add(f"{label}: {style_status_for_terminal(row[key], args.emoji)}") 
     console.print(tree)
 
 elif args.output_format == 'TABLE':
@@ -402,7 +397,7 @@ elif args.output_format == 'TABLE':
     for _, label in headers:
         table.add_column(label)
     for row in rows:
-        table.add_row(*[colorize_status_for_terminal(row[key]) for key, _ in headers])
+        table.add_row(*[style_status_for_terminal(row[key], args.emoji) for key, _ in headers])
     console.print(table)
 
 elif args.output_format == 'MARKDOWN':
@@ -412,7 +407,7 @@ elif args.output_format == 'MARKDOWN':
     separator_row = '| ' + ' | '.join(['---'] * len(headers)) + ' |'
     # Create all data rows
     data_rows = [
-        '| ' + ' | '.join([colorize_status_for_markdown(row[key]) for key, _ in headers]) + ' |'
+        '| ' + ' | '.join([style_status_for_markdown(row[key], args.emoji) for key, _ in headers]) + ' |'
         for row in rows
     ]
     markdown_table = '\n'.join([header_row, separator_row] + data_rows)
@@ -451,22 +446,22 @@ if args.verbose:
         console.print(table)
 
     # Explanations
-    markdown_explanations = textwrap.dedent("""
+    markdown_explanations = textwrap.dedent(f"""
     # Repository Check Explanation 
 
     Each check against a repository will result in one of the following statuses:
-    - **PASS**: The check passed, indicating that the repository meets the requirement.
-    - **FAIL**: The check failed, indicating that the repository does not meet the requirement.
-    - **WARN**: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
-    - **ISSUE**: Indicates there's an open issue ticket regarding the repository.
-    - **PR**: Indicates there's an open pull-request proposing a best practice.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check passed, indicating that the repository meets the requirement.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check failed, indicating that the repository does not meet the requirement.
+    - {style_status_for_markdown('WARN', args.emoji)}: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: Indicates there's an open issue ticket regarding the repository.
+    - {style_status_for_markdown('PR', args.emoji)}: Indicates there's an open pull-request proposing a best practice.
 
     ## 1. License:
     - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-    - **PASS**: The check will pass if either of these files is present.
-    - **FAIL**: The check will fail if neither file is present.
-    - **PR**: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
-    - **ISSUE**: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if either of these files is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if neither file is present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
     ## 2. README Sections:
     - The README must contain sections with the following titles: 
@@ -478,82 +473,82 @@ if args.verbose:
     - "Contributing"
     - "License"
     - "Support"
-    - **PASS**: If all these sections are present.
-    - **WARN**: If the README file exists and has at least one section header.
-    - **FAIL**: If the README is missing or contains none of the required sections.
-    - **PR**: If a pull-request is proposed to add missing sections.
-    - **ISSUE**: If an issue is opened to suggest adding missing sections.
+    - {style_status_for_markdown('PASS', args.emoji)}: If all these sections are present.
+    - {style_status_for_markdown('WARN', args.emoji)}: If the README file exists and has at least one section header.
+    - {style_status_for_markdown('FAIL', args.emoji)}: If the README is missing or contains none of the required sections.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing sections.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing sections.
 
     ## 3. Contributing Guide:
     - The repository must contain a file named `CONTRIBUTING.md`.
-    - **PASS**: The check will pass if this file is present.
-    - **FAIL**: The check will fail if this file is not present.
-    - **PR**: If a pull-request is proposed to add the `CONTRIBUTING.md`.
-    - **ISSUE**: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this file is not present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CONTRIBUTING.md`.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
 
     ## 4. Code of Conduct:
     - The repository must contain a file named `CODE_OF_CONDUCT.md`.
-    - **PASS**: The check will pass if this file is present.
-    - **FAIL**: The check will fail if this file is not present.
-    - **PR**: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-    - **ISSUE**: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this file is not present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
 
     ## 5. Issue Templates:
     - The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
-    - **PASS**: The check will pass if both templates are present.
-    - **FAIL**: The check will fail if the templates are absent.
-    - **PR**: If a pull-request is proposed to add missing templates.
-    - **ISSUE**: If an issue is opened to suggest adding missing templates.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if both templates are present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if the templates are absent.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing templates.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing templates.
 
     ## 6. PR Templates:
     - The repository must have a pull request (PR) template.
-    - **PASS**: The check will pass if the PR template is present.
-    - **FAIL**: The check will fail if the PR template is absent.
-    - **PR**: If a pull-request is proposed to add a PR template.
-    - **ISSUE**: If an issue is opened to suggest adding a PR template.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if the PR template is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if the PR template is absent.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add a PR template.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding a PR template.
 
     ## 7. Change Log:
     - The repository must contain a file named `CHANGELOG.md`.
-    - **PASS**: The check will pass if this file is present.
-    - **FAIL**: The check will fail if this file is not present.
-    - **PR**: If a pull-request is proposed to add the `CHANGELOG.md`.
-    - **ISSUE**: If an issue is opened to suggest adding the `CHANGELOG.md`.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this file is not present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CHANGELOG.md`.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
     ## 8. Additional Documentation:
     - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
-    - **PASS**: The check will pass if this link is present.
-    - **FAIL**: The check will fail if no such link is present.
-    - **PR**: If a pull-request is proposed to add the link.
-    - **ISSUE**: If an issue is opened to suggest adding the link.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this link is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if no such link is present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the link.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the link.
 
     ## 9. Secrets Detection:
     - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
-    - **PASS**: The check will pass if this file is present.
-    - **FAIL**: The check will fail if no such file is present.
-    - **PR**: If a pull-request is proposed to add the file.
-    - **ISSUE**: If an issue is opened to suggest adding the file.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if no such file is present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
     ## 10. Governance Model:
     - The repository must contain a file named `GOVERNANCE.md`.
-    - **PASS**: The check will pass if this file is present.
-    - **FAIL**: The check will fail if no such file is present.
-    - **PR**: If a pull-request is proposed to add the file.
-    - **ISSUE**: If an issue is opened to suggest adding the file.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if no such file is present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
     ## 11. GitHub: Vulnerability Alerts:
     - The repository must have GitHub Dependabot vulnerability alerts enabled.
-    - **PASS**: The check will pass if this setting is enabled.
-    - **FAIL**: The check will fail if this setting is not enabled.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this setting is not enabled.
 
     ## 12. GitHub: Code Scanning Alerts:
     - The repository must have GitHub code scanning alerts enabled.
-    - **PASS**: The check will pass if this setting is enabled.
-    - **FAIL**: The check will fail if this setting is not enabled.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this setting is not enabled.
 
     ## 13. GitHub: Secrets Scanning Alerts:
     - The repository must have GitHub secrets scanning alerts enabled.
-    - **PASS**: The check will pass if this setting is enabled.
-    - **FAIL**: The check will fail if this setting is not enabled.
+    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this setting is not enabled.
     """)
 
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
