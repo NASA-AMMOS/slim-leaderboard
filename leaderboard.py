@@ -147,7 +147,7 @@ def check_files_existence(owner, repo_name, api_url, headers):
         }
         testing: object(expression: "HEAD:TESTING.md") {
           ... on Blob {
-            id
+            text
           }
         }
         issues(first: 100, states: OPEN) {
@@ -209,10 +209,19 @@ def check_files_existence(owner, repo_name, api_url, headers):
         elif len(readme_sections) > 0:
             readme_check = 'PARTIAL'
         else:
-            readme_check = generate_check_mark('README.md', False, issues, pull_requests)
-
+            readme_check = generate_check_mark('README.md', None, issues, pull_requests)
         docs_link_check = 'YES' if re.search(r'\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b(?:\s*\[\s*.*?\s*\]\s*\(\s*[^)]*\s*\))?', readme_text, re.IGNORECASE) else 'NO'
 
+        # TESTING.md in-depth checks
+        testing_text = result['data']['repository']['testing']['text'] if result['data']['repository']['testing'] else ""
+        testing_required_sections = ["Static Code Analysis", "Unit Tests", "Security Tests", "Build Tests", "Acceptance Tests"]
+        testing_sections = re.findall(r'^#+\s*(.*)$', testing_text, re.MULTILINE)
+        if all(section in testing_sections for section in testing_required_sections):
+            testing_check = 'YES'
+        elif len(testing_text) > 0:
+            testing_check = 'PARTIAL'
+        else:
+            testing_check = generate_check_mark('TESTING.md', None, issues, pull_requests)
 
         checks = {
             'owner': owner,
@@ -227,7 +236,7 @@ def check_files_existence(owner, repo_name, api_url, headers):
             'docs_link_check': docs_link_check,
             'secrets_baseline': generate_check_mark('.secrets.baseline', result['data']['repository']['secrets_baseline'], issues, pull_requests),
             'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests),
-            'testing': generate_check_mark('TESTING.md', result['data']['repository']['testing'], issues, pull_requests)
+            'testing': testing_check
         }
         return checks
     else:
@@ -606,8 +615,9 @@ if args.verbose:
     ## Continuous Testing Plan:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
 
-    - The repository must contain a file named `TESTING.md` that describes a continuous testing plan.
-    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - The repository must contain a file named `TESTING.md` that describes a continuous testing plan with required sections filled out.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present and required sections such as "Static Code Analysis", "Unit Tests", "Security Tests", "Build Tests", "Acceptance Tests" exist.
+    - {style_status_for_markdown('PARTIAL', args.emoji)}: If the TESTING.md file exists but is missing recommended sections
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.  
