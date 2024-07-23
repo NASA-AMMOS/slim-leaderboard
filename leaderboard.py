@@ -17,6 +17,7 @@ from rich.table import Table
 from rich.tree import Tree
 from rich.markdown import Markdown
 from collections import Counter
+import textwrap
 
 logging.basicConfig(level=logging.INFO)
 
@@ -319,16 +320,13 @@ for target in config["targets"]:
                 if match:
                     org_url = match.group(1)
 
-#table_header = "| Project | Repository | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | [Additional Docs](https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/) | [GitHub Security: Vulnerability Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/) | [GitHub Security: Code Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [GitHub Security: Secrets Alerts](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security) | [Secrets Detection](https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/) | [Governance Model](https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/) |\n"
-#table_header += "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
 rows = []
 
 infused_count = pr_count = issue_count = total_count = 0
-for repo in tqdm(repos_list, desc="Scanning Repository", unit="repo"):
+for repo in tqdm(repos_list, desc="Scanning Repositories", unit="repo"):
     processed_repo = process_repository(repo, headers)
     if processed_repo:
         rows.append(processed_repo)
-    # print(repo_data)
 
 # Optionally sort rows by highest passing score to lowest
 if not args.unsorted:
@@ -400,7 +398,7 @@ if args.output_format == 'TREE':
     console.print(tree)
 
 elif args.output_format == 'TABLE':
-    table = Table(show_header=True, header_style="bold magenta", show_lines=True)
+    table = Table(title="SLIM Best Practices Repository Scan Report", show_header=True, header_style="bold magenta", show_lines=True)
     for _, label in headers:
         table.add_column(label)
     for row in rows:
@@ -418,42 +416,59 @@ elif args.output_format == 'MARKDOWN':
         for row in rows
     ]
     markdown_table = '\n'.join([header_row, separator_row] + data_rows)
+    print()
+    print("# SLIM Best Practices Repository Scan Report")
     print(markdown_table)  # Or use Markdown rendering if required
 
 else:
     logging.error(f"Invalid --output_format specified: {args.output_format}.")
 
-
 if args.verbose:
     # Summary statistics
     print()
-    table = Table(title="Summary Statistics", show_header=True, header_style="bold")
-    table.add_column("Status", style="dim", width=12)
-    table.add_column("Count", justify="right")
-    for status, count in status_counts.items():
-        if status in ['PASS', 'FAIL', 'WARN', 'PR', 'ISSUE']:
-            table.add_row(status, str(count))
-    console.print(table)
+
+    if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
+        markdown_table = textwrap.dedent("""
+        # Summary Statistics
+
+        | Status | Count |
+        | ------ | ----- |
+        """)
+
+        # Generate each row for the Markdown table based on 'status_counts'
+        for status, count in status_counts.items():
+            if status in ['PASS', 'FAIL', 'WARN', 'PR', 'ISSUE']:
+                markdown_table += f"| {status} | {count} |\n"
+
+        console.print(markdown_table)
+    else:
+        table = Table(title="Summary Statistics", show_header=True, header_style="bold")
+        table.add_column("Status", style="dim", width=12)
+        table.add_column("Count", justify="right")
+        for status, count in status_counts.items():
+            if status in ['PASS', 'FAIL', 'WARN', 'PR', 'ISSUE']:
+                table.add_row(status, str(count))
+        console.print(table)
 
     # Explanations
-    markdown_explanations = """
-    ## Repository Check Explanation 
+    markdown_explanations = textwrap.dedent("""
+    # Repository Check Explanation 
 
     Each check against a repository will result in one of the following statuses:
-    - <span style="color:green">**PASS**</span>: The check passed, indicating that the repository meets the requirement.
-    - <span style="color:red">**FAIL**</span>: The check failed, indicating that the repository does not meet the requirement.
-    - <span style="color:orange">**WARN**</span>: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
-    - <span style="color:blue">**ISSUE**</span>: Indicates there's an open issue ticket regarding the repository.
-    - <span style="color:blue">**PR**</span>: Indicates there's an open pull-request proposing a best practice.
+    - **PASS**: The check passed, indicating that the repository meets the requirement.
+    - **FAIL**: The check failed, indicating that the repository does not meet the requirement.
+    - **WARN**: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+    - **ISSUE**: Indicates there's an open issue ticket regarding the repository.
+    - **PR**: Indicates there's an open pull-request proposing a best practice.
 
-    ### 1. License:
+    ## 1. License:
     - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-    - <span style="color:green">**PASS**</span>: The check will pass if either of these files is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if neither file is present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+    - **PASS**: The check will pass if either of these files is present.
+    - **FAIL**: The check will fail if neither file is present.
+    - **PR**: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+    - **ISSUE**: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-    ### 2. README Sections:
+    ## 2. README Sections:
     - The README must contain sections with the following titles: 
     - "Features"
     - "Contents"
@@ -463,83 +478,85 @@ if args.verbose:
     - "Contributing"
     - "License"
     - "Support"
-    - <span style="color:green">**PASS**</span>: If all these sections are present.
-    - <span style="color:orange">**WARN**</span>: If the README file exists and has at least one section header.
-    - <span style="color:red">**FAIL**</span>: If the README is missing or contains none of the required sections.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add missing sections.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding missing sections.
+    - **PASS**: If all these sections are present.
+    - **WARN**: If the README file exists and has at least one section header.
+    - **FAIL**: If the README is missing or contains none of the required sections.
+    - **PR**: If a pull-request is proposed to add missing sections.
+    - **ISSUE**: If an issue is opened to suggest adding missing sections.
 
-    ### 3. Contributing Guide:
+    ## 3. Contributing Guide:
     - The repository must contain a file named `CONTRIBUTING.md`.
-    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if this file is not present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `CONTRIBUTING.md`.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+    - **PASS**: The check will pass if this file is present.
+    - **FAIL**: The check will fail if this file is not present.
+    - **PR**: If a pull-request is proposed to add the `CONTRIBUTING.md`.
+    - **ISSUE**: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
 
-    ### 4. Code of Conduct:
+    ## 4. Code of Conduct:
     - The repository must contain a file named `CODE_OF_CONDUCT.md`.
-    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if this file is not present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+    - **PASS**: The check will pass if this file is present.
+    - **FAIL**: The check will fail if this file is not present.
+    - **PR**: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+    - **ISSUE**: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
 
-    ### 5. Issue Templates:
-    - The repository must have the following issue templates:
-    - `bug_report.md`: Template for bug reports.
-    - `feature_request.md`: Template for feature requests.
-    - <span style="color:green">**PASS**</span>: The check will pass if both templates are present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if the templates are absent.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add missing templates.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding missing templates.
+    ## 5. Issue Templates:
+    - The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
+    - **PASS**: The check will pass if both templates are present.
+    - **FAIL**: The check will fail if the templates are absent.
+    - **PR**: If a pull-request is proposed to add missing templates.
+    - **ISSUE**: If an issue is opened to suggest adding missing templates.
 
-    ### 6. PR Templates:
+    ## 6. PR Templates:
     - The repository must have a pull request (PR) template.
-    - <span style="color:green">**PASS**</span>: The check will pass if the PR template is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if the PR template is absent.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add a PR template.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding a PR template.
+    - **PASS**: The check will pass if the PR template is present.
+    - **FAIL**: The check will fail if the PR template is absent.
+    - **PR**: If a pull-request is proposed to add a PR template.
+    - **ISSUE**: If an issue is opened to suggest adding a PR template.
 
-    ### 7. Change Log:
+    ## 7. Change Log:
     - The repository must contain a file named `CHANGELOG.md`.
-    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if this file is not present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the `CHANGELOG.md`.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the `CHANGELOG.md`.
+    - **PASS**: The check will pass if this file is present.
+    - **FAIL**: The check will fail if this file is not present.
+    - **PR**: If a pull-request is proposed to add the `CHANGELOG.md`.
+    - **ISSUE**: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
-    ### 8. Additional Documentation:
+    ## 8. Additional Documentation:
     - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
-    - <span style="color:green">**PASS**</span>: The check will pass if this link is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if no such link is present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the link.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the link.
+    - **PASS**: The check will pass if this link is present.
+    - **FAIL**: The check will fail if no such link is present.
+    - **PR**: If a pull-request is proposed to add the link.
+    - **ISSUE**: If an issue is opened to suggest adding the link.
 
-    ### 9. Secrets Detection:
-    - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool
-    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if no such file is present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the file.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the file.
+    ## 9. Secrets Detection:
+    - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
+    - **PASS**: The check will pass if this file is present.
+    - **FAIL**: The check will fail if no such file is present.
+    - **PR**: If a pull-request is proposed to add the file.
+    - **ISSUE**: If an issue is opened to suggest adding the file.
 
-    ### 10. Governance Model:
-    - The repository must contain a file named `GOVERNANCE.md`
-    - <span style="color:green">**PASS**</span>: The check will pass if this file is present.
-    - <span style="color:red">**FAIL**</span>: The check will fail if no such file is present.
-    - <span style="color:blue">**PR**</span>: If a pull-request is proposed to add the file.
-    - <span style="color:blue">**ISSUE**</span>: If an issue is opened to suggest adding the file.
+    ## 10. Governance Model:
+    - The repository must contain a file named `GOVERNANCE.md`.
+    - **PASS**: The check will pass if this file is present.
+    - **FAIL**: The check will fail if no such file is present.
+    - **PR**: If a pull-request is proposed to add the file.
+    - **ISSUE**: If an issue is opened to suggest adding the file.
 
-    ### 11. GitHub: Vulnerability Alerts:
-    - The repository must have GitHub Dependabot vulnerability alerts enabled
-    - <span style="color:green">**PASS**</span>: The check will pass if this setting is enabled.
-    - <span style="color:red">**FAIL**</span>: The check will fail if no such setting is enabled.
+    ## 11. GitHub: Vulnerability Alerts:
+    - The repository must have GitHub Dependabot vulnerability alerts enabled.
+    - **PASS**: The check will pass if this setting is enabled.
+    - **FAIL**: The check will fail if this setting is not enabled.
 
-    ### 12. GitHub: Code Scanning Alerts:
-    - The repository must have GitHub code scanning alerts enabled
-    - <span style="color:green">**PASS**</span>: The check will pass if this setting is enabled.
-    - <span style="color:red">**FAIL**</span>: The check will fail if no such setting is enabled.
+    ## 12. GitHub: Code Scanning Alerts:
+    - The repository must have GitHub code scanning alerts enabled.
+    - **PASS**: The check will pass if this setting is enabled.
+    - **FAIL**: The check will fail if this setting is not enabled.
 
-    ### 13. GitHub: Secrets Scanning Alerts:
-    - The repository must have GitHub secrets scanning alerts enabled
-    - <span style="color:green">**PASS**</span>: The check will pass if this setting is enabled.
-    - <span style="color:red">**FAIL**</span>: The check will fail if no such setting is enabled.
-    """
-    console.print(Markdown(markdown_explanations))
+    ## 13. GitHub: Secrets Scanning Alerts:
+    - The repository must have GitHub secrets scanning alerts enabled.
+    - **PASS**: The check will pass if this setting is enabled.
+    - **FAIL**: The check will fail if this setting is not enabled.
+    """)
+
+    if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
+        print(markdown_explanations)
+    else:
+        console.print(Markdown(markdown_explanations))  
