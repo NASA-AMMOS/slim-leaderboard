@@ -86,7 +86,12 @@ def check_files_existence(owner, repo_name, api_url, headers):
         licenseTxt: object(expression: "HEAD:LICENSE.txt") {
         ... on Blob {
             id
+          }
         }
+        licenseMd: object(expression: "HEAD:LICENSE.md") {
+        ... on Blob {
+            id
+          }
         }
         contributing: object(expression: "HEAD:CONTRIBUTING.md") {
           ... on Blob {
@@ -123,12 +128,12 @@ def check_files_existence(owner, repo_name, api_url, headers):
             id
           }
         }
-        issues(first: 100) {
+        issues(first: 100, states: OPEN) {
           nodes {
             title
           }
         }
-        pullRequests(first: 100) {
+        pullRequests(first: 100, states: OPEN) {
           nodes {
             title
             files(first: 100) {
@@ -153,17 +158,21 @@ def check_files_existence(owner, repo_name, api_url, headers):
 
     def generate_check_mark(file_name, file_status, issues, prs):
         if file_status is not None: 
-            return 'PASS'
+            return 'YES'
         elif any(file_name in issue for issue in issues):
             return 'TICKET'
         elif any(file_name in pr['title'] or any(file_name in file for file in pr['files']) for pr in prs):
             return 'PR'
         else:
-            return 'FAIL'
+            return 'NO'
 
     if response.status_code == 200:
         result = response.json()
-        issues = [issue['title'] for issue in result['data']['repository']['issues']['nodes']]
+        issues = [
+            issue['title']
+            for issue in result.get('data', {}).get('repository', {}).get('issues', {}).get('nodes', [])
+            if issue and 'title' in issue  # Ensure 'issue' is a dictionary and has the key 'title'
+        ]
         pull_requests = [{
             'title': pr['title'],
             'files': [file['path'] for file in pr.get('files', {}).get('nodes', [])] if pr.get('files') else []
@@ -174,20 +183,20 @@ def check_files_existence(owner, repo_name, api_url, headers):
         readme_required_sections = ["Features", "Contents", "Quick Start", "Changelog", "Frequently Asked Questions (FAQ)", "Contributing", "License", "Support"]
         readme_sections = re.findall(r'^#+\s*(.*)$', readme_text, re.MULTILINE)
         if all(section in readme_sections for section in readme_required_sections):
-            readme_check = 'PASS'
+            readme_check = 'YES'
         elif len(readme_sections) > 0:
-            readme_check = 'WARN'
+            readme_check = 'MAYBE'
         else:
             readme_check = generate_check_mark('README.md', False, issues, pull_requests)
 
-        docs_link_check = 'PASS' if re.search(r'\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b(?:\s*\[\s*.*?\s*\]\s*\(\s*[^)]*\s*\))?', readme_text, re.IGNORECASE) else 'FAIL'
+        docs_link_check = 'YES' if re.search(r'\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b(?:\s*\[\s*.*?\s*\]\s*\(\s*[^)]*\s*\))?', readme_text, re.IGNORECASE) else 'NO'
 
 
         checks = {
             'owner': owner,
             'repo': repo_name,
             'readme': readme_check,
-            'license': generate_check_mark('LICENSE', result['data']['repository']['license'] or result['data']['repository']['licenseTxt'], issues, pull_requests),
+            'license': generate_check_mark('LICENSE', result['data']['repository']['license'] or result['data']['repository']['licenseTxt'] or result['data']['repository']['licenseMd'], issues, pull_requests),
             'contributing': generate_check_mark('CONTRIBUTING.md', result['data']['repository']['contributing'], issues, pull_requests),
             'code_of_conduct': generate_check_mark('CODE_OF_CONDUCT.md', result['data']['repository']['code_of_conduct'], issues, pull_requests),
             'issue_templates': generate_check_mark('.github/ISSUE_TEMPLATE', result['data']['repository']['issue_templates'], issues, pull_requests),
@@ -218,9 +227,9 @@ def process_repository(repo_full_name, headers):
         )
         #print(status_codes)
         status_checks = {}
-        status_checks['/vulnerability-alerts'] = 'PASS' if status_codes['/vulnerability-alerts'] == 204 else 'FAIL'
-        status_checks['/code-scanning/alerts'] = 'PASS' if status_codes['/code-scanning/alerts'] == 200 else 'FAIL'
-        status_checks['/secret-scanning/alerts'] = 'PASS' if status_codes['/secret-scanning/alerts'] == 200 else 'FAIL'
+        status_checks['/vulnerability-alerts'] = 'YES' if status_codes['/vulnerability-alerts'] == 204 else 'NO'
+        status_checks['/code-scanning/alerts'] = 'YES' if status_codes['/code-scanning/alerts'] == 200 else 'NO'
+        status_checks['/secret-scanning/alerts'] = 'YES' if status_codes['/secret-scanning/alerts'] == 200 else 'NO'
         
         # Safely merge checks
         if checks and status_checks:
@@ -311,8 +320,8 @@ for repo in tqdm(repos_list, desc="Scanning Repositories", unit="repo"):
 # Optionally sort rows by highest passing score to lowest
 if not args.unsorted:
     def count_pass_values(row):
-        """Count the number of 'PASS' values in the dictionary."""
-        return sum(1 for key in row if row[key] == 'PASS')
+        """Count the number of 'YES' values in the dictionary."""
+        return sum(1 for key in row if row[key] == 'YES')
     rows = sorted(rows, key=count_pass_values, reverse=True)
 
 # Calculate stats
@@ -326,9 +335,9 @@ def style_status_for_terminal(status, emoji=False):
     styled_status = ''
     if emoji:
         mapping = {
-            'PASS': '✅',
-            'FAIL': '❌',
-            'WARN': '⚠️',
+            'YES': '✅',
+            'NO': '❌',
+            'MAYBE': '⚠️',
             'ISSUE': 'ℹ️',
             'PR': '🅿️'
         }
@@ -336,9 +345,9 @@ def style_status_for_terminal(status, emoji=False):
         styled_status = icon
     else:
         mapping = {
-            'PASS': 'green',
-            'FAIL': 'red',
-            'WARN': 'yellow',
+            'YES': 'green',
+            'NO': 'red',
+            'MAYBE': 'yellow',
             'ISSUE': 'blue',
             'PR': 'blue'
         }
@@ -351,9 +360,9 @@ def style_status_for_markdown(status, emoji=False):
     styled_status = ''
     if emoji:
         mapping = {
-            'PASS': '✅',
-            'FAIL': '❌',
-            'WARN': '⚠️',
+            'YES': '✅',
+            'NO': '❌',
+            'MAYBE': '⚠️',
             'ISSUE': 'ℹ️',
             'PR': '🅿️'
         }
@@ -432,7 +441,7 @@ if args.verbose:
 
         # Generate each row for the Markdown table based on 'status_counts'
         for status, count in status_counts.items():
-            if status in ['PASS', 'FAIL', 'WARN', 'PR', 'ISSUE']:
+            if status in ['YES', 'NO', 'MAYBE', 'PR', 'ISSUE']:
                 markdown_table += f"| {status} | {count} |\n"
 
         console.print(markdown_table)
@@ -441,7 +450,7 @@ if args.verbose:
         table.add_column("Status", style="dim", width=12)
         table.add_column("Count", justify="right")
         for status, count in status_counts.items():
-            if status in ['PASS', 'FAIL', 'WARN', 'PR', 'ISSUE']:
+            if status in ['YES', 'NO', 'MAYBE', 'PR', 'ISSUE']:
                 table.add_row(status, str(count))
         console.print(table)
 
@@ -450,105 +459,111 @@ if args.verbose:
     # Repository Check Explanation 
 
     Each check against a repository will result in one of the following statuses:
-    - {style_status_for_markdown('PASS', args.emoji)}: The check passed, indicating that the repository meets the requirement.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check failed, indicating that the repository does not meet the requirement.
-    - {style_status_for_markdown('WARN', args.emoji)}: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+    - {style_status_for_markdown('YES', args.emoji)}: The check passed, indicating that the repository meets the requirement.
+    - {style_status_for_markdown('NO', args.emoji)}: The check failed, indicating that the repository does not meet the requirement.
+    - {style_status_for_markdown('MAYBE', args.emoji)}: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
     - {style_status_for_markdown('ISSUE', args.emoji)}: Indicates there's an open issue ticket regarding the repository.
     - {style_status_for_markdown('PR', args.emoji)}: Indicates there's an open pull-request proposing a best practice.
 
-    ## 1. License:
+    ## 1. License
     - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if either of these files is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if neither file is present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if either of these files is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if neither file is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-    ## 2. README Sections:
+    ## 2. README
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
+
     - The README must contain sections with the following titles: 
-    - "Features"
-    - "Contents"
-    - "Quick Start"
-    - "Changelog"
-    - "Frequently Asked Questions (FAQ)"
-    - "Contributing"
-    - "License"
-    - "Support"
-    - {style_status_for_markdown('PASS', args.emoji)}: If all these sections are present.
-    - {style_status_for_markdown('WARN', args.emoji)}: If the README file exists and has at least one section header.
-    - {style_status_for_markdown('FAIL', args.emoji)}: If the README is missing or contains none of the required sections.
+        - "Features"
+        - "Contents"
+        - "Quick Start"
+        - "Changelog"
+        - "Frequently Asked Questions (FAQ)"
+        - "Contributing"
+        - "License"
+        - "Support"
+    - {style_status_for_markdown('YES', args.emoji)}: If all these sections are present.
+    - {style_status_for_markdown('MAYBE', args.emoji)}: If the README file exists and has at least one section header but could use improvement in following best practices from SLIM.
+    - {style_status_for_markdown('NO', args.emoji)}: If the README is missing or contains none of the required sections.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing sections.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing sections.
 
     ## 3. Contributing Guide:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/
+
     - The repository must contain a file named `CONTRIBUTING.md`.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this file is not present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this file is not present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CONTRIBUTING.md`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
 
     ## 4. Code of Conduct:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/
+
     - The repository must contain a file named `CODE_OF_CONDUCT.md`.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this file is not present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this file is not present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
 
     ## 5. Issue Templates:
     - The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if both templates are present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if the templates are absent.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if both templates are present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if the templates are absent.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing templates.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing templates.
 
     ## 6. PR Templates:
     - The repository must have a pull request (PR) template.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if the PR template is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if the PR template is absent.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if the PR template is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if the PR template is absent.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add a PR template.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding a PR template.
 
     ## 7. Change Log:
     - The repository must contain a file named `CHANGELOG.md`.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this file is not present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this file is not present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CHANGELOG.md`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
     ## 8. Additional Documentation:
     - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this link is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if no such link is present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this link is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such link is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the link.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the link.
 
     ## 9. Secrets Detection:
     - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if no such file is present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
     ## 10. Governance Model:
     - The repository must contain a file named `GOVERNANCE.md`.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this file is present.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if no such file is present.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
     ## 11. GitHub: Vulnerability Alerts:
     - The repository must have GitHub Dependabot vulnerability alerts enabled.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this setting is enabled.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this setting is not enabled.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
 
     ## 12. GitHub: Code Scanning Alerts:
     - The repository must have GitHub code scanning alerts enabled.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this setting is enabled.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this setting is not enabled.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
 
     ## 13. GitHub: Secrets Scanning Alerts:
     - The repository must have GitHub secrets scanning alerts enabled.
-    - {style_status_for_markdown('PASS', args.emoji)}: The check will pass if this setting is enabled.
-    - {style_status_for_markdown('FAIL', args.emoji)}: The check will fail if this setting is not enabled.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
     """)
 
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
