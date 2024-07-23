@@ -1,175 +1,249 @@
 
-## Table of Contents
-- [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
-- [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
-- [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
+# SLIM Best Practices Repository Scan Report
+| Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| nasa-ammos | slim | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 |
+| nasa-ammos | slim-starterkit-python | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 |
+| nasa-ammos | slim-cli | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
+| nasa-ammos | slim-starterkit | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
+| nasa-ammos | parent-ammos | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
+| nasa-ammos | slim-leaderboard | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
+| nasa-ammos | MMGIS | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | common-workflow-service | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | VICAR | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | MGViz | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | labelocity | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | 3DTilesRendererJS | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | CameraModelUtilsJS | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | slim-detect-secrets | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
+| nasa-ammos | aerie | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-ui | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | anms | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | anms-docs | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| rzellem | EXOTIC | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | AIT-Core | 🟢 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | AIT-GUI | 🟢 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | AIT-DSN | 🟢 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | timecraftjs | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | pngcs | 🟢 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | LithoSphere | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-gateway | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-ampcs | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-lander | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | xait | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | anms-ace | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | anms-camp | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | cfn-ps-ammos-smallsat-toolkit | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | AIT-CFS | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | CODEX | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | openmct-mcws | 🔴 | 🟠 | 🟣 | 🟣 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-ts-user-code-runner | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-pr-action | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-cli | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-docs | 🔴 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | AFIDS-POMM | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-release | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | VECTOR | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-simple-model-power | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | Landform | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | DataDrive-CommandLine | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa | FEI | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | Unity3DTiles | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | quickstart-ammos-smallsat-toolkit | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | ampcs-dict-schemas | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-plan-collaboration-prototype | 🔴 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | DECISION | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-mission-model-template | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | slim-starterkit-java | 🟢 | 🟠 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | synopsis | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | seq-json-schema | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-team | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | slim-config-detect-secrets | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-pmc | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | mms-aerie | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | multi-mission-utilities-DSN | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-python-prototype | 🔴 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-simple-model-instrument | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-simple-model-locomotion | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-simple-model-data | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-simple-model-geometry | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | VICAR-DOCS | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | MMTC | 🔴 | 🟢 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-simple-model-telecom | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-modeling-tutorial | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | KMC | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | mgss-kmc | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | kmc_oci | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | mgss-kmc_oci | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-endurance-sim | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-multimission-models-bb | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-orbiter-model | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | BSL-docs | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | pgcmp | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | slim-docsite-template | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | 3DTilesSampleData | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | AMPCS | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | MCWS | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | ammos-to-cloud-planning | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | SPAR | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-monaco-editor-customizations | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | anms-adms | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-sequence-editor | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | decisiontformtmp | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | spicepool | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | OCS | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | BSL | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | BSL-private | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | ocs-python-client | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | ocs-js-client | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | oco2L2FP | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-ui-plugin-examples | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
-## Leaderboard Table
-| Project | Repository | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |
-|---|---|---|---|---|---|---|---|---|---|
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-leaderboard](https://github.com/nasa-ammos/slim-leaderboard) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [parent-ammos](https://github.com/nasa-ammos/parent-ammos) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim](https://github.com/nasa-ammos/slim) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [VICAR](https://github.com/nasa-ammos/VICAR) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [MMGIS](https://github.com/nasa-ammos/MMGIS) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [MGViz](https://github.com/nasa-ammos/MGViz) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [labelocity](https://github.com/nasa-ammos/labelocity) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [common-workflow-service](https://github.com/nasa-ammos/common-workflow-service) | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [3DTilesRendererJS](https://github.com/nasa-ammos/3DTilesRendererJS) | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🅿️ | 🅿️ | 🅿️ | ✅ | ✅ | ❌ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌
-| [rzellem](https://github.com/rzellem) | [EXOTIC](https://github.com/rzellem/EXOTIC) | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [xait](https://github.com/nasa-ammos/xait) | 🅿️ | 🅿️ | ✅ | 🅿️ | ✅ | ❌ | 🅿️ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [timecraftjs](https://github.com/nasa-ammos/timecraftjs) | 🅿️ | 🅿️ | 🅿️ | ✅ | ✅ | ❌ | 🅿️ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [anms](https://github.com/nasa-ammos/anms) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [anms-docs](https://github.com/nasa-ammos/anms-docs) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [anms-camp](https://github.com/nasa-ammos/anms-camp) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [anms-ace](https://github.com/nasa-ammos/anms-ace) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie](https://github.com/nasa-ammos/aerie) | ✅ | 🅿️ | ✅ | 🅿️ | ✅ | 🅿️ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-ui](https://github.com/nasa-ammos/aerie-ui) | ✅ | 🅿️ | ✅ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-lander](https://github.com/nasa-ammos/aerie-lander) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [LithoSphere](https://github.com/nasa-ammos/LithoSphere) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ✅ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [pngcs](https://github.com/nasa-ammos/pngcs) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [cfn-ps-ammos-smallsat-toolkit](https://github.com/nasa-ammos/cfn-ps-ammos-smallsat-toolkit) | 🅿️ | 🅿️ | ✅ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-simple-model-power](https://github.com/nasa-ammos/aerie-simple-model-power) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-release](https://github.com/nasa-ammos/aerie-release) | ❌ | ❌ | ❌ | ❌ | ✅ | 🅿️ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-gateway](https://github.com/nasa-ammos/aerie-gateway) | 🅿️ | 🅿️ | ✅ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-cli](https://github.com/nasa-ammos/aerie-cli) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | 🅿️ | 🅿️ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-ampcs](https://github.com/nasa-ammos/aerie-ampcs) | 🅿️ | 🅿️ | ✅ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [AIT-GUI](https://github.com/nasa-ammos/AIT-GUI) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ✅ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [AIT-DSN](https://github.com/nasa-ammos/AIT-DSN) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ✅ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [AIT-Core](https://github.com/nasa-ammos/AIT-Core) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ✅ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [AFIDS-POMM](https://github.com/nasa-ammos/AFIDS-POMM) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ✅
-| [nasa](https://github.com/nasa) | [FEI](https://github.com/nasa/FEI) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-starterkit-java](https://github.com/nasa-ammos/slim-starterkit-java) | ❌ | ❌ | ❌ | 🅿️ | ✅ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [seq-json-schema](https://github.com/nasa-ammos/seq-json-schema) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [quickstart-ammos-smallsat-toolkit](https://github.com/nasa-ammos/quickstart-ammos-smallsat-toolkit) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [openmct-mcws](https://github.com/nasa-ammos/openmct-mcws) | ✅ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [multi-mission-utilities-DSN](https://github.com/nasa-ammos/multi-mission-utilities-DSN) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [ampcs-dict-schemas](https://github.com/nasa-ammos/ampcs-dict-schemas) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-ts-user-code-runner](https://github.com/nasa-ammos/aerie-ts-user-code-runner) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-simple-model-telecom](https://github.com/nasa-ammos/aerie-simple-model-telecom) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-simple-model-locomotion](https://github.com/nasa-ammos/aerie-simple-model-locomotion) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-simple-model-instrument](https://github.com/nasa-ammos/aerie-simple-model-instrument) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-simple-model-geometry](https://github.com/nasa-ammos/aerie-simple-model-geometry) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-simple-model-data](https://github.com/nasa-ammos/aerie-simple-model-data) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-pr-action](https://github.com/nasa-ammos/aerie-pr-action) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-multimission-models-bb](https://github.com/nasa-ammos/aerie-multimission-models-bb) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-mission-model-template](https://github.com/nasa-ammos/aerie-mission-model-template) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-endurance-sim](https://github.com/nasa-ammos/aerie-endurance-sim) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-docs](https://github.com/nasa-ammos/aerie-docs) | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [Landform](https://github.com/nasa-ammos/Landform) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [DataDrive-CommandLine](https://github.com/nasa-ammos/DataDrive-CommandLine) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [CODEX](https://github.com/nasa-ammos/CODEX) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [AIT-CFS](https://github.com/nasa-ammos/AIT-CFS) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [synopsis](https://github.com/nasa-ammos/synopsis) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [spicepool](https://github.com/nasa-ammos/spicepool) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [slim-config-detect-secrets](https://github.com/nasa-ammos/slim-config-detect-secrets) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [mms-aerie](https://github.com/nasa-ammos/mms-aerie) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [mgss-kmc_oci](https://github.com/nasa-ammos/mgss-kmc_oci) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [mgss-kmc](https://github.com/nasa-ammos/mgss-kmc) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [kmc_oci](https://github.com/nasa-ammos/kmc_oci) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [decisiontformtmp](https://github.com/nasa-ammos/decisiontformtmp) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [anms-adms](https://github.com/nasa-ammos/anms-adms) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [ammos-to-cloud-planning](https://github.com/nasa-ammos/ammos-to-cloud-planning) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-team](https://github.com/nasa-ammos/aerie-team) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-sequence-editor](https://github.com/nasa-ammos/aerie-sequence-editor) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-python-prototype](https://github.com/nasa-ammos/aerie-python-prototype) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-pmc](https://github.com/nasa-ammos/aerie-pmc) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-plan-collaboration-prototype](https://github.com/nasa-ammos/aerie-plan-collaboration-prototype) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-monaco-editor-customizations](https://github.com/nasa-ammos/aerie-monaco-editor-customizations) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [aerie-modeling-tutorial](https://github.com/nasa-ammos/aerie-modeling-tutorial) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [VICAR-DOCS](https://github.com/nasa-ammos/VICAR-DOCS) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [VECTOR](https://github.com/nasa-ammos/VECTOR) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [Unity3DTiles](https://github.com/nasa-ammos/Unity3DTiles) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [SPAR](https://github.com/nasa-ammos/SPAR) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [MMTC](https://github.com/nasa-ammos/MMTC) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [MCWS](https://github.com/nasa-ammos/MCWS) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [KMC](https://github.com/nasa-ammos/KMC) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [DECISION](https://github.com/nasa-ammos/DECISION) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | 🅿️ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [AMPCS](https://github.com/nasa-ammos/AMPCS) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | 🅿️ | ❌
-| [nasa-ammos](https://github.com/nasa-ammos) | [3DTilesSampleData](https://github.com/nasa-ammos/3DTilesSampleData) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
+# Summary Statistics
+
+| Status | Count |
+| ------ | ----- |
+| YES | 229 |
+| NO | 828 |
+| PARTIAL | 77 |
+| PR | 210 |
 
 
-## Summary Report 
-
-The below table summarizes the effect of generating the above leaderboard table. Here's an explanation of each summarization statistic: 
-- Infused Count: the total number of best practices that have been detected infused into code repositories
-- Proposed PR Count: the total number of best practices that are currently in proposal state as pull-requests to code repositories
-- Proposed Issues Count: the total number of best practices that are currently in proposal state as issue tickets to code repositories
-- Total Checks Run Count: the total number of best practice checks that have been run against the total number of repositories evaluated
-
-| Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
-| ---------------------- | --------------------- | ------------------------- | --------------------- |
-| 162        | 217            | 0             | 588        |
-
-
-## Repository Check Explanation 
+# Repository Check Explanation 
 
 Each check against a repository will result in one of the following statuses:
-- ✅: The check passed, indicating that the repository meets the requirement.
-- 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
-- ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
+- 🟢: The check passed, indicating that the repository meets the requirement.
+- 🔴: The check failed, indicating that the repository does not meet the requirement.
+- 🟠: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+- 🔵: Indicates there's an open issue ticket regarding the repository.
+- 🟣: Indicates there's an open pull-request proposing a best practice.
 
-### 1. Issue Templates:
-- The repository must have the following issue templates:
-  - `bug_report.md`: Template for bug reports.
-  - `feature_request.md`: Template for feature requests.
-- ✅ The check will pass with a green check mark if both templates are present.
-- 🅿️ If a pull-request is proposed to add missing templates.
-- ℹ️ If an issue is opened to suggest adding missing templates.
-
-### 2. PR Templates:
-- The repository must have a pull request (PR) template.
-- ✅ The check will pass with a green check mark if the PR template is present.
-- 🅿️ If a pull-request is proposed to add a PR template.
-- ℹ️ If an issue is opened to suggest adding a PR template.
-
-### 3. Code of Conduct:
-- The repository must contain a file named `CODE_OF_CONDUCT.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-- ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
-
-### 4. Contributing Guide:
-- The repository must contain a file named `CONTRIBUTING.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
-- ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
-
-### 5. License:
+## License
 - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-- ✅ The check will pass with a green check mark if either of these files is present.
-- 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
-- ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+- 🟢: The check will pass if either of these files is present.
+- 🔴: The check will fail if neither file is present.
+- 🟣: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+- 🔵: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-### 6. README Sections:
+## README
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
+
 - The README must contain sections with the following titles: 
-  - "Features"
-  - "Contents"
-  - "Quick Start"
-  - "Changelog"
-  - "Frequently Asked Questions (FAQ)"
-  - "Contributing"
-  - "License"
-  - "Support"
-- ✅ If all these sections are present, the check will pass with a green check mark.
-- ☑️ If only the sections "Contributing", "License", and "Support" are present, the check will pass with a different check mark.
-- 🅿️ If a pull-request is proposed to add missing sections.
-- ℹ️ If an issue is opened to suggest adding missing sections.
+    - "Features"
+    - "Contents"
+    - "Quick Start"
+    - "Changelog"
+    - "Frequently Asked Questions (FAQ)"
+    - "Contributing"
+    - "License"
+    - "Support"
+- 🟢: If all these sections are present.
+- 🟠: If the README file exists and has at least one section header but could use improvement in following best practices from SLIM.
+- 🔴: If the README is missing or contains none of the required sections.
+- 🟣: If a pull-request is proposed to add missing sections.
+- 🔵: If an issue is opened to suggest adding missing sections.
 
-### 7. Change Log:
+## Contributing Guide:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/
+
+- The repository must contain a file named `CONTRIBUTING.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if this file is not present.
+- 🟣: If a pull-request is proposed to add the `CONTRIBUTING.md`.
+- 🔵: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+
+## Code of Conduct:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/
+
+- The repository must contain a file named `CODE_OF_CONDUCT.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if this file is not present.
+- 🟣: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+- 🔵: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+
+## Issue Templates:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/
+
+- The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
+- 🟢: The check will pass if both templates are present.
+- 🔴: The check will fail if the templates are absent.
+- 🟣: If a pull-request is proposed to add missing templates.
+- 🔵: If an issue is opened to suggest adding missing templates.
+
+## PR Templates:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/pull-requests/
+
+- The repository must have a pull request (PR) template.
+- 🟢: The check will pass if the PR template is present.
+- 🔴: The check will fail if the PR template is absent.
+- 🟣: If a pull-request is proposed to add a PR template.
+- 🔵: If an issue is opened to suggest adding a PR template.
+
+## Additional Documentation:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/trade-study-hostingdocs-user/
+
+- The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
+- 🟢: The check will pass if this link is present.
+- 🔴: The check will fail if no such link is present.
+- 🟣: If a pull-request is proposed to add the link.
+- 🔵: If an issue is opened to suggest adding the link.
+
+## Change Log:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/
+
 - The repository must contain a file named `CHANGELOG.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
-- ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if this file is not present.
+- 🟣: If a pull-request is proposed to add the `CHANGELOG.md`.
+- 🔵: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
-### 8. Docs Link in README:
-- The README must contain a link with a label containing either "Docs" or "Documentation". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation"
-- ✅ The check will pass with a green check mark if this link is present.
-- 🅿️ If a pull-request is proposed to add the "Docs" or "Documentation" link.
-- ℹ️ If an issue is opened to suggest adding the "Docs" or "Documentation" link.
+## GitHub: Vulnerability Alerts:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+- The repository must have GitHub Dependabot vulnerability alerts enabled.
+- 🟢: The check will pass if this setting is enabled.
+- 🔴: The check will fail if this setting is not enabled.
+
+## GitHub: Code Scanning Alerts:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+- The repository must have GitHub code scanning alerts enabled.
+- 🟢: The check will pass if this setting is enabled.
+- 🔴: The check will fail if this setting is not enabled.
+
+## GitHub: Secrets Scanning Alerts:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+- The repository must have GitHub secrets scanning alerts enabled.
+- 🟢: The check will pass if this setting is enabled.
+- 🔴: The check will fail if this setting is not enabled.
+
+
+## Secrets Detection:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/
+
+- The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if no such file is present.
+- 🟣: If a pull-request is proposed to add the file.
+- 🔵: If an issue is opened to suggest adding the file.
+
+## Governance Model:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/
+
+- The repository must contain a file named `GOVERNANCE.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if no such file is present.
+- 🟣: If a pull-request is proposed to add the file.
+- 🔵: If an issue is opened to suggest adding the file.    
+
+## Continuous Testing Plan:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
+
+- The repository must contain a file named `TESTING.md` that describes a continuous testing plan.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if no such file is present.
+- 🟣: If a pull-request is proposed to add the file.
+- 🔵: If an issue is opened to suggest adding the file.  
 
