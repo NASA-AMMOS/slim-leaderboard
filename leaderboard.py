@@ -144,6 +144,11 @@ def check_files_existence(owner, repo_name, api_url, headers):
             id
           }
         }
+        testing: object(expression: "HEAD:TESTING.md") {
+          ... on Blob {
+            id
+          }
+        }
         issues(first: 100, states: OPEN) {
           nodes {
             title
@@ -220,7 +225,8 @@ def check_files_existence(owner, repo_name, api_url, headers):
             'changelog': generate_check_mark('CHANGELOG.md', result['data']['repository']['changelog'], issues, pull_requests),
             'docs_link_check': docs_link_check,
             'secrets_baseline': generate_check_mark('.secrets.baseline', result['data']['repository']['secrets_baseline'], issues, pull_requests),
-            'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests)
+            'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests),
+            'testing': generate_check_mark('TESTING.md', result['data']['repository']['testing'], issues, pull_requests)
         }
         return checks
     else:
@@ -378,13 +384,14 @@ headers = [
     ("code_of_conduct", "Code of Conduct"),
     ("issue_templates", "Issue Templates"),
     ("pull_request_template", "PR Templates"),
-    ("changelog", "Changelog"),
     ("docs_link_check", "Additional Documentation"),
-    ("secrets_baseline", "Secrets Detection"),
-    ("governance", "Governance Model"),
+    ("changelog", "Changelog"),
     ("/vulnerability-alerts", "GitHub: Vulnerability Alerts"),
     ("/code-scanning/alerts", "GitHub: Code Scanning Alerts"),
-    ("/secret-scanning/alerts", "GitHub: Secret Scanning Alerts")
+    ("/secret-scanning/alerts", "GitHub: Secret Scanning Alerts"),
+    ("secrets_baseline", "Secrets Detection"),
+    ("governance", "Governance Model"),
+    ("testing", "Continuous Testing Plan")
 ]
 
 if args.output_format == 'TREE':
@@ -460,14 +467,14 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: Indicates there's an open issue ticket regarding the repository.
     - {style_status_for_markdown('PR', args.emoji)}: Indicates there's an open pull-request proposing a best practice.
 
-    ## 1. License
+    ## License
     - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if either of these files is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if neither file is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-    ## 2. README
+    ## README
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
 
     - The README must contain sections with the following titles: 
@@ -485,7 +492,7 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing sections.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing sections.
 
-    ## 3. Contributing Guide:
+    ## Contributing Guide:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/
 
     - The repository must contain a file named `CONTRIBUTING.md`.
@@ -494,7 +501,7 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CONTRIBUTING.md`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
 
-    ## 4. Code of Conduct:
+    ## Code of Conduct:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/
 
     - The repository must contain a file named `CODE_OF_CONDUCT.md`.
@@ -503,7 +510,7 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
 
-    ## 5. Issue Templates:
+    ## Issue Templates:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/
 
     - The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
@@ -512,7 +519,7 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing templates.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing templates.
 
-    ## 6. PR Templates:
+    ## PR Templates:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/pull-requests/
 
     - The repository must have a pull request (PR) template.
@@ -521,7 +528,16 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add a PR template.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding a PR template.
 
-    ## 7. Change Log:
+    ## Additional Documentation:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/trade-study-hostingdocs-user/
+
+    - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this link is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such link is present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the link.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the link.
+    
+    ## Change Log:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/
 
     - The repository must contain a file named `CHANGELOG.md`.
@@ -530,16 +546,29 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the `CHANGELOG.md`.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
-    ## 8. Additional Documentation:
-    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/trade-study-hostingdocs-user/
+    ## GitHub: Vulnerability Alerts:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
 
-    - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
-    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this link is present.
-    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such link is present.
-    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the link.
-    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the link.
+    - The repository must have GitHub Dependabot vulnerability alerts enabled.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
 
-    ## 9. Secrets Detection:
+    ## GitHub: Code Scanning Alerts:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+    - The repository must have GitHub code scanning alerts enabled.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
+
+    ## GitHub: Secrets Scanning Alerts:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+    - The repository must have GitHub secrets scanning alerts enabled.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
+
+
+    ## Secrets Detection:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/
 
     - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
@@ -548,35 +577,23 @@ if args.verbose:
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
-    ## 10. Governance Model:
+    ## Governance Model:
     View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/
 
     - The repository must contain a file named `GOVERNANCE.md`.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
-    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.    
 
-    ## 11. GitHub: Vulnerability Alerts:
-    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+    ## Continuous Testing Plan:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
 
-    - The repository must have GitHub Dependabot vulnerability alerts enabled.
-    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
-    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
-
-    ## 12. GitHub: Code Scanning Alerts:
-    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
-
-    - The repository must have GitHub code scanning alerts enabled.
-    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
-    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
-
-    ## 13. GitHub: Secrets Scanning Alerts:
-    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
-
-    - The repository must have GitHub secrets scanning alerts enabled.
-    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
-    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
+    - The repository must contain a file named `TESTING.md` that describes a continuous testing plan.
+    - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
+    - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
+    - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
+    - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.  
     """)
 
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
