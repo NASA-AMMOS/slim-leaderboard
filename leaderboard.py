@@ -16,6 +16,7 @@ from rich.console import Console
 from rich.table import Table
 from rich.tree import Tree
 from rich.markdown import Markdown
+from rich.text import Text
 from collections import Counter
 import textwrap
 import os, sys
@@ -272,7 +273,7 @@ def process_repository(repo_full_name, headers):
 # accept configuration file path from command-line argument
 parser = argparse.ArgumentParser(description="SLIM Best Practices Leaderboard Script")
 parser.add_argument("config_path", help="Path to the JSON configuration file")
-parser.add_argument('--output_format', choices=['TREE', 'TABLE', 'MARKDOWN', 'CSV'], default='TREE', type=str, help='Output formatting')
+parser.add_argument('--output_format', choices=['TREE', 'TABLE', 'MARKDOWN', 'PLAIN'], default='TREE', type=str, help='Output formatting')
 parser.add_argument('--unsorted', action='store_true', default=False, help='Do not sort results')
 parser.add_argument('--verbose', action='store_true', default=False, help='Output verbose information, inluding statistics and explanations')
 parser.add_argument('--emoji', action='store_true', default=False, help='Use pretty emojis for status instead of text')
@@ -403,6 +404,16 @@ if args.output_format == 'TREE':
                 repo_branch.add(f"{label}: {style_status_for_terminal(row[key], args.emoji)}") 
     console.print(tree)
 
+elif args.output_format == 'PLAIN':
+    #text = Text()
+    console.print("SLIM Best Practices Repository Scan Report", style="bold")
+    for row in rows:
+        console.print(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
+        for key, label in headers:
+            if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
+                console.print(f"- {label}: {style_status_for_terminal(row[key], args.emoji)}") 
+    #console.print(text)
+
 elif args.output_format == 'TABLE':
     table = Table(title="SLIM Best Practices Repository Scan Report", show_header=True, header_style="bold magenta", show_lines=True)
     for _, label in headers:
@@ -447,6 +458,12 @@ if args.verbose:
                 markdown_table += f"| {status} | {count} |\n"
 
         console.print(markdown_table)
+    elif args.output_format == "PLAIN":
+        console.print("[b]Summary Statistics[/b]")
+        for status, count in status_counts.items():
+            if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
+                console.print(f"{status}: {count}")
+        console.print()
     else:
         table = Table(title="Summary Statistics", show_header=True, header_style="bold")
         table.add_column("Status", style="dim", width=12)
