@@ -401,7 +401,7 @@ if args.output_format == 'TREE':
         repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
         for key, label in headers:
             if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
-                repo_branch.add(f"{label}: {style_status_for_terminal(row[key], args.emoji)}") 
+                repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}") 
     console.print(tree)
 
 elif args.output_format == 'PLAIN':
@@ -411,7 +411,7 @@ elif args.output_format == 'PLAIN':
         console.print(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
         for key, label in headers:
             if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
-                console.print(f"- {label}: {style_status_for_terminal(row[key], args.emoji)}") 
+                console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}: ") 
     #console.print(text)
 
 elif args.output_format == 'TABLE':
