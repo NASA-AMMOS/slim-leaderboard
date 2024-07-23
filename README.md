@@ -86,7 +86,7 @@ python leaderboard.py [CONFIG_FILE] --output_format [FORMAT] --unsorted --verbos
 
 **Arguments:**
 - `config_path`: Path to the JSON configuration file.
-- (Optional) `--output_format`: Choose from 'TREE', 'TABLE', 'MARKDOWN', or 'CSV'. Default is 'TREE'.
+- (Optional) `--output_format`: Choose from 'TREE', 'TABLE', 'MARKDOWN', or 'PLAIN'. Default is 'TREE'.
 - (Optional) `--unsorted`: If included, the results will not be sorted.
 - (Optional) `--verbose`: If included, outputs verbose information, including detailed statistics and explanations for each check performed.
 - (Optional) `--emoji`: If included, outputs emojis for statuses rathe than pure text (e.g. ✅ ❌ ⚠️ etc.)
