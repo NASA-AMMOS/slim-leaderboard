@@ -411,7 +411,7 @@ elif args.output_format == 'PLAIN':
         console.print(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
         for key, label in headers:
             if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
-                console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}: ") 
+                console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}") 
     #console.print(text)
 
 elif args.output_format == 'TABLE':
