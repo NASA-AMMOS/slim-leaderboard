@@ -33,7 +33,7 @@ This repository serves to create a leaderboard report that ranks and showcases h
 - [Contents](#contents)
 - [Quick Start](#quick-start)
   - [Setup Instructions](#setup-instructions)
-    - [Run Instructions](#run-instructions)
+  - [Run Instructions](#run-instructions)
 - [Changelog](#changelog)
 - [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
 - [Contributing](#contributing)
@@ -64,7 +64,7 @@ Below is an example of a configuration file named `slim-config.json`:
 
 Additional examples can be found in the `examples/` sub-folder within this repository.
 
-#### Run Instructions
+### Run Instructions
 
 **Requirements:**
 - Python 3
@@ -81,7 +81,7 @@ Additional examples can be found in the `examples/` sub-folder within this repos
 To generate a fresh leaderboard report, use the following command format:
 
 ```bash
-python leaderboard.py [CONFIG_FILE] --output_format [FORMAT] --unsorted --verbose
+python leaderboard.py [CONFIG_FILE] --output_format [FORMAT] --unsorted --verbose --emoji
 ```
 
 **Arguments:**
