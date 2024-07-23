@@ -7,7 +7,7 @@
 
 </div>
 
-<pre align="center">Tool to generate a Markdown report of SLIM best practices compliance.</pre>
+<pre align="center">Tool to generate a scan report of SLIM best practices compliance.</pre>
 
 <!-- Header block for project -->
 
