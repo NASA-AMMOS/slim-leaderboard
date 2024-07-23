@@ -22,6 +22,22 @@ import os, sys
 
 logging.basicConfig(level=logging.INFO)
     
+# Constants
+STATUS_TO_EMOJI_MAPPING = {
+    'YES': '🟢',
+    'NO': '🔴',
+    'PARTIAL': '🟠',
+    'ISSUE': '🔵',
+    'PR': '🟣'
+}
+STATUS_TO_COLOR_MAPPING = {
+    'YES': 'green',
+    'NO': 'red',
+    'PARTIAL': 'yellow',
+    'ISSUE': 'blue',
+    'PR': 'blue'
+}
+
 def fetch_status_code(url, headers):
     """Fetch the status code for a given URL."""
     try:
@@ -185,7 +201,7 @@ def check_files_existence(owner, repo_name, api_url, headers):
         if all(section in readme_sections for section in readme_required_sections):
             readme_check = 'YES'
         elif len(readme_sections) > 0:
-            readme_check = 'MAYBE'
+            readme_check = 'PARTIAL'
         else:
             readme_check = generate_check_mark('README.md', False, issues, pull_requests)
 
@@ -334,24 +350,10 @@ console = Console()
 def style_status_for_terminal(status, emoji=False):
     styled_status = ''
     if emoji:
-        mapping = {
-            'YES': '✅',
-            'NO': '❌',
-            'MAYBE': '⚠️',
-            'ISSUE': 'ℹ️',
-            'PR': '🅿️'
-        }
-        icon = mapping.get(status, status) # Default to text if emoji mapping not found
+        icon = STATUS_TO_EMOJI_MAPPING.get(status, status) # Default to text if emoji mapping not found
         styled_status = icon
     else:
-        mapping = {
-            'YES': 'green',
-            'NO': 'red',
-            'MAYBE': 'yellow',
-            'ISSUE': 'blue',
-            'PR': 'blue'
-        }
-        color = mapping.get(status, 'black') # Default to black if emoji mapping not found
+        color = STATUS_TO_COLOR_MAPPING.get(status, 'black') # Default to black if emoji mapping not found
         styled_status = f"[{color}]{status}[/{color}]"
     
     return styled_status
@@ -359,14 +361,7 @@ def style_status_for_terminal(status, emoji=False):
 def style_status_for_markdown(status, emoji=False):
     styled_status = ''
     if emoji:
-        mapping = {
-            'YES': '✅',
-            'NO': '❌',
-            'MAYBE': '⚠️',
-            'ISSUE': 'ℹ️',
-            'PR': '🅿️'
-        }
-        icon = mapping.get(status, status) # Default to text if emoji mapping not found
+        icon = STATUS_TO_EMOJI_MAPPING.get(status, status) # Default to text if emoji mapping not found
         styled_status = icon
     else:
         styled_status = status # Markdown doesn't support colored text, so just use no styling
@@ -441,7 +436,7 @@ if args.verbose:
 
         # Generate each row for the Markdown table based on 'status_counts'
         for status, count in status_counts.items():
-            if status in ['YES', 'NO', 'MAYBE', 'PR', 'ISSUE']:
+            if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
                 markdown_table += f"| {status} | {count} |\n"
 
         console.print(markdown_table)
@@ -450,7 +445,7 @@ if args.verbose:
         table.add_column("Status", style="dim", width=12)
         table.add_column("Count", justify="right")
         for status, count in status_counts.items():
-            if status in ['YES', 'NO', 'MAYBE', 'PR', 'ISSUE']:
+            if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
                 table.add_row(status, str(count))
         console.print(table)
 
@@ -461,7 +456,7 @@ if args.verbose:
     Each check against a repository will result in one of the following statuses:
     - {style_status_for_markdown('YES', args.emoji)}: The check passed, indicating that the repository meets the requirement.
     - {style_status_for_markdown('NO', args.emoji)}: The check failed, indicating that the repository does not meet the requirement.
-    - {style_status_for_markdown('MAYBE', args.emoji)}: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+    - {style_status_for_markdown('PARTIAL', args.emoji)}: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
     - {style_status_for_markdown('ISSUE', args.emoji)}: Indicates there's an open issue ticket regarding the repository.
     - {style_status_for_markdown('PR', args.emoji)}: Indicates there's an open pull-request proposing a best practice.
 
@@ -485,7 +480,7 @@ if args.verbose:
         - "License"
         - "Support"
     - {style_status_for_markdown('YES', args.emoji)}: If all these sections are present.
-    - {style_status_for_markdown('MAYBE', args.emoji)}: If the README file exists and has at least one section header but could use improvement in following best practices from SLIM.
+    - {style_status_for_markdown('PARTIAL', args.emoji)}: If the README file exists and has at least one section header but could use improvement in following best practices from SLIM.
     - {style_status_for_markdown('NO', args.emoji)}: If the README is missing or contains none of the required sections.
     - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add missing sections.
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing sections.
@@ -509,6 +504,8 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
 
     ## 5. Issue Templates:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/
+
     - The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if both templates are present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if the templates are absent.
@@ -516,6 +513,8 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding missing templates.
 
     ## 6. PR Templates:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/pull-requests/
+
     - The repository must have a pull request (PR) template.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if the PR template is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if the PR template is absent.
@@ -523,6 +522,8 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding a PR template.
 
     ## 7. Change Log:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/
+
     - The repository must contain a file named `CHANGELOG.md`.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this file is not present.
@@ -530,6 +531,8 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
     ## 8. Additional Documentation:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/trade-study-hostingdocs-user/
+
     - The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this link is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such link is present.
@@ -537,6 +540,8 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the link.
 
     ## 9. Secrets Detection:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/
+
     - The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
@@ -544,6 +549,8 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
     ## 10. Governance Model:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/
+
     - The repository must contain a file named `GOVERNANCE.md`.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
@@ -551,16 +558,22 @@ if args.verbose:
     - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
     ## 11. GitHub: Vulnerability Alerts:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
     - The repository must have GitHub Dependabot vulnerability alerts enabled.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
 
     ## 12. GitHub: Code Scanning Alerts:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
     - The repository must have GitHub code scanning alerts enabled.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
 
     ## 13. GitHub: Secrets Scanning Alerts:
+    View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
     - The repository must have GitHub secrets scanning alerts enabled.
     - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this setting is enabled.
     - {style_status_for_markdown('NO', args.emoji)}: The check will fail if this setting is not enabled.
