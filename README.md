@@ -68,11 +68,12 @@ Additional examples can be found in the `examples/` sub-folder within this repos
 
 **Requirements:**
 - Python 3
-- `requests` and `requests-cache` modules
+- `requests`, `requests-cache`, `tqdm`, and `rich` modules
+  - Install via: `pip install requests requests-cache tqdm rich`
 
 **Setup:**
-- Obtain a GitHub personal access token.
-- Set the environment variable `GITHUB_TOKEN` with your token. Ensure that all permissions under the "repo" group are enabled for this token, including `security_events`.
+- Obtain a GitHub personal access token (classic). Ensure that all permissions under the "repo" group are enabled for this token, including `security_events`.
+- Set the environment variable `GITHUB_TOKEN` with your token. 
 
 **Execution:**
 
