@@ -1,157 +1,221 @@
-
-## Table of Contents
-- [Leaderboard Table](#leaderboard-table) - a ranked listing of Unity repositories in order of how many best practice / compliance checks have been met.
-- [Summary Report](#summary-report) - a summarization report of total checks run, number of infused best practices detected, number of proposed detecetd. etc.
-- [Repository Check Explanation](#repository-check-explanation) - detailed explanations for the logic used to generate an ✅,  ☑️, ℹ️, 🅿️, or ❌ for each check.
-
-
-## Leaderboard Table
-| Project | Repository | [Issue Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/) | [PR Templates](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/change-request-templates/) | [Code of Conduct](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/) | [Contributing Guide](https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/) | LICENSE | [README](https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/) | [Change Log](https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/) | Link to Docs in README |
-|---|---|---|---|---|---|---|---|---|---|
-| [unity-sds](https://github.com/unity-sds) | [unity-ui](https://github.com/unity-sds/unity-ui) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-ui-infra](https://github.com/unity-sds/unity-ui-infra) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-sps](https://github.com/unity-sds/unity-sps) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-workflows](https://github.com/unity-sds/unity-sps-workflows) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-prototype](https://github.com/unity-sds/unity-sps-prototype) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-prototype-fork](https://github.com/unity-sds/unity-sps-prototype-fork) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-ogc-processes-api](https://github.com/unity-sds/unity-sps-ogc-processes-api) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-sds-portal](https://github.com/unity-sds/unity-sds-portal) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-repo-template](https://github.com/unity-sds/unity-repo-template) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-project-management](https://github.com/unity-sds/unity-project-management) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-on-demand](https://github.com/unity-sds/unity-on-demand) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-on-demand-cloudformation](https://github.com/unity-sds/unity-on-demand-cloudformation) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-data-services](https://github.com/unity-sds/unity-data-services) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-cs](https://github.com/unity-sds/unity-cs) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-cs-manager](https://github.com/unity-sds/unity-cs-manager) | ✅ | ✅ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-cs-infra](https://github.com/unity-sds/unity-cs-infra) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-architecture](https://github.com/unity-sds/unity-architecture) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-app-build-trigger](https://github.com/unity-sds/unity-app-build-trigger) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-analytics](https://github.com/unity-sds/unity-analytics) | ✅ | ✅ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-analytics-dapa-client](https://github.com/unity-sds/unity-analytics-dapa-client) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-analytics-bcdp](https://github.com/unity-sds/unity-analytics-bcdp) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-ads-deployment](https://github.com/unity-sds/unity-ads-deployment) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [sounder-sips-tutorial](https://github.com/unity-sds/sounder-sips-tutorial) | ✅ | ✅ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [ades_wpst](https://github.com/unity-sds/ades_wpst) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [SBG-unity-frac-cover](https://github.com/unity-sds/SBG-unity-frac-cover) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [unity-py](https://github.com/unity-sds/unity-py) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-on-demand-api](https://github.com/unity-sds/unity-on-demand-api) | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-| [unity-sds](https://github.com/unity-sds) | [issue-triage](https://github.com/unity-sds/issue-triage) | ✅ | ❌ | ✅ | ✅ | ✅ | ☑️ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-ads](https://github.com/unity-sds/unity-ads) | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [ui-ux](https://github.com/unity-sds/ui-ux) | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-docs](https://github.com/unity-sds/unity-docs) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | ❌ | 🅿️ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-cs-sps-demo](https://github.com/unity-sds/unity-cs-sps-demo) | 🅿️ | 🅿️ | ✅ | ✅ | ✅ | 🅿️ | 🅿️ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-analytics-sdap](https://github.com/unity-sds/unity-analytics-sdap) | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-analytics-dapa](https://github.com/unity-sds/unity-analytics-dapa) | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-system-test](https://github.com/unity-sds/unity-system-test) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | 🅿️ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-example-application](https://github.com/unity-sds/unity-example-application) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-cs-deployment-catalog](https://github.com/unity-sds/unity-cs-deployment-catalog) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-app-generator](https://github.com/unity-sds/unity-app-generator) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [cfn-ps-jpl-unity-sds](https://github.com/unity-sds/cfn-ps-jpl-unity-sds) | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [app-pack-generator](https://github.com/unity-sds/app-pack-generator) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-marketplace](https://github.com/unity-sds/unity-marketplace) | ❌ | ❌ | ❌ | ❌ | ✅ | 🅿️ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-management-console](https://github.com/unity-sds/unity-management-console) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-jobs-ui](https://github.com/unity-sds/unity-jobs-ui) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-docker-stacks](https://github.com/unity-sds/unity-docker-stacks) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-cs-auth-lambda](https://github.com/unity-sds/unity-cs-auth-lambda) | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [stac-merge](https://github.com/unity-sds/stac-merge) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [sounder-sips-application](https://github.com/unity-sds/sounder-sips-application) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [sbg-workflows](https://github.com/unity-sds/sbg-workflows) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [hysds_ui_with_auth](https://github.com/unity-sds/hysds_ui_with_auth) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [SBG-unity-preprocess](https://github.com/unity-sds/SBG-unity-preprocess) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [SBG-unity-isofit](https://github.com/unity-sds/SBG-unity-isofit) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [.github](https://github.com/unity-sds/.github) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-register_job](https://github.com/unity-sds/unity-sps-register_job) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-sps-on-demand-api](https://github.com/unity-sds/unity-sps-on-demand-api) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-reference-application](https://github.com/unity-sds/unity-reference-application) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-proxy](https://github.com/unity-sds/unity-proxy) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-cs-security](https://github.com/unity-sds/unity-cs-security) | 🅿️ | 🅿️ | 🅿️ | 🅿️ | 🅿️ | 🅿️ | 🅿️ | ❌
-| [unity-sds](https://github.com/unity-sds) | [unity-backstage](https://github.com/unity-sds/unity-backstage) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [sounder-sips-test-data](https://github.com/unity-sds/sounder-sips-test-data) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [sounder-sips-chirp-workflows](https://github.com/unity-sds/sounder-sips-chirp-workflows) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [maap-ci-stage-io](https://github.com/unity-sds/maap-ci-stage-io) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [common-cwl](https://github.com/unity-sds/common-cwl) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [application-development-lifecycle](https://github.com/unity-sds/application-development-lifecycle) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [SBG-unity-trait-estimate](https://github.com/unity-sds/SBG-unity-trait-estimate) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [SBG-unity-resample](https://github.com/unity-sds/SBG-unity-resample) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
-| [unity-sds](https://github.com/unity-sds) | [SBG-unity-reflect-correct](https://github.com/unity-sds/SBG-unity-reflect-correct) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌
+# SLIM Best Practices Repository Scan Report
+| Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| unity-sds | unity-cs-manager | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-architecture | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-project-management | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-data-services | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs-infra | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-ads-deployment | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sps-workflows | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | ades_wpst | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-system-test | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-analytics-bcdp | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-py | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-on-demand | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-repo-template | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-on-demand-cloudformation | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sds-portal | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sps | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟠 |
+| unity-sds | unity-ui | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-app-build-trigger | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sps-prototype-fork | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-analytics-dapa-client | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-ui-infra | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sps-ogc-processes-api | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | SBG-unity-frac-cover | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-initiator | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
+| unity-sds | unity-analytics | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | mdps-tutorial | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sps-ogc-processes-api-client-python | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-on-demand-api | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-ads | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | issue-triage | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-docs | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | ui-ux | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-analytics-dapa | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-analytics-sdap-nexus | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs-sps-demo | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-analytics-sdap | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-management-console | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-app-generator | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-example-application | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-monorepo | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-docker-stacks | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-marketplace | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | app-pack-generator | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs-auth-lambda | 🔴 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | cfn-ps-jpl-unity-sds | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | stac-browser | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | .github | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | hysds_ui_with_auth | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | sounder-sips-application | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-jobs-ui | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-proxy | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | SBG-unity-preprocess | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | sbg-workflows | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | SBG-unity-isofit | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-reference-application | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | stac-merge | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs-security | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | sounder-sips-test-data | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-sps-register_job | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-backstage | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | sounder-sips-chirp-workflows | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | maap-ci-stage-io | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | SBG-unity-resample | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | common-cwl | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | SBG-unity-reflect-correct | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | application-development-lifecycle | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | SBG-unity-trait-estimate | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs-monitoring-lambda | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
-## Summary Report 
+# Summary Statistics
 
-The below table summarizes the effect of generating the above leaderboard table. Here's an explanation of each summarization statistic: 
-- Infused Count: the total number of best practices that have been detected infused into code repositories
-- Proposed PR Count: the total number of best practices that are currently in proposal state as pull-requests to code repositories
-- Proposed Issues Count: the total number of best practices that are currently in proposal state as issue tickets to code repositories
-- Total Checks Run Count: the total number of best practice checks that have been run against the total number of repositories evaluated
-
-| Infused Count (✅, ☑️) | Proposed PR Count (🅿️) | Proposed Issues Count (ℹ️) | Total Checks Run Count |
-| ---------------------- | --------------------- | ------------------------- | --------------------- |
-| 262        | 32            | 0             | 462        |
+| Status | Count |
+| ------ | ----- |
+| PARTIAL | 37 |
+| YES | 296 |
+| NO | 612 |
+| PR | 21 |
 
 
-## Repository Check Explanation 
+# Repository Check Explanation 
 
 Each check against a repository will result in one of the following statuses:
-- ✅: The check passed, indicating that the repository meets the requirement.
-- 🅿️: Indicates a best practice is currently in proposal state as a pull-request to the repository.
-- ℹ️: Indicates a best practice is currently in proposal state as an issue ticket to the repository.
+- 🟢: The check passed, indicating that the repository meets the requirement.
+- 🔴: The check failed, indicating that the repository does not meet the requirement.
+- 🟠: The check passed conditionally, indicating that while the repository meets the requirement, improvements are needed.
+- 🔵: Indicates there's an open issue ticket regarding the repository.
+- 🟣: Indicates there's an open pull-request proposing a best practice.
 
-### 1. Issue Templates:
-- The repository must have the following issue templates:
-  - `bug_report.md`: Template for bug reports.
-  - `feature_request.md`: Template for feature requests.
-- ✅ The check will pass with a green check mark if both templates are present.
-- 🅿️ If a pull-request is proposed to add missing templates.
-- ℹ️ If an issue is opened to suggest adding missing templates.
-
-### 2. PR Templates:
-- The repository must have a pull request (PR) template.
-- ✅ The check will pass with a green check mark if the PR template is present.
-- 🅿️ If a pull-request is proposed to add a PR template.
-- ℹ️ If an issue is opened to suggest adding a PR template.
-
-### 3. Code of Conduct:
-- The repository must contain a file named `CODE_OF_CONDUCT.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
-- ℹ️ If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
-
-### 4. Contributing Guide:
-- The repository must contain a file named `CONTRIBUTING.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CONTRIBUTING.md`.
-- ℹ️ If an issue is opened to suggest adding the `CONTRIBUTING.md`.
-
-### 5. License:
+## License
 - The repository must contain a file named either `LICENSE` or `LICENSE.txt`.
-- ✅ The check will pass with a green check mark if either of these files is present.
-- 🅿️ If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
-- ℹ️ If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
+- 🟢: The check will pass if either of these files is present.
+- 🔴: The check will fail if neither file is present.
+- 🟣: If a pull-request is proposed to add the `LICENSE` or `LICENSE.txt`.
+- 🔵: If an issue is opened to suggest adding the `LICENSE` or `LICENSE.txt`.
 
-### 6. README Sections:
+## README
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
+
 - The README must contain sections with the following titles: 
-  - "Features"
-  - "Contents"
-  - "Quick Start"
-  - "Changelog"
-  - "Frequently Asked Questions (FAQ)"
-  - "Contributing"
-  - "License"
-  - "Support"
-- ✅ If all these sections are present, the check will pass with a green check mark.
-- ☑️ If only the sections "Contributing", "License", and "Support" are present, the check will pass with a different check mark.
-- 🅿️ If a pull-request is proposed to add missing sections.
-- ℹ️ If an issue is opened to suggest adding missing sections.
+    - "Features"
+    - "Contents"
+    - "Quick Start"
+    - "Changelog"
+    - "Frequently Asked Questions (FAQ)"
+    - "Contributing"
+    - "License"
+    - "Support"
+- 🟢: If all these sections are present.
+- 🟠: If the README file exists and has at least one section header but could use improvement in following best practices from SLIM.
+- 🔴: If the README is missing or contains none of the required sections.
+- 🟣: If a pull-request is proposed to add missing sections.
+- 🔵: If an issue is opened to suggest adding missing sections.
 
-### 7. Change Log:
+## Contributing Guide:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/contributing-guide/
+
+- The repository must contain a file named `CONTRIBUTING.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if this file is not present.
+- 🟣: If a pull-request is proposed to add the `CONTRIBUTING.md`.
+- 🔵: If an issue is opened to suggest adding the `CONTRIBUTING.md`.
+
+## Code of Conduct:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/code-of-conduct/
+
+- The repository must contain a file named `CODE_OF_CONDUCT.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if this file is not present.
+- 🟣: If a pull-request is proposed to add the `CODE_OF_CONDUCT.md`.
+- 🔵: If an issue is opened to suggest adding the `CODE_OF_CONDUCT.md`.
+
+## Issue Templates:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/issue-templates/
+
+- The repository must have the following issue templates: `bug_report.md` for bug reports and `feature_request.md` for feature requests.
+- 🟢: The check will pass if both templates are present.
+- 🔴: The check will fail if the templates are absent.
+- 🟣: If a pull-request is proposed to add missing templates.
+- 🔵: If an issue is opened to suggest adding missing templates.
+
+## PR Templates:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/contributions/pull-requests/
+
+- The repository must have a pull request (PR) template.
+- 🟢: The check will pass if the PR template is present.
+- 🔴: The check will fail if the PR template is absent.
+- 🟣: If a pull-request is proposed to add a PR template.
+- 🔵: If an issue is opened to suggest adding a PR template.
+
+## Additional Documentation:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/documentation-hosts/trade-study-hostingdocs-user/
+
+- The README must contain a link to additional documentation, with a link label containing terms like "Docs", "Documentation", "Guide", "Tutorial", "Manual", "Instructions", "Handbook", "Reference", "User Guide", "Knowledge Base", or "Quick Start".
+- 🟢: The check will pass if this link is present.
+- 🔴: The check will fail if no such link is present.
+- 🟣: If a pull-request is proposed to add the link.
+- 🔵: If an issue is opened to suggest adding the link.
+
+## Change Log:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/
+
 - The repository must contain a file named `CHANGELOG.md`.
-- ✅ The check will pass with a green check mark if this file is present.
-- 🅿️ If a pull-request is proposed to add the `CHANGELOG.md`.
-- ℹ️ If an issue is opened to suggest adding the `CHANGELOG.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if this file is not present.
+- 🟣: If a pull-request is proposed to add the `CHANGELOG.md`.
+- 🔵: If an issue is opened to suggest adding the `CHANGELOG.md`.
 
-### 8. Docs Link in README:
-- The README must contain a link with a label containing either "Docs" or "Documentation". Ex: "Unity-SPS Docs", "docs", or "Unity Documentation"
-- ✅ The check will pass with a green check mark if this link is present.
-- 🅿️ If a pull-request is proposed to add the "Docs" or "Documentation" link.
-- ℹ️ If an issue is opened to suggest adding the "Docs" or "Documentation" link.
+## GitHub: Vulnerability Alerts:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
 
+- The repository must have GitHub Dependabot vulnerability alerts enabled.
+- 🟢: The check will pass if this setting is enabled.
+- 🔴: The check will fail if this setting is not enabled.
+
+## GitHub: Code Scanning Alerts:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+- The repository must have GitHub code scanning alerts enabled.
+- 🟢: The check will pass if this setting is enabled.
+- 🔴: The check will fail if this setting is not enabled.
+
+## GitHub: Secrets Scanning Alerts:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/github-security/
+
+- The repository must have GitHub secrets scanning alerts enabled.
+- 🟢: The check will pass if this setting is enabled.
+- 🔴: The check will fail if this setting is not enabled.
+
+
+## Secrets Detection:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/security/secrets-detection/
+
+- The repository must contain a file named `.secrets.baseline`, which represents the use of the detect-secrets tool.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if no such file is present.
+- 🟣: If a pull-request is proposed to add the file.
+- 🔵: If an issue is opened to suggest adding the file.
+
+## Governance Model:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governance/governance-model/
+
+- The repository must contain a file named `GOVERNANCE.md`.
+- 🟢: The check will pass if this file is present.
+- 🔴: The check will fail if no such file is present.
+- 🟣: If a pull-request is proposed to add the file.
+- 🔵: If an issue is opened to suggest adding the file.    
+
+## Continuous Testing Plan:
+View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
+
+- The repository must contain a file named `TESTING.md` that describes a continuous testing plan with required sections filled out.
+- 🟢: The check will pass if this file is present and required sections such as "Static Code Analysis", "Unit Tests", "Security Tests", "Build Tests", "Acceptance Tests" exist.
+- 🟠: If the TESTING.md file exists but is missing recommended sections
+- 🔴: The check will fail if no such file is present.
+- 🟣: If a pull-request is proposed to add the file.
+- 🔵: If an issue is opened to suggest adding the file. 
