@@ -1,9 +1,56 @@
 {
-    "targets": [
-        {
-            "type": "repository",
-            "name": "https://github.com/nasa/opera-sds-pge"
-        }
-    ]
-  }
-  
+  "targets": [
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-pge"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-pcm"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-sys"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-lambdas"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-bach-ui"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-bach-api"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-int"
+      },
+      {
+          "type": "repository",
+          "name": "https://github.com/nasa/opera-sds-ops"
+      },
+      {
+        "type": "repository",
+        "name": "https://github.com/nasa/PROTEUS"
+      },
+      {
+        "type": "organization",
+        "name": "https://github.com/opera-adt"
+      },
+      {
+        "type": "repository",
+        "name": "https://github.com/gladumd/OPERA_DIST"
+      },
+      {
+        "type": "organization",
+        "name": "https://github.com/OPERA-Cal-Val"
+      }
+  ]
+}
