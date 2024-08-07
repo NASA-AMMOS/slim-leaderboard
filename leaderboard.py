@@ -190,55 +190,60 @@ def check_files_existence(owner, repo_name, api_url, headers):
 
     if response.status_code == 200:
         result = response.json()
-        issues = [
-            issue['title']
-            for issue in result.get('data', {}).get('repository', {}).get('issues', {}).get('nodes', [])
-            if issue and 'title' in issue  # Ensure 'issue' is a dictionary and has the key 'title'
-        ]
-        pull_requests = [{
-            'title': pr['title'],
-            'files': [file['path'] for file in pr.get('files', {}).get('nodes', [])] if pr.get('files') else []
-        } for pr in result['data']['repository']['pullRequests']['nodes']]
 
-        # README in-depth checks
-        readme_text = result['data']['repository']['readme']['text'] if result['data']['repository']['readme'] else ""
-        readme_required_sections = ["Features", "Contents", "Quick Start", "Changelog", "Frequently Asked Questions (FAQ)", "Contributing", "License", "Support"]
-        readme_sections = re.findall(r'^#+\s*(.*)$', readme_text, re.MULTILINE)
-        if all(section in readme_sections for section in readme_required_sections):
-            readme_check = 'YES'
-        elif len(readme_sections) > 0:
-            readme_check = 'PARTIAL'
+        if not result.get('errors'): # Process as long as results are clean
+            issues = [
+                issue['title']
+                for issue in result.get('data', {}).get('repository', {}).get('issues', {}).get('nodes', [])
+                if issue and 'title' in issue  # Ensure 'issue' is a dictionary and has the key 'title'
+            ]
+            pull_requests = [{
+                'title': pr['title'],
+                'files': [file['path'] for file in pr.get('files', {}).get('nodes', [])] if pr.get('files') else []
+            } for pr in result['data']['repository']['pullRequests']['nodes']]
+
+            # README in-depth checks
+            readme_text = result['data']['repository']['readme']['text'] if result['data']['repository']['readme'] else ""
+            readme_required_sections = ["Features", "Contents", "Quick Start", "Changelog", "Frequently Asked Questions (FAQ)", "Contributing", "License", "Support"]
+            readme_sections = re.findall(r'^#+\s*(.*)$', readme_text, re.MULTILINE)
+            if all(section in readme_sections for section in readme_required_sections):
+                readme_check = 'YES'
+            elif len(readme_sections) > 0:
+                readme_check = 'PARTIAL'
+            else:
+                readme_check = generate_check_mark('README.md', None, issues, pull_requests)
+            docs_link_check = 'YES' if re.search(r'\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b(?:\s*\[\s*.*?\s*\]\s*\(\s*[^)]*\s*\))?', readme_text, re.IGNORECASE) else 'NO'
+
+            # TESTING.md in-depth checks
+            testing_text = result['data']['repository']['testing']['text'] if result['data']['repository']['testing'] else ""
+            testing_required_sections = ["Static Code Analysis", "Unit Tests", "Security Tests", "Build Tests", "Acceptance Tests"]
+            testing_sections = re.findall(r'^#+\s*(.*)$', testing_text, re.MULTILINE)
+            if all(section in testing_sections for section in testing_required_sections):
+                testing_check = 'YES'
+            elif len(testing_text) > 0:
+                testing_check = 'PARTIAL'
+            else:
+                testing_check = generate_check_mark('TESTING.md', None, issues, pull_requests)
+
+            checks = {
+                'owner': owner,
+                'repo': repo_name,
+                'readme': readme_check,
+                'license': generate_check_mark('LICENSE', result['data']['repository']['license'] or result['data']['repository']['licenseTxt'] or result['data']['repository']['licenseMd'], issues, pull_requests),
+                'contributing': generate_check_mark('CONTRIBUTING.md', result['data']['repository']['contributing'], issues, pull_requests),
+                'code_of_conduct': generate_check_mark('CODE_OF_CONDUCT.md', result['data']['repository']['code_of_conduct'], issues, pull_requests),
+                'issue_templates': generate_check_mark('.github/ISSUE_TEMPLATE', result['data']['repository']['issue_templates'], issues, pull_requests),
+                'pull_request_template': generate_check_mark('PULL_REQUEST_TEMPLATE.md', result['data']['repository']['pull_request_template'], issues, pull_requests),
+                'changelog': generate_check_mark('CHANGELOG.md', result['data']['repository']['changelog'], issues, pull_requests),
+                'docs_link_check': docs_link_check,
+                'secrets_baseline': generate_check_mark('.secrets.baseline', result['data']['repository']['secrets_baseline'], issues, pull_requests),
+                'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests),
+                'testing': testing_check
+            }
+            return checks
         else:
-            readme_check = generate_check_mark('README.md', None, issues, pull_requests)
-        docs_link_check = 'YES' if re.search(r'\b(?:Docs|Documentation|Guide|Tutorial|Manual|Instructions|Handbook|Reference|User Guide|Knowledge Base|Quick Start)\b(?:\s*\[\s*.*?\s*\]\s*\(\s*[^)]*\s*\))?', readme_text, re.IGNORECASE) else 'NO'
-
-        # TESTING.md in-depth checks
-        testing_text = result['data']['repository']['testing']['text'] if result['data']['repository']['testing'] else ""
-        testing_required_sections = ["Static Code Analysis", "Unit Tests", "Security Tests", "Build Tests", "Acceptance Tests"]
-        testing_sections = re.findall(r'^#+\s*(.*)$', testing_text, re.MULTILINE)
-        if all(section in testing_sections for section in testing_required_sections):
-            testing_check = 'YES'
-        elif len(testing_text) > 0:
-            testing_check = 'PARTIAL'
-        else:
-            testing_check = generate_check_mark('TESTING.md', None, issues, pull_requests)
-
-        checks = {
-            'owner': owner,
-            'repo': repo_name,
-            'readme': readme_check,
-            'license': generate_check_mark('LICENSE', result['data']['repository']['license'] or result['data']['repository']['licenseTxt'] or result['data']['repository']['licenseMd'], issues, pull_requests),
-            'contributing': generate_check_mark('CONTRIBUTING.md', result['data']['repository']['contributing'], issues, pull_requests),
-            'code_of_conduct': generate_check_mark('CODE_OF_CONDUCT.md', result['data']['repository']['code_of_conduct'], issues, pull_requests),
-            'issue_templates': generate_check_mark('.github/ISSUE_TEMPLATE', result['data']['repository']['issue_templates'], issues, pull_requests),
-            'pull_request_template': generate_check_mark('PULL_REQUEST_TEMPLATE.md', result['data']['repository']['pull_request_template'], issues, pull_requests),
-            'changelog': generate_check_mark('CHANGELOG.md', result['data']['repository']['changelog'], issues, pull_requests),
-            'docs_link_check': docs_link_check,
-            'secrets_baseline': generate_check_mark('.secrets.baseline', result['data']['repository']['secrets_baseline'], issues, pull_requests),
-            'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests),
-            'testing': testing_check
-        }
-        return checks
+            logging.warning(f"Invalid or malformed response to checks for {owner}/{repo_name} at {api_url}: {response.status_code} - {response.text}")
+            return None
     else:
         logging.error(f"Failed to check file existence for {owner}/{repo_name} at {api_url}: {response.status_code} - {response.text}")
         return None
@@ -407,10 +412,11 @@ headers = [
 if args.output_format == 'TREE':
     tree = Tree("SLIM Best Practices Repository Scan Report")
     for row in rows:
-        repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
-        for key, label in headers:
-            if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
-                repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}") 
+        if 'owner' in row and 'repo' in row:
+            repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
+            for key, label in headers:
+                if key not in ['owner', 'repo']: # ignore owner and repo for the tree list since we printed it above already
+                    repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}") 
     console.print(tree)
 
 elif args.output_format == 'PLAIN':
