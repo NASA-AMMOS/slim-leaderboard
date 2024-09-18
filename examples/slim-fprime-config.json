@@ -1,0 +1,10 @@
+{
+    "targets": [
+    
+        {
+            "type": "repository",
+            "name": "https://github.com/nasa/fprime"
+        }
+    ]
+  }
+  
