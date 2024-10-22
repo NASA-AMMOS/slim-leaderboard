@@ -1,11 +1,11 @@
-name: Run Python Script
+name: Run Leaderboard Generation
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: '0 0 * * *'  # Fixed the cron syntax
+    - cron: '0 0 * * *'
 
 jobs:
   build:
@@ -26,12 +26,25 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
-    - name: Run script
+    - name: Run script and prepare files
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       run: |
+        # Clear existing files first
+        > examples/slim-fprime-leaderboard.md
+        > examples/slim-ammos-leaderboard.md
+        
+        # Generate new content
         python leaderboard.py examples/slim-fprime-config.json --output_format MARKDOWN --unsorted --emoji >> examples/slim-fprime-leaderboard.md
         python leaderboard.py examples/slim-ammos-config.json --output_format MARKDOWN --unsorted --emoji >> examples/slim-ammos-leaderboard.md
+        
+        # Set git config
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Stage the files
+        git add examples/slim-fprime-leaderboard.md
+        git add examples/slim-ammos-leaderboard.md
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
@@ -53,3 +66,5 @@ jobs:
         labels: |
           automated-pr
           leaderboard-update
+        create-branch: true
+        branch-suffix: timestamp
