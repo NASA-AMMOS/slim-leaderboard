@@ -13,6 +13,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN }}  # or secrets.PAT if you named it PAT
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -25,7 +27,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
     - name: Run script
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}  # Make token available to script
       run: |
         python leaderboard.py examples/slim-fprime-config.json --output_format MARKDOWN --unsorted --emoji >> examples/slim-fprime-leaderboard.md
         python leaderboard.py examples/slim-ammos-config.json --output_format MARKDOWN --unsorted --emoji >> examples/slim-ammos-leaderboard.md
-        
