@@ -498,23 +498,23 @@ if args.verbose:
     column_averages = calculate_column_statistics(rows, headers)
     
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
-        #markdown_table = textwrap.dedent("""
-        ## Summary Statistics
-        #
-        #| Status | Count |
-        #| ------ | ----- |
-        #""")
+        markdown_table = textwrap.dedent("""
+        # Summary Statistics
+        
+        | Status | Count |
+        | ------ | ----- |
+        """)
 
         # Generate each row for the Markdown table based on 'status_counts'
         #for status, count in status_counts.items():
         #    if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
         #        markdown_table += f"| {status} | {count} |\n"
                 
-        print("\n # Summary Statistics") 
-        print("\n| Category | Average Score |")
-        print("|----------|---------------|")
+        markdown_table += "\n # Summary Statistics"
+        markdown_table += "\n| Category | Average Score |"
+        markdown_table += "|----------|---------------|"
         for category, score in column_averages.items():
-            print(f"| {category} | {score:.0f} |")
+            markdown_table += f"| {category} | {score:.0f} |"
             
         console.print(markdown_table)
     elif args.output_format == "PLAIN":
