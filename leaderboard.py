@@ -498,22 +498,23 @@ if args.verbose:
     column_averages = calculate_column_statistics(rows, headers)
     
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
-        markdown_table = textwrap.dedent("""
-        # Summary Statistics
-
-        | Status | Count |
-        | ------ | ----- |
-        """)
+        #markdown_table = textwrap.dedent("""
+        ## Summary Statistics
+        #
+        #| Status | Count |
+        #| ------ | ----- |
+        #""")
 
         # Generate each row for the Markdown table based on 'status_counts'
-        for status, count in status_counts.items():
-            if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
-                markdown_table += f"| {status} | {count} |\n"
-
+        #for status, count in status_counts.items():
+        #    if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
+        #        markdown_table += f"| {status} | {count} |\n"
+                
+        print("\n # Summary Statistics") 
         print("\n| Category | Average Score |")
         print("|----------|---------------|")
         for category, score in column_averages.items():
-            print(f"| {category} | {score:.2f} |")
+            print(f"| {category} | {score:.0f} |")
             
         console.print(markdown_table)
     elif args.output_format == "PLAIN":
@@ -536,7 +537,7 @@ if args.verbose:
     overall_average = sum(all_scores) / len(all_scores) if all_scores else 0
 
     if args.output_format == "MARKDOWN":
-        print(f"\n**Overall Repository Average Score**: {overall_average:.2f}")
+        print(f"\n**Overall Repository Average Score**: {overall_average:.0f}")
 
     # Explanations
     markdown_explanations = textwrap.dedent(f"""
