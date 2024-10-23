@@ -74,20 +74,20 @@
 
 | Category | Average Score |
 |----------|---------------|
-| License | 95.00 |
-| Additional Documentation | 92.06 |
-| Contributing Guide | 87.94 |
-| Code of Conduct | 87.94 |
-| Changelog | 87.35 |
-| Issue Templates | 84.41 |
-| PR Templates | 83.82 |
-| Governance Model | 80.29 |
-| GitHub: Vulnerability Alerts | 80.00 |
-| GitHub: Code Scanning Alerts | 80.00 |
-| GitHub: Secret Scanning Alerts | 80.00 |
-| Secrets Detection | 80.00 |
-| Continuous Testing Plan | 78.82 |
-| Readme | 74.71 |
+| License | 79.78 |
+| Readme | 62.13 |
+| Additional Documentation | 60.29 |
+| Changelog | 55.88 |
+| Contributing Guide | 54.04 |
+| Code of Conduct | 54.04 |
+| Issue Templates | 45.96 |
+| PR Templates | 43.01 |
+| Governance Model | 1.47 |
+| Continuous Testing Plan | 1.10 |
+| GitHub: Vulnerability Alerts | 0.00 |
+| GitHub: Code Scanning Alerts | 0.00 |
+| GitHub: Secret Scanning Alerts | 0.00 |
+| Secrets Detection | 0.00 |
 
 # Summary Statistics
 
@@ -99,7 +99,7 @@
 | PARTIAL | 39 |
 
 
-**Overall Repository Average Score**: 83.74
+**Overall Repository Average Score**: 32.69
 
 # Repository Check Explanation 
 
