@@ -17,11 +17,11 @@
 | Additional Documentation | 100.00 |
 | Changelog | 100.00 |
 | Governance Model | 100.00 |
-| Secrets Detection | 90.00 |
-| GitHub: Vulnerability Alerts | 80.00 |
-| GitHub: Code Scanning Alerts | 80.00 |
-| GitHub: Secret Scanning Alerts | 80.00 |
-| Continuous Testing Plan | 80.00 |
+| Secrets Detection | 50.00 |
+| GitHub: Vulnerability Alerts | 0.00 |
+| GitHub: Code Scanning Alerts | 0.00 |
+| GitHub: Secret Scanning Alerts | 0.00 |
+| Continuous Testing Plan | 0.00 |
 
 # Summary Statistics
 
@@ -31,7 +31,7 @@
 | NO | 9 |
 
 
-**Overall Repository Average Score**: 93.57
+**Overall Repository Average Score**: 67.86
 
 # Repository Check Explanation 
 
