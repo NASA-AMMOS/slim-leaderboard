@@ -40,10 +40,10 @@ STATUS_TO_COLOR_MAPPING = {
 }
 STATUS_TO_SCORE_MAPPING = {
     'YES': 100,
-    'NO': 80,
-    'PARTIAL': 60,
-    'ISSUE': 40,
-    'PR': 20
+    'NO': 0,
+    'PARTIAL': 50,
+    'ISSUE': 25,
+    'PR': 25
 }
 
 def fetch_status_code(url, headers):
