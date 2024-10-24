@@ -501,7 +501,7 @@ if args.verbose:
         markdown_table = textwrap.dedent("""
         # Summary Statistics
         
-        | Status | Count |
+        | Category | Score |
         | ------ | ----- |
         """)
 
@@ -510,9 +510,6 @@ if args.verbose:
         #    if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
         #        markdown_table += f"| {status} | {count} |\n"
                 
-        markdown_table += "\n # Summary Statistics"
-        markdown_table += "\n| Category | Average Score |"
-        markdown_table += "|----------|---------------|"
         for category, score in column_averages.items():
             markdown_table += f"| {category} | {score:.0f} |"
             
