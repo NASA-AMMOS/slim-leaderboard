@@ -5,33 +5,27 @@
 | nasa | fprime | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
-| Category | Average Score |
-|----------|---------------|
-| License | 100.00 |
-| Contributing Guide | 100.00 |
-| Code of Conduct | 100.00 |
-| Issue Templates | 100.00 |
-| Additional Documentation | 100.00 |
-| Readme | 50.00 |
-| PR Templates | 0.00 |
-| Changelog | 0.00 |
-| GitHub: Vulnerability Alerts | 0.00 |
-| GitHub: Code Scanning Alerts | 0.00 |
-| GitHub: Secret Scanning Alerts | 0.00 |
-| Secrets Detection | 0.00 |
-| Governance Model | 0.00 |
-| Continuous Testing Plan | 0.00 |
-
 # Summary Statistics
 
-| Status | Count |
+| Category | Score (%) |
 | ------ | ----- |
-| PARTIAL | 1 |
-| YES | 5 |
-| NO | 8 |
+| License | 100.0 |
+| Contributing Guide | 100.0 |
+| Code of Conduct | 100.0 |
+| Issue Templates | 100.0 |
+| Additional Documentation | 100.0 |
+| Readme | 50.0 |
+| PR Templates | 0.0 |
+| Changelog | 0.0 |
+| GitHub: Vulnerability Alerts | 0.0 |
+| GitHub: Code Scanning Alerts | 0.0 |
+| GitHub: Secret Scanning Alerts | 0.0 |
+| Secrets Detection | 0.0 |
+| Governance Model | 0.0 |
+| Continuous Testing Plan | 0.0 |
 
 
-**Overall Repository Average Score**: 39.29
+**Overall Repository Average Score**: 39
 
 # Repository Check Explanation 
 

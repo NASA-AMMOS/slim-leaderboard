@@ -85,34 +85,27 @@
 | rzellem | EXOTIC | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
-| Category | Average Score |
-|----------|---------------|
-| Additional Documentation | 64.20 |
-| License | 58.64 |
-| Readme | 46.91 |
-| Code of Conduct | 43.21 |
-| Contributing Guide | 38.58 |
-| Changelog | 34.26 |
-| Issue Templates | 33.95 |
-| PR Templates | 29.63 |
-| Governance Model | 8.64 |
-| Secrets Detection | 2.47 |
-| Continuous Testing Plan | 0.62 |
-| GitHub: Vulnerability Alerts | 0.00 |
-| GitHub: Code Scanning Alerts | 0.00 |
-| GitHub: Secret Scanning Alerts | 0.00 |
-
 # Summary Statistics
 
-| Status | Count |
+| Category | Score (%) |
 | ------ | ----- |
-| NO | 657 |
-| YES | 210 |
-| PR | 204 |
-| PARTIAL | 63 |
+| Additional Documentation | 64.2 |
+| License | 58.6 |
+| Readme | 46.9 |
+| Code of Conduct | 43.2 |
+| Contributing Guide | 38.6 |
+| Changelog | 34.3 |
+| Issue Templates | 34.0 |
+| PR Templates | 29.6 |
+| Governance Model | 8.6 |
+| Secrets Detection | 2.5 |
+| Continuous Testing Plan | 0.6 |
+| GitHub: Vulnerability Alerts | 0.0 |
+| GitHub: Code Scanning Alerts | 0.0 |
+| GitHub: Secret Scanning Alerts | 0.0 |
 
 
-**Overall Repository Average Score**: 25.79
+**Overall Repository Average Score**: 26
 
 # Repository Check Explanation 
 
