@@ -534,7 +534,7 @@ if args.verbose:
     overall_average = sum(all_scores) / len(all_scores) if all_scores else 0
 
     if args.output_format == "MARKDOWN":
-        print(f"\n**Overall Repository Average Score**: {overall_average:.0f}")
+        print(f"\n**Overall Repository Average Score (%)**: {overall_average:.1f}")
 
     # Explanations
     markdown_explanations = textwrap.dedent(f"""
