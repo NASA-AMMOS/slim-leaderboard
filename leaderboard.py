@@ -501,7 +501,7 @@ if args.verbose:
         markdown_table = textwrap.dedent("""
         # Summary Statistics
         
-        | Category | Score |
+        | Category | Score (%) |
         | ------ | ----- |
         """)
 
@@ -511,7 +511,7 @@ if args.verbose:
         #        markdown_table += f"| {status} | {count} |\n"
                 
         for category, score in column_averages.items():
-            markdown_table += f"| {category} | {score:.0f} |\n"
+            markdown_table += f"| {category} | {score:.1f} |\n"
             
         console.print(markdown_table)
     elif args.output_format == "PLAIN":
