@@ -511,7 +511,7 @@ if args.verbose:
         #        markdown_table += f"| {status} | {count} |\n"
                 
         for category, score in column_averages.items():
-            markdown_table += f"| {category} | {score:.0f} |"
+            markdown_table += f"| {category} | {score:.0f} |\n"
             
         console.print(markdown_table)
     elif args.output_format == "PLAIN":
