@@ -81,6 +81,8 @@
 | nasa-ammos | aerie-ui-plugin-examples | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | slim-docsite-template | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | nasa-ammos | aerie-fprime-sequence-adaptation | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-phoenix-adaptation-template | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-phoenix-adaptation-vml | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa | FEI | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | rzellem | EXOTIC | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
@@ -89,23 +91,23 @@
 
 | Category | Score (%) |
 | ------ | ----- |
-| Additional Documentation | 64.2 |
-| License | 58.6 |
-| Readme | 46.9 |
-| Code of Conduct | 43.2 |
-| Contributing Guide | 38.6 |
-| Changelog | 34.3 |
-| Issue Templates | 34.0 |
-| PR Templates | 29.6 |
-| Governance Model | 8.6 |
-| Secrets Detection | 2.5 |
+| Additional Documentation | 62.6 |
+| License | 59.6 |
+| Readme | 47.0 |
+| Code of Conduct | 42.2 |
+| Contributing Guide | 37.6 |
+| Changelog | 33.4 |
+| Issue Templates | 33.1 |
+| PR Templates | 28.9 |
+| Governance Model | 8.4 |
+| Secrets Detection | 2.4 |
 | Continuous Testing Plan | 0.6 |
 | GitHub: Vulnerability Alerts | 0.0 |
 | GitHub: Code Scanning Alerts | 0.0 |
 | GitHub: Secret Scanning Alerts | 0.0 |
 
 
-**Overall Repository Average Score**: 26
+**Overall Repository Average Score (%)**: 25.4
 
 # Repository Check Explanation 
 

@@ -92,7 +92,7 @@
 | Secrets Detection | 0.0 |
 
 
-**Overall Repository Average Score**: 33
+**Overall Repository Average Score (%)**: 32.7
 
 # Repository Check Explanation 
 
