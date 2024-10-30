@@ -78,7 +78,7 @@
 | Governance Model | 0.0 |
 
 
-**Overall Repository Average Score**: 15
+**Overall Repository Average Score (%)**: 15.3
 
 # Repository Check Explanation 
 

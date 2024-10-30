@@ -25,7 +25,7 @@
 | Continuous Testing Plan | 0.0 |
 
 
-**Overall Repository Average Score**: 39
+**Overall Repository Average Score (%)**: 39.3
 
 # Repository Check Explanation 
 
