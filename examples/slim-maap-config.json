@@ -1,0 +1,8 @@
+{
+    "targets": [
+        {
+            "type": "organization",
+            "name": "https://github.com/MAAP-project"
+        }
+    ]
+  }

@@ -38,6 +38,13 @@ STATUS_TO_COLOR_MAPPING = {
     'ISSUE': 'blue',
     'PR': 'blue'
 }
+STATUS_TO_SCORE_MAPPING = {
+    'YES': 100,
+    'NO': 0,
+    'PARTIAL': 50,
+    'ISSUE': 25,
+    'PR': 25
+}
 
 def fetch_status_code(url, headers):
     """Fetch the status code for a given URL."""
@@ -282,6 +289,35 @@ def process_repository(repo_full_name, headers):
         traceback.print_exc()
         return {'repo_full_name': repo_full_name}
 
+def calculate_column_statistics(rows, headers):
+    """Calculate average scores for each column."""
+    column_scores = {}
+    column_counts = {}
+    
+    for _, label in headers:
+        if label not in ['Owner', 'Repository']:  # Skip non-score columns
+            column_scores[label] = 0
+            column_counts[label] = 0
+    
+    for row in rows:
+        for key, label in headers:
+            if key not in ['owner', 'repo']:  # Skip owner and repo columns
+                if row[key] in STATUS_TO_SCORE_MAPPING:
+                    column_scores[label] += STATUS_TO_SCORE_MAPPING[row[key]]
+                    column_counts[label] += 1
+    
+    # Calculate averages
+    column_averages = {}
+    for label in column_scores:
+        if column_counts[label] > 0:
+            column_averages[label] = round(column_scores[label] / column_counts[label], 2)
+        else:
+            column_averages[label] = 0
+            
+    # Sort by average score
+    sorted_averages = dict(sorted(column_averages.items(), key=lambda x: x[1], reverse=True))
+    return sorted_averages
+
 
 # load configuration from external JSON file
 # accept configuration file path from command-line argument
@@ -459,19 +495,24 @@ if args.verbose:
     # Summary statistics
     print()
 
+    column_averages = calculate_column_statistics(rows, headers)
+    
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
         markdown_table = textwrap.dedent("""
         # Summary Statistics
-
-        | Status | Count |
+        
+        | Category | Score (%) |
         | ------ | ----- |
         """)
 
         # Generate each row for the Markdown table based on 'status_counts'
-        for status, count in status_counts.items():
-            if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
-                markdown_table += f"| {status} | {count} |\n"
-
+        #for status, count in status_counts.items():
+        #    if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
+        #        markdown_table += f"| {status} | {count} |\n"
+                
+        for category, score in column_averages.items():
+            markdown_table += f"| {category} | {score:.1f} |\n"
+            
         console.print(markdown_table)
     elif args.output_format == "PLAIN":
         console.print("[b]Summary Statistics[/b]")
@@ -487,6 +528,13 @@ if args.verbose:
             if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
                 table.add_row(status, str(count))
         console.print(table)
+
+    # Calculate and display overall repository score
+    all_scores = list(column_averages.values())
+    overall_average = sum(all_scores) / len(all_scores) if all_scores else 0
+
+    if args.output_format == "MARKDOWN":
+        print(f"\n**Overall Repository Average Score (%)**: {overall_average:.1f}")
 
     # Explanations
     markdown_explanations = textwrap.dedent(f"""
