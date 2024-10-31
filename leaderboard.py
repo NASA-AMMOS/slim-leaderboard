@@ -500,7 +500,12 @@ if args.verbose:
     if args.output_format == "MARKDOWN": # If markdown styling specified, will just print pure Markdown text not rendered
         markdown_table = textwrap.dedent("""
         # Summary Statistics
-        
+        'YES': Full completion/success (100%)
+        'NO': No completion/failure (0%)
+        'PARTIAL': Partial completion (50%)
+        'ISSUE': Problem reported (25%)
+        'PR' (likely Pull Request): Code changes proposed (25%)
+
         | Category | Score (%) |
         | ------ | ----- |
         """)
