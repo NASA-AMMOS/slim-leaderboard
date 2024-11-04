@@ -23,13 +23,14 @@ jobs:
     
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install --editable .
     
     - name: Run script and prepare files
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      run: |        
+      run: |
         # First, remove any conflicting files
         rm -f examples/*-leaderboard.md
      
@@ -38,7 +39,7 @@ jobs:
             # Extract the base name without .json extension
             basename=$(basename "$config" .json)
             # Generate the corresponding leaderboard file
-            python leaderboard.py "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
+            slim-leaderboard "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
         done
       
         # Set git config
