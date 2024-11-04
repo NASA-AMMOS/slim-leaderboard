@@ -1,0 +1,57 @@
+[project]
+name = 'slim-leaderboard'
+dynamic = ['version']
+requires-python = '>=3.7'
+dependencies = [
+    # Note: these dependencies were taking from original `requirements.txt`
+    # file (now retired in favor of this file, `pyproject.toml`). However,
+    # pessimistic version constraints were added in order to avoid the
+    # Dependency Confusion Vulnerability.
+
+    'requests ~= 2.32.3',
+    'requests-cache ~= 1.2.1',
+    'tqdm ~= 4.66.6',
+    'rich ~= 13.9.4'
+]
+authors = [
+    {name = 'Kyongsik Yun', email = 'kyongsik.yun@jpl.nasa.gov'},
+    {name = 'Rishi Verma', email = 'Rishi.Verma@jpl.nasa.gov'},
+    {name = 'Sean Kelly', email = 'kelly@seankelly.biz'}
+]
+description = 'Tool to generate a scan report of SLIM best practices compliance'
+readme = 'README.md'
+keywords = ['software', 'development', 'automation', 'practice', 'slim', 'nasa', 'ammos', 'report']
+classifiers = [
+    'Development Status :: 2 - Pre-Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: Apache Software License',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+]
+license = {file = 'LICENSE'}
+
+
+[project.urls]
+Homepage = 'https://github.com/SLIM/slim-leaderboard'
+Issues = 'https://github.com/SLIM/slim-leaderboard/issues'
+
+
+[project.scripts]
+slim-leaderboard = 'jpl.slim.leaderboard:main'
+
+
+[tool.hatch.version]
+path = 'src/jpl/slim/VERSION.txt'
+pattern = '(?P<version>.+)'
+
+
+[tool.hatch.build.targets.wheel]
+packages = ['src/jpl']
+
+
+[build-system]
+requires = ['hatchling']
+build-backend = 'hatchling.build'

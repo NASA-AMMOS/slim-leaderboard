@@ -1,1 +1,16 @@
-*.sqlite
+.DS_Store
+._*
+*.py[co]
+.*.cfg
+*.egg-info
+dist
+build
+eggs
+downloads
+*.log
+*~
+*.sublime-workspace
+.venv
+venv
+__pycache__
+.env
