@@ -26,7 +26,6 @@ jobs:
         python -m venv .venv
         source .venv/bin/activate
         pip install --editable .
-        pip install slim-leaderboard
     
     - name: Run script and prepare files
       env:
