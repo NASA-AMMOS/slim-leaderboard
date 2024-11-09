@@ -65,7 +65,7 @@
 | nasa-ammos | aerie-modeling-tutorial | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | cfn-ps-ammos-smallsat-toolkit | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | Landform | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| nasa-ammos | DataDrive-CommandLine | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | DataDrive-CommandLine | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | KMC | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | mgss-kmc | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | kmc_oci | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -88,6 +88,11 @@
 
 
 # Summary Statistics
+  - 'YES': Full completion/success (100%)
+  - 'NO': No completion/failure (0%)
+  - 'PARTIAL': Partial completion (50%)
+  - 'ISSUE': Problem reported (25%)
+  - 'PR' (likely Pull Request): Code changes proposed (25%)
 
 | Category | Score (%) |
 | ------ | ----- |
@@ -96,7 +101,7 @@
 | Readme | 47.0 |
 | Code of Conduct | 42.2 |
 | Contributing Guide | 37.6 |
-| Changelog | 33.4 |
+| Changelog | 34.6 |
 | Issue Templates | 33.1 |
 | PR Templates | 28.9 |
 | Governance Model | 8.4 |
@@ -107,7 +112,7 @@
 | GitHub: Secret Scanning Alerts | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 25.4
+**Overall Repository Average Score (%)**: 25.5
 
 # Repository Check Explanation 
 
