@@ -40,7 +40,7 @@ jobs:
             # Extract the base name without .json extension
             basename=$(basename "$config" .json)
             # Generate the corresponding leaderboard file
-            slim-leaderboard "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
+            python -m jpl.slim.slim-leaderboard "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
         done
       
         # Set git config
