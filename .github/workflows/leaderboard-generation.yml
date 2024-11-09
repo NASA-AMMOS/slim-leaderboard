@@ -27,7 +27,7 @@ jobs:
         source .venv/bin/activate
         pip install --editable .
         export PATH="src/jpl/slim/slim-leaderboard:$PATH"
-    
+
     - name: Run script and prepare files
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
@@ -40,7 +40,7 @@ jobs:
             # Extract the base name without .json extension
             basename=$(basename "$config" .json)
             # Generate the corresponding leaderboard file
-            python -m jpl.slim.slim-leaderboard "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
+            slim-leaderboard "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
         done
       
         # Set git config
