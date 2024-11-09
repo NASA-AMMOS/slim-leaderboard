@@ -26,8 +26,8 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --editable .
         # Make the slim-leaderboard script executable and add to PATH
-        chmod +x src/jpl/slim/slim-leaderboard/slim-leaderboard
-        echo "${GITHUB_WORKSPACE}/src/jpl/slim/slim-leaderboard" >> $GITHUB_PATH
+        chmod +x src/jpl/slim/leaderboard.py
+        echo "${GITHUB_WORKSPACE}/src/jpl/slim" >> $GITHUB_PATH
 
     - name: Run script and prepare files
       env:
