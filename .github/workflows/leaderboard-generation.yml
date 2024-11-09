@@ -23,10 +23,11 @@ jobs:
     
     - name: Install dependencies
       run: |
-        python -m venv .venv
-        source .venv/bin/activate
-        pip install --editable .
-        export PATH="src/jpl/slim/slim-leaderboard:$PATH"
+        python -m pip install --upgrade pip
+        python -m pip install --editable .
+        # Make the slim-leaderboard script executable and add to PATH
+        chmod +x src/jpl/slim/slim-leaderboard/slim-leaderboard
+        echo "${GITHUB_WORKSPACE}/src/jpl/slim/slim-leaderboard" >> $GITHUB_PATH
 
     - name: Run script and prepare files
       env:
