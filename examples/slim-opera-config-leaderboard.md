@@ -16,7 +16,7 @@
 | opera-adt | isce3_util | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | asfsmd | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | RTC | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| opera-adt | burst_db | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | burst_db | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | opera-notebooks | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | DSWX-SAR | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | CSLC-S1_Specs | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -25,7 +25,11 @@
 | opera-adt | mgrs_tiles_database | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | opera-utils | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | disp-nisar | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | distmetrics | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | DSWx-Enhanced-Analysis | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | dist-s1-enumerator | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | dist-s1 | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | opera_tropo | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | gladumd | OPERA_DIST | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | calval-CSLC | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | calval-RTC | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -56,21 +60,27 @@
 | OPERA-Cal-Val | dist-s1-events | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | dist-s1-calibration | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | dist-s1-sample-workflow | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| OPERA-Cal-Val | next_pass | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
+  - 'YES': Full completion/success (100%)
+  - 'NO': No completion/failure (0%)
+  - 'PARTIAL': Partial completion (50%)
+  - 'ISSUE': Problem reported (25%)
+  - 'PR' (likely Pull Request): Code changes proposed (25%)
 
 | Category | Score (%) |
 | ------ | ----- |
-| License | 79.6 |
-| Readme | 46.3 |
-| Additional Documentation | 35.2 |
-| Issue Templates | 31.5 |
-| PR Templates | 11.1 |
-| Changelog | 7.4 |
-| Secrets Detection | 1.9 |
-| Continuous Testing Plan | 0.9 |
-| Contributing Guide | 0.5 |
+| License | 81.4 |
+| Readme | 45.8 |
+| Additional Documentation | 35.6 |
+| Issue Templates | 28.8 |
+| Changelog | 11.9 |
+| PR Templates | 10.2 |
+| Secrets Detection | 1.7 |
+| Continuous Testing Plan | 0.8 |
+| Contributing Guide | 0.4 |
 | Code of Conduct | 0.0 |
 | GitHub: Vulnerability Alerts | 0.0 |
 | GitHub: Code Scanning Alerts | 0.0 |
@@ -78,7 +88,7 @@
 | Governance Model | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 15.3
+**Overall Repository Average Score (%)**: 15.5
 
 # Repository Check Explanation 
 
