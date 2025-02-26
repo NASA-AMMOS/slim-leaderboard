@@ -1,0 +1,8 @@
+{
+  "targets": [
+      {
+          "type": "repository",
+          "name": "https://github.com/c-h-david/rapid2"
+      }
+  ]
+}
