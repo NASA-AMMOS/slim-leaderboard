@@ -2,7 +2,7 @@
 # SLIM Best Practices Repository Scan Report
 | Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| c-h-david | rapid2 | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟠 |
+| c-h-david | rapid2 | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟠 |
 
 
 # Summary Statistics
@@ -15,22 +15,22 @@
 | Category | Score (%) |
 | ------ | ----- |
 | License | 100.0 |
+| Contributing Guide | 100.0 |
+| Code of Conduct | 100.0 |
+| Issue Templates | 100.0 |
+| PR Templates | 100.0 |
 | Additional Documentation | 100.0 |
 | Changelog | 100.0 |
+| Governance Model | 100.0 |
 | Readme | 50.0 |
 | Continuous Testing Plan | 50.0 |
-| Contributing Guide | 0.0 |
-| Code of Conduct | 0.0 |
-| Issue Templates | 0.0 |
-| PR Templates | 0.0 |
 | GitHub: Vulnerability Alerts | 0.0 |
 | GitHub: Code Scanning Alerts | 0.0 |
 | GitHub: Secret Scanning Alerts | 0.0 |
 | Secrets Detection | 0.0 |
-| Governance Model | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 28.6
+**Overall Repository Average Score (%)**: 64.3
 
 # Repository Check Explanation 
 
