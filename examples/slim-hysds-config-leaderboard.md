@@ -69,6 +69,8 @@
 | hysds | hysds-hec-utils | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | job_worker-singularity | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | theia-jupyter-example | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| hysds | beethoven | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| hysds | cluster_health_monitoring | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | aws-es-proxy | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | notebook_pge_wrapper | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | hello_world_notebook | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -90,14 +92,14 @@
 
 | Category | Score (%) |
 | ------ | ----- |
-| License | 75.7 |
-| Readme | 43.5 |
-| Additional Documentation | 18.2 |
-| Contributing Guide | 16.9 |
-| Code of Conduct | 14.6 |
-| Changelog | 14.6 |
-| Issue Templates | 5.2 |
-| PR Templates | 2.6 |
+| License | 73.7 |
+| Readme | 43.7 |
+| Additional Documentation | 17.7 |
+| Contributing Guide | 16.5 |
+| Code of Conduct | 14.2 |
+| Changelog | 14.2 |
+| Issue Templates | 5.1 |
+| PR Templates | 2.5 |
 | Governance Model | 1.3 |
 | GitHub: Vulnerability Alerts | 0.0 |
 | GitHub: Code Scanning Alerts | 0.0 |
@@ -106,7 +108,7 @@
 | Continuous Testing Plan | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 13.8
+**Overall Repository Average Score (%)**: 13.5
 
 # Repository Check Explanation 
 
