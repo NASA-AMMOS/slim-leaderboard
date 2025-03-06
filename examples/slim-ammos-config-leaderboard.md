@@ -76,6 +76,7 @@
 | nasa-ammos | ocs-python-client | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | ocs-js-client | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | slim-cli | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟠 |
+| nasa-ammos | oco2L2FP | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | BSL-docs | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | pgcmp | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | aerie-ui-plugin-examples | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -99,23 +100,23 @@
 
 | Category | Score (%) |
 | ------ | ----- |
-| Additional Documentation | 64.0 |
-| License | 61.0 |
-| Readme | 47.7 |
-| Code of Conduct | 41.6 |
-| Contributing Guide | 38.1 |
-| Changelog | 34.3 |
-| Issue Templates | 33.7 |
-| PR Templates | 28.8 |
-| Governance Model | 10.5 |
-| Secrets Detection | 2.3 |
-| Continuous Testing Plan | 0.6 |
-| GitHub: Vulnerability Alerts | 0.0 |
-| GitHub: Code Scanning Alerts | 0.0 |
-| GitHub: Secret Scanning Alerts | 0.0 |
+| Additional Documentation | 63.6 |
+| License | 55.0 |
+| Readme | 47.5 |
+| Code of Conduct | 36.1 |
+| Contributing Guide | 33.1 |
+| Changelog | 28.8 |
+| Issue Templates | 28.3 |
+| PR Templates | 24.0 |
+| Governance Model | 8.1 |
+| GitHub: Code Scanning Alerts | 2.0 |
+| Secrets Detection | 2.0 |
+| GitHub: Vulnerability Alerts | 1.0 |
+| GitHub: Secret Scanning Alerts | 1.0 |
+| Continuous Testing Plan | 0.5 |
 
 
-**Overall Repository Average Score (%)**: 25.9
+**Overall Repository Average Score (%)**: 23.6
 
 # Repository Check Explanation 
 
