@@ -44,7 +44,6 @@
 | hysds | puppet-docker_base | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | puppet-hysds_base | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | puppet-hysds_dev | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| hysds | hysds-singularity | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | hysds-k8s | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | create_aoi | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | workflow_framework | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -69,6 +68,8 @@
 | hysds | hysds-hec-utils | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | job_worker-singularity | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | theia-jupyter-example | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| hysds | beethoven | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| hysds | cluster_health_monitoring | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | aws-es-proxy | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | notebook_pge_wrapper | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | hello_world_notebook | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -90,13 +91,13 @@
 
 | Category | Score (%) |
 | ------ | ----- |
-| License | 75.7 |
-| Readme | 43.5 |
-| Additional Documentation | 18.2 |
-| Contributing Guide | 16.9 |
-| Code of Conduct | 14.6 |
-| Changelog | 14.6 |
-| Issue Templates | 5.2 |
+| License | 73.4 |
+| Readme | 43.6 |
+| Additional Documentation | 17.9 |
+| Contributing Guide | 16.7 |
+| Code of Conduct | 14.4 |
+| Changelog | 14.4 |
+| Issue Templates | 5.1 |
 | PR Templates | 2.6 |
 | Governance Model | 1.3 |
 | GitHub: Vulnerability Alerts | 0.0 |
@@ -106,7 +107,7 @@
 | Continuous Testing Plan | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 13.8
+**Overall Repository Average Score (%)**: 13.5
 
 # Repository Check Explanation 
 
