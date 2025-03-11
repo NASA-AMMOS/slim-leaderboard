@@ -2,36 +2,34 @@
 # SLIM Best Practices Repository Scan Report
 | Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| nasa-ammos | slim | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
-| NASA-AMMOS | slim-starterkit-python | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
+| nasa-ammos | slim | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 |
+| NASA-AMMOS | slim-starterkit-python | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 |
 
 
 # Summary Statistics
-  - 'YES': Full completion/success (100%)
-  - 'NO': No completion/failure (0%)
-  - 'PARTIAL': Partial completion (50%)
-  - 'ISSUE': Problem reported (25%)
-  - 'PR' (likely Pull Request): Code changes proposed (25%)
 
-| Category | Score (%) |
+| Metric | Value |
 | ------ | ----- |
-| License | 100.0 |
-| Readme | 100.0 |
-| Contributing Guide | 100.0 |
-| Code of Conduct | 100.0 |
-| Issue Templates | 100.0 |
-| PR Templates | 100.0 |
-| Additional Documentation | 100.0 |
-| Changelog | 100.0 |
-| Governance Model | 100.0 |
-| Secrets Detection | 50.0 |
-| GitHub: Vulnerability Alerts | 0.0 |
-| GitHub: Code Scanning Alerts | 0.0 |
-| GitHub: Secret Scanning Alerts | 0.0 |
-| Continuous Testing Plan | 0.0 |
+| Overall Best Practice Score (%) | 78.6 |
+| License Score (%) | 100.0 |
+| Readme Score (%) | 100.0 |
+| Contributing Guide Score (%) | 100.0 |
+| Code of Conduct Score (%) | 100.0 |
+| Issue Templates Score (%) | 100.0 |
+| PR Templates Score (%) | 100.0 |
+| Additional Documentation Score (%) | 100.0 |
+| Changelog Score (%) | 100.0 |
+| GitHub: Code Scanning Alerts Score (%) | 100.0 |
+| Governance Model Score (%) | 100.0 |
+| GitHub: Vulnerability Alerts Score (%) | 50.0 |
+| Secrets Detection Score (%) | 50.0 |
+| GitHub: Secret Scanning Alerts Score (%) | 0.0 |
+| Continuous Testing Plan Score (%) | 0.0 |
+| Repositories evaluated (count) | 2 |
+| Best practices checked (count) | 14 |
+| YES (count) | 22 |
+| NO (count) | 6 |
 
-
-**Overall Repository Average Score (%)**: 67.9
 
 # Repository Check Explanation 
 
