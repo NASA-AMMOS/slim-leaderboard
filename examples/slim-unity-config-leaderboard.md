@@ -42,7 +42,7 @@
 | unity-sds | unity-ads | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | ui-ux | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-analytics-dapa | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| unity-sds | unity-ui | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-portal | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-cs-auth-lambda | 🔴 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-app-build-trigger | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | issue-triage | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -56,7 +56,7 @@
 | unity-sds | common-cwl | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | SBG-unity-reflect-correct | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-reference-application | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| unity-sds | unity-ui-infra | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-uiux-infra | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-sps-ogc-processes-api | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | SBG-unity-frac-cover | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | stac-merge | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -67,10 +67,11 @@
 | unity-sds | unity-initiator | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | unity-sds | unity-sps-ogc-processes-api-client-python | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | stac-browser | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| unity-sds | unity-monorepo | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-monorepo | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-tutorial-application | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | mdps-ds-lib | 🟢 | 🟠 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | mdps-tropess-deploy | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | emit-ghg_test | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
@@ -82,14 +83,14 @@
 
 | Category | Score (%) |
 | ------ | ----- |
-| License | 78.6 |
-| Readme | 61.2 |
-| Additional Documentation | 59.4 |
-| Changelog | 54.7 |
-| Contributing Guide | 53.3 |
-| Code of Conduct | 53.3 |
-| Issue Templates | 45.3 |
-| PR Templates | 42.4 |
+| License | 78.9 |
+| Readme | 60.4 |
+| Additional Documentation | 60.0 |
+| Changelog | 54.3 |
+| Contributing Guide | 52.5 |
+| Code of Conduct | 52.5 |
+| Issue Templates | 44.6 |
+| PR Templates | 41.8 |
 | Governance Model | 1.4 |
 | Continuous Testing Plan | 1.1 |
 | GitHub: Vulnerability Alerts | 0.0 |
@@ -98,7 +99,7 @@
 | Secrets Detection | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 32.2
+**Overall Repository Average Score (%)**: 32.0
 
 # Repository Check Explanation 
 
