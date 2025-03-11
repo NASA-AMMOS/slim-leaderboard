@@ -44,7 +44,6 @@
 | hysds | puppet-docker_base | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | puppet-hysds_base | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | puppet-hysds_dev | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| hysds | hysds-singularity | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | hysds-k8s | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | create_aoi | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | hysds | workflow_framework | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -90,13 +89,13 @@
 
 | Category | Score (%) |
 | ------ | ----- |
-| License | 75.7 |
-| Readme | 43.5 |
-| Additional Documentation | 18.2 |
-| Contributing Guide | 16.9 |
-| Code of Conduct | 14.6 |
-| Changelog | 14.6 |
-| Issue Templates | 5.2 |
+| License | 73.4 |
+| Readme | 43.6 |
+| Additional Documentation | 17.9 |
+| Contributing Guide | 16.7 |
+| Code of Conduct | 14.4 |
+| Changelog | 14.4 |
+| Issue Templates | 5.1 |
 | PR Templates | 2.6 |
 | Governance Model | 1.3 |
 | GitHub: Vulnerability Alerts | 0.0 |
