@@ -2,8 +2,7 @@
 # SLIM Best Practices Repository Scan Report
 | Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| nasa-ammos | slim | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 |
-| NASA-AMMOS | slim-starterkit-python | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 |
+| nlahaye | SIT_FUSE | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
@@ -16,22 +15,22 @@
 | Category | Score (%) |
 | ------ | ----- |
 | License | 100.0 |
-| Readme | 100.0 |
-| Contributing Guide | 100.0 |
-| Code of Conduct | 100.0 |
-| Issue Templates | 100.0 |
-| PR Templates | 100.0 |
 | Additional Documentation | 100.0 |
-| Changelog | 100.0 |
-| GitHub: Code Scanning Alerts | 100.0 |
-| Governance Model | 100.0 |
-| GitHub: Vulnerability Alerts | 50.0 |
-| Secrets Detection | 50.0 |
+| Readme | 50.0 |
+| Contributing Guide | 25.0 |
+| Code of Conduct | 25.0 |
+| Issue Templates | 25.0 |
+| PR Templates | 25.0 |
+| Changelog | 25.0 |
+| GitHub: Vulnerability Alerts | 0.0 |
+| GitHub: Code Scanning Alerts | 0.0 |
 | GitHub: Secret Scanning Alerts | 0.0 |
+| Secrets Detection | 0.0 |
+| Governance Model | 0.0 |
 | Continuous Testing Plan | 0.0 |
 
 
-**Overall Repository Average Score (%)**: 78.6
+**Overall Repository Average Score (%)**: 26.8
 
 # Repository Check Explanation 
 
