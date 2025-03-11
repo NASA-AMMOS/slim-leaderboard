@@ -1,0 +1,9 @@
+{
+    "targets": [
+        {
+            "type": "repository",
+            "name": "https://github.com/nlahaye/SIT_FUSE"
+        }
+    ]
+  }
+  
