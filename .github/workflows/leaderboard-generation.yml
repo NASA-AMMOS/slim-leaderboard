@@ -31,7 +31,7 @@ jobs:
     
     - name: Close existing PRs
       run: |
-        # Get all open PRs
+        # Get all open PRs with appropriate authentication
         curl -X GET \
           -H "Authorization: token ${{ secrets.TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
@@ -43,7 +43,7 @@ jobs:
         head -c 500 existing_prs.json
         
         # Parse the JSON and close PRs related to leaderboard updates
-        python -c '
+        python -c '''
         import json
         import requests
         import os
@@ -54,11 +54,19 @@ jobs:
             with open("existing_prs.json", "r") as f:
                 prs = json.load(f)
             
+            # Check if response contains an error message
+            if isinstance(prs, dict) and "message" in prs:
+                print(f"API Error: {prs.get('message')}")
+                if "rate limit exceeded" in prs.get("message", ""):
+                    print("This is a rate limit issue. The workflow will proceed anyway.")
+                    sys.exit(0)  # Exit gracefully to continue the workflow
+                sys.exit(1)
+                
             # Check if prs is a list as expected
             if not isinstance(prs, list):
                 print(f"Expected a list of PRs, but got {type(prs)}")
                 print(f"Content preview: {str(prs)[:200]}")
-                sys.exit(1)
+                sys.exit(0)  # Exit gracefully to continue the workflow
                 
             # Get token from environment
             token = os.environ["GITHUB_TOKEN"]
@@ -72,11 +80,11 @@ jobs:
             for pr in prs:
                 try:
                     head_ref = pr.get("head", {}).get("ref", "")
-                    print(f"Processing PR #{pr.get(\"number\", \"unknown\")} with branch: {head_ref}")
+                    pr_number = pr.get("number", "unknown")
+                    print(f"Processing PR #{pr_number} with branch: {head_ref}")
                     
                     if head_ref and head_ref.startswith(target_prefix):
-                        pr_number = pr.get("number")
-                        if not pr_number:
+                        if not pr_number or pr_number == "unknown":
                             print(f"Could not find PR number in data: {pr}")
                             continue
                             
@@ -110,8 +118,8 @@ jobs:
             print(f"Error: {str(e)}")
             import traceback
             traceback.print_exc()
-            sys.exit(1)
-        '
+            sys.exit(0)  # Continue with workflow even if this step fails
+        '''
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
     
@@ -156,3 +164,4 @@ jobs:
         labels: |
           automated-pr
           leaderboard-update
+        branch-suffix: timestamp
