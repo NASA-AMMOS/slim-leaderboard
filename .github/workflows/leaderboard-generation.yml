@@ -31,16 +31,19 @@ jobs:
     
     - name: Close existing PRs
       run: |
+        # Create a temporary directory for API response
+        mkdir -p tmp
+        
         # Get all open PRs with appropriate authentication
         curl -X GET \
           -H "Authorization: token ${{ secrets.TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
           "https://api.github.com/repos/${{ github.repository }}/pulls?state=open" \
-          -o existing_prs.json
+          -o tmp/existing_prs.json
         
         # Show response for debugging
         echo "API Response Content (first 500 chars):"
-        head -c 500 existing_prs.json
+        head -c 500 tmp/existing_prs.json
         
         # Parse the JSON and close PRs related to leaderboard updates
         python -c '''
@@ -51,7 +54,7 @@ jobs:
         
         # Load existing PRs with better error handling
         try:
-            with open("existing_prs.json", "r") as f:
+            with open("tmp/existing_prs.json", "r") as f:
                 prs = json.load(f)
             
             # Check if response contains an error message
@@ -144,6 +147,9 @@ jobs:
         
         # Stage all changes (including deletions and new files)
         git add examples/
+        
+        # Clean up temporary files before creating PR
+        rm -rf tmp
     
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
