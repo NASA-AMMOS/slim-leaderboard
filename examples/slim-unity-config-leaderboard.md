@@ -8,6 +8,7 @@
 | unity-sds | unity-data-services | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-cs-infra | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-ads-deployment | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | unity-cs-security | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-sps-workflows | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | unity-cs-sps-demo | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | ades_wpst | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -77,27 +78,27 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 32.2 |
-| License Score (%) | 79.7 |
-| Additional Documentation Score (%) | 60.9 |
-| Readme Score (%) | 60.5 |
-| Changelog Score (%) | 54.7 |
-| Contributing Guide Score (%) | 52.9 |
-| Code of Conduct Score (%) | 52.9 |
-| Issue Templates Score (%) | 44.9 |
-| PR Templates Score (%) | 42.0 |
+| Overall Best Practice Score (%) | 32.0 |
+| License Score (%) | 78.9 |
+| Readme Score (%) | 60.4 |
+| Additional Documentation Score (%) | 60.0 |
+| Changelog Score (%) | 54.3 |
+| Contributing Guide Score (%) | 52.5 |
+| Code of Conduct Score (%) | 52.5 |
+| Issue Templates Score (%) | 44.6 |
+| PR Templates Score (%) | 41.8 |
 | Governance Model Score (%) | 1.4 |
 | Continuous Testing Plan Score (%) | 1.1 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
-| Repositories evaluated (count) | 69 |
+| Repositories evaluated (count) | 70 |
 | Best practices checked (count) | 14 |
 | YES (count) | 288 |
-| NO (count) | 623 |
-| PR (count) | 17 |
-| PARTIAL (count) | 38 |
+| NO (count) | 630 |
+| PR (count) | 23 |
+| PARTIAL (count) | 39 |
 
 
 # Repository Check Explanation 
