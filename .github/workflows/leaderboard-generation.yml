@@ -125,5 +125,4 @@ jobs:
         labels: |
           automated-pr
           leaderboard-update
-        create-branch: true
-        branch-suffix: timestamp
+        create-branch: false
