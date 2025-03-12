@@ -6,7 +6,6 @@ on:
     branches: [ main ]
   schedule:
     - cron: '0 10 * * 0' # 2am PST every Sunday
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,10 +24,51 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install --editable .
+        pip install requests
         # Make the slim-leaderboard script executable and add to PATH
         chmod +x src/jpl/slim/leaderboard.py
         echo "${GITHUB_WORKSPACE}/src/jpl/slim" >> $GITHUB_PATH
-
+    
+    - name: Close existing PRs
+      run: |
+        # Use GitHub API to find and close existing leaderboard update PRs
+        curl -X GET \
+          -H "Authorization: token ${{ secrets.TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&head=${{ github.repository_owner }}:update-slim-leaderboards" \
+          -o existing_prs.json
+        
+        # Parse the JSON and close any existing PRs
+        python -c '
+        import json
+        import requests
+        import os
+        
+        # Load existing PRs
+        with open("existing_prs.json", "r") as f:
+            prs = json.load(f)
+        
+        # Get token from environment
+        token = os.environ["GITHUB_TOKEN"]
+        repo = os.environ["GITHUB_REPOSITORY"]
+        
+        # Close each PR
+        for pr in prs:
+            pr_number = pr["number"]
+            url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
+            payload = {"state": "closed"}
+            headers = {
+                "Authorization": f"token {token}",
+                "Accept": "application/vnd.github.v3+json"
+            }
+            print(f"Closing PR #{pr_number}")
+            response = requests.patch(url, json=payload, headers=headers)
+            if response.status_code != 200:
+                print(f"Failed to close PR #{pr_number}: {response.text}")
+        '
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    
     - name: Run script and prepare files
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
@@ -50,7 +90,7 @@ jobs:
         
         # Stage all changes (including deletions and new files)
         git add examples/
-
+    
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
