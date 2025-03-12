@@ -38,48 +38,79 @@ jobs:
           "https://api.github.com/repos/${{ github.repository }}/pulls?state=open" \
           -o existing_prs.json
         
+        # Show response for debugging
+        echo "API Response Content (first 500 chars):"
+        head -c 500 existing_prs.json
+        
         # Parse the JSON and close PRs related to leaderboard updates
         python -c '
         import json
         import requests
         import os
+        import sys
         
-        # Load existing PRs
-        with open("existing_prs.json", "r") as f:
-            prs = json.load(f)
-        
-        # Get token from environment
-        token = os.environ["GITHUB_TOKEN"]
-        repo = os.environ["GITHUB_REPOSITORY"]
-        
-        # Target prefix for the branch names we want to close
-        target_prefix = "update-slim-leaderboards"
-        
-        # Close each PR that has our target branch prefix
-        for pr in prs:
-            head_ref = pr["head"]["ref"]
-            if head_ref.startswith(target_prefix):
-                pr_number = pr["number"]
-                url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
-                payload = {"state": "closed"}
-                headers = {
-                    "Authorization": f"token {token}",
-                    "Accept": "application/vnd.github.v3+json"
-                }
-                print(f"Closing PR #{pr_number} from branch {head_ref}")
-                response = requests.patch(url, json=payload, headers=headers)
-                if response.status_code != 200:
-                    print(f"Failed to close PR #{pr_number}: {response.text}")
-                else:
-                    print(f"Successfully closed PR #{pr_number}")
+        # Load existing PRs with better error handling
+        try:
+            with open("existing_prs.json", "r") as f:
+                prs = json.load(f)
+            
+            # Check if prs is a list as expected
+            if not isinstance(prs, list):
+                print(f"Expected a list of PRs, but got {type(prs)}")
+                print(f"Content preview: {str(prs)[:200]}")
+                sys.exit(1)
+                
+            # Get token from environment
+            token = os.environ["GITHUB_TOKEN"]
+            repo = os.environ["GITHUB_REPOSITORY"]
+            
+            # Target prefix for the branch names we want to close
+            target_prefix = "update-slim-leaderboards"
+            
+            # Close each PR that has our target branch prefix
+            closed_count = 0
+            for pr in prs:
+                try:
+                    head_ref = pr.get("head", {}).get("ref", "")
+                    print(f"Processing PR #{pr.get(\"number\", \"unknown\")} with branch: {head_ref}")
                     
-                # Also delete the branch if you want
-                branch_url = f"https://api.github.com/repos/{repo}/git/refs/heads/{head_ref}"
-                delete_response = requests.delete(branch_url, headers=headers)
-                if delete_response.status_code in [204, 200]:
-                    print(f"Successfully deleted branch {head_ref}")
-                else:
-                    print(f"Failed to delete branch {head_ref}: {delete_response.status_code}")
+                    if head_ref and head_ref.startswith(target_prefix):
+                        pr_number = pr.get("number")
+                        if not pr_number:
+                            print(f"Could not find PR number in data: {pr}")
+                            continue
+                            
+                        url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
+                        payload = {"state": "closed"}
+                        headers = {
+                            "Authorization": f"token {token}",
+                            "Accept": "application/vnd.github.v3+json"
+                        }
+                        print(f"Closing PR #{pr_number} from branch {head_ref}")
+                        response = requests.patch(url, json=payload, headers=headers)
+                        if response.status_code != 200:
+                            print(f"Failed to close PR #{pr_number}: {response.text}")
+                        else:
+                            print(f"Successfully closed PR #{pr_number}")
+                            closed_count += 1
+                        
+                        # Delete the branch if you want
+                        branch_url = f"https://api.github.com/repos/{repo}/git/refs/heads/{head_ref}"
+                        delete_response = requests.delete(branch_url, headers=headers)
+                        if delete_response.status_code in [204, 200]:
+                            print(f"Successfully deleted branch {head_ref}")
+                        else:
+                            print(f"Failed to delete branch {head_ref}: {delete_response.status_code}")
+                except Exception as e:
+                    print(f"Error processing PR: {str(e)}")
+                    print(f"PR data: {pr}")
+            
+            print(f"Finished processing. Closed {closed_count} PRs.")
+        except Exception as e:
+            print(f"Error: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            sys.exit(1)
         '
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
