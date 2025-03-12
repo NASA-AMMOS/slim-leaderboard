@@ -95,31 +95,31 @@
 
 
 # Summary Statistics
-  - 'YES': Full completion/success (100%)
-  - 'NO': No completion/failure (0%)
-  - 'PARTIAL': Partial completion (50%)
-  - 'ISSUE': Problem reported (25%)
-  - 'PR' (likely Pull Request): Code changes proposed (25%)
 
-| Category | Score (%) |
+| Metric | Value |
 | ------ | ----- |
-| License | 86.4 |
-| Additional Documentation | 46.7 |
-| Readme | 43.3 |
-| Contributing Guide | 22.2 |
-| Changelog | 18.9 |
-| Issue Templates | 10.0 |
-| Code of Conduct | 8.9 |
-| PR Templates | 4.4 |
-| GitHub: Vulnerability Alerts | 0.0 |
-| GitHub: Code Scanning Alerts | 0.0 |
-| GitHub: Secret Scanning Alerts | 0.0 |
-| Secrets Detection | 0.0 |
-| Governance Model | 0.0 |
-| Continuous Testing Plan | 0.0 |
+| Overall Best Practice Score (%) | 17.2 |
+| License Score (%) | 86.4 |
+| Additional Documentation Score (%) | 46.7 |
+| Readme Score (%) | 43.3 |
+| Contributing Guide Score (%) | 22.2 |
+| Changelog Score (%) | 18.9 |
+| Issue Templates Score (%) | 10.0 |
+| Code of Conduct Score (%) | 8.9 |
+| PR Templates Score (%) | 4.4 |
+| GitHub: Vulnerability Alerts Score (%) | 0.0 |
+| GitHub: Code Scanning Alerts Score (%) | 0.0 |
+| GitHub: Secret Scanning Alerts Score (%) | 0.0 |
+| Secrets Detection Score (%) | 0.0 |
+| Governance Model Score (%) | 0.0 |
+| Continuous Testing Plan Score (%) | 0.0 |
+| Repositories evaluated (count) | 90 |
+| Best practices checked (count) | 14 |
+| PARTIAL (count) | 78 |
+| YES (count) | 176 |
+| NO (count) | 999 |
+| PR (count) | 7 |
 
-
-**Overall Repository Average Score (%)**: 17.2
 
 # Repository Check Explanation 
 

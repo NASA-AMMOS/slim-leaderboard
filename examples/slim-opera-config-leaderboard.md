@@ -3,6 +3,7 @@
 | Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | nasa | opera-sds-pge | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
+| nasa | opera-sds-pcm | 🟢 | 🟠 | 🟣 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟠 |
 | nasa | opera-sds-sys | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa | opera-sds | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa | opera-sds-lambdas | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -23,7 +24,7 @@
 | opera-adt | disp-s1 | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | mgrs_tiles_database | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | opera-utils | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| opera-adt | disp-nisar | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | disp-nisar | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | distmetrics | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | DSWx-Enhanced-Analysis | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | dist-s1-enumerator | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -63,31 +64,31 @@
 
 
 # Summary Statistics
-  - 'YES': Full completion/success (100%)
-  - 'NO': No completion/failure (0%)
-  - 'PARTIAL': Partial completion (50%)
-  - 'ISSUE': Problem reported (25%)
-  - 'PR' (likely Pull Request): Code changes proposed (25%)
 
-| Category | Score (%) |
+| Metric | Value |
 | ------ | ----- |
-| License | 81.0 |
-| Readme | 46.5 |
-| Additional Documentation | 39.7 |
-| Issue Templates | 29.3 |
-| Changelog | 13.8 |
-| PR Templates | 8.6 |
-| Secrets Detection | 1.7 |
-| Contributing Guide | 0.0 |
-| Code of Conduct | 0.0 |
-| GitHub: Vulnerability Alerts | 0.0 |
-| GitHub: Code Scanning Alerts | 0.0 |
-| GitHub: Secret Scanning Alerts | 0.0 |
-| Governance Model | 0.0 |
-| Continuous Testing Plan | 0.0 |
+| Overall Best Practice Score (%) | 16.1 |
+| License Score (%) | 81.4 |
+| Readme Score (%) | 46.6 |
+| Additional Documentation Score (%) | 40.7 |
+| Issue Templates Score (%) | 30.5 |
+| Changelog Score (%) | 13.6 |
+| PR Templates Score (%) | 10.2 |
+| Secrets Detection Score (%) | 1.7 |
+| Continuous Testing Plan Score (%) | 0.8 |
+| Contributing Guide Score (%) | 0.4 |
+| Code of Conduct Score (%) | 0.0 |
+| GitHub: Vulnerability Alerts Score (%) | 0.0 |
+| GitHub: Code Scanning Alerts Score (%) | 0.0 |
+| GitHub: Secret Scanning Alerts Score (%) | 0.0 |
+| Governance Model Score (%) | 0.0 |
+| Repositories evaluated (count) | 59 |
+| Best practices checked (count) | 14 |
+| NO (count) | 664 |
+| YES (count) | 105 |
+| PARTIAL (count) | 56 |
+| PR (count) | 1 |
 
-
-**Overall Repository Average Score (%)**: 15.8
 
 # Repository Check Explanation 
 
