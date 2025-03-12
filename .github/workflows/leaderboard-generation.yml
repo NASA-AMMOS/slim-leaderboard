@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        token: ${{ secrets.TOKEN }}
+        token: ${{ github.token }}
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -32,7 +32,7 @@ jobs:
     
     - name: Run script and prepare files
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
       run: |
         # First, remove any conflicting files
         rm -f examples/*-leaderboard.md
@@ -70,4 +70,4 @@ jobs:
           echo "Successfully updated and pushed leaderboard changes to main branch"
         fi
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
