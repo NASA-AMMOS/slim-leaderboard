@@ -125,4 +125,3 @@ jobs:
         labels: |
           automated-pr
           leaderboard-update
-        create-branch: false
