@@ -495,76 +495,51 @@ def main():
         # Summary statistics
         print()
 
-        # calculate counts for repositories and standards
-        repos_count = len(rows)
-        standards_count = len(headers) - 2 # ignore column 1 and 2 which are irrelevant
-
         column_averages = calculate_column_statistics(rows, headers)
+        
+        if args.output_format == "MARKDOWN":  # If markdown styling specified, will just print pure Markdown text not rendered
+            markdown_table = textwrap.dedent("""
+            # Summary Statistics
+              - 'YES': Full completion/success (100%)
+              - 'NO': No completion/failure (0%)
+              - 'PARTIAL': Partial completion (50%)
+              - 'ISSUE': Problem reported (25%)
+              - 'PR' (likely Pull Request): Code changes proposed (25%)
 
-        # build list of all numeric scores, used for overall average
+            | Category | Score (%) |
+            | ------ | ----- |
+            """)
+
+            # Generate each row for the Markdown table based on 'status_counts'
+            # for status, count in status_counts.items():
+            #    if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
+            #        markdown_table += f"| {status} | {count} |\n"
+                    
+            for category, score in column_averages.items():
+                markdown_table += f"| {category} | {score:.1f} |\n"
+                
+            console.print(markdown_table)
+        elif args.output_format == "PLAIN":
+            console.print("[b]Summary Statistics[/b]")
+            for status, count in status_counts.items():
+                if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
+                    console.print(f"{status}: {count}")
+            console.print()
+        else:
+            table = Table(title="Summary Statistics", show_header=True, header_style="bold")
+            table.add_column("Status", style="dim", width=12)
+            table.add_column("Count", justify="right")
+            for status, count in status_counts.items():
+                if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
+                    table.add_row(status, str(count))
+            console.print(table)
+
+        # Calculate and display overall repository score
         all_scores = list(column_averages.values())
         overall_average = sum(all_scores) / len(all_scores) if all_scores else 0
 
-        # create a list of final rows in the desired order:
-        # 1) overall best practice score
-        # 2) each best practice's score
-        # 3) repositories evaluated (count)
-        # 4) best practices checked (count)
-        # 5) all status counts
-        summary_rows = []
-
-        # add overall best practice score
-        summary_rows.append(("Overall Best Practice Score (%)", f"{overall_average:.1f}"))
-
-        # add best practice scores (top of the table)
-        for category, score in column_averages.items():
-            summary_rows.append((f"{category} Score (%)", f"{score:.1f}"))
-
-        # add repository/standards counts
-        summary_rows.append(("Repositories evaluated (count)", str(repos_count)))
-        summary_rows.append(("Best practices checked (count)", str(standards_count)))
-
-        # add status counts (bottom of the table)
-        for status, count in status_counts.items():
-            if status in ['YES', 'NO', 'PARTIAL', 'PR', 'ISSUE']:
-                summary_rows.append((f"{status} (count)", str(count)))
-
         if args.output_format == "MARKDOWN":
-            # build one Markdown table for everything
-            markdown_table = textwrap.dedent("""
-            # Summary Statistics
-
-            | Metric | Value |
-            | ------ | ----- |
-            """)
-            
-            # add all rows in order
-            for metric, value in summary_rows:
-                markdown_table += f"| {metric} | {value} |\n"
-
-            console.print(markdown_table)
-
-        elif args.output_format == "PLAIN":
-            # print single "table" for summary stats in plain text
-            console.print("[b]Summary Statistics[/b]")
-            console.print("Metric | Value")
-            console.print("------ | -----")
-
-            # add all rows in order
-            for metric, value in summary_rows:
-                console.print(f"{metric} | {value}")
-
-        else:
-            # create a single Rich table for everything
-            summary_table = Table(title="Summary Statistics", show_header=True, header_style="bold")
-            summary_table.add_column("Metric", style="dim", width=35)
-            summary_table.add_column("Value", justify="right")
-
-            # add all rows in order
-            for metric, value in summary_rows:
-                summary_table.add_row(metric, value)
-
-            console.print(summary_table)
+            print(f"\n**Overall Repository Average Score (%)**: {overall_average:.1f}")
 
         # Explanations
         markdown_explanations = textwrap.dedent(f"""
