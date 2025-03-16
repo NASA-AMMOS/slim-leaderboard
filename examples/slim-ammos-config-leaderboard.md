@@ -85,6 +85,7 @@
 | nasa-ammos | aerie-phoenix-adaptation-vml | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | OCO3-MOS-dmc | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | Veloserver | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| nasa-ammos | aerie-action-template | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | aerie-actions | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | nasa-ammos | slim-cd-starterkit | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | nasa | FEI | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -95,24 +96,24 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.6 |
-| Additional Documentation Score (%) | 63.2 |
-| License Score (%) | 60.3 |
-| Readme Score (%) | 46.5 |
-| Code of Conduct Score (%) | 41.1 |
-| Contributing Guide Score (%) | 37.6 |
-| Changelog Score (%) | 33.9 |
-| Issue Templates Score (%) | 33.3 |
-| PR Templates Score (%) | 28.4 |
-| Governance Model Score (%) | 10.3 |
+| Overall Best Practice Score (%) | 25.3 |
+| Additional Documentation Score (%) | 62.5 |
+| License Score (%) | 59.7 |
+| Readme Score (%) | 46.0 |
+| Code of Conduct Score (%) | 40.6 |
+| Contributing Guide Score (%) | 37.2 |
+| Changelog Score (%) | 33.5 |
+| Issue Templates Score (%) | 33.0 |
+| PR Templates Score (%) | 28.1 |
+| Governance Model Score (%) | 10.2 |
 | Secrets Detection Score (%) | 2.3 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 87 |
+| Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
-| NO (count) | 725 |
+| NO (count) | 739 |
 | YES (count) | 228 |
 | PR (count) | 197 |
 | PARTIAL (count) | 68 |
