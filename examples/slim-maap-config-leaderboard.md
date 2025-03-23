@@ -69,7 +69,6 @@
 | MAAP-project | MAAP-STAC-auth | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | maap-data-pipelines | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | maap-repo-template | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| MAAP-project | maap-STAC-browser | 🟣 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | flask_ades_wpst | 🟣 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | che-sidebar-visibility-jupyter-extension | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | cache-docker-layers-cdk-gha | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -98,27 +97,27 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.2 |
-| License Score (%) | 86.4 |
-| Additional Documentation Score (%) | 46.7 |
+| Overall Best Practice Score (%) | 17.3 |
+| License Score (%) | 87.1 |
+| Additional Documentation Score (%) | 47.2 |
 | Readme Score (%) | 43.3 |
-| Contributing Guide Score (%) | 22.2 |
-| Changelog Score (%) | 18.9 |
-| Issue Templates Score (%) | 10.0 |
-| Code of Conduct Score (%) | 8.9 |
-| PR Templates Score (%) | 4.4 |
+| Contributing Guide Score (%) | 22.5 |
+| Changelog Score (%) | 19.1 |
+| Issue Templates Score (%) | 10.1 |
+| Code of Conduct Score (%) | 9.0 |
+| PR Templates Score (%) | 4.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
 | Continuous Testing Plan Score (%) | 0.0 |
-| Repositories evaluated (count) | 90 |
+| Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 78 |
+| PARTIAL (count) | 77 |
 | YES (count) | 176 |
-| NO (count) | 999 |
-| PR (count) | 7 |
+| NO (count) | 987 |
+| PR (count) | 6 |
 
 
 # Repository Check Explanation 

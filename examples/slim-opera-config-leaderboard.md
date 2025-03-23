@@ -29,7 +29,7 @@
 | opera-adt | DSWx-Enhanced-Analysis | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | dist-s1-enumerator | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | dist-s1 | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| opera-adt | tropo | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | tropo | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | gladumd | OPERA_DIST | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | calval-CSLC | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | calval-RTC | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -67,11 +67,11 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.1 |
+| Overall Best Practice Score (%) | 16.3 |
 | License Score (%) | 81.4 |
 | Readme Score (%) | 46.6 |
 | Additional Documentation Score (%) | 40.7 |
-| Issue Templates Score (%) | 30.5 |
+| Issue Templates Score (%) | 32.2 |
 | Changelog Score (%) | 13.6 |
 | PR Templates Score (%) | 10.2 |
 | Secrets Detection Score (%) | 1.7 |
@@ -84,8 +84,8 @@
 | Governance Model Score (%) | 0.0 |
 | Repositories evaluated (count) | 59 |
 | Best practices checked (count) | 14 |
-| NO (count) | 664 |
-| YES (count) | 105 |
+| NO (count) | 663 |
+| YES (count) | 106 |
 | PARTIAL (count) | 56 |
 | PR (count) | 1 |
 
