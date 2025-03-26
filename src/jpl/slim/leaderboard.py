@@ -306,7 +306,8 @@ def calculate_column_statistics(rows, headers):
     for row in rows:
         for key, label in headers:
             if key not in ['owner', 'repo']:  # Skip owner and repo columns
-                if row[key] in STATUS_TO_SCORE_MAPPING:
+                # Check if the key exists in the row before accessing it
+                if key in row and row[key] in STATUS_TO_SCORE_MAPPING:
                     column_scores[label] += STATUS_TO_SCORE_MAPPING[row[key]]
                     column_counts[label] += 1
     
@@ -400,7 +401,7 @@ def main():
     if not args.unsorted:
         def count_yes_values(row):
             """Count the number of 'YES' values in the dictionary."""
-            return sum(1 for value in row.values() if value == 'YES')
+            return sum(1 for key, value in row.items() if value == 'YES')
         
         rows = sorted(rows, key=count_yes_values, reverse=True)
 
