@@ -275,11 +275,15 @@ def process_repository(repo_full_name, headers):
         status_checks['/code-scanning/alerts'] = 'YES' if status_codes['/code-scanning/alerts'] == 200 else 'NO'
         status_checks['/secret-scanning/alerts'] = 'YES' if status_codes['/secret-scanning/alerts'] == 200 else 'NO'
         
+        # Add repository URL to the output
+        repo_url = f"https://{hostname}/{owner}/{repo_name}"
+        url_data = {"repo_url": repo_url}
+        
         # Safely merge checks
         if checks and status_checks:
-            result = checks | status_checks
+            result = checks | status_checks | url_data
         else:
-            result = None
+            result = {"repo_full_name": repo_full_name, "repo_url": repo_url}
 
         return result
 
@@ -287,7 +291,7 @@ def process_repository(repo_full_name, headers):
         logging.error(f"Error processing repository {repo_full_name}: {e}")
         traceback.print_exc()
         return {'repo_full_name': repo_full_name}
-
+    
 
 def calculate_column_statistics(rows, headers):
     """Calculate average scores for each column."""
@@ -392,12 +396,13 @@ def main():
         if processed_repo:
             rows.append(processed_repo)
 
-    # Optionally sort rows by highest passing score to lowest
+    # Sort rows by number of YES values (highest to lowest)
     if not args.unsorted:
-        def count_pass_values(row):
+        def count_yes_values(row):
             """Count the number of 'YES' values in the dictionary."""
-            return sum(1 for key in row if row[key] == 'YES')
-        rows = sorted(rows, key=count_pass_values, reverse=True)
+            return sum(1 for value in row.values() if value == 'YES')
+        
+        rows = sorted(rows, key=count_yes_values, reverse=True)
 
     # Calculate stats
     status_counts = Counter()
@@ -451,45 +456,95 @@ def main():
         tree = Tree("SLIM Best Practices Repository Scan Report")
         for row in rows:
             if 'owner' in row and 'repo' in row:
-                repo_branch = tree.add(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
+                repo_name = f"{row['owner']}/{row['repo']}"
+                repo_url = row.get('repo_url', '')
+                repo_branch = tree.add(f"[bold magenta][link={repo_url}]{repo_name}[/link][/bold magenta]")
                 for key, label in headers:
                     if key not in ['owner', 'repo']:  # ignore owner and repo for the tree list since we printed it above already
-                        repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}") 
+                        if key in row:
+                            repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}") 
         console.print(tree)
 
     elif args.output_format == 'PLAIN':
         console.print("SLIM Best Practices Repository Scan Report", style="bold")
         for row in rows:
-            console.print(f"[bold magenta]{row['owner']}/{row['repo']}[/bold magenta]")
-            for key, label in headers:
-                if key not in ['owner', 'repo']:  # ignore owner and repo for the tree list since we printed it above already
-                    console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}") 
+            if 'owner' in row and 'repo' in row:
+                repo_name = f"{row['owner']}/{row['repo']}"
+                repo_url = row.get('repo_url', '')
+                console.print(f"[bold magenta][link={repo_url}]{repo_name}[/link][/bold magenta]")
+                for key, label in headers:
+                    if key not in ['owner', 'repo'] and key in row:
+                        console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}") 
 
     elif args.output_format == 'TABLE':
         table = Table(title="SLIM Best Practices Repository Scan Report", show_header=True, header_style="bold magenta", show_lines=True)
-        for _, label in headers:
-            table.add_column(label)
+        
+        # Add repo column with hyperlink
+        table.add_column("Repository")
+        
+        # Add other columns
+        for key, label in headers:
+            if key not in ['owner', 'repo']:  # Skip owner and repo columns as we'll display them together
+                table.add_column(label)
+        
         for row in rows:
-            table.add_row(*[style_status_for_terminal(row[key], args.emoji) for key, _ in headers])
+            if 'owner' in row and 'repo' in row:
+                repo_name = f"{row['owner']}/{row['repo']}"
+                repo_url = row.get('repo_url', '')
+                
+                # Create a list for this row's data
+                row_data = [f"[link={repo_url}]{repo_name}[/link]"]
+                
+                # Add status values for all other columns
+                for key, _ in headers:
+                    if key not in ['owner', 'repo']:
+                        if key in row:
+                            row_data.append(style_status_for_terminal(row[key], args.emoji))
+                        else:
+                            row_data.append("")
+                
+                table.add_row(*row_data)
+        
         console.print(table)
 
     elif args.output_format == 'MARKDOWN':
-        # Create the header row
-        header_row = '| ' + ' | '.join([label for _, label in headers]) + ' |'
-        # Create the separator row
-        separator_row = '| ' + ' | '.join(['---'] * len(headers)) + ' |'
-        # Create all data rows
-        data_rows = [
-            '| ' + ' | '.join([style_status_for_markdown(row[key], args.emoji) for key, _ in headers]) + ' |'
-            for row in rows
-        ]
+        # Create column headers
+        header_cols = ["Repository"]
+        for key, label in headers:
+            if key not in ['owner', 'repo']:
+                header_cols.append(label)
+        
+        header_row = '| ' + ' | '.join(header_cols) + ' |'
+        separator_row = '| ' + ' | '.join(['---'] * len(header_cols)) + ' |'
+        
+        # Create data rows with repository links
+        data_rows = []
+        for row in rows:
+            if 'owner' in row and 'repo' in row:
+                repo_name = f"{row['owner']}/{row['repo']}"
+                repo_url = row.get('repo_url', '')
+                
+                # Start with repository link
+                row_data = [f"[{repo_name}]({repo_url})"]
+                
+                # Add status for other columns
+                for key, _ in headers:
+                    if key not in ['owner', 'repo']:
+                        if key in row:
+                            row_data.append(style_status_for_markdown(row[key], args.emoji))
+                        else:
+                            row_data.append("")
+                
+                data_rows.append('| ' + ' | '.join(row_data) + ' |')
+        
         markdown_table = '\n'.join([header_row, separator_row] + data_rows)
         print()
         print("# SLIM Best Practices Repository Scan Report")
-        print(markdown_table)  # Or use Markdown rendering if required
+        print(markdown_table)
 
     else:
         logging.error(f"Invalid --output_format specified: {args.output_format}.")
+
 
     if args.verbose:
         # Summary statistics
