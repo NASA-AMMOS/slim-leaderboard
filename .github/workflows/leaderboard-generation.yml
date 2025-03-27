@@ -48,6 +48,8 @@ jobs:
         # Set git config
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git fetch origin
+        git checkout main || git checkout -b main origin/main
         
         # Stage all changes (including deletions and new files)
         git add examples/
