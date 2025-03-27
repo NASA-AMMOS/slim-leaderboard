@@ -42,12 +42,14 @@ jobs:
             # Extract the base name without .json extension
             basename=$(basename "$config" .json)
             # Generate the corresponding leaderboard file
-            slim-leaderboard "$config" --output_format MARKDOWN --unsorted --emoji --verbose >> "examples/${basename}-leaderboard.md"
+            slim-leaderboard "$config" --output_format MARKDOWN --emoji --verbose >> "examples/${basename}-leaderboard.md"
         done
       
         # Set git config
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git fetch origin
+        git checkout main || git checkout -b main origin/main
         
         # Stage all changes (including deletions and new files)
         git add examples/
