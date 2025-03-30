@@ -2,15 +2,16 @@
 # SLIM Best Practices Repository Scan Report
 | Owner | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| c-h-david | rapid2 | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟠 |
+| c-h-david | rapid2 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟠 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 64.3 |
+| Overall Best Practice Score (%) | 67.9 |
 | License Score (%) | 100.0 |
+| Readme Score (%) | 100.0 |
 | Contributing Guide Score (%) | 100.0 |
 | Code of Conduct Score (%) | 100.0 |
 | Issue Templates Score (%) | 100.0 |
@@ -18,7 +19,6 @@
 | Additional Documentation Score (%) | 100.0 |
 | Changelog Score (%) | 100.0 |
 | Governance Model Score (%) | 100.0 |
-| Readme Score (%) | 50.0 |
 | Continuous Testing Plan Score (%) | 50.0 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
@@ -26,9 +26,9 @@
 | Secrets Detection Score (%) | 0.0 |
 | Repositories evaluated (count) | 1 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 2 |
-| YES (count) | 8 |
+| YES (count) | 9 |
 | NO (count) | 4 |
+| PARTIAL (count) | 1 |
 
 
 # Repository Check Explanation 

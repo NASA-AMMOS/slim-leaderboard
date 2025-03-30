@@ -72,31 +72,32 @@
 | unity-sds | mdps-ds-lib | 🟢 | 🟠 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | mdps-tropess-deploy | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | unity-sds | emit-ghg_test | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| unity-sds | mdps-application-catalog | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 32.0 |
-| License Score (%) | 78.9 |
-| Readme Score (%) | 60.4 |
-| Additional Documentation Score (%) | 60.0 |
-| Changelog Score (%) | 54.3 |
-| Contributing Guide Score (%) | 52.5 |
-| Code of Conduct Score (%) | 52.5 |
-| Issue Templates Score (%) | 44.6 |
-| PR Templates Score (%) | 41.8 |
+| Overall Best Practice Score (%) | 32.3 |
+| License Score (%) | 79.2 |
+| Readme Score (%) | 60.9 |
+| Additional Documentation Score (%) | 60.6 |
+| Changelog Score (%) | 54.9 |
+| Contributing Guide Score (%) | 53.2 |
+| Code of Conduct Score (%) | 53.2 |
+| Issue Templates Score (%) | 45.4 |
+| PR Templates Score (%) | 42.6 |
 | Governance Model Score (%) | 1.4 |
 | Continuous Testing Plan Score (%) | 1.1 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
-| Repositories evaluated (count) | 70 |
+| Repositories evaluated (count) | 71 |
 | Best practices checked (count) | 14 |
-| YES (count) | 288 |
-| NO (count) | 630 |
+| YES (count) | 296 |
+| NO (count) | 636 |
 | PR (count) | 23 |
 | PARTIAL (count) | 39 |
 
