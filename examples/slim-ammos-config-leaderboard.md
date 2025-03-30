@@ -67,6 +67,7 @@
 | [nasa-ammos/aerie-multimission-models-bb](https://github.com/nasa-ammos/aerie-multimission-models-bb) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-template](https://github.com/nasa-ammos/aerie-phoenix-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-vml](https://github.com/nasa-ammos/aerie-phoenix-adaptation-vml) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/aerie-sequence-languages](https://github.com/nasa-ammos/aerie-sequence-languages) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesSampleData](https://github.com/nasa-ammos/3DTilesSampleData) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AMPCS](https://github.com/nasa-ammos/AMPCS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MCWS](https://github.com/nasa-ammos/MCWS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -96,26 +97,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.3 |
-| Additional Documentation Score (%) | 62.5 |
-| License Score (%) | 59.7 |
+| Overall Best Practice Score (%) | 25.1 |
+| Additional Documentation Score (%) | 61.8 |
+| License Score (%) | 60.1 |
 | Readme Score (%) | 46.6 |
-| Code of Conduct Score (%) | 40.6 |
-| Contributing Guide Score (%) | 37.2 |
-| Changelog Score (%) | 33.5 |
-| Issue Templates Score (%) | 33.0 |
-| PR Templates Score (%) | 28.1 |
-| Governance Model Score (%) | 10.2 |
-| Secrets Detection Score (%) | 2.3 |
+| Code of Conduct Score (%) | 40.2 |
+| Contributing Guide Score (%) | 36.8 |
+| Changelog Score (%) | 33.1 |
+| Issue Templates Score (%) | 32.6 |
+| PR Templates Score (%) | 27.8 |
+| Governance Model Score (%) | 10.1 |
+| Secrets Detection Score (%) | 2.2 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 88 |
+| Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
-| YES (count) | 228 |
-| NO (count) | 738 |
-| PARTIAL (count) | 69 |
+| YES (count) | 229 |
+| NO (count) | 750 |
+| PARTIAL (count) | 70 |
 | PR (count) | 197 |
 
 
