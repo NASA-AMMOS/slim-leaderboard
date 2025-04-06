@@ -68,6 +68,7 @@
 | [nasa-ammos/aerie-phoenix-adaptation-template](https://github.com/nasa-ammos/aerie-phoenix-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-vml](https://github.com/nasa-ammos/aerie-phoenix-adaptation-vml) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-sequence-languages](https://github.com/nasa-ammos/aerie-sequence-languages) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/aerie-time-utils](https://github.com/nasa-ammos/aerie-time-utils) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesSampleData](https://github.com/nasa-ammos/3DTilesSampleData) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AMPCS](https://github.com/nasa-ammos/AMPCS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MCWS](https://github.com/nasa-ammos/MCWS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,26 +98,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.1 |
-| Additional Documentation Score (%) | 61.8 |
-| License Score (%) | 60.1 |
-| Readme Score (%) | 46.6 |
-| Code of Conduct Score (%) | 40.2 |
-| Contributing Guide Score (%) | 36.8 |
-| Changelog Score (%) | 33.1 |
-| Issue Templates Score (%) | 32.6 |
-| PR Templates Score (%) | 27.8 |
-| Governance Model Score (%) | 10.1 |
+| Overall Best Practice Score (%) | 25.0 |
+| Additional Documentation Score (%) | 61.1 |
+| License Score (%) | 60.6 |
+| Readme Score (%) | 46.7 |
+| Code of Conduct Score (%) | 39.7 |
+| Contributing Guide Score (%) | 36.4 |
+| Changelog Score (%) | 32.8 |
+| Issue Templates Score (%) | 32.2 |
+| PR Templates Score (%) | 27.5 |
+| Governance Model Score (%) | 10.0 |
 | Secrets Detection Score (%) | 2.2 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 89 |
+| Repositories evaluated (count) | 90 |
 | Best practices checked (count) | 14 |
-| YES (count) | 229 |
-| NO (count) | 750 |
-| PARTIAL (count) | 70 |
+| YES (count) | 230 |
+| NO (count) | 762 |
+| PARTIAL (count) | 71 |
 | PR (count) | 197 |
 
 
