@@ -19,7 +19,7 @@
 | [MAAP-project/eclipse-che-dashboard](https://github.com/MAAP-project/eclipse-che-dashboard) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/mmt](https://github.com/MAAP-project/mmt) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/biomass-dashboard-api](https://github.com/MAAP-project/biomass-dashboard-api) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/edsc-jupyter-extension](https://github.com/MAAP-project/edsc-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/edsc-jupyter-extension](https://github.com/MAAP-project/edsc-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/ades-metrics-visualization-jupyter-extension](https://github.com/MAAP-project/ades-metrics-visualization-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/jupyter-server-extension](https://github.com/MAAP-project/jupyter-server-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-help-jupyter-extension](https://github.com/MAAP-project/maap-help-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -102,7 +102,7 @@
 | Additional Documentation Score (%) | 47.2 |
 | Readme Score (%) | 43.3 |
 | Contributing Guide Score (%) | 22.5 |
-| Changelog Score (%) | 19.4 |
+| Changelog Score (%) | 19.7 |
 | Issue Templates Score (%) | 10.1 |
 | Code of Conduct Score (%) | 9.0 |
 | PR Templates Score (%) | 4.5 |
@@ -116,8 +116,8 @@
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 77 |
 | YES (count) | 176 |
-| NO (count) | 986 |
-| PR (count) | 7 |
+| NO (count) | 985 |
+| PR (count) | 8 |
 
 
 # Repository Check Explanation 
