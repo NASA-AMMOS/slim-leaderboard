@@ -30,6 +30,7 @@
 | opera-adt | dist-s1-enumerator | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | dist-s1 | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | opera-adt | tropo | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| opera-adt | dswx-swot | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | gladumd | OPERA_DIST | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | calval-CSLC | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | OPERA-Cal-Val | calval-RTC | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -67,13 +68,13 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.3 |
-| License Score (%) | 81.4 |
-| Readme Score (%) | 46.6 |
-| Additional Documentation Score (%) | 40.7 |
-| Issue Templates Score (%) | 32.2 |
-| Changelog Score (%) | 13.6 |
-| PR Templates Score (%) | 10.2 |
+| Overall Best Practice Score (%) | 16.2 |
+| License Score (%) | 81.7 |
+| Readme Score (%) | 46.7 |
+| Additional Documentation Score (%) | 40.0 |
+| Issue Templates Score (%) | 31.7 |
+| Changelog Score (%) | 13.3 |
+| PR Templates Score (%) | 10.0 |
 | Secrets Detection Score (%) | 1.7 |
 | Continuous Testing Plan Score (%) | 0.8 |
 | Contributing Guide Score (%) | 0.4 |
@@ -82,11 +83,11 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 59 |
+| Repositories evaluated (count) | 60 |
 | Best practices checked (count) | 14 |
-| NO (count) | 663 |
-| YES (count) | 106 |
-| PARTIAL (count) | 56 |
+| NO (count) | 675 |
+| YES (count) | 107 |
+| PARTIAL (count) | 57 |
 | PR (count) | 1 |
 
 

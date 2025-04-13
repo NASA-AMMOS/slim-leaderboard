@@ -45,7 +45,7 @@
 | MAAP-project | dps-register-job | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | maap-workspaces | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | maap-hec-aws | 🟣 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| MAAP-project | edsc-jupyter-extension | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| MAAP-project | edsc-jupyter-extension | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | umf-jupyter-extension | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | maap-libs-jupyter-extension | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | MAAP-project | user-workspace-management-jupyter-extension | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -102,7 +102,7 @@
 | Additional Documentation Score (%) | 47.2 |
 | Readme Score (%) | 43.3 |
 | Contributing Guide Score (%) | 22.5 |
-| Changelog Score (%) | 19.4 |
+| Changelog Score (%) | 19.7 |
 | Issue Templates Score (%) | 10.1 |
 | Code of Conduct Score (%) | 9.0 |
 | PR Templates Score (%) | 4.5 |
@@ -116,8 +116,8 @@
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 77 |
 | YES (count) | 176 |
-| NO (count) | 986 |
-| PR (count) | 7 |
+| NO (count) | 985 |
+| PR (count) | 8 |
 
 
 # Repository Check Explanation 
