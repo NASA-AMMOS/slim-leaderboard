@@ -51,6 +51,7 @@
 | [nasa-ammos/MMTC](https://github.com/nasa-ammos/MMTC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Landform](https://github.com/nasa-ammos/Landform) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Veloserver](https://github.com/nasa-ammos/Veloserver) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/aerie-actions](https://github.com/nasa-ammos/aerie-actions) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/FEI](https://github.com/nasa/FEI) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Unity3DTiles](https://github.com/nasa-ammos/Unity3DTiles) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/quickstart-ammos-smallsat-toolkit](https://github.com/nasa-ammos/quickstart-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -91,17 +92,16 @@
 | [nasa-ammos/aerie-fprime-sequence-adaptation](https://github.com/nasa-ammos/aerie-fprime-sequence-adaptation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/OCO3-MOS-dmc](https://github.com/nasa-ammos/OCO3-MOS-dmc) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-action-template](https://github.com/nasa-ammos/aerie-action-template) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/aerie-actions](https://github.com/nasa-ammos/aerie-actions) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.0 |
-| Additional Documentation Score (%) | 61.1 |
-| License Score (%) | 60.6 |
-| Readme Score (%) | 46.7 |
+| Overall Best Practice Score (%) | 25.2 |
+| Additional Documentation Score (%) | 62.2 |
+| License Score (%) | 61.7 |
+| Readme Score (%) | 47.2 |
 | Code of Conduct Score (%) | 39.7 |
 | Contributing Guide Score (%) | 36.4 |
 | Changelog Score (%) | 32.8 |
@@ -115,9 +115,9 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 90 |
 | Best practices checked (count) | 14 |
-| YES (count) | 230 |
-| NO (count) | 762 |
-| PARTIAL (count) | 71 |
+| YES (count) | 232 |
+| NO (count) | 759 |
+| PARTIAL (count) | 72 |
 | PR (count) | 197 |
 
 
