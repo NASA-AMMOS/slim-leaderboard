@@ -74,7 +74,6 @@
 | [unity-sds/unity-cs-monitoring-lambda](https://github.com/unity-sds/unity-cs-monitoring-lambda) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/mdps-tropess-deploy](https://github.com/unity-sds/mdps-tropess-deploy) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
-
 # Summary Statistics
 
 | Metric | Value |

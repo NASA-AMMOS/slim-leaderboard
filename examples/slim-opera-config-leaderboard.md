@@ -63,7 +63,6 @@
 | [OPERA-Cal-Val/dl-with-alos-dswe](https://github.com/OPERA-Cal-Val/dl-with-alos-dswe) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/dswx-hls-pst-workflow](https://github.com/OPERA-Cal-Val/dswx-hls-pst-workflow) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
-
 # Summary Statistics
 
 | Metric | Value |
