@@ -61,7 +61,6 @@
 | [unity-sds/SBG-unity-isofit](https://github.com/unity-sds/SBG-unity-isofit) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-reference-application](https://github.com/unity-sds/unity-reference-application) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/stac-merge](https://github.com/unity-sds/stac-merge) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [unity-sds/unity-cs-security](https://github.com/unity-sds/unity-cs-security) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-sps-register_job](https://github.com/unity-sds/unity-sps-register_job) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-backstage](https://github.com/unity-sds/unity-backstage) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/sounder-sips-chirp-workflows](https://github.com/unity-sds/sounder-sips-chirp-workflows) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -74,19 +73,20 @@
 | [unity-sds/unity-cs-monitoring-lambda](https://github.com/unity-sds/unity-cs-monitoring-lambda) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/mdps-tropess-deploy](https://github.com/unity-sds/mdps-tropess-deploy) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
+
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 32.3 |
-| License Score (%) | 79.2 |
-| Readme Score (%) | 60.9 |
-| Additional Documentation Score (%) | 60.6 |
-| Changelog Score (%) | 54.9 |
-| Contributing Guide Score (%) | 53.2 |
-| Code of Conduct Score (%) | 53.2 |
-| Issue Templates Score (%) | 45.4 |
-| PR Templates Score (%) | 42.6 |
+| Overall Best Practice Score (%) | 32.6 |
+| License Score (%) | 80.0 |
+| Additional Documentation Score (%) | 61.4 |
+| Readme Score (%) | 61.1 |
+| Changelog Score (%) | 55.4 |
+| Contributing Guide Score (%) | 53.6 |
+| Code of Conduct Score (%) | 53.6 |
+| Issue Templates Score (%) | 45.7 |
+| PR Templates Score (%) | 42.9 |
 | Governance Model Score (%) | 1.4 |
 | Continuous Testing Plan Score (%) | 1.1 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -96,9 +96,9 @@
 | Repositories evaluated (count) | 71 |
 | Best practices checked (count) | 14 |
 | YES (count) | 296 |
-| NO (count) | 636 |
-| PR (count) | 23 |
-| PARTIAL (count) | 39 |
+| NO (count) | 629 |
+| PR (count) | 17 |
+| PARTIAL (count) | 38 |
 
 
 # Repository Check Explanation 
