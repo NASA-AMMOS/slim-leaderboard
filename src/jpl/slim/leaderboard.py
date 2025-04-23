@@ -17,7 +17,7 @@ import traceback
 import urllib.parse
 
 logging.basicConfig(level=logging.INFO)
-    
+
 # Constants
 STATUS_TO_EMOJI_MAPPING = {
     'YES': '🟢',
@@ -185,7 +185,7 @@ def check_files_existence(owner, repo_name, api_url, headers):
     )
 
     def generate_check_mark(file_name, file_status, issues, prs):
-        if file_status is not None: 
+        if file_status is not None:
             return 'YES'
         elif any(file_name in issue for issue in issues):
             return 'TICKET'
@@ -274,11 +274,11 @@ def process_repository(repo_full_name, headers):
         status_checks['/vulnerability-alerts'] = 'YES' if status_codes['/vulnerability-alerts'] == 204 else 'NO'
         status_checks['/code-scanning/alerts'] = 'YES' if status_codes['/code-scanning/alerts'] == 200 else 'NO'
         status_checks['/secret-scanning/alerts'] = 'YES' if status_codes['/secret-scanning/alerts'] == 200 else 'NO'
-        
+
         # Add repository URL to the output
         repo_url = f"https://{hostname}/{owner}/{repo_name}"
         url_data = {"repo_url": repo_url}
-        
+
         # Safely merge checks
         if checks and status_checks:
             result = checks | status_checks | url_data
@@ -291,18 +291,18 @@ def process_repository(repo_full_name, headers):
         logging.error(f"Error processing repository {repo_full_name}: {e}")
         traceback.print_exc()
         return {'repo_full_name': repo_full_name}
-    
+
 
 def calculate_column_statistics(rows, headers):
     """Calculate average scores for each column."""
     column_scores = {}
     column_counts = {}
-    
+
     for _, label in headers:
         if label not in ['Owner', 'Repository']:  # Skip non-score columns
             column_scores[label] = 0
             column_counts[label] = 0
-    
+
     for row in rows:
         for key, label in headers:
             if key not in ['owner', 'repo']:  # Skip owner and repo columns
@@ -310,7 +310,7 @@ def calculate_column_statistics(rows, headers):
                 if key in row and row[key] in STATUS_TO_SCORE_MAPPING:
                     column_scores[label] += STATUS_TO_SCORE_MAPPING[row[key]]
                     column_counts[label] += 1
-    
+
     # Calculate averages
     column_averages = {}
     for label in column_scores:
@@ -318,7 +318,7 @@ def calculate_column_statistics(rows, headers):
             column_averages[label] = round(column_scores[label] / column_counts[label], 2)
         else:
             column_averages[label] = 0
-            
+
     # Sort by average score
     sorted_averages = dict(sorted(column_averages.items(), key=lambda x: x[1], reverse=True))
     return sorted_averages
@@ -326,10 +326,11 @@ def calculate_column_statistics(rows, headers):
 
 def main():
     """Main entrypoint."""
-    # load configuration from external JSON file
-    # accept configuration file path from command-line argument
+    # load configuration from external JSON file or command-line arguments
     parser = argparse.ArgumentParser(description="SLIM Best Practices Leaderboard Script")
-    parser.add_argument("config_path", help="Path to the JSON configuration file")
+    parser.add_argument("config_path", nargs='?', help="Path to the JSON configuration file")
+    parser.add_argument('--repositories', nargs='+', metavar='REPO_URL',
+                      help='Repository URLs to check (e.g., https://github.com/org/repo1 https://github.com/org/repo2)')
     parser.add_argument('--version', action='version', version=VERSION)
     parser.add_argument('--output_format', choices=['TREE', 'TABLE', 'MARKDOWN', 'PLAIN'], default='TREE', type=str, help='Output formatting')
     parser.add_argument('--unsorted', action='store_true', default=False, help='Do not sort results')
@@ -337,9 +338,27 @@ def main():
     parser.add_argument('--emoji', action='store_true', default=False, help='Use pretty emojis for status instead of text')
     args = parser.parse_args()
 
-    # load configuration from provided file path
-    with open(args.config_path, "r") as file:
-        config = json.load(file)
+    # Ensure either config_path or --repositories is provided
+    if not args.config_path and not args.repositories:
+        parser.error("Either a config file path or --repositories must be provided")
+
+    # Initialize config
+    config = {"targets": []}
+
+    # Load configuration from provided file path if available
+    if args.config_path:
+        with open(args.config_path, "r") as file:
+            config = json.load(file)
+
+    # Add repositories from command line arguments if provided
+    if args.repositories:
+        for repo_url in args.repositories:
+            # Parse the URL to determine if it's a GitHub repository
+            # Extract repo name from URL (assumes format like https://github.com/owner/repo)
+            config["targets"].append({
+                "type": "repository",
+                "name": repo_url
+            })
 
     # Get the GitHub authentication token from the environment variable
     auth_token = os.getenv("GITHUB_TOKEN")
@@ -402,7 +421,7 @@ def main():
         def count_yes_values(row):
             """Count the number of 'YES' values in the dictionary."""
             return sum(1 for key, value in row.items() if value == 'YES')
-        
+
         rows = sorted(rows, key=count_yes_values, reverse=True)
 
     # Calculate stats
@@ -420,7 +439,7 @@ def main():
         else:
             color = STATUS_TO_COLOR_MAPPING.get(status, 'black')  # Default to black if emoji mapping not found
             styled_status = f"[{color}]{status}[/{color}]"
-        
+
         return styled_status
 
     def style_status_for_markdown(status, emoji=False):
@@ -430,7 +449,7 @@ def main():
             styled_status = icon
         else:
             styled_status = status  # Markdown doesn't support colored text, so just use no styling
-        
+
         return styled_status
 
     # Define the headers and corresponding labels
@@ -463,7 +482,7 @@ def main():
                 for key, label in headers:
                     if key not in ['owner', 'repo']:  # ignore owner and repo for the tree list since we printed it above already
                         if key in row:
-                            repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}") 
+                            repo_branch.add(f"[{style_status_for_terminal(row[key], args.emoji)}] {label}")
         console.print(tree)
 
     elif args.output_format == 'PLAIN':
@@ -475,27 +494,27 @@ def main():
                 console.print(f"[bold magenta][link={repo_url}]{repo_name}[/link][/bold magenta]")
                 for key, label in headers:
                     if key not in ['owner', 'repo'] and key in row:
-                        console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}") 
+                        console.print(f"- [{style_status_for_terminal(row[key], args.emoji)}] {label}")
 
     elif args.output_format == 'TABLE':
         table = Table(title="SLIM Best Practices Repository Scan Report", show_header=True, header_style="bold magenta", show_lines=True)
-        
+
         # Add repo column with hyperlink
         table.add_column("Repository")
-        
+
         # Add other columns
         for key, label in headers:
             if key not in ['owner', 'repo']:  # Skip owner and repo columns as we'll display them together
                 table.add_column(label)
-        
+
         for row in rows:
             if 'owner' in row and 'repo' in row:
                 repo_name = f"{row['owner']}/{row['repo']}"
                 repo_url = row.get('repo_url', '')
-                
+
                 # Create a list for this row's data
                 row_data = [f"[link={repo_url}]{repo_name}[/link]"]
-                
+
                 # Add status values for all other columns
                 for key, _ in headers:
                     if key not in ['owner', 'repo']:
@@ -503,9 +522,9 @@ def main():
                             row_data.append(style_status_for_terminal(row[key], args.emoji))
                         else:
                             row_data.append("")
-                
+
                 table.add_row(*row_data)
-        
+
         console.print(table)
 
     elif args.output_format == 'MARKDOWN':
@@ -514,20 +533,20 @@ def main():
         for key, label in headers:
             if key not in ['owner', 'repo']:
                 header_cols.append(label)
-        
+
         header_row = '| ' + ' | '.join(header_cols) + ' |'
         separator_row = '| ' + ' | '.join(['---'] * len(header_cols)) + ' |'
-        
+
         # Create data rows with repository links
         data_rows = []
         for row in rows:
             if 'owner' in row and 'repo' in row:
                 repo_name = f"{row['owner']}/{row['repo']}"
                 repo_url = row.get('repo_url', '')
-                
+
                 # Start with repository link
                 row_data = [f"[{repo_name}]({repo_url})"]
-                
+
                 # Add status for other columns
                 for key, _ in headers:
                     if key not in ['owner', 'repo']:
@@ -535,9 +554,9 @@ def main():
                             row_data.append(style_status_for_markdown(row[key], args.emoji))
                         else:
                             row_data.append("")
-                
+
                 data_rows.append('| ' + ' | '.join(row_data) + ' |')
-        
+
         markdown_table = '\n'.join([header_row, separator_row] + data_rows)
         print()
         print("# SLIM Best Practices Repository Scan Report")
@@ -593,7 +612,7 @@ def main():
             | Metric | Value |
             | ------ | ----- |
             """)
-            
+
             # add all rows in order
             for metric, value in summary_rows:
                 markdown_table += f"| {metric} | {value} |\n"
@@ -624,7 +643,7 @@ def main():
 
         # Explanations
         markdown_explanations = textwrap.dedent(f"""
-        # Repository Check Explanation 
+        # Repository Check Explanation
 
         Each check against a repository will result in one of the following statuses:
         - {style_status_for_markdown('YES', args.emoji)}: The check passed, indicating that the repository meets the requirement.
@@ -643,7 +662,7 @@ def main():
         ## README
         View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
 
-        - The README must contain sections with the following titles: 
+        - The README must contain sections with the following titles:
             - "Features"
             - "Contents"
             - "Quick Start"
@@ -702,7 +721,7 @@ def main():
         - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such link is present.
         - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the link.
         - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the link.
-        
+
         ## Change Log:
         View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/change-log/
 
@@ -750,7 +769,7 @@ def main():
         - {style_status_for_markdown('YES', args.emoji)}: The check will pass if this file is present.
         - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
         - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
-        - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.    
+        - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
 
         ## Continuous Testing Plan:
         View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
@@ -760,13 +779,13 @@ def main():
         - {style_status_for_markdown('PARTIAL', args.emoji)}: If the TESTING.md file exists but is missing recommended sections
         - {style_status_for_markdown('NO', args.emoji)}: The check will fail if no such file is present.
         - {style_status_for_markdown('PR', args.emoji)}: If a pull-request is proposed to add the file.
-        - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.  
+        - {style_status_for_markdown('ISSUE', args.emoji)}: If an issue is opened to suggest adding the file.
         """)
 
         if args.output_format == "MARKDOWN":  # If markdown styling specified, will just print pure Markdown text not rendered
             print(markdown_explanations)
         else:
-            console.print(Markdown(markdown_explanations))  
+            console.print(Markdown(markdown_explanations))
 
 
 if __name__ == '__main__':
