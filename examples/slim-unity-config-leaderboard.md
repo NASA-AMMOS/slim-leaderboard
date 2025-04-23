@@ -61,6 +61,7 @@
 | [unity-sds/SBG-unity-isofit](https://github.com/unity-sds/SBG-unity-isofit) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-reference-application](https://github.com/unity-sds/unity-reference-application) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/stac-merge](https://github.com/unity-sds/stac-merge) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [unity-sds/unity-cs-security](https://github.com/unity-sds/unity-cs-security) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-sps-register_job](https://github.com/unity-sds/unity-sps-register_job) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-backstage](https://github.com/unity-sds/unity-backstage) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/sounder-sips-chirp-workflows](https://github.com/unity-sds/sounder-sips-chirp-workflows) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -78,15 +79,15 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 32.6 |
-| License Score (%) | 80.0 |
-| Additional Documentation Score (%) | 61.4 |
-| Readme Score (%) | 61.1 |
-| Changelog Score (%) | 55.4 |
-| Contributing Guide Score (%) | 53.6 |
-| Code of Conduct Score (%) | 53.6 |
-| Issue Templates Score (%) | 45.7 |
-| PR Templates Score (%) | 42.9 |
+| Overall Best Practice Score (%) | 32.3 |
+| License Score (%) | 79.2 |
+| Readme Score (%) | 60.9 |
+| Additional Documentation Score (%) | 60.6 |
+| Changelog Score (%) | 54.9 |
+| Contributing Guide Score (%) | 53.2 |
+| Code of Conduct Score (%) | 53.2 |
+| Issue Templates Score (%) | 45.4 |
+| PR Templates Score (%) | 42.6 |
 | Governance Model Score (%) | 1.4 |
 | Continuous Testing Plan Score (%) | 1.1 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -96,12 +97,12 @@
 | Repositories evaluated (count) | 71 |
 | Best practices checked (count) | 14 |
 | YES (count) | 296 |
-| NO (count) | 629 |
-| PR (count) | 17 |
-| PARTIAL (count) | 38 |
+| NO (count) | 636 |
+| PR (count) | 23 |
+| PARTIAL (count) | 39 |
 
 
-# Repository Check Explanation 
+# Repository Check Explanation
 
 Each check against a repository will result in one of the following statuses:
 - 🟢: The check passed, indicating that the repository meets the requirement.
@@ -120,7 +121,7 @@ Each check against a repository will result in one of the following statuses:
 ## README
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
 
-- The README must contain sections with the following titles: 
+- The README must contain sections with the following titles:
     - "Features"
     - "Contents"
     - "Quick Start"
@@ -227,7 +228,7 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governan
 - 🟢: The check will pass if this file is present.
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.    
+- 🔵: If an issue is opened to suggest adding the file.
 
 ## Continuous Testing Plan:
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
@@ -237,5 +238,5 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software
 - 🟠: If the TESTING.md file exists but is missing recommended sections
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.  
+- 🔵: If an issue is opened to suggest adding the file.
 

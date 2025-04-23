@@ -55,6 +55,7 @@
 | [OPERA-Cal-Val/next_pass](https://github.com/OPERA-Cal-Val/next_pass) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/CSLC-S1_Specs](https://github.com/opera-adt/CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/Static_Layers_CSLC-S1_Specs](https://github.com/opera-adt/Static_Layers_CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/.github](https://github.com/OPERA-Cal-Val/.github) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-Validation-Dataset-Generation](https://github.com/OPERA-Cal-Val/DSWx-Validation-Dataset-Generation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DIST-Validation-Dataset](https://github.com/OPERA-Cal-Val/DIST-Validation-Dataset) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -68,14 +69,14 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.2 |
-| License Score (%) | 81.7 |
+| Overall Best Practice Score (%) | 16.0 |
+| License Score (%) | 80.3 |
 | Readme Score (%) | 46.7 |
-| Additional Documentation Score (%) | 40.0 |
-| Issue Templates Score (%) | 31.7 |
-| Changelog Score (%) | 13.3 |
-| PR Templates Score (%) | 10.0 |
-| Secrets Detection Score (%) | 1.7 |
+| Additional Documentation Score (%) | 39.3 |
+| Issue Templates Score (%) | 31.1 |
+| Changelog Score (%) | 13.1 |
+| PR Templates Score (%) | 9.8 |
+| Secrets Detection Score (%) | 1.6 |
 | Continuous Testing Plan Score (%) | 0.8 |
 | Contributing Guide Score (%) | 0.4 |
 | Code of Conduct Score (%) | 0.0 |
@@ -83,15 +84,15 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 60 |
+| Repositories evaluated (count) | 61 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 57 |
+| PARTIAL (count) | 58 |
 | YES (count) | 107 |
-| NO (count) | 675 |
+| NO (count) | 688 |
 | PR (count) | 1 |
 
 
-# Repository Check Explanation 
+# Repository Check Explanation
 
 Each check against a repository will result in one of the following statuses:
 - 🟢: The check passed, indicating that the repository meets the requirement.
@@ -110,7 +111,7 @@ Each check against a repository will result in one of the following statuses:
 ## README
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
 
-- The README must contain sections with the following titles: 
+- The README must contain sections with the following titles:
     - "Features"
     - "Contents"
     - "Quick Start"
@@ -217,7 +218,7 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governan
 - 🟢: The check will pass if this file is present.
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.    
+- 🔵: If an issue is opened to suggest adding the file.
 
 ## Continuous Testing Plan:
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
@@ -227,5 +228,5 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software
 - 🟠: If the TESTING.md file exists but is missing recommended sections
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.  
+- 🔵: If an issue is opened to suggest adding the file.
 

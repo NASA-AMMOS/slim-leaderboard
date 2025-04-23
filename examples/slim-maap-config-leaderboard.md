@@ -54,7 +54,6 @@
 | [MAAP-project/federated-collection-discovery-deployment](https://github.com/MAAP-project/federated-collection-discovery-deployment) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-portal-esa](https://github.com/MAAP-project/maap-portal-esa) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/authorizer](https://github.com/MAAP-project/authorizer) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-auth-example](https://github.com/MAAP-project/maap-auth-example) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/Community](https://github.com/MAAP-project/Community) | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-ade-edscproxy](https://github.com/MAAP-project/maap-ade-edscproxy) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-dps-packer-templates](https://github.com/MAAP-project/maap-dps-packer-templates) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,14 +96,14 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.4 |
-| License Score (%) | 87.1 |
-| Additional Documentation Score (%) | 47.2 |
-| Readme Score (%) | 43.3 |
-| Contributing Guide Score (%) | 22.5 |
-| Changelog Score (%) | 19.9 |
-| Issue Templates Score (%) | 10.1 |
-| Code of Conduct Score (%) | 9.0 |
+| Overall Best Practice Score (%) | 17.5 |
+| License Score (%) | 86.9 |
+| Additional Documentation Score (%) | 47.7 |
+| Readme Score (%) | 43.2 |
+| Contributing Guide Score (%) | 22.7 |
+| Changelog Score (%) | 20.2 |
+| Issue Templates Score (%) | 10.2 |
+| Code of Conduct Score (%) | 9.1 |
 | PR Templates Score (%) | 4.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
@@ -114,13 +113,13 @@
 | Continuous Testing Plan Score (%) | 0.0 |
 | Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 77 |
-| YES (count) | 176 |
-| NO (count) | 984 |
+| PARTIAL (count) | 76 |
+| YES (count) | 175 |
+| NO (count) | 972 |
 | PR (count) | 9 |
 
 
-# Repository Check Explanation 
+# Repository Check Explanation
 
 Each check against a repository will result in one of the following statuses:
 - 🟢: The check passed, indicating that the repository meets the requirement.
@@ -139,7 +138,7 @@ Each check against a repository will result in one of the following statuses:
 ## README
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
 
-- The README must contain sections with the following titles: 
+- The README must contain sections with the following titles:
     - "Features"
     - "Contents"
     - "Quick Start"
@@ -246,7 +245,7 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governan
 - 🟢: The check will pass if this file is present.
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.    
+- 🔵: If an issue is opened to suggest adding the file.
 
 ## Continuous Testing Plan:
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
@@ -256,5 +255,5 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software
 - 🟠: If the TESTING.md file exists but is missing recommended sections
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.  
+- 🔵: If an issue is opened to suggest adding the file.
 
