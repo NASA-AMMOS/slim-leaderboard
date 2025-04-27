@@ -92,7 +92,7 @@
 | PR (count) | 1 |
 
 
-# Repository Check Explanation
+# Repository Check Explanation 
 
 Each check against a repository will result in one of the following statuses:
 - 🟢: The check passed, indicating that the repository meets the requirement.
@@ -111,7 +111,7 @@ Each check against a repository will result in one of the following statuses:
 ## README
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/documentation/readme/
 
-- The README must contain sections with the following titles:
+- The README must contain sections with the following titles: 
     - "Features"
     - "Contents"
     - "Quick Start"
@@ -218,7 +218,7 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/governan
 - 🟢: The check will pass if this file is present.
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.
+- 🔵: If an issue is opened to suggest adding the file.    
 
 ## Continuous Testing Plan:
 View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/continuous-testing/
@@ -228,5 +228,5 @@ View best practice guide: https://nasa-ammos.github.io/slim/docs/guides/software
 - 🟠: If the TESTING.md file exists but is missing recommended sections
 - 🔴: The check will fail if no such file is present.
 - 🟣: If a pull-request is proposed to add the file.
-- 🔵: If an issue is opened to suggest adding the file.
+- 🔵: If an issue is opened to suggest adding the file.  
 
