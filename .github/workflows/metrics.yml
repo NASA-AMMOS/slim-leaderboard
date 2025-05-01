@@ -1,14 +1,393 @@
 name: Collect DORA Metrics
 on:
-  push:
-    branches:
-      - main
+  # Run weekly to track metrics over time
+  schedule:
+    - cron: '0 0 * * 0'  # Run at midnight every Sunday
+  # Run after each deployment to production
+  workflow_run:
+    workflows: ["Deploy to Production"]
+    types:
+      - completed
+  # Allow manual trigger
+  workflow_dispatch:
+  
 jobs:
-  collect-metrics:
+  collect-dora-metrics:
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write  # Required to update badge files
+      pull-requests: read
+      issues: read
+    
     steps:
-      - uses: actions/checkout@v2
-      - name: Run DORA Metrics Collection
-        uses: DeveloperMetrics/collect@v1
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Required for accurate git history analysis
+      
+      # Create directory for badge data
+      - name: Create badge directory
+        run: mkdir -p .github/badges
+      
+      #############################################################
+      # 1. Deployment Frequency
+      #############################################################
+      
+      - name: Calculate Deployment Frequency
+        id: deployment-frequency
+        uses: DeveloperMetrics/deployment-frequency@main
+        with:
+          workflows: 'deploy-to-production'  # Replace with your actual production deployment workflow name
+          actions-token: ${{ secrets.GITHUB_TOKEN }}
+          days: 30  # Calculate for the last 30 days
+      
+      # Extract the deployment frequency value (e.g., "3.5 per week")
+      - name: Parse Deployment Frequency
+        id: parse-df
+        run: |
+          DF_VALUE=$(cat ${{ steps.deployment-frequency.outputs.markdown-file }} | grep -o '[0-9.]\+ per \(day\|week\|month\)')
+          echo "df_value=$DF_VALUE" >> $GITHUB_OUTPUT
+          
+          # Determine color based on DORA metrics standards
+          if [[ "$DF_VALUE" == *"per day"* ]]; then
+            echo "df_color=brightgreen" >> $GITHUB_OUTPUT
+            echo "df_level=Elite" >> $GITHUB_OUTPUT
+          elif [[ "$DF_VALUE" == *"per week"* ]]; then
+            WEEKLY_NUM=$(echo $DF_VALUE | grep -o '[0-9.]\+')
+            if (( $(echo "$WEEKLY_NUM > 3" | bc -l) )); then
+              echo "df_color=green" >> $GITHUB_OUTPUT
+              echo "df_level=High" >> $GITHUB_OUTPUT
+            else
+              echo "df_color=yellow" >> $GITHUB_OUTPUT
+              echo "df_level=Medium" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "df_color=red" >> $GITHUB_OUTPUT
+            echo "df_level=Low" >> $GITHUB_OUTPUT
+          fi
+      
+      # Create deployment frequency badge data
+      - name: Generate Deployment Frequency Badge
+        run: |
+          cat > .github/badges/deployment-frequency.json << EOF
+          {
+            "schemaVersion": 1,
+            "label": "Deployment Frequency",
+            "message": "${{ steps.parse-df.outputs.df_value }} (${{ steps.parse-df.outputs.df_level }})",
+            "color": "${{ steps.parse-df.outputs.df_color }}"
+          }
+          EOF
+      
+      #############################################################
+      # 2. Lead Time for Changes
+      #############################################################
+      
+      - name: Calculate Lead Time for Changes
+        id: lead-time
+        uses: DeveloperMetrics/lead-time-for-changes@main
+        with:
+          workflows: 'deploy-to-production'  # Replace with your actual production deployment workflow name
+          actions-token: ${{ secrets.GITHUB_TOKEN }}
+          days: 30  # Calculate for the last 30 days
+      
+      # Extract the lead time value (e.g., "3.2 days")
+      - name: Parse Lead Time
+        id: parse-lt
+        run: |
+          LT_HOURS=$(cat ${{ steps.lead-time.outputs.markdown-file }} | grep -o 'is [0-9.]\+ hours' | awk '{print $2}')
+          # If not found in hours, try to find in days
+          if [ -z "$LT_HOURS" ]; then
+            LT_DAYS=$(cat ${{ steps.lead-time.outputs.markdown-file }} | grep -o 'is [0-9.]\+ days' | awk '{print $2}')
+            LT_VALUE="$LT_DAYS days"
+            LT_HOURS=$(echo "$LT_DAYS * 24" | bc)
+          else
+            LT_VALUE="$LT_HOURS hours"
+          fi
+          
+          echo "lt_value=$LT_VALUE" >> $GITHUB_OUTPUT
+          
+          # Determine color based on DORA metrics standards
+          if (( $(echo "$LT_HOURS < 24" | bc -l) )); then
+            echo "lt_color=brightgreen" >> $GITHUB_OUTPUT
+            echo "lt_level=Elite" >> $GITHUB_OUTPUT
+          elif (( $(echo "$LT_HOURS < 168" | bc -l) )); then
+            echo "lt_color=green" >> $GITHUB_OUTPUT
+            echo "lt_level=High" >> $GITHUB_OUTPUT
+          elif (( $(echo "$LT_HOURS < 720" | bc -l) )); then
+            echo "lt_color=yellow" >> $GITHUB_OUTPUT
+            echo "lt_level=Medium" >> $GITHUB_OUTPUT
+          else
+            echo "lt_color=red" >> $GITHUB_OUTPUT
+            echo "lt_level=Low" >> $GITHUB_OUTPUT
+          fi
+      
+      # Create lead time badge data
+      - name: Generate Lead Time Badge
+        run: |
+          cat > .github/badges/lead-time.json << EOF
+          {
+            "schemaVersion": 1,
+            "label": "Lead Time",
+            "message": "${{ steps.parse-lt.outputs.lt_value }} (${{ steps.parse-lt.outputs.lt_level }})",
+            "color": "${{ steps.parse-lt.outputs.lt_color }}"
+          }
+          EOF
+      
+      #############################################################
+      # 3. Change Failure Rate
+      #############################################################
+      
+      # Get recent production deployments (last 30 days)
+      - name: Get Production Deployments
+        id: deployments
+        run: |
+          # Get date 30 days ago in ISO format
+          THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
+          
+          # Count completed workflow runs for deploy-to-production in last 30 days
+          DEPLOY_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy-to-production.yml/runs?status=completed&created=>$THIRTY_DAYS_AGO" \
+            | jq '.total_count')
+          
+          if [ -z "$DEPLOY_COUNT" ] || [ "$DEPLOY_COUNT" == "null" ]; then
+            DEPLOY_COUNT=0
+          fi
+          
+          echo "deploy_count=$DEPLOY_COUNT" >> $GITHUB_OUTPUT
+      
+      # Get incidents/bugs reported in last 30 days
+      - name: Get Incidents/Bugs
+        id: incidents
+        run: |
+          # Get date 30 days ago in ISO format
+          THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
+          
+          # Count closed issues with bug or incident labels in last 30 days
+          INCIDENT_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues?state=closed&labels=bug,incident&since=$THIRTY_DAYS_AGO&per_page=100" \
+            | jq '. | length')
+          
+          if [ -z "$INCIDENT_COUNT" ] || [ "$INCIDENT_COUNT" == "null" ]; then
+            INCIDENT_COUNT=0
+          fi
+          
+          echo "incident_count=$INCIDENT_COUNT" >> $GITHUB_OUTPUT
+          
+      # Calculate Change Failure Rate
+      - name: Calculate Change Failure Rate
+        id: change-failure-rate
+        run: |
+          if [ "${{ steps.deployments.outputs.deploy_count }}" -gt 0 ]; then
+            RATE=$(echo "scale=2; ${{ steps.incidents.outputs.incident_count }} / ${{ steps.deployments.outputs.deploy_count }} * 100" | bc)
+            echo "failure_rate=${RATE}%" >> $GITHUB_OUTPUT
+            
+            # Determine level and color based on DORA metrics standards
+            if (( $(echo "$RATE <= 15" | bc -l) )); then
+              echo "cfr_color=brightgreen" >> $GITHUB_OUTPUT
+              echo "cfr_level=Elite" >> $GITHUB_OUTPUT
+            elif (( $(echo "$RATE <= 30" | bc -l) )); then
+              echo "cfr_color=green" >> $GITHUB_OUTPUT
+              echo "cfr_level=High" >> $GITHUB_OUTPUT
+            elif (( $(echo "$RATE <= 45" | bc -l) )); then
+              echo "cfr_color=yellow" >> $GITHUB_OUTPUT
+              echo "cfr_level=Medium" >> $GITHUB_OUTPUT
+            else
+              echo "cfr_color=red" >> $GITHUB_OUTPUT
+              echo "cfr_level=Low" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "failure_rate=N/A (No deployments)" >> $GITHUB_OUTPUT
+            echo "cfr_color=gray" >> $GITHUB_OUTPUT
+            echo "cfr_level=N/A" >> $GITHUB_OUTPUT
+          fi
+      
+      # Create change failure rate badge data
+      - name: Generate Change Failure Rate Badge
+        run: |
+          cat > .github/badges/change-failure-rate.json << EOF
+          {
+            "schemaVersion": 1,
+            "label": "Change Failure Rate",
+            "message": "${{ steps.change-failure-rate.outputs.failure_rate }} (${{ steps.change-failure-rate.outputs.cfr_level }})",
+            "color": "${{ steps.change-failure-rate.outputs.cfr_color }}"
+          }
+          EOF
+      
+      #############################################################
+      # 4. Mean Time to Recovery (MTTR)
+      #############################################################
+      
+      # Calculate MTTR from Issues
+      - name: Calculate MTTR from Issues
+        id: mttr
+        run: |
+          # Get all issues labeled as incidents with closed timestamps
+          ISSUES=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues?state=closed&labels=incident&per_page=100")
+          
+          # Calculate time from opened to closed
+          TOTAL_TIME=0
+          COUNT=$(echo "$ISSUES" | jq '. | length')
+          
+          if [ "$COUNT" -gt 0 ]; then
+            for i in $(seq 0 $(($COUNT-1))); do
+              CREATED=$(echo "$ISSUES" | jq -r ".[$i].created_at")
+              CLOSED=$(echo "$ISSUES" | jq -r ".[$i].closed_at")
+              
+              CREATED_TS=$(date -d "$CREATED" +%s)
+              CLOSED_TS=$(date -d "$CLOSED" +%s)
+              
+              DIFF_SECS=$(($CLOSED_TS - $CREATED_TS))
+              TOTAL_TIME=$(($TOTAL_TIME + $DIFF_SECS))
+            done
+            
+            # Convert to hours
+            AVG_HOURS=$(echo "scale=2; $TOTAL_TIME / $COUNT / 3600" | bc)
+            echo "mttr=${AVG_HOURS} hours" >> $GITHUB_OUTPUT
+            
+            # Determine level and color based on DORA metrics standards
+            if (( $(echo "$AVG_HOURS < 1" | bc -l) )); then
+              echo "mttr_color=brightgreen" >> $GITHUB_OUTPUT
+              echo "mttr_level=Elite" >> $GITHUB_OUTPUT
+            elif (( $(echo "$AVG_HOURS < 24" | bc -l) )); then
+              echo "mttr_color=green" >> $GITHUB_OUTPUT
+              echo "mttr_level=High" >> $GITHUB_OUTPUT
+            elif (( $(echo "$AVG_HOURS < 168" | bc -l) )); then
+              echo "mttr_color=yellow" >> $GITHUB_OUTPUT
+              echo "mttr_level=Medium" >> $GITHUB_OUTPUT
+            else
+              echo "mttr_color=red" >> $GITHUB_OUTPUT
+              echo "mttr_level=Low" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "mttr=N/A (No incidents)" >> $GITHUB_OUTPUT
+            echo "mttr_color=gray" >> $GITHUB_OUTPUT
+            echo "mttr_level=N/A" >> $GITHUB_OUTPUT
+          fi
+      
+      # Create MTTR badge data
+      - name: Generate MTTR Badge
+        run: |
+          cat > .github/badges/mttr.json << EOF
+          {
+            "schemaVersion": 1,
+            "label": "MTTR",
+            "message": "${{ steps.mttr.outputs.mttr }} (${{ steps.mttr.outputs.mttr_level }})",
+            "color": "${{ steps.mttr.outputs.mttr_color }}"
+          }
+          EOF
+      
+      #############################################################
+      # 5. Generate combined DORA badge
+      #############################################################
+      
+      - name: Generate Combined DORA Badge
+        run: |
+          cat > .github/badges/dora-metrics.json << EOF
+          {
+            "schemaVersion": 1,
+            "label": "DORA Metrics",
+            "message": "DF: ${{ steps.parse-df.outputs.df_level }} | LT: ${{ steps.parse-lt.outputs.lt_level }} | CFR: ${{ steps.change-failure-rate.outputs.cfr_level }} | MTTR: ${{ steps.mttr.outputs.mttr_level }}",
+            "color": "blue"
+          }
+          EOF
+      
+      #############################################################
+      # 6. Create markdown report
+      #############################################################
+      
+      - name: Create DORA Metrics Report
+        run: |
+          echo "# DORA Metrics Report" > dora-metrics.md
+          echo "Generated on $(date)" >> dora-metrics.md
+          echo "" >> dora-metrics.md
+          echo "## Deployment Frequency" >> dora-metrics.md
+          echo "**Value:** ${{ steps.parse-df.outputs.df_value }}" >> dora-metrics.md
+          echo "**Performance Level:** ${{ steps.parse-df.outputs.df_level }}" >> dora-metrics.md
+          echo "" >> dora-metrics.md
+          echo "## Lead Time for Changes" >> dora-metrics.md
+          echo "**Value:** ${{ steps.parse-lt.outputs.lt_value }}" >> dora-metrics.md
+          echo "**Performance Level:** ${{ steps.parse-lt.outputs.lt_level }}" >> dora-metrics.md
+          echo "" >> dora-metrics.md
+          echo "## Change Failure Rate" >> dora-metrics.md
+          echo "**Value:** ${{ steps.change-failure-rate.outputs.failure_rate }}" >> dora-metrics.md
+          echo "**Performance Level:** ${{ steps.change-failure-rate.outputs.cfr_level }}" >> dora-metrics.md
+          echo "" >> dora-metrics.md
+          echo "## Mean Time to Recovery" >> dora-metrics.md
+          echo "**Value:** ${{ steps.mttr.outputs.mttr }}" >> dora-metrics.md
+          echo "**Performance Level:** ${{ steps.mttr.outputs.mttr_level }}" >> dora-metrics.md
+          echo "" >> dora-metrics.md
+          echo "## How to Add Badges to Your README" >> dora-metrics.md
+          echo '```markdown' >> dora-metrics.md
+          echo "<!-- DORA Metrics Badges -->" >> dora-metrics.md
+          echo "![Deployment Frequency](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/deployment-frequency.json)" >> dora-metrics.md
+          echo "![Lead Time for Changes](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/lead-time.json)" >> dora-metrics.md
+          echo "![Change Failure Rate](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/change-failure-rate.json)" >> dora-metrics.md
+          echo "![MTTR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/mttr.json)" >> dora-metrics.md
+          echo "![DORA Metrics](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/dora-metrics.json)" >> dora-metrics.md
+          echo '```' >> dora-metrics.md
+      
+      #############################################################
+      # 7. Save results
+      #############################################################
+      
+      # Save metrics report as an artifact
+      - name: Save DORA Metrics Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: dora-metrics-report
+          path: dora-metrics.md
+          
+      # Commit badge data files
+      - name: Commit badge data files
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '.github/badges/*.json'
+          message: 'Update DORA metrics badges [skip ci]'
+          default_author: github_actions
+      
+      # Optionally create GitHub Issue with the report
+      - name: Create GitHub Issue with Report
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const reportContent = fs.readFileSync('dora-metrics.md', 'utf8');
+            
+            // Check if there's an existing open issue with the same title pattern
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'dora-metrics'
+            });
+            
+            const today = new Date().toISOString().split('T')[0];
+            const issueTitle = `DORA Metrics Report - ${today}`;
+            
+            const existingIssue = issues.data.find(issue => 
+              issue.title.startsWith('DORA Metrics Report -'));
+            
+            if (existingIssue) {
+              // Update existing issue
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                title: issueTitle,
+                body: reportContent
+              });
+              console.log(`Updated existing issue #${existingIssue.number}`);
+            } else {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: issueTitle,
+                body: reportContent,
+                labels: ['metrics', 'dora-metrics']
+              });
+              console.log('Created new DORA metrics issue');
+            }
