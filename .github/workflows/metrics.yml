@@ -3,11 +3,6 @@ on:
   # Run weekly to track metrics over time
   schedule:
     - cron: '0 0 * * 0'  # Run at midnight every Sunday
-  # Run after each deployment to production
-  workflow_run:
-    workflows: ["Deploy to Production"]
-    types:
-      - completed
   # Allow manual trigger
   workflow_dispatch:
   
@@ -34,38 +29,57 @@ jobs:
       # 1. Deployment Frequency
       #############################################################
       
+      # Calculate deployment frequency directly with GitHub API
       - name: Calculate Deployment Frequency
         id: deployment-frequency
-        uses: DeveloperMetrics/deployment-frequency@main
-        with:
-          workflows: 'deploy-to-production'  # Replace with your actual production deployment workflow name
-          actions-token: ${{ secrets.GITHUB_TOKEN }}
-          days: 30  # Calculate for the last 30 days
-      
-      # Extract the deployment frequency value (e.g., "3.5 per week")
-      - name: Parse Deployment Frequency
-        id: parse-df
         run: |
-          DF_VALUE=$(cat ${{ steps.deployment-frequency.outputs.markdown-file }} | grep -o '[0-9.]\+ per \(day\|week\|month\)')
-          echo "df_value=$DF_VALUE" >> $GITHUB_OUTPUT
+          # Get date 30 days ago in ISO format
+          THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
           
-          # Determine color based on DORA metrics standards
-          if [[ "$DF_VALUE" == *"per day"* ]]; then
-            echo "df_color=brightgreen" >> $GITHUB_OUTPUT
-            echo "df_level=Elite" >> $GITHUB_OUTPUT
-          elif [[ "$DF_VALUE" == *"per week"* ]]; then
-            WEEKLY_NUM=$(echo $DF_VALUE | grep -o '[0-9.]\+')
-            if (( $(echo "$WEEKLY_NUM > 3" | bc -l) )); then
-              echo "df_color=green" >> $GITHUB_OUTPUT
-              echo "df_level=High" >> $GITHUB_OUTPUT
-            else
-              echo "df_color=yellow" >> $GITHUB_OUTPUT
-              echo "df_level=Medium" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "df_color=red" >> $GITHUB_OUTPUT
-            echo "df_level=Low" >> $GITHUB_OUTPUT
+          # Get workflow runs for the deploy workflow
+          DEPLOY_WORKFLOW_RUNS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy-to-production.yml/runs?status=completed&created=>$THIRTY_DAYS_AGO&per_page=100")
+          
+          # Count successful workflow runs
+          DEPLOY_COUNT=$(echo "$DEPLOY_WORKFLOW_RUNS" | jq '[.workflow_runs[] | select(.conclusion == "success")] | length')
+          
+          if [ -z "$DEPLOY_COUNT" ] || [ "$DEPLOY_COUNT" == "null" ]; then
+            DEPLOY_COUNT=0
           fi
+          
+          # Calculate deployments per day
+          DEPLOY_PER_DAY=$(echo "scale=2; $DEPLOY_COUNT / 30" | bc)
+          
+          # Format the value
+          if (( $(echo "$DEPLOY_PER_DAY >= 1" | bc -l) )); then
+            DF_VALUE="$DEPLOY_PER_DAY per day"
+            DF_LEVEL="Elite"
+            DF_COLOR="brightgreen"
+          elif (( $(echo "$DEPLOY_PER_DAY >= 0.14" | bc -l) )); then
+            DEPLOY_PER_WEEK=$(echo "scale=2; $DEPLOY_PER_DAY * 7" | bc)
+            DF_VALUE="$DEPLOY_PER_WEEK per week"
+            DF_LEVEL="High"
+            DF_COLOR="green"
+          elif (( $(echo "$DEPLOY_PER_DAY >= 0.03" | bc -l) )); then
+            DEPLOY_PER_MONTH=$(echo "scale=2; $DEPLOY_PER_DAY * 30" | bc)
+            DF_VALUE="$DEPLOY_PER_MONTH per month"
+            DF_LEVEL="Medium"
+            DF_COLOR="yellow"
+          else
+            DEPLOY_PER_MONTH=$(echo "scale=2; $DEPLOY_PER_DAY * 30" | bc)
+            if [ "$DEPLOY_PER_MONTH" = "0" ] || [ "$DEPLOY_PER_MONTH" = "0.00" ]; then
+              DF_VALUE="0 per month"
+            else
+              DF_VALUE="$DEPLOY_PER_MONTH per month"
+            fi
+            DF_LEVEL="Low"
+            DF_COLOR="red"
+          fi
+          
+          echo "deploy_count=$DEPLOY_COUNT" >> $GITHUB_OUTPUT
+          echo "df_value=$DF_VALUE" >> $GITHUB_OUTPUT
+          echo "df_level=$DF_LEVEL" >> $GITHUB_OUTPUT
+          echo "df_color=$DF_COLOR" >> $GITHUB_OUTPUT
       
       # Create deployment frequency badge data
       - name: Generate Deployment Frequency Badge
@@ -74,8 +88,8 @@ jobs:
           {
             "schemaVersion": 1,
             "label": "Deployment Frequency",
-            "message": "${{ steps.parse-df.outputs.df_value }} (${{ steps.parse-df.outputs.df_level }})",
-            "color": "${{ steps.parse-df.outputs.df_color }}"
+            "message": "${{ steps.deployment-frequency.outputs.df_value }} (${{ steps.deployment-frequency.outputs.df_level }})",
+            "color": "${{ steps.deployment-frequency.outputs.df_color }}"
           }
           EOF
       
@@ -83,44 +97,70 @@ jobs:
       # 2. Lead Time for Changes
       #############################################################
       
+      # Calculate lead time for changes 
       - name: Calculate Lead Time for Changes
         id: lead-time
-        uses: DeveloperMetrics/lead-time-for-changes@main
-        with:
-          workflows: 'deploy-to-production'  # Replace with your actual production deployment workflow name
-          actions-token: ${{ secrets.GITHUB_TOKEN }}
-          days: 30  # Calculate for the last 30 days
-      
-      # Extract the lead time value (e.g., "3.2 days")
-      - name: Parse Lead Time
-        id: parse-lt
         run: |
-          LT_HOURS=$(cat ${{ steps.lead-time.outputs.markdown-file }} | grep -o 'is [0-9.]\+ hours' | awk '{print $2}')
-          # If not found in hours, try to find in days
-          if [ -z "$LT_HOURS" ]; then
-            LT_DAYS=$(cat ${{ steps.lead-time.outputs.markdown-file }} | grep -o 'is [0-9.]\+ days' | awk '{print $2}')
-            LT_VALUE="$LT_DAYS days"
-            LT_HOURS=$(echo "$LT_DAYS * 24" | bc)
+          # Get date 30 days ago in ISO format
+          THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
+          
+          # Get merged PRs in the last 30 days
+          MERGED_PRS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&sort=updated&direction=desc&per_page=100" | \
+            jq '[.[] | select(.merged_at != null) | select(.merged_at > "'"$THIRTY_DAYS_AGO"'")]')
+          
+          PR_COUNT=$(echo "$MERGED_PRS" | jq 'length')
+          
+          if [ "$PR_COUNT" -gt 0 ]; then
+            # Calculate total time for all PRs (created to merged)
+            TOTAL_HOURS=0
+            
+            for i in $(seq 0 $(($PR_COUNT-1))); do
+              CREATED=$(echo "$MERGED_PRS" | jq -r ".[$i].created_at")
+              MERGED=$(echo "$MERGED_PRS" | jq -r ".[$i].merged_at")
+              
+              CREATED_TS=$(date -d "$CREATED" +%s)
+              MERGED_TS=$(date -d "$MERGED" +%s)
+              
+              DIFF_SECS=$(($MERGED_TS - $CREATED_TS))
+              PR_HOURS=$(echo "scale=2; $DIFF_SECS / 3600" | bc)
+              
+              TOTAL_HOURS=$(echo "scale=2; $TOTAL_HOURS + $PR_HOURS" | bc)
+            done
+            
+            # Calculate average
+            AVG_HOURS=$(echo "scale=2; $TOTAL_HOURS / $PR_COUNT" | bc)
+            
+            # Format the output
+            if (( $(echo "$AVG_HOURS < 24" | bc -l) )); then
+              LT_VALUE="$AVG_HOURS hours"
+              LT_LEVEL="Elite"
+              LT_COLOR="brightgreen"
+            elif (( $(echo "$AVG_HOURS < 168" | bc -l) )); then
+              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
+              LT_VALUE="$AVG_DAYS days"
+              LT_LEVEL="High"
+              LT_COLOR="green"
+            elif (( $(echo "$AVG_HOURS < 720" | bc -l) )); then
+              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
+              LT_VALUE="$AVG_DAYS days"
+              LT_LEVEL="Medium"
+              LT_COLOR="yellow"
+            else
+              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
+              LT_VALUE="$AVG_DAYS days"
+              LT_LEVEL="Low"
+              LT_COLOR="red"
+            fi
           else
-            LT_VALUE="$LT_HOURS hours"
+            LT_VALUE="N/A (No PRs)"
+            LT_LEVEL="N/A"
+            LT_COLOR="gray"
           fi
           
           echo "lt_value=$LT_VALUE" >> $GITHUB_OUTPUT
-          
-          # Determine color based on DORA metrics standards
-          if (( $(echo "$LT_HOURS < 24" | bc -l) )); then
-            echo "lt_color=brightgreen" >> $GITHUB_OUTPUT
-            echo "lt_level=Elite" >> $GITHUB_OUTPUT
-          elif (( $(echo "$LT_HOURS < 168" | bc -l) )); then
-            echo "lt_color=green" >> $GITHUB_OUTPUT
-            echo "lt_level=High" >> $GITHUB_OUTPUT
-          elif (( $(echo "$LT_HOURS < 720" | bc -l) )); then
-            echo "lt_color=yellow" >> $GITHUB_OUTPUT
-            echo "lt_level=Medium" >> $GITHUB_OUTPUT
-          else
-            echo "lt_color=red" >> $GITHUB_OUTPUT
-            echo "lt_level=Low" >> $GITHUB_OUTPUT
-          fi
+          echo "lt_level=$LT_LEVEL" >> $GITHUB_OUTPUT
+          echo "lt_color=$LT_COLOR" >> $GITHUB_OUTPUT
       
       # Create lead time badge data
       - name: Generate Lead Time Badge
@@ -129,8 +169,8 @@ jobs:
           {
             "schemaVersion": 1,
             "label": "Lead Time",
-            "message": "${{ steps.parse-lt.outputs.lt_value }} (${{ steps.parse-lt.outputs.lt_level }})",
-            "color": "${{ steps.parse-lt.outputs.lt_color }}"
+            "message": "${{ steps.lead-time.outputs.lt_value }} (${{ steps.lead-time.outputs.lt_level }})",
+            "color": "${{ steps.lead-time.outputs.lt_color }}"
           }
           EOF
       
@@ -138,27 +178,9 @@ jobs:
       # 3. Change Failure Rate
       #############################################################
       
-      # Get recent production deployments (last 30 days)
-      - name: Get Production Deployments
-        id: deployments
-        run: |
-          # Get date 30 days ago in ISO format
-          THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
-          
-          # Count completed workflow runs for deploy-to-production in last 30 days
-          DEPLOY_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy-to-production.yml/runs?status=completed&created=>$THIRTY_DAYS_AGO" \
-            | jq '.total_count')
-          
-          if [ -z "$DEPLOY_COUNT" ] || [ "$DEPLOY_COUNT" == "null" ]; then
-            DEPLOY_COUNT=0
-          fi
-          
-          echo "deploy_count=$DEPLOY_COUNT" >> $GITHUB_OUTPUT
-      
-      # Get incidents/bugs reported in last 30 days
-      - name: Get Incidents/Bugs
-        id: incidents
+      # Calculate Change Failure Rate
+      - name: Calculate Change Failure Rate
+        id: change-failure-rate
         run: |
           # Get date 30 days ago in ISO format
           THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
@@ -172,35 +194,35 @@ jobs:
             INCIDENT_COUNT=0
           fi
           
-          echo "incident_count=$INCIDENT_COUNT" >> $GITHUB_OUTPUT
-          
-      # Calculate Change Failure Rate
-      - name: Calculate Change Failure Rate
-        id: change-failure-rate
-        run: |
-          if [ "${{ steps.deployments.outputs.deploy_count }}" -gt 0 ]; then
-            RATE=$(echo "scale=2; ${{ steps.incidents.outputs.incident_count }} / ${{ steps.deployments.outputs.deploy_count }} * 100" | bc)
-            echo "failure_rate=${RATE}%" >> $GITHUB_OUTPUT
+          # Check if we have any deployments
+          if [ "${{ steps.deployment-frequency.outputs.deploy_count }}" -gt 0 ]; then
+            RATE=$(echo "scale=2; $INCIDENT_COUNT / ${{ steps.deployment-frequency.outputs.deploy_count }} * 100" | bc)
             
-            # Determine level and color based on DORA metrics standards
+            # Format the value
             if (( $(echo "$RATE <= 15" | bc -l) )); then
-              echo "cfr_color=brightgreen" >> $GITHUB_OUTPUT
-              echo "cfr_level=Elite" >> $GITHUB_OUTPUT
+              CFR_LEVEL="Elite"
+              CFR_COLOR="brightgreen"
             elif (( $(echo "$RATE <= 30" | bc -l) )); then
-              echo "cfr_color=green" >> $GITHUB_OUTPUT
-              echo "cfr_level=High" >> $GITHUB_OUTPUT
+              CFR_LEVEL="High"
+              CFR_COLOR="green"
             elif (( $(echo "$RATE <= 45" | bc -l) )); then
-              echo "cfr_color=yellow" >> $GITHUB_OUTPUT
-              echo "cfr_level=Medium" >> $GITHUB_OUTPUT
+              CFR_LEVEL="Medium"
+              CFR_COLOR="yellow"
             else
-              echo "cfr_color=red" >> $GITHUB_OUTPUT
-              echo "cfr_level=Low" >> $GITHUB_OUTPUT
+              CFR_LEVEL="Low"
+              CFR_COLOR="red"
             fi
+            
+            FAILURE_RATE="${RATE}%"
           else
-            echo "failure_rate=N/A (No deployments)" >> $GITHUB_OUTPUT
-            echo "cfr_color=gray" >> $GITHUB_OUTPUT
-            echo "cfr_level=N/A" >> $GITHUB_OUTPUT
+            FAILURE_RATE="N/A (No deployments)"
+            CFR_LEVEL="N/A"
+            CFR_COLOR="gray"
           fi
+          
+          echo "failure_rate=$FAILURE_RATE" >> $GITHUB_OUTPUT
+          echo "cfr_level=$CFR_LEVEL" >> $GITHUB_OUTPUT
+          echo "cfr_color=$CFR_COLOR" >> $GITHUB_OUTPUT
       
       # Create change failure rate badge data
       - name: Generate Change Failure Rate Badge
@@ -218,7 +240,7 @@ jobs:
       # 4. Mean Time to Recovery (MTTR)
       #############################################################
       
-      # Calculate MTTR from Issues
+      # Calculate MTTR
       - name: Calculate MTTR from Issues
         id: mttr
         run: |
@@ -244,27 +266,35 @@ jobs:
             
             # Convert to hours
             AVG_HOURS=$(echo "scale=2; $TOTAL_TIME / $COUNT / 3600" | bc)
-            echo "mttr=${AVG_HOURS} hours" >> $GITHUB_OUTPUT
             
-            # Determine level and color based on DORA metrics standards
+            # Format output
             if (( $(echo "$AVG_HOURS < 1" | bc -l) )); then
-              echo "mttr_color=brightgreen" >> $GITHUB_OUTPUT
-              echo "mttr_level=Elite" >> $GITHUB_OUTPUT
+              MTTR_VALUE="${AVG_HOURS} hours"
+              MTTR_LEVEL="Elite"
+              MTTR_COLOR="brightgreen"
             elif (( $(echo "$AVG_HOURS < 24" | bc -l) )); then
-              echo "mttr_color=green" >> $GITHUB_OUTPUT
-              echo "mttr_level=High" >> $GITHUB_OUTPUT
+              MTTR_VALUE="${AVG_HOURS} hours"
+              MTTR_LEVEL="High"
+              MTTR_COLOR="green"
             elif (( $(echo "$AVG_HOURS < 168" | bc -l) )); then
-              echo "mttr_color=yellow" >> $GITHUB_OUTPUT
-              echo "mttr_level=Medium" >> $GITHUB_OUTPUT
+              MTTR_VALUE="${AVG_HOURS} hours"
+              MTTR_LEVEL="Medium"
+              MTTR_COLOR="yellow"
             else
-              echo "mttr_color=red" >> $GITHUB_OUTPUT
-              echo "mttr_level=Low" >> $GITHUB_OUTPUT
+              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
+              MTTR_VALUE="${AVG_DAYS} days"
+              MTTR_LEVEL="Low"
+              MTTR_COLOR="red"
             fi
           else
-            echo "mttr=N/A (No incidents)" >> $GITHUB_OUTPUT
-            echo "mttr_color=gray" >> $GITHUB_OUTPUT
-            echo "mttr_level=N/A" >> $GITHUB_OUTPUT
+            MTTR_VALUE="N/A (No incidents)"
+            MTTR_LEVEL="N/A"
+            MTTR_COLOR="gray"
           fi
+          
+          echo "mttr_value=$MTTR_VALUE" >> $GITHUB_OUTPUT
+          echo "mttr_level=$MTTR_LEVEL" >> $GITHUB_OUTPUT
+          echo "mttr_color=$MTTR_COLOR" >> $GITHUB_OUTPUT
       
       # Create MTTR badge data
       - name: Generate MTTR Badge
@@ -273,7 +303,7 @@ jobs:
           {
             "schemaVersion": 1,
             "label": "MTTR",
-            "message": "${{ steps.mttr.outputs.mttr }} (${{ steps.mttr.outputs.mttr_level }})",
+            "message": "${{ steps.mttr.outputs.mttr_value }} (${{ steps.mttr.outputs.mttr_level }})",
             "color": "${{ steps.mttr.outputs.mttr_color }}"
           }
           EOF
@@ -288,7 +318,7 @@ jobs:
           {
             "schemaVersion": 1,
             "label": "DORA Metrics",
-            "message": "DF: ${{ steps.parse-df.outputs.df_level }} | LT: ${{ steps.parse-lt.outputs.lt_level }} | CFR: ${{ steps.change-failure-rate.outputs.cfr_level }} | MTTR: ${{ steps.mttr.outputs.mttr_level }}",
+            "message": "DF: ${{ steps.deployment-frequency.outputs.df_level }} | LT: ${{ steps.lead-time.outputs.lt_level }} | CFR: ${{ steps.change-failure-rate.outputs.cfr_level }} | MTTR: ${{ steps.mttr.outputs.mttr_level }}",
             "color": "blue"
           }
           EOF
@@ -303,19 +333,19 @@ jobs:
           echo "Generated on $(date)" >> dora-metrics.md
           echo "" >> dora-metrics.md
           echo "## Deployment Frequency" >> dora-metrics.md
-          echo "**Value:** ${{ steps.parse-df.outputs.df_value }}" >> dora-metrics.md
-          echo "**Performance Level:** ${{ steps.parse-df.outputs.df_level }}" >> dora-metrics.md
+          echo "**Value:** ${{ steps.deployment-frequency.outputs.df_value }}" >> dora-metrics.md
+          echo "**Performance Level:** ${{ steps.deployment-frequency.outputs.df_level }}" >> dora-metrics.md
           echo "" >> dora-metrics.md
           echo "## Lead Time for Changes" >> dora-metrics.md
-          echo "**Value:** ${{ steps.parse-lt.outputs.lt_value }}" >> dora-metrics.md
-          echo "**Performance Level:** ${{ steps.parse-lt.outputs.lt_level }}" >> dora-metrics.md
+          echo "**Value:** ${{ steps.lead-time.outputs.lt_value }}" >> dora-metrics.md
+          echo "**Performance Level:** ${{ steps.lead-time.outputs.lt_level }}" >> dora-metrics.md
           echo "" >> dora-metrics.md
           echo "## Change Failure Rate" >> dora-metrics.md
           echo "**Value:** ${{ steps.change-failure-rate.outputs.failure_rate }}" >> dora-metrics.md
           echo "**Performance Level:** ${{ steps.change-failure-rate.outputs.cfr_level }}" >> dora-metrics.md
           echo "" >> dora-metrics.md
           echo "## Mean Time to Recovery" >> dora-metrics.md
-          echo "**Value:** ${{ steps.mttr.outputs.mttr }}" >> dora-metrics.md
+          echo "**Value:** ${{ steps.mttr.outputs.mttr_value }}" >> dora-metrics.md
           echo "**Performance Level:** ${{ steps.mttr.outputs.mttr_level }}" >> dora-metrics.md
           echo "" >> dora-metrics.md
           echo "## How to Add Badges to Your README" >> dora-metrics.md
