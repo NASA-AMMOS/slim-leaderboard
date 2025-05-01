@@ -305,7 +305,7 @@ jobs:
           {
             "schemaVersion": 1,
             "label": "DORA Metrics",
-            "message": "DF: $DF_LEVEL | LT: $LT_LEVEL | CFR: $CFR_LEVEL | MTTR: $MTTR_LEVEL",
+            "message": "Deployment Frequency: $DF_LEVEL | Lead Time: $LT_LEVEL | Change Failure Rate: $CFR_LEVEL | Mean Time to Recovery: $MTTR_LEVEL",
             "color": "blue"
           }
           EOF
