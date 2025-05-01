@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "label": "DORA Metrics",
+  "message": "DF: High | LT: N/A | CFR: Elite | MTTR: N/A",
+  "color": "blue"
+}
