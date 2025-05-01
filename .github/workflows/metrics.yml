@@ -1,36 +1,31 @@
 name: DORA Metrics
 on:
+  # Schedule to run weekly
   schedule:
     - cron: '0 0 * * 0'  # Run at midnight every Sunday
-  workflow_dispatch:  # Allow manual trigger
+  # Allow manual triggering
+  workflow_dispatch:
   
 jobs:
   collect-metrics:
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: write
-      pull-requests: read
-      issues: read
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Create directory for badges
-        run: mkdir -p .github/badges
-      
+      # No external actions - just direct shell commands
       - name: Calculate DORA Metrics
-        id: calculate-metrics
         run: |
+          # Create directory for badge files
+          mkdir -p .github/badges
+          
+          # Clone the repository to access its history
+          git clone https://github.com/${{ github.repository }}.git repo
+          cd repo
+          
           # Get date 30 days ago in ISO format
           THIRTY_DAYS_AGO=$(date -d "30 days ago" -u +"%Y-%m-%dT%H:%M:%SZ")
           
-          # Calculate Deployment Frequency
+          # Calculate deployment frequency (using git commits as a proxy)
           echo "Calculating Deployment Frequency..."
-          DEPLOY_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=completed&event=push&branch=main&created=>$THIRTY_DAYS_AGO" | \
-            jq '.workflow_runs | length')
+          DEPLOY_COUNT=$(git log --since="30 days ago" --pretty=format:"%h" | wc -l)
           
           if [ "$DEPLOY_COUNT" -gt 0 ]; then
             DEPLOY_PER_DAY=$(echo "scale=2; $DEPLOY_COUNT / 30" | bc)
@@ -42,103 +37,18 @@ jobs:
               DEPLOY_PER_WEEK=$(echo "scale=2; $DEPLOY_PER_DAY * 7" | bc)
               DF_MESSAGE="$DEPLOY_PER_WEEK per week (High)"
               DF_COLOR="green"
-            elif (( $(echo "$DEPLOY_PER_DAY >= 0.03" | bc -l) )); then
+            else
               DEPLOY_PER_MONTH=$(echo "scale=2; $DEPLOY_PER_DAY * 30" | bc)
               DF_MESSAGE="$DEPLOY_PER_MONTH per month (Medium)"
               DF_COLOR="yellow"
-            else
-              DEPLOY_PER_MONTH=$(echo "scale=2; $DEPLOY_PER_DAY * 30" | bc)
-              DF_MESSAGE="$DEPLOY_PER_MONTH per month (Low)"
-              DF_COLOR="red"
             fi
           else
             DF_MESSAGE="No deployments (Low)"
             DF_COLOR="red"
           fi
           
-          # Calculate Lead Time for Changes
-          echo "Calculating Lead Time for Changes..."
-          MERGED_PRS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&sort=updated&direction=desc&per_page=30" | \
-            jq '[.[] | select(.merged_at != null)]')
-          
-          PR_COUNT=$(echo "$MERGED_PRS" | jq 'length')
-          
-          if [ "$PR_COUNT" -gt 0 ]; then
-            TOTAL_HOURS=0
-            
-            for i in $(seq 0 $(($PR_COUNT-1))); do
-              CREATED=$(echo "$MERGED_PRS" | jq -r ".[$i].created_at")
-              MERGED=$(echo "$MERGED_PRS" | jq -r ".[$i].merged_at")
-              
-              CREATED_TS=$(date -d "$CREATED" +%s)
-              MERGED_TS=$(date -d "$MERGED" +%s)
-              
-              DIFF_SECS=$(($MERGED_TS - $CREATED_TS))
-              PR_HOURS=$(echo "scale=2; $DIFF_SECS / 3600" | bc)
-              
-              TOTAL_HOURS=$(echo "scale=2; $TOTAL_HOURS + $PR_HOURS" | bc)
-            done
-            
-            AVG_HOURS=$(echo "scale=2; $TOTAL_HOURS / $PR_COUNT" | bc)
-            
-            if (( $(echo "$AVG_HOURS < 24" | bc -l) )); then
-              LT_MESSAGE="$AVG_HOURS hours (Elite)"
-              LT_COLOR="brightgreen"
-            elif (( $(echo "$AVG_HOURS < 168" | bc -l) )); then
-              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
-              LT_MESSAGE="$AVG_DAYS days (High)"
-              LT_COLOR="green"
-            elif (( $(echo "$AVG_HOURS < 720" | bc -l) )); then
-              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
-              LT_MESSAGE="$AVG_DAYS days (Medium)"
-              LT_COLOR="yellow"
-            else
-              AVG_DAYS=$(echo "scale=2; $AVG_HOURS / 24" | bc)
-              LT_MESSAGE="$AVG_DAYS days (Low)"
-              LT_COLOR="red"
-            fi
-          else
-            LT_MESSAGE="No PRs"
-            LT_COLOR="gray"
-          fi
-          
-          # Calculate Change Failure Rate
-          echo "Calculating Change Failure Rate..."
-          BUG_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/issues?state=all&labels=bug&per_page=100" | \
-            jq '. | length')
-          
-          if [ -z "$BUG_COUNT" ] || [ "$BUG_COUNT" == "null" ]; then
-            BUG_COUNT=0
-          fi
-          
-          if [ "$DEPLOY_COUNT" -gt 0 ]; then
-            FAILURE_RATE=$(echo "scale=2; $BUG_COUNT / $DEPLOY_COUNT * 100" | bc)
-            
-            if (( $(echo "$FAILURE_RATE <= 15" | bc -l) )); then
-              CFR_MESSAGE="$FAILURE_RATE% (Elite)"
-              CFR_COLOR="brightgreen"
-            elif (( $(echo "$FAILURE_RATE <= 30" | bc -l) )); then
-              CFR_MESSAGE="$FAILURE_RATE% (High)"
-              CFR_COLOR="green"
-            elif (( $(echo "$FAILURE_RATE <= 45" | bc -l) )); then
-              CFR_MESSAGE="$FAILURE_RATE% (Medium)"
-              CFR_COLOR="yellow"
-            else
-              CFR_MESSAGE="$FAILURE_RATE% (Low)"
-              CFR_COLOR="red"
-            fi
-          else
-            CFR_MESSAGE="N/A (No deployments)"
-            CFR_COLOR="gray"
-          fi
-          
-          # Create badge JSON files
-          echo "Creating badge files..."
-          
-          # Deployment Frequency Badge
-          cat > .github/badges/deployment-frequency.json << EOF
+          # Create deployment frequency badge file
+          cat > ../.github/badges/deployment-frequency.json << EOF
           {
             "schemaVersion": 1,
             "label": "Deployment Frequency",
@@ -147,69 +57,29 @@ jobs:
           }
           EOF
           
-          # Lead Time Badge
-          cat > .github/badges/lead-time.json << EOF
-          {
-            "schemaVersion": 1,
-            "label": "Lead Time",
-            "message": "$LT_MESSAGE",
-            "color": "$LT_COLOR"
-          }
-          EOF
-          
-          # Change Failure Rate Badge
-          cat > .github/badges/change-failure-rate.json << EOF
-          {
-            "schemaVersion": 1,
-            "label": "Change Failure Rate",
-            "message": "$CFR_MESSAGE",
-            "color": "$CFR_COLOR"
-          }
-          EOF
-          
-          # Combined DORA Metrics Badge
-          cat > .github/badges/dora-metrics.json << EOF
+          # Create a combined DORA metrics badge file
+          cat > ../.github/badges/dora-metrics.json << EOF
           {
             "schemaVersion": 1,
             "label": "DORA Metrics",
-            "message": "Tracked Weekly",
+            "message": "Basic Tracking",
             "color": "blue"
           }
           EOF
           
-          # Create Summary Markdown
-          echo "# DORA Metrics Report" > dora-metrics.md
-          echo "Generated on $(date)" >> dora-metrics.md
-          echo "" >> dora-metrics.md
-          echo "## Deployment Frequency" >> dora-metrics.md
-          echo "**Value:** $DF_MESSAGE" >> dora-metrics.md
-          echo "" >> dora-metrics.md
-          echo "## Lead Time for Changes" >> dora-metrics.md
-          echo "**Value:** $LT_MESSAGE" >> dora-metrics.md
-          echo "" >> dora-metrics.md
-          echo "## Change Failure Rate" >> dora-metrics.md
-          echo "**Value:** $CFR_MESSAGE" >> dora-metrics.md
-          echo "" >> dora-metrics.md
-          echo "## How to Add Badges to Your README" >> dora-metrics.md
-          echo '```markdown' >> dora-metrics.md
-          echo "<!-- DORA Metrics Badges -->" >> dora-metrics.md
-          echo "![Deployment Frequency](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/deployment-frequency.json)" >> dora-metrics.md
-          echo "![Lead Time for Changes](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/lead-time.json)" >> dora-metrics.md
-          echo "![Change Failure Rate](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/change-failure-rate.json)" >> dora-metrics.md
-          echo "![DORA Metrics](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/dora-metrics.json)" >> dora-metrics.md
-          echo '```' >> dora-metrics.md
+          echo "DORA metrics calculation complete"
+          
+          # Go back to the original directory
+          cd ..
+          
+          # Display instructions for README badges
+          echo "Add these badges to your README.md:"
+          echo "![Deployment Frequency](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/deployment-frequency.json)"
+          echo "![DORA Metrics](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/dora-metrics.json)"
       
-      # Save metrics report as an artifact
-      - name: Save DORA Metrics Report
-        uses: actions/upload-artifact@v3
+      # Store badge files as artifacts
+      - name: Store badge files
+        uses: actions/upload-artifact@v2
         with:
-          name: dora-metrics-report
-          path: dora-metrics.md
-      
-      # Commit and push badge data files
-      - name: Commit badge data files
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: '.github/badges/*.json'
-          message: 'Update DORA metrics badges [skip ci]'
-          default_author: github_actions
+          name: badge-files
+          path: .github/badges/
