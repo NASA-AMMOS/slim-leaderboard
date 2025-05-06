@@ -18,7 +18,7 @@ This repository serves to create a leaderboard report that ranks and showcases h
 
 ## Features
 
-* Script to query a set of GitHub repositories and create a report showcasing compliance to SLIM best practices, sorted by most to least compliant, printed to standard out. 
+* Script to query a set of GitHub repositories and create a report showcasing compliance to SLIM best practices, sorted by most to least compliant, printed to standard out.
 * Best practices scanned for include all checklist items specified in the [SLIM Getting Started Checklist](https://nasa-ammos.github.io/slim/docs/guides/checklist#checklist)
 * Specification of repositories via a config file - where repositories can be listed individually or automatically scanned from a parent organization.
 * Works with GitHub.com or GitHub Enterprise repositories.
@@ -26,7 +26,7 @@ This repository serves to create a leaderboard report that ranks and showcases h
 * Logging to share the status of repository compliance as the script runs.
 * Output format modes including: tree, table, and markdown
 * Verbose mode for additional statistical details and explanations
-  
+
 ## Contents
 
 - [Features](#features)
@@ -42,7 +42,7 @@ This repository serves to create a leaderboard report that ranks and showcases h
 
 ## Quick Start
 
-Use this quick start guide to generate a fresh leaderboard report. 
+Use this quick start guide to generate a fresh leaderboard report.
 
 
 ### Setup Instructions
@@ -92,13 +92,23 @@ You'll also need a GitHub personal access token (classic). Ensure that all permi
 
 **👉 Note:** the below example outputs will change as the tool evolves and adds more checks. This is for demonstration purposes only.
 
-To generate a fresh leaderboard report, use the following command format:
+There are two ways to specify which repositories to scan:
+
+1. Using a configuration file (for more complex scans)
+2. Using the `--repositories` command-line argument (for quick checks)
+
+**Option 1: Using a configuration file**
 
     slim-leaderboard --output_format FORMAT --unsorted --verbose --emoji CONFIG_FILE
+
+**Option 2: Directly specifying repositories**
+
+    slim-leaderboard --repositories REPO_URL1 REPO_URL2 ... --output_format FORMAT --unsorted --verbose --emoji
 
 The arguments above are as follows:
 
 - `CONFIG_FILE`: Path to the JSON configuration file.
+- `--repositories REPO_URL1 REPO_URL2 ...`: One or more repository URLs to check (e.g., https://github.com/org/repo1 https://github.com/org/repo2).
 - (Optional) `--output_format FORMAT`: Replace `FORMAT` with `TREE`, `TABLE`, `MARKDOWN`, or `PLAIN`. Default is `TREE`.
 - (Optional) `--unsorted`: If included, the results will not be sorted.
 - (Optional) `--verbose`: If included, outputs verbose information, including detailed statistics and explanations for each check performed.
@@ -127,7 +137,7 @@ Verbose output in tree format:
 
 Markdown format without sorting and with emojis:
 
-    slim-leaderboard --output_format MARKDOWN --unsorted --emoji slim-config.json 
+    slim-leaderboard --output_format MARKDOWN --unsorted --emoji slim-config.json
 
 
 ```
@@ -139,6 +149,12 @@ Scanning Repositories: 100%|█████████████████�
 | nasa-ammos | slim | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ |
 | NASA-AMMOS | slim-starterkit-python | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 ```
+
+Quick check of multiple repositories using the command-line argument:
+
+    slim-leaderboard --repositories https://github.com/nasa-ammos/slim https://github.com/NASA-AMMOS/slim-starterkit-python --output_format TABLE
+
+This directly specifies the repositories to scan without requiring a configuration file.
 
 ## Changelog
 
@@ -177,5 +193,3 @@ See our: [LICENSE](LICENSE)
 ## Support
 
 Key points of contact are: [@riverma](https://github.com/riverma)
-
-
