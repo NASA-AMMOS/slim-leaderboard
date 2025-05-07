@@ -22,7 +22,6 @@
 | [nasa-ammos/aerie](https://github.com/nasa-ammos/aerie) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-ui](https://github.com/nasa-ammos/aerie-ui) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/BSL-docs](https://github.com/nasa-ammos/BSL-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [rzellem/EXOTIC](https://github.com/rzellem/EXOTIC) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/timecraftjs](https://github.com/nasa-ammos/timecraftjs) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -98,16 +97,16 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.3 |
-| Additional Documentation Score (%) | 63.3 |
-| License Score (%) | 61.7 |
+| Overall Best Practice Score (%) | 25.1 |
+| Additional Documentation Score (%) | 62.9 |
+| License Score (%) | 61.2 |
 | Readme Score (%) | 47.2 |
-| Code of Conduct Score (%) | 39.7 |
-| Contributing Guide Score (%) | 36.4 |
-| Changelog Score (%) | 32.8 |
-| Issue Templates Score (%) | 32.2 |
+| Code of Conduct Score (%) | 39.0 |
+| Contributing Guide Score (%) | 35.7 |
+| Changelog Score (%) | 32.9 |
+| Issue Templates Score (%) | 32.3 |
 | PR Templates Score (%) | 27.5 |
-| Governance Model Score (%) | 10.0 |
+| Governance Model Score (%) | 10.1 |
 | Secrets Detection Score (%) | 2.2 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -115,10 +114,10 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 90 |
 | Best practices checked (count) | 14 |
-| YES (count) | 233 |
-| NO (count) | 758 |
-| PARTIAL (count) | 72 |
-| PR (count) | 197 |
+| YES (count) | 229 |
+| NO (count) | 752 |
+| PARTIAL (count) | 71 |
+| PR (count) | 194 |
 
 
 # Repository Check Explanation
