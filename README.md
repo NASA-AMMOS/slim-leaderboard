@@ -11,7 +11,12 @@
 
 <!-- Header block for project -->
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) [![SLIM](https://img.shields.io/badge/Best%20Practices%20from-SLIM-blue)](https://nasa-ammos.github.io/slim/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) [![SLIM](https://img.shields.io/badge/Best%20Practices%20from-SLIM-blue)](https://nasa-ammos.github.io/slim/) ![DORA Metrics](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yunks128/slim-leaderboard/main/.github/badges/dora-metrics.json)
+
+<!--
+![Deployment Frequency](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yunks128/slim-leaderboard/main/.github/badges/deployment-frequency.json) ![Lead Time](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yunks128/slim-leaderboard/main/.github/badges/lead-time.json) ![Change Failure Rate](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yunks128/slim-leaderboard/main/.github/badges/change-failure-rate.json) ![MTTR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yunks128/slim-leaderboard/main/.github/badges/mttr.json)
+-->
+
 <!-- ☝️ Add badges via: https://shields.io e.g. ![](https://img.shields.io/github/your_chosen_action/your_org/your_repo) ☝️ -->
 
 This repository serves to create a leaderboard report that ranks and showcases how well a given set of GitHub repositories follow [SLIM best practices](https://nasa-ammos.github.io/slim/).
@@ -37,6 +42,7 @@ This repository serves to create a leaderboard report that ranks and showcases h
 - [Changelog](#changelog)
 - [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
 - [Contributing](#contributing)
+  - [Local Development](#local-development)
 - [License](#license)
 - [Support](#support)
 
