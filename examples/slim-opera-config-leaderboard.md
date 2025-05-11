@@ -39,6 +39,7 @@
 | [opera-adt/mgrs_tiles_database](https://github.com/opera-adt/mgrs_tiles_database) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/DSWx-Enhanced-Analysis](https://github.com/opera-adt/DSWx-Enhanced-Analysis) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dswx-swot](https://github.com/opera-adt/dswx-swot) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/disp-xr](https://github.com/opera-adt/disp-xr) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [gladumd/OPERA_DIST](https://github.com/gladumd/OPERA_DIST) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-Validation-Experiments](https://github.com/OPERA-Cal-Val/DSWx-Validation-Experiments) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/OPERA_coverage](https://github.com/OPERA-Cal-Val/OPERA_coverage) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -69,13 +70,13 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.0 |
-| License Score (%) | 80.3 |
-| Readme Score (%) | 46.7 |
-| Additional Documentation Score (%) | 39.3 |
-| Issue Templates Score (%) | 31.1 |
-| Changelog Score (%) | 13.1 |
-| PR Templates Score (%) | 9.8 |
+| Overall Best Practice Score (%) | 15.9 |
+| License Score (%) | 80.7 |
+| Readme Score (%) | 46.8 |
+| Additional Documentation Score (%) | 38.7 |
+| Issue Templates Score (%) | 30.6 |
+| Changelog Score (%) | 12.9 |
+| PR Templates Score (%) | 9.7 |
 | Secrets Detection Score (%) | 1.6 |
 | Continuous Testing Plan Score (%) | 0.8 |
 | Contributing Guide Score (%) | 0.4 |
@@ -84,11 +85,11 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 61 |
+| Repositories evaluated (count) | 62 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 58 |
-| YES (count) | 107 |
-| NO (count) | 688 |
+| PARTIAL (count) | 59 |
+| YES (count) | 108 |
+| NO (count) | 700 |
 | PR (count) | 1 |
 
 
