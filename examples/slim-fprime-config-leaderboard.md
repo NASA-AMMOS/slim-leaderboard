@@ -2,19 +2,20 @@
 # SLIM Best Practices Repository Scan Report
 | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [nasa/fprime](https://github.com/nasa/fprime) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa/fprime](https://github.com/nasa/fprime) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 39.3 |
+| Overall Best Practice Score (%) | 46.4 |
 | License Score (%) | 100.0 |
 | Contributing Guide Score (%) | 100.0 |
 | Code of Conduct Score (%) | 100.0 |
 | Issue Templates Score (%) | 100.0 |
 | Additional Documentation Score (%) | 100.0 |
+| Governance Model Score (%) | 100.0 |
 | Readme Score (%) | 50.0 |
 | PR Templates Score (%) | 0.0 |
 | Changelog Score (%) | 0.0 |
@@ -22,13 +23,12 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
-| Governance Model Score (%) | 0.0 |
 | Continuous Testing Plan Score (%) | 0.0 |
 | Repositories evaluated (count) | 1 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 1 |
-| YES (count) | 5 |
-| NO (count) | 8 |
+| YES (count) | 6 |
+| NO (count) | 7 |
 
 
 # Repository Check Explanation
