@@ -391,11 +391,11 @@ def main():
 
                 if isinstance(org_repos, list) and all(isinstance(repo, dict) for repo in org_repos):
                     for repo in org_repos:
+                        repo_name = repo.get('name')
                         if (repo['archived'] or repo['disabled']):  # ignore archived and disabled repositories
                             logging.warning(f"Ignoring archived or disabled repository [{ repo_name }] in org ({ org_url })")
                             continue
                         else:
-                            repo_name = repo.get('name')
                             if repo_name:
                                 repos_list.append(f"https://{base_url}/{org_name}/{repo_name}")
                 else:
