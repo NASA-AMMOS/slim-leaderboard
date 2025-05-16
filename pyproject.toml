@@ -49,10 +49,8 @@ slim-leaderboard = 'jpl.slim.leaderboard:main'
 path = 'src/jpl/slim/VERSION.txt'
 pattern = '(?P<version>.+)'
 
-
 [tool.hatch.build.targets.wheel]
 packages = ['src/jpl']
-
 
 [build-system]
 requires = ['hatchling']
