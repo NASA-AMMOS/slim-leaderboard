@@ -52,6 +52,7 @@
 | [hysds/hysds-singularity](https://github.com/hysds/hysds-singularity) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-k8s](https://github.com/hysds/hysds-k8s) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/create_aoi](https://github.com/hysds/create_aoi) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/chimera](https://github.com/hysds/chimera) | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_ui](https://github.com/hysds/hysds_ui) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/puppet-hysds_cluster_node](https://github.com/hysds/puppet-hysds_cluster_node) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/test](https://github.com/hysds/test) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -84,14 +85,14 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 13.7 |
-| License Score (%) | 76.3 |
-| Readme Score (%) | 43.4 |
-| Additional Documentation Score (%) | 17.1 |
-| Contributing Guide Score (%) | 16.8 |
-| Code of Conduct Score (%) | 14.5 |
-| Changelog Score (%) | 14.5 |
-| Issue Templates Score (%) | 5.3 |
+| Overall Best Practice Score (%) | 13.8 |
+| License Score (%) | 75.7 |
+| Readme Score (%) | 43.5 |
+| Additional Documentation Score (%) | 18.2 |
+| Contributing Guide Score (%) | 16.9 |
+| Code of Conduct Score (%) | 14.6 |
+| Changelog Score (%) | 14.6 |
+| Issue Templates Score (%) | 5.2 |
 | PR Templates Score (%) | 2.6 |
 | Governance Model Score (%) | 1.3 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -101,10 +102,10 @@
 | Continuous Testing Plan Score (%) | 0.0 |
 | Repositories evaluated (count) | 77 |
 | Best practices checked (count) | 14 |
-| YES (count) | 82 |
-| NO (count) | 791 |
-| PARTIAL (count) | 64 |
-| PR (count) | 127 |
+| YES (count) | 83 |
+| NO (count) | 799 |
+| PARTIAL (count) | 65 |
+| PR (count) | 131 |
 
 
 # Repository Check Explanation
