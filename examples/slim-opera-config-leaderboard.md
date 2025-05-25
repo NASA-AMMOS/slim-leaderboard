@@ -25,6 +25,8 @@
 | [opera-adt/isce3_util](https://github.com/opera-adt/isce3_util) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/DSWX-SAR](https://github.com/opera-adt/DSWX-SAR) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-enumerator](https://github.com/opera-adt/dist-s1-enumerator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/synth](https://github.com/opera-adt/synth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/geepers](https://github.com/opera-adt/geepers) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/calval-CSLC](https://github.com/OPERA-Cal-Val/calval-CSLC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/calval-RTC](https://github.com/OPERA-Cal-Val/calval-RTC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-SCP-validation-generation](https://github.com/OPERA-Cal-Val/DSWx-SCP-validation-generation) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -55,6 +57,7 @@
 | [OPERA-Cal-Val/dist-s1-calibration](https://github.com/OPERA-Cal-Val/dist-s1-calibration) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/dist-s1-sample-workflow](https://github.com/OPERA-Cal-Val/dist-s1-sample-workflow) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/next_pass](https://github.com/OPERA-Cal-Val/next_pass) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [OPERA-Cal-Val/disp-s1_research](https://github.com/OPERA-Cal-Val/disp-s1_research) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/CSLC-S1_Specs](https://github.com/opera-adt/CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/Static_Layers_CSLC-S1_Specs](https://github.com/opera-adt/Static_Layers_CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -72,13 +75,13 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 15.8 |
-| License Score (%) | 79.4 |
-| Readme Score (%) | 46.8 |
-| Additional Documentation Score (%) | 39.7 |
-| Issue Templates Score (%) | 30.2 |
-| Changelog Score (%) | 12.7 |
-| PR Templates Score (%) | 9.5 |
-| Secrets Detection Score (%) | 1.6 |
+| License Score (%) | 80.3 |
+| Readme Score (%) | 47.0 |
+| Additional Documentation Score (%) | 40.9 |
+| Issue Templates Score (%) | 28.8 |
+| Changelog Score (%) | 12.1 |
+| PR Templates Score (%) | 9.1 |
+| Secrets Detection Score (%) | 1.5 |
 | Continuous Testing Plan Score (%) | 0.8 |
 | Contributing Guide Score (%) | 0.4 |
 | Code of Conduct Score (%) | 0.0 |
@@ -86,11 +89,11 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 63 |
+| Repositories evaluated (count) | 66 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 60 |
-| YES (count) | 109 |
-| NO (count) | 712 |
+| PARTIAL (count) | 63 |
+| YES (count) | 114 |
+| NO (count) | 746 |
 | PR (count) | 1 |
 
 
