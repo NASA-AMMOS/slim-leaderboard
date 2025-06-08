@@ -17,7 +17,7 @@
 | [hysds/hysds](https://github.com/hysds/hysds) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/sciflo](https://github.com/hysds/sciflo) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/figaro](https://github.com/hysds/figaro) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🟣 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_cluster_setup](https://github.com/hysds/hysds_cluster_setup) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_commons](https://github.com/hysds/hysds_commons) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/lightweight-jobs](https://github.com/hysds/lightweight-jobs) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -87,7 +87,7 @@
 | ------ | ----- |
 | Overall Best Practice Score (%) | 13.8 |
 | License Score (%) | 75.7 |
-| Readme Score (%) | 43.5 |
+| Readme Score (%) | 43.8 |
 | Additional Documentation Score (%) | 18.2 |
 | Contributing Guide Score (%) | 16.9 |
 | Code of Conduct Score (%) | 14.6 |
@@ -103,9 +103,9 @@
 | Repositories evaluated (count) | 77 |
 | Best practices checked (count) | 14 |
 | YES (count) | 83 |
-| NO (count) | 799 |
+| NO (count) | 798 |
 | PARTIAL (count) | 65 |
-| PR (count) | 131 |
+| PR (count) | 132 |
 
 
 # Repository Check Explanation
