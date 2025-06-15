@@ -21,7 +21,7 @@
 | [hysds/hysds_cluster_setup](https://github.com/hysds/hysds_cluster_setup) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_commons](https://github.com/hysds/hysds_commons) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/lightweight-jobs](https://github.com/hysds/lightweight-jobs) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/mozart](https://github.com/hysds/mozart) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/mozart](https://github.com/hysds/mozart) | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/spyddder-man](https://github.com/hysds/spyddder-man) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/tosca](https://github.com/hysds/tosca) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-framework](https://github.com/hysds/hysds-framework) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -87,7 +87,7 @@
 | ------ | ----- |
 | Overall Best Practice Score (%) | 13.8 |
 | License Score (%) | 75.7 |
-| Readme Score (%) | 43.8 |
+| Readme Score (%) | 44.2 |
 | Additional Documentation Score (%) | 18.2 |
 | Contributing Guide Score (%) | 16.9 |
 | Code of Conduct Score (%) | 14.6 |
@@ -103,9 +103,9 @@
 | Repositories evaluated (count) | 77 |
 | Best practices checked (count) | 14 |
 | YES (count) | 83 |
-| NO (count) | 798 |
+| NO (count) | 797 |
 | PARTIAL (count) | 65 |
-| PR (count) | 132 |
+| PR (count) | 133 |
 
 
 # Repository Check Explanation

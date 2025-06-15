@@ -51,6 +51,7 @@
 | [nasa-ammos/aerie-simple-model-power](https://github.com/nasa-ammos/aerie-simple-model-power) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MMTC](https://github.com/nasa-ammos/MMTC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Landform](https://github.com/nasa-ammos/Landform) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/DCS](https://github.com/nasa-ammos/DCS) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/ocs-server](https://github.com/nasa-ammos/ocs-server) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/ocs-python-client](https://github.com/nasa-ammos/ocs-python-client) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Veloserver](https://github.com/nasa-ammos/Veloserver) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -85,7 +86,6 @@
 | [nasa-ammos/anms-adms](https://github.com/nasa-ammos/anms-adms) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-sequence-editor](https://github.com/nasa-ammos/aerie-sequence-editor) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-python-prototype](https://github.com/nasa-ammos/aerie-python-prototype) | 🔴 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/KMC](https://github.com/nasa-ammos/KMC) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/mgss-kmc](https://github.com/nasa-ammos/mgss-kmc) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/kmc_oci](https://github.com/nasa-ammos/kmc_oci) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/mgss-kmc_oci](https://github.com/nasa-ammos/mgss-kmc_oci) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -101,10 +101,10 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.4 |
-| Additional Documentation Score (%) | 67.7 |
-| License Score (%) | 60.8 |
-| Readme Score (%) | 47.9 |
+| Overall Best Practice Score (%) | 25.6 |
+| Additional Documentation Score (%) | 68.8 |
+| License Score (%) | 61.8 |
+| Readme Score (%) | 48.4 |
 | Code of Conduct Score (%) | 38.4 |
 | Contributing Guide Score (%) | 35.2 |
 | Changelog Score (%) | 32.8 |
@@ -118,9 +118,9 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 93 |
 | Best practices checked (count) | 14 |
-| YES (count) | 244 |
-| NO (count) | 787 |
-| PARTIAL (count) | 74 |
+| YES (count) | 246 |
+| NO (count) | 784 |
+| PARTIAL (count) | 75 |
 | PR (count) | 197 |
 
 
