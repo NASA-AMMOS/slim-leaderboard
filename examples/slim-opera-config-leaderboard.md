@@ -41,8 +41,10 @@
 | [opera-adt/mgrs_tiles_database](https://github.com/opera-adt/mgrs_tiles_database) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/DSWx-Enhanced-Analysis](https://github.com/opera-adt/DSWx-Enhanced-Analysis) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dswx-swot](https://github.com/opera-adt/dswx-swot) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/disp-xr](https://github.com/opera-adt/disp-xr) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/bowser](https://github.com/opera-adt/bowser) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/dist-s1-training-data](https://github.com/opera-adt/dist-s1-training-data) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [gladumd/OPERA_DIST](https://github.com/gladumd/OPERA_DIST) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-Validation-Experiments](https://github.com/OPERA-Cal-Val/DSWx-Validation-Experiments) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/OPERA_coverage](https://github.com/OPERA-Cal-Val/OPERA_coverage) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -60,7 +62,6 @@
 | [OPERA-Cal-Val/disp-s1_research](https://github.com/OPERA-Cal-Val/disp-s1_research) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/CSLC-S1_Specs](https://github.com/opera-adt/CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/Static_Layers_CSLC-S1_Specs](https://github.com/opera-adt/Static_Layers_CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/.github](https://github.com/OPERA-Cal-Val/.github) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-Validation-Dataset-Generation](https://github.com/OPERA-Cal-Val/DSWx-Validation-Dataset-Generation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DIST-Validation-Dataset](https://github.com/OPERA-Cal-Val/DIST-Validation-Dataset) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -75,12 +76,12 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 15.8 |
-| License Score (%) | 80.3 |
-| Readme Score (%) | 47.0 |
-| Additional Documentation Score (%) | 40.9 |
-| Issue Templates Score (%) | 28.8 |
-| Changelog Score (%) | 12.1 |
-| PR Templates Score (%) | 9.1 |
+| License Score (%) | 82.1 |
+| Readme Score (%) | 46.3 |
+| Additional Documentation Score (%) | 40.3 |
+| Issue Templates Score (%) | 28.4 |
+| Changelog Score (%) | 11.9 |
+| PR Templates Score (%) | 9.0 |
 | Secrets Detection Score (%) | 1.5 |
 | Continuous Testing Plan Score (%) | 0.8 |
 | Contributing Guide Score (%) | 0.4 |
@@ -89,11 +90,11 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 66 |
+| Repositories evaluated (count) | 67 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 63 |
-| YES (count) | 114 |
-| NO (count) | 746 |
+| YES (count) | 116 |
+| NO (count) | 758 |
 | PR (count) | 1 |
 
 
