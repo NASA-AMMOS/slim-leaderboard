@@ -12,6 +12,7 @@
 | [MAAP-project/Common-Metadata-Repository](https://github.com/MAAP-project/Common-Metadata-Repository) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/eclipse-che-devfile-registry](https://github.com/MAAP-project/eclipse-che-devfile-registry) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/gedi-subsetter](https://github.com/MAAP-project/gedi-subsetter) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/stac_ipyleaflet](https://github.com/MAAP-project/stac_ipyleaflet) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/che-sidebar-visibility-jupyter-extension](https://github.com/MAAP-project/che-sidebar-visibility-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/s1-example](https://github.com/MAAP-project/s1-example) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-api-nasa](https://github.com/MAAP-project/maap-api-nasa) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -23,7 +24,6 @@
 | [MAAP-project/ades-metrics-visualization-jupyter-extension](https://github.com/MAAP-project/ades-metrics-visualization-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/jupyter-server-extension](https://github.com/MAAP-project/jupyter-server-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-help-jupyter-extension](https://github.com/MAAP-project/maap-help-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/stac_ipyleaflet](https://github.com/MAAP-project/stac_ipyleaflet) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/algorithms-jupyter-extension](https://github.com/MAAP-project/algorithms-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-data-pipelines](https://github.com/MAAP-project/maap-data-pipelines) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-styles](https://github.com/MAAP-project/maap-styles) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,11 +97,11 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.4 |
+| Overall Best Practice Score (%) | 17.5 |
 | License Score (%) | 87.1 |
 | Additional Documentation Score (%) | 47.2 |
 | Readme Score (%) | 43.3 |
-| Contributing Guide Score (%) | 22.5 |
+| Contributing Guide Score (%) | 23.6 |
 | Changelog Score (%) | 19.9 |
 | Issue Templates Score (%) | 10.1 |
 | Code of Conduct Score (%) | 9.0 |
@@ -115,8 +115,8 @@
 | Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 77 |
-| YES (count) | 176 |
-| NO (count) | 984 |
+| YES (count) | 177 |
+| NO (count) | 983 |
 | PR (count) | 9 |
 
 

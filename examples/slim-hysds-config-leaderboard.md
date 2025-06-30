@@ -6,6 +6,7 @@
 | [hysds/hysds.github.io](https://github.com/hysds/hysds.github.io) | 🟢 | 🟠 | 🟢 | 🟣 | 🟢 | 🟢 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/aws-es-proxy](https://github.com/hysds/aws-es-proxy) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/repo-template](https://github.com/hysds/repo-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/fabric](https://github.com/hysds/fabric) | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/container-builder](https://github.com/hysds/container-builder) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-dockerfiles](https://github.com/hysds/hysds-dockerfiles) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/osaka](https://github.com/hysds/osaka) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -60,7 +61,6 @@
 | [hysds/notebook_pge_wrapper](https://github.com/hysds/notebook_pge_wrapper) | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hello_world_notebook](https://github.com/hysds/hello_world_notebook) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/rabbitmq](https://github.com/hysds/rabbitmq) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/fabric](https://github.com/hysds/fabric) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/bulk_product_delivery](https://github.com/hysds/bulk_product_delivery) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/data_copy](https://github.com/hysds/data_copy) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/workflow_framework](https://github.com/hysds/workflow_framework) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -85,13 +85,13 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 13.8 |
+| Overall Best Practice Score (%) | 14.0 |
 | License Score (%) | 75.7 |
 | Readme Score (%) | 44.2 |
+| Contributing Guide Score (%) | 18.2 |
 | Additional Documentation Score (%) | 18.2 |
-| Contributing Guide Score (%) | 16.9 |
+| Changelog Score (%) | 15.9 |
 | Code of Conduct Score (%) | 14.6 |
-| Changelog Score (%) | 14.6 |
 | Issue Templates Score (%) | 5.2 |
 | PR Templates Score (%) | 2.6 |
 | Governance Model Score (%) | 1.3 |
@@ -102,8 +102,8 @@
 | Continuous Testing Plan Score (%) | 0.0 |
 | Repositories evaluated (count) | 77 |
 | Best practices checked (count) | 14 |
-| YES (count) | 83 |
-| NO (count) | 797 |
+| YES (count) | 85 |
+| NO (count) | 795 |
 | PARTIAL (count) | 65 |
 | PR (count) | 133 |
 
