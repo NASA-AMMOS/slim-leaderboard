@@ -121,7 +121,17 @@ def check_files_existence(owner, repo_name, api_url, headers):
             id
           }
         }
+        contributingRst: object(expression: "HEAD:CONTRIBUTING.rst") {
+          ... on Blob {
+            id
+          }
+        }
         code_of_conduct: object(expression: "HEAD:CODE_OF_CONDUCT.md") {
+          ... on Blob {
+            id
+          }
+        }
+        codeOfConductRst: object(expression: "HEAD:Code-Of-Conduct.rst") {
           ... on Blob {
             id
           }
@@ -137,6 +147,11 @@ def check_files_existence(owner, repo_name, api_url, headers):
           }
         }
         changelog: object(expression: "HEAD:CHANGELOG.md") {
+          ... on Blob {
+            id
+          }
+        }
+        changelogRst: object(expression: "HEAD:CHANGELOG.rst") {
           ... on Blob {
             id
           }
@@ -236,11 +251,11 @@ def check_files_existence(owner, repo_name, api_url, headers):
                 'repo': repo_name,
                 'readme': readme_check,
                 'license': generate_check_mark('LICENSE', result['data']['repository']['license'] or result['data']['repository']['licenseTxt'] or result['data']['repository']['licenseMd'], issues, pull_requests),
-                'contributing': generate_check_mark('CONTRIBUTING.md', result['data']['repository']['contributing'], issues, pull_requests),
-                'code_of_conduct': generate_check_mark('CODE_OF_CONDUCT.md', result['data']['repository']['code_of_conduct'], issues, pull_requests),
+                'contributing': generate_check_mark('CONTRIBUTING.md', result['data']['repository']['contributing'] or result['data']['repository']['contributingRst'], issues, pull_requests),
+                'code_of_conduct': generate_check_mark('CODE_OF_CONDUCT.md', result['data']['repository']['code_of_conduct'] or result['data']['repository']['codeOfConductRst'], issues, pull_requests),
                 'issue_templates': generate_check_mark('.github/ISSUE_TEMPLATE', result['data']['repository']['issue_templates'], issues, pull_requests),
                 'pull_request_template': generate_check_mark('PULL_REQUEST_TEMPLATE.md', result['data']['repository']['pull_request_template'], issues, pull_requests),
-                'changelog': generate_check_mark('CHANGELOG.md', result['data']['repository']['changelog'], issues, pull_requests),
+                'changelog': generate_check_mark('CHANGELOG.md', result['data']['repository']['changelog'] or result['data']['repository']['changelogRst'], issues, pull_requests),
                 'docs_link_check': docs_link_check,
                 'secrets_baseline': generate_check_mark('.secrets.baseline', result['data']['repository']['secrets_baseline'], issues, pull_requests),
                 'governance': generate_check_mark('GOVERNANCE.md', result['data']['repository']['governance'], issues, pull_requests),
