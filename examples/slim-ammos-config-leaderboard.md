@@ -23,6 +23,7 @@
 | [nasa-ammos/aerie-ui](https://github.com/nasa-ammos/aerie-ui) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/BSL](https://github.com/nasa-ammos/BSL) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/BSL-docs](https://github.com/nasa-ammos/BSL-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MMTC-site](https://github.com/nasa-ammos/MMTC-site) | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [rzellem/EXOTIC](https://github.com/rzellem/EXOTIC) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -89,7 +90,6 @@
 | [nasa-ammos/mgss-kmc](https://github.com/nasa-ammos/mgss-kmc) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/kmc_oci](https://github.com/nasa-ammos/kmc_oci) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/mgss-kmc_oci](https://github.com/nasa-ammos/mgss-kmc_oci) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/BSL](https://github.com/nasa-ammos/BSL) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/pgcmp](https://github.com/nasa-ammos/pgcmp) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-ui-plugin-examples](https://github.com/nasa-ammos/aerie-ui-plugin-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-fprime-sequence-adaptation](https://github.com/nasa-ammos/aerie-fprime-sequence-adaptation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -101,12 +101,12 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.6 |
-| Additional Documentation Score (%) | 68.8 |
-| License Score (%) | 61.8 |
+| Overall Best Practice Score (%) | 25.9 |
+| Additional Documentation Score (%) | 69.9 |
+| License Score (%) | 62.9 |
 | Readme Score (%) | 48.4 |
-| Code of Conduct Score (%) | 38.4 |
-| Contributing Guide Score (%) | 35.2 |
+| Code of Conduct Score (%) | 39.5 |
+| Contributing Guide Score (%) | 36.3 |
 | Changelog Score (%) | 32.8 |
 | Issue Templates Score (%) | 32.3 |
 | PR Templates Score (%) | 27.7 |
@@ -118,8 +118,8 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 93 |
 | Best practices checked (count) | 14 |
-| YES (count) | 246 |
-| NO (count) | 784 |
+| YES (count) | 250 |
+| NO (count) | 780 |
 | PARTIAL (count) | 75 |
 | PR (count) | 197 |
 
