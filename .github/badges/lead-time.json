@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "Lead Time",
-  "message": "20.95 days (Medium)",
-  "color": "yellow"
+  "message": "No PRs (N/A)",
+  "color": "gray"
 }
