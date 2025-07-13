@@ -73,31 +73,32 @@
 | [unity-sds/SBG-unity-trait-estimate](https://github.com/unity-sds/SBG-unity-trait-estimate) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-cs-monitoring-lambda](https://github.com/unity-sds/unity-cs-monitoring-lambda) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/mdps-tropess-deploy](https://github.com/unity-sds/mdps-tropess-deploy) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [unity-sds/workflow-to-dag](https://github.com/unity-sds/workflow-to-dag) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 32.3 |
-| License Score (%) | 79.2 |
-| Readme Score (%) | 60.9 |
-| Additional Documentation Score (%) | 60.6 |
-| Changelog Score (%) | 54.9 |
-| Contributing Guide Score (%) | 53.2 |
-| Code of Conduct Score (%) | 53.2 |
-| Issue Templates Score (%) | 45.4 |
-| PR Templates Score (%) | 42.6 |
+| Overall Best Practice Score (%) | 31.9 |
+| License Score (%) | 78.1 |
+| Readme Score (%) | 60.1 |
+| Additional Documentation Score (%) | 59.7 |
+| Changelog Score (%) | 54.2 |
+| Contributing Guide Score (%) | 52.4 |
+| Code of Conduct Score (%) | 52.4 |
+| Issue Templates Score (%) | 44.8 |
+| PR Templates Score (%) | 42.0 |
 | Governance Model Score (%) | 1.4 |
-| Continuous Testing Plan Score (%) | 1.1 |
+| Continuous Testing Plan Score (%) | 1.0 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
-| Repositories evaluated (count) | 71 |
+| Repositories evaluated (count) | 72 |
 | Best practices checked (count) | 14 |
 | YES (count) | 296 |
-| NO (count) | 636 |
+| NO (count) | 650 |
 | PR (count) | 23 |
 | PARTIAL (count) | 39 |
 
