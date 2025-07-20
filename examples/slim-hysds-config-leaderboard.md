@@ -4,25 +4,25 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [hysds/metrics_extractor](https://github.com/hysds/metrics_extractor) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [hysds/hysds.github.io](https://github.com/hysds/hysds.github.io) | 🟢 | 🟠 | 🟢 | 🟣 | 🟢 | 🟢 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/prov_es](https://github.com/hysds/prov_es) | 🟢 | 🟠 | 🟢 | 🟣 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/hysds](https://github.com/hysds/hysds) | 🟢 | 🟠 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/aws-es-proxy](https://github.com/hysds/aws-es-proxy) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/repo-template](https://github.com/hysds/repo-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/fabric](https://github.com/hysds/fabric) | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/container-builder](https://github.com/hysds/container-builder) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-dockerfiles](https://github.com/hysds/hysds-dockerfiles) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/osaka](https://github.com/hysds/osaka) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/prov_es](https://github.com/hysds/prov_es) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/s3-bucket-listing](https://github.com/hysds/s3-bucket-listing) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/gosu](https://github.com/hysds/gosu) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/otello](https://github.com/hysds/otello) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/pele_client](https://github.com/hysds/pele_client) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/hysds](https://github.com/hysds/hysds) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/sciflo](https://github.com/hysds/sciflo) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/figaro](https://github.com/hysds/figaro) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🟣 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_cluster_setup](https://github.com/hysds/hysds_cluster_setup) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_commons](https://github.com/hysds/hysds_commons) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/lightweight-jobs](https://github.com/hysds/lightweight-jobs) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/mozart](https://github.com/hysds/mozart) | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/mozart](https://github.com/hysds/mozart) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/spyddder-man](https://github.com/hysds/spyddder-man) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/tosca](https://github.com/hysds/tosca) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-framework](https://github.com/hysds/hysds-framework) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -43,6 +43,7 @@
 | [hysds/soap](https://github.com/hysds/soap) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/crawler](https://github.com/hysds/crawler) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-ops-bot](https://github.com/hysds/hysds-ops-bot) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/sdscli](https://github.com/hysds/sdscli) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-cloud-functions](https://github.com/hysds/hysds-cloud-functions) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-packer-templates](https://github.com/hysds/hysds-packer-templates) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-terraform](https://github.com/hysds/hysds-terraform) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -85,14 +86,14 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 14.0 |
-| License Score (%) | 75.7 |
+| Overall Best Practice Score (%) | 14.2 |
+| License Score (%) | 76.0 |
 | Readme Score (%) | 44.2 |
-| Contributing Guide Score (%) | 18.2 |
-| Additional Documentation Score (%) | 18.2 |
-| Changelog Score (%) | 15.9 |
-| Code of Conduct Score (%) | 14.6 |
-| Issue Templates Score (%) | 5.2 |
+| Contributing Guide Score (%) | 19.9 |
+| Additional Documentation Score (%) | 17.9 |
+| Changelog Score (%) | 17.6 |
+| Code of Conduct Score (%) | 14.4 |
+| Issue Templates Score (%) | 5.1 |
 | PR Templates Score (%) | 2.6 |
 | Governance Model Score (%) | 1.3 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -100,12 +101,12 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
 | Continuous Testing Plan Score (%) | 0.0 |
-| Repositories evaluated (count) | 77 |
+| Repositories evaluated (count) | 78 |
 | Best practices checked (count) | 14 |
-| YES (count) | 85 |
-| NO (count) | 795 |
-| PARTIAL (count) | 65 |
-| PR (count) | 133 |
+| YES (count) | 90 |
+| NO (count) | 808 |
+| PARTIAL (count) | 67 |
+| PR (count) | 127 |
 
 
 # Repository Check Explanation
