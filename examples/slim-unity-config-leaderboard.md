@@ -61,6 +61,7 @@
 | [unity-sds/SBG-unity-isofit](https://github.com/unity-sds/SBG-unity-isofit) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-reference-application](https://github.com/unity-sds/unity-reference-application) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/stac-merge](https://github.com/unity-sds/stac-merge) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [unity-sds/srl-idps-govcloud-terraform](https://github.com/unity-sds/srl-idps-govcloud-terraform) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-cs-security](https://github.com/unity-sds/unity-cs-security) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-sps-register_job](https://github.com/unity-sds/unity-sps-register_job) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-backstage](https://github.com/unity-sds/unity-backstage) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -80,27 +81,27 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 31.9 |
-| License Score (%) | 78.1 |
-| Readme Score (%) | 60.1 |
-| Additional Documentation Score (%) | 59.7 |
-| Changelog Score (%) | 54.2 |
-| Contributing Guide Score (%) | 52.4 |
-| Code of Conduct Score (%) | 52.4 |
-| Issue Templates Score (%) | 44.8 |
-| PR Templates Score (%) | 42.0 |
+| Overall Best Practice Score (%) | 31.6 |
+| License Score (%) | 77.0 |
+| Additional Documentation Score (%) | 60.3 |
+| Readme Score (%) | 59.9 |
+| Changelog Score (%) | 53.4 |
+| Contributing Guide Score (%) | 51.7 |
+| Code of Conduct Score (%) | 51.7 |
+| Issue Templates Score (%) | 44.2 |
+| PR Templates Score (%) | 41.4 |
 | Governance Model Score (%) | 1.4 |
 | Continuous Testing Plan Score (%) | 1.0 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
-| Repositories evaluated (count) | 72 |
+| Repositories evaluated (count) | 73 |
 | Best practices checked (count) | 14 |
-| YES (count) | 296 |
-| NO (count) | 650 |
+| YES (count) | 297 |
+| NO (count) | 662 |
 | PR (count) | 23 |
-| PARTIAL (count) | 39 |
+| PARTIAL (count) | 40 |
 
 
 # Repository Check Explanation
