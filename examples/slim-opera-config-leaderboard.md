@@ -27,6 +27,7 @@
 | [opera-adt/DSWX-SAR](https://github.com/opera-adt/DSWX-SAR) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-enumerator](https://github.com/opera-adt/dist-s1-enumerator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/bowser](https://github.com/opera-adt/bowser) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/synth](https://github.com/opera-adt/synth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/geepers](https://github.com/opera-adt/geepers) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/calval-CSLC](https://github.com/OPERA-Cal-Val/calval-CSLC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -43,7 +44,6 @@
 | [opera-adt/DSWx-Enhanced-Analysis](https://github.com/opera-adt/DSWx-Enhanced-Analysis) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dswx-swot](https://github.com/opera-adt/dswx-swot) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/disp-xr](https://github.com/opera-adt/disp-xr) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [opera-adt/bowser](https://github.com/opera-adt/bowser) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-training-data](https://github.com/opera-adt/dist-s1-training-data) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [gladumd/OPERA_DIST](https://github.com/gladumd/OPERA_DIST) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-Validation-Experiments](https://github.com/OPERA-Cal-Val/DSWx-Validation-Experiments) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -75,8 +75,8 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.1 |
-| License Score (%) | 82.1 |
+| Overall Best Practice Score (%) | 16.2 |
+| License Score (%) | 83.6 |
 | Readme Score (%) | 47.0 |
 | Additional Documentation Score (%) | 41.8 |
 | Issue Templates Score (%) | 28.4 |
@@ -92,8 +92,8 @@
 | Governance Model Score (%) | 0.0 |
 | Repositories evaluated (count) | 67 |
 | Best practices checked (count) | 14 |
-| NO (count) | 754 |
-| YES (count) | 119 |
+| NO (count) | 753 |
+| YES (count) | 120 |
 | PARTIAL (count) | 64 |
 | PR (count) | 1 |
 
