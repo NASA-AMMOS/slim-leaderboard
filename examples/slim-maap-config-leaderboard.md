@@ -44,6 +44,7 @@
 | [MAAP-project/biomass-dashboard-datasets](https://github.com/MAAP-project/biomass-dashboard-datasets) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/biomass-earthdata-dashboard](https://github.com/MAAP-project/biomass-earthdata-dashboard) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-data-system-tests](https://github.com/MAAP-project/maap-data-system-tests) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/maap-hec-aws](https://github.com/MAAP-project/maap-hec-aws) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-libs-jupyter-extension](https://github.com/MAAP-project/maap-libs-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-workspace-management-jupyter-extension](https://github.com/MAAP-project/user-workspace-management-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps-jupyter-extension](https://github.com/MAAP-project/dps-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -53,6 +54,7 @@
 | [MAAP-project/maap-statuspage](https://github.com/MAAP-project/maap-statuspage) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/federated-collection-discovery-deployment](https://github.com/MAAP-project/federated-collection-discovery-deployment) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-portal-esa](https://github.com/MAAP-project/maap-portal-esa) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/maap-stack-eclipseche-esa](https://github.com/MAAP-project/maap-stack-eclipseche-esa) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/authorizer](https://github.com/MAAP-project/authorizer) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-auth-example](https://github.com/MAAP-project/maap-auth-example) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/Community](https://github.com/MAAP-project/Community) | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -62,11 +64,13 @@
 | [MAAP-project/Update_broken_urls](https://github.com/MAAP-project/Update_broken_urls) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-edav-esa-front](https://github.com/MAAP-project/maap-edav-esa-front) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps-unit-test](https://github.com/MAAP-project/dps-unit-test) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/maap-edav-esa-back](https://github.com/MAAP-project/maap-edav-esa-back) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-workspaces](https://github.com/MAAP-project/maap-workspaces) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-hec-aws](https://github.com/MAAP-project/maap-hec-aws) | 🟣 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/umf-jupyter-extension](https://github.com/MAAP-project/umf-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-wp-plugin](https://github.com/MAAP-project/maap-wp-plugin) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/research-deforestation-in-drc](https://github.com/MAAP-project/research-deforestation-in-drc) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-ui-portal](https://github.com/MAAP-project/maap-ui-portal) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/scimaap-ui-portal](https://github.com/MAAP-project/scimaap-ui-portal) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/ipycmc-jupyter-extension](https://github.com/MAAP-project/ipycmc-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-hec-notebooks](https://github.com/MAAP-project/maap-hec-notebooks) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-algorithm-configs](https://github.com/MAAP-project/user-algorithm-configs) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -82,12 +86,8 @@
 | [MAAP-project/maap-metrics-exporter](https://github.com/MAAP-project/maap-metrics-exporter) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/sardem-sarsen](https://github.com/MAAP-project/sardem-sarsen) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/ogc-app-pack-generator](https://github.com/MAAP-project/ogc-app-pack-generator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-stack-eclipseche-esa](https://github.com/MAAP-project/maap-stack-eclipseche-esa) | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/ept-tools](https://github.com/MAAP-project/ept-tools) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-edav-esa-back](https://github.com/MAAP-project/maap-edav-esa-back) | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps-register-job](https://github.com/MAAP-project/dps-register-job) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/research-deforestation-in-drc](https://github.com/MAAP-project/research-deforestation-in-drc) | 🟣 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/scimaap-ui-portal](https://github.com/MAAP-project/scimaap-ui-portal) | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/request_cognito_oauth_token](https://github.com/MAAP-project/request_cognito_oauth_token) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/example-dps-stac-from-cog](https://github.com/MAAP-project/example-dps-stac-from-cog) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/icesat2-boreal-stac](https://github.com/MAAP-project/icesat2-boreal-stac) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,8 +97,8 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.5 |
-| License Score (%) | 87.1 |
+| Overall Best Practice Score (%) | 17.8 |
+| License Score (%) | 91.3 |
 | Additional Documentation Score (%) | 47.2 |
 | Readme Score (%) | 43.3 |
 | Contributing Guide Score (%) | 23.6 |
@@ -115,9 +115,9 @@
 | Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 77 |
-| YES (count) | 177 |
+| YES (count) | 182 |
 | NO (count) | 983 |
-| PR (count) | 9 |
+| PR (count) | 4 |
 
 
 # Repository Check Explanation
