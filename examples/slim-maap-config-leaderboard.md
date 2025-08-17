@@ -36,6 +36,7 @@
 | [MAAP-project/maap-auth-keycloak](https://github.com/MAAP-project/maap-auth-keycloak) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-eclipseche-ops](https://github.com/MAAP-project/maap-eclipseche-ops) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/keycloak-cas-services](https://github.com/MAAP-project/keycloak-cas-services) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/authorizer](https://github.com/MAAP-project/authorizer) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-ade-tutorials](https://github.com/MAAP-project/maap-ade-tutorials) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-dps-installers](https://github.com/MAAP-project/maap-dps-installers) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/cmr-stac](https://github.com/MAAP-project/cmr-stac) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -53,9 +54,8 @@
 | [MAAP-project/dps_tutorial](https://github.com/MAAP-project/dps_tutorial) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-statuspage](https://github.com/MAAP-project/maap-statuspage) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/federated-collection-discovery-deployment](https://github.com/MAAP-project/federated-collection-discovery-deployment) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-portal-esa](https://github.com/MAAP-project/maap-portal-esa) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/maap-portal-esa](https://github.com/MAAP-project/maap-portal-esa) | 🟣 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-stack-eclipseche-esa](https://github.com/MAAP-project/maap-stack-eclipseche-esa) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/authorizer](https://github.com/MAAP-project/authorizer) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-auth-example](https://github.com/MAAP-project/maap-auth-example) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/Community](https://github.com/MAAP-project/Community) | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-ade-edscproxy](https://github.com/MAAP-project/maap-ade-edscproxy) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,12 +97,12 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.8 |
-| License Score (%) | 91.3 |
+| Overall Best Practice Score (%) | 17.9 |
+| License Score (%) | 91.6 |
 | Additional Documentation Score (%) | 47.2 |
 | Readme Score (%) | 43.3 |
 | Contributing Guide Score (%) | 23.6 |
-| Changelog Score (%) | 19.9 |
+| Changelog Score (%) | 21.1 |
 | Issue Templates Score (%) | 10.1 |
 | Code of Conduct Score (%) | 9.0 |
 | PR Templates Score (%) | 4.5 |
@@ -115,9 +115,9 @@
 | Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 77 |
-| YES (count) | 182 |
-| NO (count) | 983 |
-| PR (count) | 4 |
+| YES (count) | 183 |
+| NO (count) | 981 |
+| PR (count) | 5 |
 
 
 # Repository Check Explanation

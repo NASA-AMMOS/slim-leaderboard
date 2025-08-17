@@ -53,8 +53,6 @@
 | [nasa-ammos/MMTC](https://github.com/nasa-ammos/MMTC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Landform](https://github.com/nasa-ammos/Landform) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/DCS](https://github.com/nasa-ammos/DCS) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/ocs-server](https://github.com/nasa-ammos/ocs-server) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/ocs-python-client](https://github.com/nasa-ammos/ocs-python-client) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Veloserver](https://github.com/nasa-ammos/Veloserver) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-actions](https://github.com/nasa-ammos/aerie-actions) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-time-utils](https://github.com/nasa-ammos/aerie-time-utils) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -73,7 +71,6 @@
 | [nasa-ammos/aerie-modeling-tutorial](https://github.com/nasa-ammos/aerie-modeling-tutorial) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-multimission-models-bb](https://github.com/nasa-ammos/aerie-multimission-models-bb) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-orbiter-model](https://github.com/nasa-ammos/aerie-orbiter-model) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/ocs-js-client](https://github.com/nasa-ammos/ocs-js-client) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-template](https://github.com/nasa-ammos/aerie-phoenix-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-vml](https://github.com/nasa-ammos/aerie-phoenix-adaptation-vml) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-action-examples](https://github.com/nasa-ammos/aerie-action-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -101,26 +98,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 25.9 |
-| Additional Documentation Score (%) | 69.9 |
-| License Score (%) | 62.9 |
-| Readme Score (%) | 48.4 |
-| Code of Conduct Score (%) | 39.5 |
-| Contributing Guide Score (%) | 36.3 |
+| Overall Best Practice Score (%) | 26.2 |
+| Additional Documentation Score (%) | 68.9 |
+| License Score (%) | 63.9 |
+| Readme Score (%) | 48.3 |
+| Code of Conduct Score (%) | 40.8 |
+| Contributing Guide Score (%) | 37.5 |
+| Issue Templates Score (%) | 33.3 |
 | Changelog Score (%) | 32.8 |
-| Issue Templates Score (%) | 32.3 |
-| PR Templates Score (%) | 27.7 |
-| Governance Model Score (%) | 9.7 |
-| Secrets Detection Score (%) | 2.1 |
-| Continuous Testing Plan Score (%) | 0.5 |
+| PR Templates Score (%) | 28.6 |
+| Governance Model Score (%) | 10.0 |
+| Secrets Detection Score (%) | 2.2 |
+| Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 93 |
+| Repositories evaluated (count) | 90 |
 | Best practices checked (count) | 14 |
-| YES (count) | 250 |
-| NO (count) | 780 |
-| PARTIAL (count) | 75 |
+| YES (count) | 245 |
+| NO (count) | 746 |
+| PARTIAL (count) | 72 |
 | PR (count) | 197 |
 
 
