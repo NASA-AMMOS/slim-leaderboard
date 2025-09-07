@@ -69,30 +69,31 @@
 | [OPERA-Cal-Val/GEE-Import](https://github.com/OPERA-Cal-Val/GEE-Import) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/dl-with-alos-dswe](https://github.com/OPERA-Cal-Val/dl-with-alos-dswe) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/dswx-hls-pst-workflow](https://github.com/OPERA-Cal-Val/dswx-hls-pst-workflow) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [OPERA-Cal-Val/dist-s1-validation](https://github.com/OPERA-Cal-Val/dist-s1-validation) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.2 |
-| License Score (%) | 83.6 |
-| Readme Score (%) | 47.0 |
-| Additional Documentation Score (%) | 41.8 |
-| Issue Templates Score (%) | 28.4 |
-| Changelog Score (%) | 13.4 |
-| PR Templates Score (%) | 9.0 |
-| Contributing Guide Score (%) | 1.9 |
+| Overall Best Practice Score (%) | 16.0 |
+| License Score (%) | 82.3 |
+| Readme Score (%) | 46.3 |
+| Additional Documentation Score (%) | 41.2 |
+| Issue Templates Score (%) | 27.9 |
+| Changelog Score (%) | 13.2 |
+| PR Templates Score (%) | 8.8 |
+| Contributing Guide Score (%) | 1.8 |
 | Secrets Detection Score (%) | 1.5 |
-| Continuous Testing Plan Score (%) | 0.8 |
+| Continuous Testing Plan Score (%) | 0.7 |
 | Code of Conduct Score (%) | 0.0 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 67 |
+| Repositories evaluated (count) | 68 |
 | Best practices checked (count) | 14 |
-| NO (count) | 753 |
+| NO (count) | 767 |
 | YES (count) | 120 |
 | PARTIAL (count) | 64 |
 | PR (count) | 1 |
