@@ -85,9 +85,6 @@
 | [nasa-ammos/anms-adms](https://github.com/nasa-ammos/anms-adms) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-sequence-editor](https://github.com/nasa-ammos/aerie-sequence-editor) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-python-prototype](https://github.com/nasa-ammos/aerie-python-prototype) | 🔴 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/mgss-kmc](https://github.com/nasa-ammos/mgss-kmc) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/kmc_oci](https://github.com/nasa-ammos/kmc_oci) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/mgss-kmc_oci](https://github.com/nasa-ammos/mgss-kmc_oci) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/pgcmp](https://github.com/nasa-ammos/pgcmp) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-ui-plugin-examples](https://github.com/nasa-ammos/aerie-ui-plugin-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-fprime-sequence-adaptation](https://github.com/nasa-ammos/aerie-fprime-sequence-adaptation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -98,25 +95,25 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 27.5 |
-| Additional Documentation Score (%) | 71.1 |
-| License Score (%) | 66.1 |
-| Readme Score (%) | 49.4 |
-| Code of Conduct Score (%) | 42.8 |
-| Contributing Guide Score (%) | 39.4 |
-| Issue Templates Score (%) | 35.3 |
-| Changelog Score (%) | 34.7 |
-| PR Templates Score (%) | 30.6 |
-| Governance Model Score (%) | 12.2 |
-| Secrets Detection Score (%) | 3.3 |
+| Overall Best Practice Score (%) | 28.5 |
+| Additional Documentation Score (%) | 73.6 |
+| License Score (%) | 68.4 |
+| Readme Score (%) | 51.1 |
+| Code of Conduct Score (%) | 44.2 |
+| Contributing Guide Score (%) | 40.8 |
+| Issue Templates Score (%) | 36.5 |
+| Changelog Score (%) | 35.9 |
+| PR Templates Score (%) | 31.6 |
+| Governance Model Score (%) | 12.6 |
+| Secrets Detection Score (%) | 3.5 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 90 |
+| Repositories evaluated (count) | 87 |
 | Best practices checked (count) | 14 |
 | YES (count) | 264 |
-| NO (count) | 734 |
+| NO (count) | 692 |
 | PARTIAL (count) | 70 |
 | PR (count) | 192 |
 
