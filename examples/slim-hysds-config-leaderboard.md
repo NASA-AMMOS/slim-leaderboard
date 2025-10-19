@@ -55,6 +55,7 @@
 | [hysds/hysds-k8s](https://github.com/hysds/hysds-k8s) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/create_aoi](https://github.com/hysds/create_aoi) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/chimera](https://github.com/hysds/chimera) | 🟣 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/hysds_ui](https://github.com/hysds/hysds_ui) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/puppet-hysds_cluster_node](https://github.com/hysds/puppet-hysds_cluster_node) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/test](https://github.com/hysds/test) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/docker-stats-on-exit-shim](https://github.com/hysds/docker-stats-on-exit-shim) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -86,13 +87,13 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 14.2 |
-| License Score (%) | 75.7 |
+| License Score (%) | 76.0 |
 | Readme Score (%) | 44.2 |
-| Contributing Guide Score (%) | 19.8 |
-| Additional Documentation Score (%) | 18.2 |
-| Changelog Score (%) | 17.5 |
-| Code of Conduct Score (%) | 14.3 |
-| Issue Templates Score (%) | 5.2 |
+| Contributing Guide Score (%) | 19.9 |
+| Additional Documentation Score (%) | 17.9 |
+| Changelog Score (%) | 17.6 |
+| Code of Conduct Score (%) | 14.4 |
+| Issue Templates Score (%) | 5.1 |
 | PR Templates Score (%) | 2.6 |
 | Governance Model Score (%) | 1.3 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -102,10 +103,10 @@
 | Continuous Testing Plan Score (%) | 0.0 |
 | Repositories evaluated (count) | 78 |
 | Best practices checked (count) | 14 |
-| YES (count) | 89 |
-| NO (count) | 799 |
-| PARTIAL (count) | 66 |
-| PR (count) | 124 |
+| YES (count) | 90 |
+| NO (count) | 808 |
+| PARTIAL (count) | 67 |
+| PR (count) | 127 |
 
 
 # Repository Check Explanation
