@@ -20,12 +20,12 @@
 | [opera-adt/burst_db](https://github.com/opera-adt/burst_db) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/opera-utils](https://github.com/opera-adt/opera-utils) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/distmetrics](https://github.com/opera-adt/distmetrics) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/dist-s1-enumerator](https://github.com/opera-adt/dist-s1-enumerator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-sys](https://github.com/nasa/opera-sds-sys) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-lambdas](https://github.com/nasa/opera-sds-lambdas) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/isce3_util](https://github.com/opera-adt/isce3_util) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/asfsmd](https://github.com/opera-adt/asfsmd) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/DSWX-SAR](https://github.com/opera-adt/DSWX-SAR) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [opera-adt/dist-s1-enumerator](https://github.com/opera-adt/dist-s1-enumerator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/bowser](https://github.com/opera-adt/bowser) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/synth](https://github.com/opera-adt/synth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -76,10 +76,10 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.2 |
+| Overall Best Practice Score (%) | 16.3 |
 | License Score (%) | 83.8 |
 | Readme Score (%) | 47.1 |
-| Additional Documentation Score (%) | 41.2 |
+| Additional Documentation Score (%) | 42.6 |
 | Issue Templates Score (%) | 27.9 |
 | Changelog Score (%) | 13.2 |
 | PR Templates Score (%) | 8.8 |
@@ -93,8 +93,8 @@
 | Governance Model Score (%) | 0.0 |
 | Repositories evaluated (count) | 68 |
 | Best practices checked (count) | 14 |
-| NO (count) | 765 |
-| YES (count) | 121 |
+| NO (count) | 764 |
+| YES (count) | 122 |
 | PARTIAL (count) | 65 |
 | PR (count) | 1 |
 

@@ -37,6 +37,7 @@
 | [nasa-ammos/seq-json-schema](https://github.com/nasa-ammos/seq-json-schema) | 🟢 | 🟠 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/xait](https://github.com/nasa-ammos/xait) | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/cfn-ps-ammos-smallsat-toolkit](https://github.com/nasa-ammos/cfn-ps-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/landscape](https://github.com/nasa-ammos/landscape) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-Core](https://github.com/nasa-ammos/AIT-Core) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-GUI](https://github.com/nasa-ammos/AIT-GUI) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-DSN](https://github.com/nasa-ammos/AIT-DSN) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -58,6 +59,7 @@
 | [nasa-ammos/Veloserver](https://github.com/nasa-ammos/Veloserver) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-actions](https://github.com/nasa-ammos/aerie-actions) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-time-utils](https://github.com/nasa-ammos/aerie-time-utils) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/aerie-sequence-adaptation-template](https://github.com/nasa-ammos/aerie-sequence-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/FEI](https://github.com/nasa/FEI) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Unity3DTiles](https://github.com/nasa-ammos/Unity3DTiles) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/quickstart-ammos-smallsat-toolkit](https://github.com/nasa-ammos/quickstart-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -89,32 +91,33 @@
 | [nasa-ammos/aerie-ui-plugin-examples](https://github.com/nasa-ammos/aerie-ui-plugin-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-fprime-sequence-adaptation](https://github.com/nasa-ammos/aerie-fprime-sequence-adaptation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/auth-proxy-with-keycloak-nginx](https://github.com/nasa-ammos/auth-proxy-with-keycloak-nginx) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/CNCF_landscape](https://github.com/nasa-ammos/CNCF_landscape) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.5 |
-| Additional Documentation Score (%) | 73.6 |
-| License Score (%) | 68.4 |
-| Readme Score (%) | 51.1 |
-| Code of Conduct Score (%) | 44.2 |
-| Contributing Guide Score (%) | 40.8 |
-| Issue Templates Score (%) | 36.5 |
-| Changelog Score (%) | 35.9 |
-| PR Templates Score (%) | 31.6 |
-| Governance Model Score (%) | 12.6 |
-| Secrets Detection Score (%) | 3.5 |
+| Overall Best Practice Score (%) | 28.0 |
+| Additional Documentation Score (%) | 73.3 |
+| License Score (%) | 68.3 |
+| Readme Score (%) | 50.6 |
+| Code of Conduct Score (%) | 42.8 |
+| Contributing Guide Score (%) | 39.4 |
+| Issue Templates Score (%) | 35.3 |
+| Changelog Score (%) | 34.7 |
+| PR Templates Score (%) | 31.7 |
+| Governance Model Score (%) | 12.2 |
+| Secrets Detection Score (%) | 3.3 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 87 |
+| Repositories evaluated (count) | 90 |
 | Best practices checked (count) | 14 |
-| YES (count) | 264 |
-| NO (count) | 692 |
-| PARTIAL (count) | 70 |
+| YES (count) | 269 |
+| NO (count) | 727 |
+| PARTIAL (count) | 72 |
 | PR (count) | 192 |
 
 
