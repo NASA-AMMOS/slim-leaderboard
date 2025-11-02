@@ -37,7 +37,6 @@
 | [nasa-ammos/seq-json-schema](https://github.com/nasa-ammos/seq-json-schema) | 🟢 | 🟠 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/xait](https://github.com/nasa-ammos/xait) | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/cfn-ps-ammos-smallsat-toolkit](https://github.com/nasa-ammos/cfn-ps-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/landscape](https://github.com/nasa-ammos/landscape) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-Core](https://github.com/nasa-ammos/AIT-Core) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-GUI](https://github.com/nasa-ammos/AIT-GUI) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-DSN](https://github.com/nasa-ammos/AIT-DSN) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -91,33 +90,32 @@
 | [nasa-ammos/aerie-ui-plugin-examples](https://github.com/nasa-ammos/aerie-ui-plugin-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-fprime-sequence-adaptation](https://github.com/nasa-ammos/aerie-fprime-sequence-adaptation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/auth-proxy-with-keycloak-nginx](https://github.com/nasa-ammos/auth-proxy-with-keycloak-nginx) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/CNCF_landscape](https://github.com/nasa-ammos/CNCF_landscape) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 
 
 # Summary Statistics
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.0 |
-| Additional Documentation Score (%) | 73.3 |
-| License Score (%) | 68.3 |
-| Readme Score (%) | 50.6 |
-| Code of Conduct Score (%) | 42.8 |
-| Contributing Guide Score (%) | 39.4 |
-| Issue Templates Score (%) | 35.3 |
-| Changelog Score (%) | 34.7 |
-| PR Templates Score (%) | 31.7 |
-| Governance Model Score (%) | 12.2 |
-| Secrets Detection Score (%) | 3.3 |
+| Overall Best Practice Score (%) | 28.4 |
+| Additional Documentation Score (%) | 73.9 |
+| License Score (%) | 68.8 |
+| Readme Score (%) | 51.1 |
+| Code of Conduct Score (%) | 43.8 |
+| Contributing Guide Score (%) | 40.3 |
+| Issue Templates Score (%) | 36.1 |
+| Changelog Score (%) | 35.5 |
+| PR Templates Score (%) | 31.2 |
+| Governance Model Score (%) | 12.5 |
+| Secrets Detection Score (%) | 3.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 90 |
+| Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
-| YES (count) | 269 |
-| NO (count) | 727 |
-| PARTIAL (count) | 72 |
+| YES (count) | 266 |
+| NO (count) | 703 |
+| PARTIAL (count) | 71 |
 | PR (count) | 192 |
 
 
