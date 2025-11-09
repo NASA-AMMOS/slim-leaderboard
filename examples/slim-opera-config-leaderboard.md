@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [nasa/opera-sds-pge](https://github.com/nasa/opera-sds-pge) | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
 | [nasa/opera-sds-bach-api](https://github.com/nasa/opera-sds-bach-api) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa/opera-sds-int](https://github.com/nasa/opera-sds-int) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/disp-s1](https://github.com/opera-adt/disp-s1) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/disp-nisar](https://github.com/opera-adt/disp-nisar) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1](https://github.com/opera-adt/dist-s1) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -12,7 +13,6 @@
 | [nasa/opera-sds-pcm](https://github.com/nasa/opera-sds-pcm) | 🟢 | 🟠 | 🟣 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟠 |
 | [nasa/opera-sds](https://github.com/nasa/opera-sds) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-bach-ui](https://github.com/nasa/opera-sds-bach-ui) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa/opera-sds-int](https://github.com/nasa/opera-sds-int) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-ops](https://github.com/nasa/opera-sds-ops) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/PROTEUS](https://github.com/nasa/PROTEUS) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/COMPASS](https://github.com/opera-adt/COMPASS) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -62,6 +62,7 @@
 | [OPERA-Cal-Val/dist-s1-validation](https://github.com/OPERA-Cal-Val/dist-s1-validation) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/dist-s1-events](https://github.com/OPERA-Cal-Val/dist-s1-events) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/dist-s1-blog](https://github.com/OPERA-Cal-Val/dist-s1-blog) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [OPERA-Cal-Val/opera-surface-displacement-blog](https://github.com/OPERA-Cal-Val/opera-surface-displacement-blog) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/CSLC-S1_Specs](https://github.com/opera-adt/CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/Static_Layers_CSLC-S1_Specs](https://github.com/opera-adt/Static_Layers_CSLC-S1_Specs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/.github](https://github.com/OPERA-Cal-Val/.github) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -78,12 +79,12 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 16.2 |
-| License Score (%) | 82.6 |
+| License Score (%) | 81.4 |
 | Readme Score (%) | 47.1 |
-| Additional Documentation Score (%) | 43.5 |
-| Issue Templates Score (%) | 27.5 |
-| Changelog Score (%) | 13.0 |
-| PR Templates Score (%) | 8.7 |
+| Additional Documentation Score (%) | 45.7 |
+| Issue Templates Score (%) | 27.1 |
+| Changelog Score (%) | 12.9 |
+| PR Templates Score (%) | 8.6 |
 | Contributing Guide Score (%) | 1.8 |
 | Secrets Detection Score (%) | 1.4 |
 | Continuous Testing Plan Score (%) | 0.7 |
@@ -92,11 +93,11 @@
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 69 |
+| Repositories evaluated (count) | 70 |
 | Best practices checked (count) | 14 |
-| NO (count) | 776 |
-| YES (count) | 123 |
-| PARTIAL (count) | 66 |
+| NO (count) | 787 |
+| YES (count) | 125 |
+| PARTIAL (count) | 67 |
 | PR (count) | 1 |
 
 
