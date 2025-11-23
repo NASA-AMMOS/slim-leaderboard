@@ -48,7 +48,6 @@
 | [MAAP-project/maap-libs-jupyter-extension](https://github.com/MAAP-project/maap-libs-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-workspace-management-jupyter-extension](https://github.com/MAAP-project/user-workspace-management-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps-jupyter-extension](https://github.com/MAAP-project/dps-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-eoapi](https://github.com/MAAP-project/maap-eoapi) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/stactools-pipelines](https://github.com/MAAP-project/stactools-pipelines) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps_tutorial](https://github.com/MAAP-project/dps_tutorial) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-statuspage](https://github.com/MAAP-project/maap-statuspage) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -73,6 +72,7 @@
 | [MAAP-project/ipycmc-jupyter-extension](https://github.com/MAAP-project/ipycmc-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-hec-notebooks](https://github.com/MAAP-project/maap-hec-notebooks) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-algorithm-configs](https://github.com/MAAP-project/user-algorithm-configs) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/maap-eoapi](https://github.com/MAAP-project/maap-eoapi) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/MAAP-STAC-auth](https://github.com/MAAP-project/MAAP-STAC-auth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/flask_ades_wpst](https://github.com/MAAP-project/flask_ades_wpst) | 🟣 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/cache-docker-layers-cdk-gha](https://github.com/MAAP-project/cache-docker-layers-cdk-gha) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -96,9 +96,9 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.9 |
+| Overall Best Practice Score (%) | 17.8 |
 | License Score (%) | 91.2 |
-| Additional Documentation Score (%) | 46.6 |
+| Additional Documentation Score (%) | 45.5 |
 | Readme Score (%) | 43.2 |
 | Contributing Guide Score (%) | 23.9 |
 | Changelog Score (%) | 21.3 |
@@ -114,8 +114,8 @@
 | Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 76 |
-| YES (count) | 181 |
-| NO (count) | 971 |
+| YES (count) | 180 |
+| NO (count) | 972 |
 | PR (count) | 4 |
 
 
