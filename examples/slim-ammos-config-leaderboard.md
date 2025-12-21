@@ -58,6 +58,7 @@
 | [nasa-ammos/aerie-actions](https://github.com/nasa-ammos/aerie-actions) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-time-utils](https://github.com/nasa-ammos/aerie-time-utils) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-sequence-adaptation-template](https://github.com/nasa-ammos/aerie-sequence-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/plandev-docs](https://github.com/nasa-ammos/plandev-docs) | 🔴 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/FEI](https://github.com/nasa/FEI) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Unity3DTiles](https://github.com/nasa-ammos/Unity3DTiles) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/quickstart-ammos-smallsat-toolkit](https://github.com/nasa-ammos/quickstart-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -95,26 +96,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.1 |
-| Additional Documentation Score (%) | 73.6 |
-| License Score (%) | 68.4 |
+| Overall Best Practice Score (%) | 28.0 |
+| Additional Documentation Score (%) | 73.9 |
+| License Score (%) | 67.6 |
 | Readme Score (%) | 51.1 |
-| Code of Conduct Score (%) | 42.8 |
-| Contributing Guide Score (%) | 39.4 |
-| Issue Templates Score (%) | 35.9 |
-| Changelog Score (%) | 34.2 |
-| PR Templates Score (%) | 31.0 |
-| Governance Model Score (%) | 12.6 |
-| Secrets Detection Score (%) | 3.5 |
+| Code of Conduct Score (%) | 42.3 |
+| Contributing Guide Score (%) | 40.1 |
+| Issue Templates Score (%) | 35.5 |
+| Changelog Score (%) | 33.8 |
+| PR Templates Score (%) | 30.7 |
+| Governance Model Score (%) | 12.5 |
+| Secrets Detection Score (%) | 3.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 87 |
+| Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
-| YES (count) | 261 |
-| NO (count) | 703 |
-| PARTIAL (count) | 70 |
+| YES (count) | 263 |
+| NO (count) | 714 |
+| PARTIAL (count) | 71 |
 | PR (count) | 184 |
 
 
