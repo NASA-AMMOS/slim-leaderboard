@@ -4,7 +4,6 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [nasa-ammos/slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
 | [nasa-ammos/auth-proxy-with-keycloak-flask](https://github.com/nasa-ammos/auth-proxy-with-keycloak-flask) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
-| [nasa-ammos/slim](https://github.com/nasa-ammos/slim) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/parent-ammos](https://github.com/nasa-ammos/parent-ammos) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-leaderboard](https://github.com/nasa-ammos/slim-leaderboard) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
@@ -16,11 +15,12 @@
 | [nasa-ammos/common-workflow-service](https://github.com/nasa-ammos/common-workflow-service) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/VICAR](https://github.com/nasa-ammos/VICAR) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MGViz](https://github.com/nasa-ammos/MGViz) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/slim](https://github.com/nasa-ammos/slim) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/labelocity](https://github.com/nasa-ammos/labelocity) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesRendererJS](https://github.com/nasa-ammos/3DTilesRendererJS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
-| [nasa-ammos/aerie](https://github.com/nasa-ammos/aerie) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/aerie](https://github.com/nasa-ammos/aerie) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 |
 | [nasa-ammos/aerie-ui](https://github.com/nasa-ammos/aerie-ui) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -46,7 +46,6 @@
 | [nasa-ammos/aerie-ts-user-code-runner](https://github.com/nasa-ammos/aerie-ts-user-code-runner) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-pr-action](https://github.com/nasa-ammos/aerie-pr-action) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-cli](https://github.com/nasa-ammos/aerie-cli) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/aerie-docs](https://github.com/nasa-ammos/aerie-docs) | 🔴 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/synopsis](https://github.com/nasa-ammos/synopsis) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AFIDS-POMM](https://github.com/nasa-ammos/AFIDS-POMM) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/VECTOR](https://github.com/nasa-ammos/VECTOR) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -66,6 +65,7 @@
 | [nasa-ammos/DECISION](https://github.com/nasa-ammos/DECISION) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-mission-model-template](https://github.com/nasa-ammos/aerie-mission-model-template) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-starterkit-java](https://github.com/nasa-ammos/slim-starterkit-java) | 🟢 | 🟠 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/aerie-docs](https://github.com/nasa-ammos/aerie-docs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-config-detect-secrets](https://github.com/nasa-ammos/slim-config-detect-secrets) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-pmc](https://github.com/nasa-ammos/aerie-pmc) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/multi-mission-utilities-DSN](https://github.com/nasa-ammos/multi-mission-utilities-DSN) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -96,16 +96,16 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.0 |
-| Additional Documentation Score (%) | 73.9 |
+| Overall Best Practice Score (%) | 27.8 |
+| Additional Documentation Score (%) | 72.7 |
 | License Score (%) | 67.6 |
-| Readme Score (%) | 51.1 |
+| Readme Score (%) | 50.6 |
 | Code of Conduct Score (%) | 42.3 |
-| Contributing Guide Score (%) | 40.1 |
+| Contributing Guide Score (%) | 39.2 |
 | Issue Templates Score (%) | 35.5 |
 | Changelog Score (%) | 33.8 |
 | PR Templates Score (%) | 30.7 |
-| Governance Model Score (%) | 12.5 |
+| Governance Model Score (%) | 12.8 |
 | Secrets Detection Score (%) | 3.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -113,10 +113,10 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
-| YES (count) | 263 |
+| YES (count) | 260 |
 | NO (count) | 714 |
-| PARTIAL (count) | 71 |
-| PR (count) | 184 |
+| PARTIAL (count) | 72 |
+| PR (count) | 186 |
 
 
 # Repository Check Explanation
