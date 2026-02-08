@@ -20,7 +20,7 @@
 | [nasa-ammos/3DTilesRendererJS](https://github.com/nasa-ammos/3DTilesRendererJS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
-| [nasa-ammos/aerie](https://github.com/nasa-ammos/aerie) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 |
+| [nasa-ammos/aerie](https://github.com/nasa-ammos/aerie) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-ui](https://github.com/nasa-ammos/aerie-ui) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -101,11 +101,11 @@
 | License Score (%) | 67.6 |
 | Readme Score (%) | 50.6 |
 | Code of Conduct Score (%) | 42.3 |
-| Contributing Guide Score (%) | 39.2 |
+| Contributing Guide Score (%) | 38.9 |
 | Issue Templates Score (%) | 35.5 |
 | Changelog Score (%) | 33.8 |
 | PR Templates Score (%) | 30.7 |
-| Governance Model Score (%) | 12.8 |
+| Governance Model Score (%) | 12.5 |
 | Secrets Detection Score (%) | 3.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
@@ -114,9 +114,9 @@
 | Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
 | YES (count) | 260 |
-| NO (count) | 714 |
+| NO (count) | 716 |
 | PARTIAL (count) | 72 |
-| PR (count) | 186 |
+| PR (count) | 184 |
 
 
 # Repository Check Explanation

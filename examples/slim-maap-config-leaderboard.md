@@ -74,7 +74,7 @@
 | [MAAP-project/user-algorithm-configs](https://github.com/MAAP-project/user-algorithm-configs) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-eoapi](https://github.com/MAAP-project/maap-eoapi) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/MAAP-STAC-auth](https://github.com/MAAP-project/MAAP-STAC-auth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/flask_ades_wpst](https://github.com/MAAP-project/flask_ades_wpst) | 🟣 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/flask_ades_wpst](https://github.com/MAAP-project/flask_ades_wpst) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/cache-docker-layers-cdk-gha](https://github.com/MAAP-project/cache-docker-layers-cdk-gha) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/.github](https://github.com/MAAP-project/.github) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/example-dps-daac-access](https://github.com/MAAP-project/example-dps-daac-access) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,7 +97,7 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 17.8 |
-| License Score (%) | 91.2 |
+| License Score (%) | 90.9 |
 | Additional Documentation Score (%) | 45.5 |
 | Readme Score (%) | 43.2 |
 | Contributing Guide Score (%) | 23.9 |
@@ -115,8 +115,8 @@
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 76 |
 | YES (count) | 180 |
-| NO (count) | 972 |
-| PR (count) | 4 |
+| NO (count) | 973 |
+| PR (count) | 3 |
 
 
 # Repository Check Explanation
