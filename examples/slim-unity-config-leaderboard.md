@@ -39,8 +39,8 @@
 | [unity-sds/unity-analytics-sdap-nexus](https://github.com/unity-sds/unity-analytics-sdap-nexus) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-cs-sps-demo](https://github.com/unity-sds/unity-cs-sps-demo) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-analytics-sdap](https://github.com/unity-sds/unity-analytics-sdap) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [unity-sds/unity-app-generator](https://github.com/unity-sds/unity-app-generator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [unity-sds/unity-example-application](https://github.com/unity-sds/unity-example-application) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [unity-sds/mdps-app-generator](https://github.com/unity-sds/mdps-app-generator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [unity-sds/mdps-example-application](https://github.com/unity-sds/mdps-example-application) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-monorepo](https://github.com/unity-sds/unity-monorepo) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-tutorial-application](https://github.com/unity-sds/unity-tutorial-application) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/mdps-ds-lib](https://github.com/unity-sds/mdps-ds-lib) | 🟢 | 🟠 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
