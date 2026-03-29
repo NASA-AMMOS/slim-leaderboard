@@ -2,11 +2,13 @@
 # SLIM Best Practices Repository Scan Report
 | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [nasa-ammos/slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
 | [nasa-ammos/auth-proxy-with-keycloak-flask](https://github.com/nasa-ammos/auth-proxy-with-keycloak-flask) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
 | [nasa-ammos/slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/parent-ammos](https://github.com/nasa-ammos/parent-ammos) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-leaderboard](https://github.com/nasa-ammos/slim-leaderboard) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-cli](https://github.com/nasa-ammos/slim-cli) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟠 |
+| [nasa-ammos/slim-leaderboard-desktop](https://github.com/nasa-ammos/slim-leaderboard-desktop) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-docsite-template](https://github.com/nasa-ammos/slim-docsite-template) | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-cd-starterkit](https://github.com/nasa-ammos/slim-cd-starterkit) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/MMGIS](https://github.com/nasa-ammos/MMGIS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -77,6 +79,7 @@
 | [nasa-ammos/aerie-action-examples](https://github.com/nasa-ammos/aerie-action-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-sequence-languages](https://github.com/nasa-ammos/aerie-sequence-languages) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesSampleData](https://github.com/nasa-ammos/3DTilesSampleData) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/AMPCS](https://github.com/nasa-ammos/AMPCS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MCWS](https://github.com/nasa-ammos/MCWS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-monaco-editor-customizations](https://github.com/nasa-ammos/aerie-monaco-editor-customizations) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-plan-collaboration-prototype](https://github.com/nasa-ammos/aerie-plan-collaboration-prototype) | 🔴 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -93,27 +96,27 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 27.0 |
-| Additional Documentation Score (%) | 72.9 |
-| License Score (%) | 67.7 |
-| Readme Score (%) | 49.4 |
-| Code of Conduct Score (%) | 41.2 |
-| Contributing Guide Score (%) | 37.6 |
-| Issue Templates Score (%) | 34.1 |
-| Changelog Score (%) | 32.4 |
-| PR Templates Score (%) | 29.1 |
-| Governance Model Score (%) | 10.6 |
-| Secrets Detection Score (%) | 2.4 |
+| Overall Best Practice Score (%) | 27.8 |
+| Additional Documentation Score (%) | 72.7 |
+| License Score (%) | 67.6 |
+| Readme Score (%) | 50.6 |
+| Code of Conduct Score (%) | 42.3 |
+| Contributing Guide Score (%) | 38.9 |
+| Issue Templates Score (%) | 35.5 |
+| Changelog Score (%) | 33.8 |
+| PR Templates Score (%) | 30.7 |
+| Governance Model Score (%) | 12.5 |
+| Secrets Detection Score (%) | 3.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
-| YES (count) | 241 |
-| NO (count) | 699 |
-| PARTIAL (count) | 71 |
-| PR (count) | 179 |
+| YES (count) | 260 |
+| NO (count) | 716 |
+| PARTIAL (count) | 72 |
+| PR (count) | 184 |
 
 
 # Repository Check Explanation
