@@ -46,7 +46,7 @@
 | [unity-sds/mdps-ds-lib](https://github.com/unity-sds/mdps-ds-lib) | 🟢 | 🟠 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-docker-stacks](https://github.com/unity-sds/unity-docker-stacks) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-marketplace](https://github.com/unity-sds/unity-marketplace) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [unity-sds/app-pack-generator](https://github.com/unity-sds/app-pack-generator) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [unity-sds/ogc-ipynb-app-gen](https://github.com/unity-sds/ogc-ipynb-app-gen) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/unity-cs-auth-lambda](https://github.com/unity-sds/unity-cs-auth-lambda) | 🔴 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/stac-browser](https://github.com/unity-sds/stac-browser) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [unity-sds/emit-ghg_test](https://github.com/unity-sds/emit-ghg_test) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
