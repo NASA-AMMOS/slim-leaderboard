@@ -16,6 +16,7 @@
 | [hysds/gosu](https://github.com/hysds/gosu) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/otello](https://github.com/hysds/otello) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/pele_client](https://github.com/hysds/pele_client) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/hysds-quick-start](https://github.com/hysds/hysds-quick-start) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/sciflo](https://github.com/hysds/sciflo) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/figaro](https://github.com/hysds/figaro) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -86,26 +87,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 14.2 |
-| License Score (%) | 76.0 |
-| Readme Score (%) | 44.2 |
-| Contributing Guide Score (%) | 19.9 |
-| Additional Documentation Score (%) | 17.9 |
-| Changelog Score (%) | 17.6 |
-| Code of Conduct Score (%) | 14.4 |
+| Overall Best Practice Score (%) | 14.3 |
+| License Score (%) | 76.3 |
+| Readme Score (%) | 44.3 |
+| Contributing Guide Score (%) | 19.6 |
+| Additional Documentation Score (%) | 19.0 |
+| Changelog Score (%) | 17.4 |
+| Code of Conduct Score (%) | 14.2 |
 | Issue Templates Score (%) | 5.1 |
-| PR Templates Score (%) | 2.6 |
+| PR Templates Score (%) | 2.5 |
 | Governance Model Score (%) | 1.3 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
 | Continuous Testing Plan Score (%) | 0.0 |
-| Repositories evaluated (count) | 78 |
+| Repositories evaluated (count) | 79 |
 | Best practices checked (count) | 14 |
-| YES (count) | 90 |
-| NO (count) | 808 |
-| PARTIAL (count) | 67 |
+| YES (count) | 92 |
+| NO (count) | 819 |
+| PARTIAL (count) | 68 |
 | PR (count) | 127 |
 
 
