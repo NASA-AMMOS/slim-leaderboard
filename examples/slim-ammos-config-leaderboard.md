@@ -18,10 +18,10 @@
 | [nasa-ammos/slim](https://github.com/nasa-ammos/slim) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/labelocity](https://github.com/nasa-ammos/labelocity) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesRendererJS](https://github.com/nasa-ammos/3DTilesRendererJS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/plandev-ui](https://github.com/nasa-ammos/plandev-ui) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
 | [nasa-ammos/plandev](https://github.com/nasa-ammos/plandev) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/plandev-ui](https://github.com/nasa-ammos/plandev-ui) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/BSL](https://github.com/nasa-ammos/BSL) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -96,15 +96,15 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 27.8 |
+| Overall Best Practice Score (%) | 27.9 |
 | Additional Documentation Score (%) | 72.7 |
 | License Score (%) | 67.6 |
 | Readme Score (%) | 50.6 |
 | Code of Conduct Score (%) | 42.3 |
-| Contributing Guide Score (%) | 38.9 |
+| Contributing Guide Score (%) | 39.8 |
 | Issue Templates Score (%) | 35.5 |
-| Changelog Score (%) | 33.8 |
-| PR Templates Score (%) | 30.7 |
+| Changelog Score (%) | 33.5 |
+| PR Templates Score (%) | 30.4 |
 | Governance Model Score (%) | 12.5 |
 | Secrets Detection Score (%) | 4.5 |
 | Continuous Testing Plan Score (%) | 0.6 |
@@ -113,10 +113,10 @@
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
-| YES (count) | 261 |
-| NO (count) | 715 |
+| YES (count) | 262 |
+| NO (count) | 717 |
 | PARTIAL (count) | 72 |
-| PR (count) | 184 |
+| PR (count) | 181 |
 
 
 # Repository Check Explanation
