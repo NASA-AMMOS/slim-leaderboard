@@ -21,6 +21,7 @@
 | [nasa-ammos/plandev-ui](https://github.com/nasa-ammos/plandev-ui) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
+| [nasa-ammos/landscape](https://github.com/nasa-ammos/landscape) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev](https://github.com/nasa-ammos/plandev) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -96,26 +97,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 27.9 |
-| Additional Documentation Score (%) | 72.7 |
-| License Score (%) | 67.6 |
+| Overall Best Practice Score (%) | 28.0 |
+| Additional Documentation Score (%) | 73.0 |
+| License Score (%) | 68.0 |
 | Readme Score (%) | 50.6 |
-| Code of Conduct Score (%) | 42.3 |
-| Contributing Guide Score (%) | 39.8 |
-| Issue Templates Score (%) | 35.5 |
-| Changelog Score (%) | 33.5 |
-| PR Templates Score (%) | 30.4 |
-| Governance Model Score (%) | 12.5 |
+| Code of Conduct Score (%) | 41.9 |
+| Contributing Guide Score (%) | 40.5 |
+| Issue Templates Score (%) | 36.2 |
+| Changelog Score (%) | 33.1 |
+| PR Templates Score (%) | 31.2 |
+| Governance Model Score (%) | 12.4 |
 | Secrets Detection Score (%) | 4.5 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 88 |
+| Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
-| YES (count) | 262 |
-| NO (count) | 717 |
-| PARTIAL (count) | 72 |
+| YES (count) | 267 |
+| NO (count) | 725 |
+| PARTIAL (count) | 73 |
 | PR (count) | 181 |
 
 

@@ -22,9 +22,7 @@
 | [MAAP-project/biomass-dashboard-api](https://github.com/MAAP-project/biomass-dashboard-api) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/edsc-jupyter-extension](https://github.com/MAAP-project/edsc-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/ades-metrics-visualization-jupyter-extension](https://github.com/MAAP-project/ades-metrics-visualization-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/jupyter-server-extension](https://github.com/MAAP-project/jupyter-server-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-help-jupyter-extension](https://github.com/MAAP-project/maap-help-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/algorithms-jupyter-extension](https://github.com/MAAP-project/algorithms-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-data-pipelines](https://github.com/MAAP-project/maap-data-pipelines) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-styles](https://github.com/MAAP-project/maap-styles) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/earthdata-search](https://github.com/MAAP-project/earthdata-search) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -48,7 +46,8 @@
 | [MAAP-project/maap-hec-aws](https://github.com/MAAP-project/maap-hec-aws) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-libs-jupyter-extension](https://github.com/MAAP-project/maap-libs-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-workspace-management-jupyter-extension](https://github.com/MAAP-project/user-workspace-management-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/dps-jupyter-extension](https://github.com/MAAP-project/dps-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/dps-jupyter-extension](https://github.com/MAAP-project/dps-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/jupyter-server-extension](https://github.com/MAAP-project/jupyter-server-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/stactools-pipelines](https://github.com/MAAP-project/stactools-pipelines) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps_tutorial](https://github.com/MAAP-project/dps_tutorial) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-statuspage](https://github.com/MAAP-project/maap-statuspage) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -71,6 +70,7 @@
 | [MAAP-project/scimaap-ui-portal](https://github.com/MAAP-project/scimaap-ui-portal) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/ipycmc-jupyter-extension](https://github.com/MAAP-project/ipycmc-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-hec-notebooks](https://github.com/MAAP-project/maap-hec-notebooks) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/algorithms-jupyter-extension](https://github.com/MAAP-project/algorithms-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-algorithm-configs](https://github.com/MAAP-project/user-algorithm-configs) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-eoapi](https://github.com/MAAP-project/maap-eoapi) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/MAAP-STAC-auth](https://github.com/MAAP-project/MAAP-STAC-auth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -96,12 +96,12 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.9 |
+| Overall Best Practice Score (%) | 17.6 |
 | License Score (%) | 90.9 |
-| Additional Documentation Score (%) | 46.6 |
+| Additional Documentation Score (%) | 47.7 |
 | Readme Score (%) | 43.8 |
-| Contributing Guide Score (%) | 23.9 |
-| Changelog Score (%) | 21.3 |
+| Contributing Guide Score (%) | 21.6 |
+| Changelog Score (%) | 18.8 |
 | Issue Templates Score (%) | 10.2 |
 | Code of Conduct Score (%) | 9.1 |
 | PR Templates Score (%) | 4.5 |
@@ -114,9 +114,9 @@
 | Repositories evaluated (count) | 88 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 77 |
-| YES (count) | 181 |
-| NO (count) | 971 |
-| PR (count) | 3 |
+| YES (count) | 178 |
+| NO (count) | 975 |
+| PR (count) | 2 |
 
 
 # Repository Check Explanation
