@@ -11,6 +11,7 @@
 | [hysds/fabric](https://github.com/hysds/fabric) | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/container-builder](https://github.com/hysds/container-builder) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-dockerfiles](https://github.com/hysds/hysds-dockerfiles) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/lightweight-jobs](https://github.com/hysds/lightweight-jobs) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/osaka](https://github.com/hysds/osaka) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/s3-bucket-listing](https://github.com/hysds/s3-bucket-listing) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/gosu](https://github.com/hysds/gosu) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -22,7 +23,6 @@
 | [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_cluster_setup](https://github.com/hysds/hysds_cluster_setup) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds_commons](https://github.com/hysds/hysds_commons) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [hysds/lightweight-jobs](https://github.com/hysds/lightweight-jobs) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/mozart](https://github.com/hysds/mozart) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/spyddder-man](https://github.com/hysds/spyddder-man) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/tosca](https://github.com/hysds/tosca) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -87,11 +87,11 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 14.3 |
+| Overall Best Practice Score (%) | 14.4 |
 | License Score (%) | 76.3 |
 | Readme Score (%) | 44.3 |
+| Additional Documentation Score (%) | 20.2 |
 | Contributing Guide Score (%) | 19.6 |
-| Additional Documentation Score (%) | 19.0 |
 | Changelog Score (%) | 17.4 |
 | Code of Conduct Score (%) | 14.2 |
 | Issue Templates Score (%) | 5.1 |
@@ -104,8 +104,8 @@
 | Continuous Testing Plan Score (%) | 0.0 |
 | Repositories evaluated (count) | 79 |
 | Best practices checked (count) | 14 |
-| YES (count) | 92 |
-| NO (count) | 819 |
+| YES (count) | 93 |
+| NO (count) | 818 |
 | PARTIAL (count) | 68 |
 | PR (count) | 127 |
 
