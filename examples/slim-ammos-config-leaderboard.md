@@ -12,6 +12,7 @@
 | [nasa-ammos/MMGIS](https://github.com/nasa-ammos/MMGIS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
 | [nasa-ammos/slim-docsite-template](https://github.com/nasa-ammos/slim-docsite-template) | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-cd-starterkit](https://github.com/nasa-ammos/slim-cd-starterkit) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
+| [nasa-ammos/slim-framework](https://github.com/nasa-ammos/slim-framework) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/common-workflow-service](https://github.com/nasa-ammos/common-workflow-service) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/VICAR](https://github.com/nasa-ammos/VICAR) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MGViz](https://github.com/nasa-ammos/MGViz) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,26 +98,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.0 |
-| Additional Documentation Score (%) | 73.0 |
-| License Score (%) | 68.0 |
+| Overall Best Practice Score (%) | 28.4 |
+| Additional Documentation Score (%) | 73.3 |
+| License Score (%) | 68.3 |
 | Readme Score (%) | 50.6 |
-| Code of Conduct Score (%) | 41.9 |
-| Contributing Guide Score (%) | 40.5 |
-| Issue Templates Score (%) | 36.2 |
-| Changelog Score (%) | 33.1 |
-| PR Templates Score (%) | 31.2 |
-| Governance Model Score (%) | 12.4 |
-| Secrets Detection Score (%) | 4.5 |
+| Code of Conduct Score (%) | 42.5 |
+| Contributing Guide Score (%) | 41.1 |
+| Issue Templates Score (%) | 36.9 |
+| Changelog Score (%) | 33.9 |
+| PR Templates Score (%) | 31.9 |
+| Governance Model Score (%) | 13.3 |
+| Secrets Detection Score (%) | 4.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 89 |
+| Repositories evaluated (count) | 90 |
 | Best practices checked (count) | 14 |
-| YES (count) | 267 |
-| NO (count) | 725 |
-| PARTIAL (count) | 73 |
+| YES (count) | 275 |
+| NO (count) | 730 |
+| PARTIAL (count) | 74 |
 | PR (count) | 181 |
 
 
