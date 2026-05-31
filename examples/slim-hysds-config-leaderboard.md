@@ -18,6 +18,7 @@
 | [hysds/otello](https://github.com/hysds/otello) | 🟢 | 🟠 | 🟣 | 🟣 | 🔴 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/pele_client](https://github.com/hysds/pele_client) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/hysds-quick-start](https://github.com/hysds/hysds-quick-start) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [hysds/hysds-job-cost-attribution](https://github.com/hysds/hysds-job-cost-attribution) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/sciflo](https://github.com/hysds/sciflo) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/figaro](https://github.com/hysds/figaro) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [hysds/grq2](https://github.com/hysds/grq2) | 🟢 | 🔴 | 🟣 | 🟣 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -88,25 +89,25 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 14.4 |
-| License Score (%) | 76.3 |
-| Readme Score (%) | 44.3 |
-| Additional Documentation Score (%) | 20.2 |
-| Contributing Guide Score (%) | 19.6 |
-| Changelog Score (%) | 17.4 |
-| Code of Conduct Score (%) | 14.2 |
-| Issue Templates Score (%) | 5.1 |
+| License Score (%) | 76.6 |
+| Readme Score (%) | 44.4 |
+| Additional Documentation Score (%) | 21.2 |
+| Contributing Guide Score (%) | 19.4 |
+| Changelog Score (%) | 17.2 |
+| Code of Conduct Score (%) | 14.1 |
+| Issue Templates Score (%) | 5.0 |
 | PR Templates Score (%) | 2.5 |
-| Governance Model Score (%) | 1.3 |
+| Governance Model Score (%) | 1.2 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
 | Continuous Testing Plan Score (%) | 0.0 |
-| Repositories evaluated (count) | 79 |
+| Repositories evaluated (count) | 80 |
 | Best practices checked (count) | 14 |
-| YES (count) | 93 |
-| NO (count) | 818 |
-| PARTIAL (count) | 68 |
+| YES (count) | 95 |
+| NO (count) | 829 |
+| PARTIAL (count) | 69 |
 | PR (count) | 127 |
 
 
