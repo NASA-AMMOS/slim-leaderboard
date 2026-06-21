@@ -38,6 +38,7 @@
 | [nasa-ammos/seq-json-schema](https://github.com/nasa-ammos/seq-json-schema) | 🟢 | 🟠 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/xait](https://github.com/nasa-ammos/xait) | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/cfn-ps-ammos-smallsat-toolkit](https://github.com/nasa-ammos/cfn-ps-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/MMGIS-Plugins](https://github.com/nasa-ammos/MMGIS-Plugins) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-Core](https://github.com/nasa-ammos/AIT-Core) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-GUI](https://github.com/nasa-ammos/AIT-GUI) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AIT-DSN](https://github.com/nasa-ammos/AIT-DSN) | 🟢 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -98,26 +99,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.4 |
-| Additional Documentation Score (%) | 73.3 |
-| License Score (%) | 68.3 |
-| Readme Score (%) | 50.6 |
-| Code of Conduct Score (%) | 42.5 |
-| Contributing Guide Score (%) | 41.1 |
-| Issue Templates Score (%) | 36.9 |
-| Changelog Score (%) | 33.9 |
-| PR Templates Score (%) | 31.9 |
-| Governance Model Score (%) | 13.3 |
+| Overall Best Practice Score (%) | 28.3 |
+| Additional Documentation Score (%) | 73.6 |
+| License Score (%) | 68.7 |
+| Readme Score (%) | 50.5 |
+| Code of Conduct Score (%) | 42.0 |
+| Contributing Guide Score (%) | 41.8 |
+| Issue Templates Score (%) | 36.5 |
+| Changelog Score (%) | 33.5 |
+| PR Templates Score (%) | 31.6 |
+| Governance Model Score (%) | 13.2 |
 | Secrets Detection Score (%) | 4.4 |
 | Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 90 |
+| Repositories evaluated (count) | 91 |
 | Best practices checked (count) | 14 |
-| YES (count) | 275 |
-| NO (count) | 730 |
-| PARTIAL (count) | 74 |
+| YES (count) | 278 |
+| NO (count) | 740 |
+| PARTIAL (count) | 75 |
 | PR (count) | 181 |
 
 
