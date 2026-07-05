@@ -81,6 +81,7 @@
 | [nasa-ammos/aerie-phoenix-adaptation-vml](https://github.com/nasa-ammos/aerie-phoenix-adaptation-vml) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-action-examples](https://github.com/nasa-ammos/aerie-action-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-sequence-languages](https://github.com/nasa-ammos/aerie-sequence-languages) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/tig](https://github.com/nasa-ammos/tig) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesSampleData](https://github.com/nasa-ammos/3DTilesSampleData) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AMPCS](https://github.com/nasa-ammos/AMPCS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/MCWS](https://github.com/nasa-ammos/MCWS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -99,26 +100,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.3 |
-| Additional Documentation Score (%) | 73.6 |
-| License Score (%) | 68.7 |
+| Overall Best Practice Score (%) | 28.1 |
+| Additional Documentation Score (%) | 73.9 |
+| License Score (%) | 67.9 |
 | Readme Score (%) | 50.5 |
-| Code of Conduct Score (%) | 42.0 |
-| Contributing Guide Score (%) | 41.8 |
-| Issue Templates Score (%) | 36.5 |
-| Changelog Score (%) | 33.5 |
-| PR Templates Score (%) | 31.6 |
-| Governance Model Score (%) | 13.2 |
-| Secrets Detection Score (%) | 4.4 |
-| Continuous Testing Plan Score (%) | 0.6 |
+| Code of Conduct Score (%) | 41.6 |
+| Contributing Guide Score (%) | 41.3 |
+| Issue Templates Score (%) | 36.1 |
+| Changelog Score (%) | 33.1 |
+| PR Templates Score (%) | 31.2 |
+| Governance Model Score (%) | 13.0 |
+| Secrets Detection Score (%) | 4.3 |
+| Continuous Testing Plan Score (%) | 0.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 91 |
+| Repositories evaluated (count) | 92 |
 | Best practices checked (count) | 14 |
-| YES (count) | 278 |
-| NO (count) | 740 |
-| PARTIAL (count) | 75 |
+| YES (count) | 279 |
+| NO (count) | 752 |
+| PARTIAL (count) | 76 |
 | PR (count) | 181 |
 
 
