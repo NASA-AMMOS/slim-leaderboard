@@ -35,7 +35,6 @@
 | [MAAP-project/keycloak-cas-services](https://github.com/MAAP-project/keycloak-cas-services) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/authorizer](https://github.com/MAAP-project/authorizer) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/Community](https://github.com/MAAP-project/Community) | 🔴 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/maap-ade-tutorials](https://github.com/MAAP-project/maap-ade-tutorials) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-dps-installers](https://github.com/MAAP-project/maap-dps-installers) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/cmr-stac](https://github.com/MAAP-project/cmr-stac) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/EE-Download](https://github.com/MAAP-project/EE-Download) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -97,25 +96,25 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 17.6 |
-| License Score (%) | 90.9 |
-| Additional Documentation Score (%) | 47.7 |
-| Readme Score (%) | 43.8 |
-| Contributing Guide Score (%) | 21.9 |
-| Changelog Score (%) | 18.8 |
-| Issue Templates Score (%) | 10.2 |
-| Code of Conduct Score (%) | 9.1 |
-| PR Templates Score (%) | 4.5 |
+| License Score (%) | 90.8 |
+| Additional Documentation Score (%) | 47.1 |
+| Readme Score (%) | 43.7 |
+| Contributing Guide Score (%) | 22.1 |
+| Changelog Score (%) | 19.0 |
+| Issue Templates Score (%) | 10.3 |
+| Code of Conduct Score (%) | 9.2 |
+| PR Templates Score (%) | 4.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Secrets Detection Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
 | Continuous Testing Plan Score (%) | 0.0 |
-| Repositories evaluated (count) | 88 |
+| Repositories evaluated (count) | 87 |
 | Best practices checked (count) | 14 |
-| PARTIAL (count) | 77 |
-| YES (count) | 178 |
-| NO (count) | 974 |
+| PARTIAL (count) | 76 |
+| YES (count) | 176 |
+| NO (count) | 963 |
 | PR (count) | 3 |
 
 
