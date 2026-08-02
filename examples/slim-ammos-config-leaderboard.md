@@ -3,10 +3,10 @@
 | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [nasa-ammos/slim-starterkit-python](https://github.com/nasa-ammos/slim-starterkit-python) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
+| [nasa-ammos/slim-leaderboard](https://github.com/nasa-ammos/slim-leaderboard) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/auth-proxy-with-keycloak-flask](https://github.com/nasa-ammos/auth-proxy-with-keycloak-flask) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 |
 | [nasa-ammos/slim-starterkit](https://github.com/nasa-ammos/slim-starterkit) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/parent-ammos](https://github.com/nasa-ammos/parent-ammos) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
-| [nasa-ammos/slim-leaderboard](https://github.com/nasa-ammos/slim-leaderboard) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-cli](https://github.com/nasa-ammos/slim-cli) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟠 |
 | [nasa-ammos/slim-leaderboard-desktop](https://github.com/nasa-ammos/slim-leaderboard-desktop) | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/MMGIS](https://github.com/nasa-ammos/MMGIS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
@@ -100,7 +100,7 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.2 |
+| Overall Best Practice Score (%) | 28.3 |
 | Additional Documentation Score (%) | 73.9 |
 | License Score (%) | 69.0 |
 | Readme Score (%) | 50.5 |
@@ -111,14 +111,14 @@
 | PR Templates Score (%) | 31.2 |
 | Governance Model Score (%) | 13.0 |
 | Secrets Detection Score (%) | 4.3 |
+| GitHub: Code Scanning Alerts Score (%) | 1.1 |
 | Continuous Testing Plan Score (%) | 0.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
-| GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Repositories evaluated (count) | 92 |
 | Best practices checked (count) | 14 |
-| YES (count) | 280 |
-| NO (count) | 751 |
+| YES (count) | 281 |
+| NO (count) | 750 |
 | PARTIAL (count) | 76 |
 | PR (count) | 181 |
 
