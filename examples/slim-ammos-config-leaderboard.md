@@ -23,7 +23,7 @@
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
 | [nasa-ammos/landscape](https://github.com/nasa-ammos/landscape) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/plandev](https://github.com/nasa-ammos/plandev) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/plandev](https://github.com/nasa-ammos/plandev) | 🟢 | 🟠 | 🟣 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms-docs](https://github.com/nasa-ammos/anms-docs) | 🟢 | 🟠 | 🟢 | 🟢 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/BSL](https://github.com/nasa-ammos/BSL) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -104,12 +104,12 @@
 | Additional Documentation Score (%) | 73.9 |
 | License Score (%) | 69.0 |
 | Readme Score (%) | 50.5 |
+| Contributing Guide Score (%) | 41.6 |
 | Code of Conduct Score (%) | 41.6 |
-| Contributing Guide Score (%) | 41.3 |
 | Issue Templates Score (%) | 36.1 |
 | Changelog Score (%) | 33.1 |
 | PR Templates Score (%) | 31.2 |
-| Governance Model Score (%) | 13.0 |
+| Governance Model Score (%) | 13.3 |
 | Secrets Detection Score (%) | 4.3 |
 | GitHub: Code Scanning Alerts Score (%) | 1.1 |
 | Continuous Testing Plan Score (%) | 0.5 |
@@ -118,9 +118,9 @@
 | Repositories evaluated (count) | 92 |
 | Best practices checked (count) | 14 |
 | YES (count) | 281 |
-| NO (count) | 750 |
+| NO (count) | 748 |
 | PARTIAL (count) | 76 |
-| PR (count) | 181 |
+| PR (count) | 183 |
 
 
 # Repository Check Explanation
