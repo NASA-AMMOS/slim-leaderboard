@@ -61,6 +61,7 @@
 | [nasa-ammos/aerie-sequence-adaptation-template](https://github.com/nasa-ammos/aerie-sequence-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/tig](https://github.com/nasa-ammos/tig) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-docs](https://github.com/nasa-ammos/plandev-docs) | 🔴 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/plandev-examples](https://github.com/nasa-ammos/plandev-examples) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/FEI](https://github.com/nasa/FEI) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/Unity3DTiles](https://github.com/nasa-ammos/Unity3DTiles) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/quickstart-ammos-smallsat-toolkit](https://github.com/nasa-ammos/quickstart-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -79,7 +80,7 @@
 | [nasa-ammos/aerie-orbiter-model](https://github.com/nasa-ammos/aerie-orbiter-model) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-template](https://github.com/nasa-ammos/aerie-phoenix-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-vml](https://github.com/nasa-ammos/aerie-phoenix-adaptation-vml) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/aerie-action-examples](https://github.com/nasa-ammos/aerie-action-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/plandev-action-examples](https://github.com/nasa-ammos/plandev-action-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-sequence-languages](https://github.com/nasa-ammos/plandev-sequence-languages) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesSampleData](https://github.com/nasa-ammos/3DTilesSampleData) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AMPCS](https://github.com/nasa-ammos/AMPCS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -99,26 +100,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.0 |
-| Additional Documentation Score (%) | 73.6 |
-| License Score (%) | 68.7 |
+| Overall Best Practice Score (%) | 27.9 |
+| Additional Documentation Score (%) | 73.9 |
+| License Score (%) | 69.0 |
 | Readme Score (%) | 50.5 |
-| Code of Conduct Score (%) | 40.9 |
-| Contributing Guide Score (%) | 40.7 |
-| Issue Templates Score (%) | 35.4 |
-| Changelog Score (%) | 32.4 |
-| PR Templates Score (%) | 30.5 |
-| Governance Model Score (%) | 13.2 |
-| Secrets Detection Score (%) | 4.4 |
+| Code of Conduct Score (%) | 40.5 |
+| Contributing Guide Score (%) | 40.2 |
+| Issue Templates Score (%) | 35.0 |
+| Changelog Score (%) | 32.1 |
+| PR Templates Score (%) | 30.2 |
+| Governance Model Score (%) | 13.0 |
+| Secrets Detection Score (%) | 4.3 |
 | GitHub: Code Scanning Alerts Score (%) | 1.1 |
-| Continuous Testing Plan Score (%) | 0.6 |
+| Continuous Testing Plan Score (%) | 0.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 91 |
+| Repositories evaluated (count) | 92 |
 | Best practices checked (count) | 14 |
-| YES (count) | 274 |
-| NO (count) | 744 |
-| PARTIAL (count) | 75 |
+| YES (count) | 276 |
+| NO (count) | 755 |
+| PARTIAL (count) | 76 |
 | PR (count) | 181 |
 
 
