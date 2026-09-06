@@ -47,6 +47,7 @@
 | [MAAP-project/user-workspace-management-jupyter-extension](https://github.com/MAAP-project/user-workspace-management-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps-jupyter-extension](https://github.com/MAAP-project/dps-jupyter-extension) | 🟢 | 🟠 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/jupyter-server-extension](https://github.com/MAAP-project/jupyter-server-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [MAAP-project/MAAP-STAC-auth](https://github.com/MAAP-project/MAAP-STAC-auth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/stactools-pipelines](https://github.com/MAAP-project/stactools-pipelines) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/dps_tutorial](https://github.com/MAAP-project/dps_tutorial) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-statuspage](https://github.com/MAAP-project/maap-statuspage) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -72,7 +73,6 @@
 | [MAAP-project/algorithms-jupyter-extension](https://github.com/MAAP-project/algorithms-jupyter-extension) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/user-algorithm-configs](https://github.com/MAAP-project/user-algorithm-configs) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/maap-eoapi](https://github.com/MAAP-project/maap-eoapi) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [MAAP-project/MAAP-STAC-auth](https://github.com/MAAP-project/MAAP-STAC-auth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/flask_ades_wpst](https://github.com/MAAP-project/flask_ades_wpst) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/cache-docker-layers-cdk-gha](https://github.com/MAAP-project/cache-docker-layers-cdk-gha) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [MAAP-project/.github](https://github.com/MAAP-project/.github) | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -95,9 +95,9 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 17.6 |
+| Overall Best Practice Score (%) | 17.7 |
 | License Score (%) | 90.8 |
-| Additional Documentation Score (%) | 47.1 |
+| Additional Documentation Score (%) | 48.3 |
 | Readme Score (%) | 43.7 |
 | Contributing Guide Score (%) | 22.1 |
 | Changelog Score (%) | 19.0 |
@@ -113,8 +113,8 @@
 | Repositories evaluated (count) | 87 |
 | Best practices checked (count) | 14 |
 | PARTIAL (count) | 76 |
-| YES (count) | 176 |
-| NO (count) | 963 |
+| YES (count) | 177 |
+| NO (count) | 962 |
 | PR (count) | 3 |
 
 
