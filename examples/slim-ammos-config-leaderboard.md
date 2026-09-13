@@ -22,6 +22,8 @@
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
 | [nasa-ammos/landscape](https://github.com/nasa-ammos/landscape) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/tile_service](https://github.com/nasa-ammos/tile_service) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/mis_rest_service](https://github.com/nasa-ammos/mis_rest_service) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/astria_ui](https://github.com/nasa-ammos/astria_ui) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev](https://github.com/nasa-ammos/plandev) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/anms](https://github.com/nasa-ammos/anms) | 🟢 | 🟠 | 🟢 | 🟢 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -102,26 +104,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 27.8 |
-| Additional Documentation Score (%) | 73.4 |
-| License Score (%) | 68.6 |
+| Overall Best Practice Score (%) | 28.0 |
+| Additional Documentation Score (%) | 74.0 |
+| License Score (%) | 69.3 |
 | Readme Score (%) | 50.5 |
-| Code of Conduct Score (%) | 40.7 |
-| Contributing Guide Score (%) | 39.4 |
-| Issue Templates Score (%) | 35.4 |
-| Changelog Score (%) | 31.4 |
-| PR Templates Score (%) | 30.6 |
-| Governance Model Score (%) | 12.8 |
-| Secrets Detection Score (%) | 4.3 |
-| GitHub: Code Scanning Alerts Score (%) | 1.1 |
+| Code of Conduct Score (%) | 41.9 |
+| Contributing Guide Score (%) | 40.6 |
+| Issue Templates Score (%) | 34.6 |
+| Changelog Score (%) | 32.8 |
+| PR Templates Score (%) | 29.9 |
+| Governance Model Score (%) | 12.5 |
+| Secrets Detection Score (%) | 4.2 |
+| GitHub: Code Scanning Alerts Score (%) | 1.0 |
 | Continuous Testing Plan Score (%) | 0.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 94 |
+| Repositories evaluated (count) | 96 |
 | Best practices checked (count) | 14 |
-| YES (count) | 281 |
-| NO (count) | 776 |
-| PARTIAL (count) | 78 |
+| YES (count) | 291 |
+| NO (count) | 792 |
+| PARTIAL (count) | 80 |
 | PR (count) | 181 |
 
 
