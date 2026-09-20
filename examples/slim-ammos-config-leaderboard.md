@@ -14,10 +14,10 @@
 | [nasa-ammos/slim-cd-starterkit](https://github.com/nasa-ammos/slim-cd-starterkit) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/slim-framework](https://github.com/nasa-ammos/slim-framework) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/VICAR](https://github.com/nasa-ammos/VICAR) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/MGViz](https://github.com/nasa-ammos/MGViz) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim](https://github.com/nasa-ammos/slim) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/labelocity](https://github.com/nasa-ammos/labelocity) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/3DTilesRendererJS](https://github.com/nasa-ammos/3DTilesRendererJS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/vicario](https://github.com/nasa-ammos/vicario) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-ui](https://github.com/nasa-ammos/plandev-ui) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-detect-secrets](https://github.com/nasa-ammos/slim-detect-secrets) | 🟢 | 🟠 | 🟢 | 🟣 | 🟣 | 🟣 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
@@ -80,7 +80,6 @@
 | [nasa-ammos/VICAR-DOCS](https://github.com/nasa-ammos/VICAR-DOCS) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-modeling-tutorial](https://github.com/nasa-ammos/plandev-modeling-tutorial) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-multimission-models-bb](https://github.com/nasa-ammos/aerie-multimission-models-bb) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/aerie-orbiter-model](https://github.com/nasa-ammos/aerie-orbiter-model) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-template](https://github.com/nasa-ammos/aerie-phoenix-adaptation-template) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-phoenix-adaptation-vml](https://github.com/nasa-ammos/aerie-phoenix-adaptation-vml) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-action-examples](https://github.com/nasa-ammos/plandev-action-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -94,7 +93,6 @@
 | [nasa-ammos/aerie-sequence-editor](https://github.com/nasa-ammos/aerie-sequence-editor) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-python-prototype](https://github.com/nasa-ammos/aerie-python-prototype) | 🔴 | 🔴 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/pgcmp](https://github.com/nasa-ammos/pgcmp) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/aerie-ui-plugin-examples](https://github.com/nasa-ammos/aerie-ui-plugin-examples) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-fprime-sequence-adaptation](https://github.com/nasa-ammos/aerie-fprime-sequence-adaptation) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/auth-proxy-with-keycloak-nginx](https://github.com/nasa-ammos/auth-proxy-with-keycloak-nginx) | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AMPCS_External](https://github.com/nasa-ammos/AMPCS_External) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -104,26 +102,26 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.0 |
-| Additional Documentation Score (%) | 74.0 |
-| License Score (%) | 69.3 |
+| Overall Best Practice Score (%) | 28.4 |
+| Additional Documentation Score (%) | 73.4 |
+| License Score (%) | 70.7 |
 | Readme Score (%) | 50.5 |
-| Code of Conduct Score (%) | 41.9 |
-| Contributing Guide Score (%) | 40.6 |
-| Issue Templates Score (%) | 34.6 |
-| Changelog Score (%) | 32.8 |
-| PR Templates Score (%) | 29.9 |
-| Governance Model Score (%) | 12.5 |
-| Secrets Detection Score (%) | 4.2 |
-| GitHub: Code Scanning Alerts Score (%) | 1.0 |
+| Code of Conduct Score (%) | 42.8 |
+| Contributing Guide Score (%) | 41.5 |
+| Issue Templates Score (%) | 35.4 |
+| Changelog Score (%) | 33.5 |
+| PR Templates Score (%) | 30.6 |
+| Governance Model Score (%) | 12.8 |
+| Secrets Detection Score (%) | 4.3 |
+| GitHub: Code Scanning Alerts Score (%) | 1.1 |
 | Continuous Testing Plan Score (%) | 0.5 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 96 |
+| Repositories evaluated (count) | 94 |
 | Best practices checked (count) | 14 |
-| YES (count) | 291 |
-| NO (count) | 792 |
-| PARTIAL (count) | 80 |
+| YES (count) | 289 |
+| NO (count) | 768 |
+| PARTIAL (count) | 78 |
 | PR (count) | 181 |
 
 
