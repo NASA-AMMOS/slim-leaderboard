@@ -33,6 +33,7 @@
 | [opera-adt/geepers](https://github.com/opera-adt/geepers) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/Venti](https://github.com/opera-adt/Venti) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/nisar_db](https://github.com/opera-adt/nisar_db) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/.github](https://github.com/opera-adt/.github) | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/calval-CSLC](https://github.com/OPERA-Cal-Val/calval-CSLC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/calval-RTC](https://github.com/OPERA-Cal-Val/calval-RTC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/DSWx-SCP-validation-generation](https://github.com/OPERA-Cal-Val/DSWx-SCP-validation-generation) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -86,24 +87,24 @@
 | Metric | Value |
 | ------ | ----- |
 | Overall Best Practice Score (%) | 16.5 |
-| License Score (%) | 84.4 |
-| Readme Score (%) | 47.4 |
-| Additional Documentation Score (%) | 46.8 |
-| Issue Templates Score (%) | 26.0 |
-| Changelog Score (%) | 13.0 |
-| PR Templates Score (%) | 7.8 |
-| Contributing Guide Score (%) | 3.9 |
+| License Score (%) | 83.3 |
+| Readme Score (%) | 46.8 |
+| Additional Documentation Score (%) | 46.1 |
+| Issue Templates Score (%) | 25.6 |
+| Changelog Score (%) | 12.8 |
+| PR Templates Score (%) | 7.7 |
+| Contributing Guide Score (%) | 5.1 |
+| Code of Conduct Score (%) | 1.3 |
 | Secrets Detection Score (%) | 1.3 |
-| Continuous Testing Plan Score (%) | 0.7 |
-| Code of Conduct Score (%) | 0.0 |
+| Continuous Testing Plan Score (%) | 0.6 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Code Scanning Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
 | Governance Model Score (%) | 0.0 |
-| Repositories evaluated (count) | 77 |
+| Repositories evaluated (count) | 78 |
 | Best practices checked (count) | 14 |
-| NO (count) | 863 |
-| YES (count) | 141 |
+| NO (count) | 875 |
+| YES (count) | 143 |
 | PARTIAL (count) | 74 |
 
 
