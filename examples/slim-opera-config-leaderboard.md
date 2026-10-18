@@ -9,7 +9,7 @@
 | [opera-adt/disp-nisar](https://github.com/opera-adt/disp-nisar) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1](https://github.com/opera-adt/dist-s1) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/tropo](https://github.com/opera-adt/tropo) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [opera-adt/cal-disp](https://github.com/opera-adt/cal-disp) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/cal-disp](https://github.com/opera-adt/cal-disp) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-pcm](https://github.com/nasa/opera-sds-pcm) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟠 |
 | [nasa/opera-sds](https://github.com/nasa/opera-sds) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-bach-ui](https://github.com/nasa/opera-sds-bach-ui) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -91,7 +91,7 @@
 | Readme Score (%) | 46.8 |
 | Additional Documentation Score (%) | 46.1 |
 | Issue Templates Score (%) | 25.6 |
-| Changelog Score (%) | 12.8 |
+| Changelog Score (%) | 13.1 |
 | PR Templates Score (%) | 7.7 |
 | Contributing Guide Score (%) | 5.1 |
 | Code of Conduct Score (%) | 1.3 |
@@ -103,9 +103,10 @@
 | Governance Model Score (%) | 0.0 |
 | Repositories evaluated (count) | 78 |
 | Best practices checked (count) | 14 |
-| NO (count) | 875 |
+| NO (count) | 874 |
 | YES (count) | 143 |
 | PARTIAL (count) | 74 |
+| PR (count) | 1 |
 
 
 # Repository Check Explanation
