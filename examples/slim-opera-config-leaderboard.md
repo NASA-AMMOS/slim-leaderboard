@@ -2,6 +2,8 @@
 # SLIM Best Practices Repository Scan Report
 | Repository | License | Readme | Contributing Guide | Code of Conduct | Issue Templates | PR Templates | Additional Documentation | Changelog | GitHub: Vulnerability Alerts | GitHub: Code Scanning Alerts | GitHub: Secret Scanning Alerts | Secrets Detection | Governance Model | Continuous Testing Plan |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [opera-adt/geepers](https://github.com/opera-adt/geepers) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [opera-adt/Venti](https://github.com/opera-adt/Venti) | 🟢 | 🟠 | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-pge](https://github.com/nasa/opera-sds-pge) | 🟢 | 🔴 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 |
 | [nasa/opera-sds-bach-api](https://github.com/nasa/opera-sds-bach-api) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa/opera-sds-int](https://github.com/nasa/opera-sds-int) | 🟢 | 🟠 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -30,8 +32,6 @@
 | [opera-adt/DSWX-SAR](https://github.com/opera-adt/DSWX-SAR) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/dist-s1-model](https://github.com/opera-adt/dist-s1-model) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/synth](https://github.com/opera-adt/synth) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [opera-adt/geepers](https://github.com/opera-adt/geepers) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [opera-adt/Venti](https://github.com/opera-adt/Venti) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/nisar_db](https://github.com/opera-adt/nisar_db) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [opera-adt/.github](https://github.com/opera-adt/.github) | 🔴 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [OPERA-Cal-Val/calval-CSLC](https://github.com/OPERA-Cal-Val/calval-CSLC) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -87,14 +87,14 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 16.4 |
+| Overall Best Practice Score (%) | 17.0 |
 | License Score (%) | 82.3 |
 | Readme Score (%) | 46.8 |
 | Additional Documentation Score (%) | 46.8 |
-| Issue Templates Score (%) | 25.3 |
-| Changelog Score (%) | 13.0 |
+| Issue Templates Score (%) | 27.9 |
+| Changelog Score (%) | 15.5 |
+| Contributing Guide Score (%) | 7.6 |
 | PR Templates Score (%) | 7.6 |
-| Contributing Guide Score (%) | 5.1 |
 | Code of Conduct Score (%) | 1.3 |
 | Secrets Detection Score (%) | 1.3 |
 | Continuous Testing Plan Score (%) | 0.6 |
@@ -104,9 +104,9 @@
 | Governance Model Score (%) | 0.0 |
 | Repositories evaluated (count) | 79 |
 | Best practices checked (count) | 14 |
-| NO (count) | 886 |
-| YES (count) | 144 |
 | PARTIAL (count) | 75 |
+| YES (count) | 150 |
+| NO (count) | 880 |
 | PR (count) | 1 |
 
 

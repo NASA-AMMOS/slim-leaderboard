@@ -16,7 +16,7 @@
 | [nasa-ammos/VICAR](https://github.com/nasa-ammos/VICAR) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim](https://github.com/nasa-ammos/slim) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 |
 | [nasa-ammos/labelocity](https://github.com/nasa-ammos/labelocity) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/vicario](https://github.com/nasa-ammos/vicario) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
+| [nasa-ammos/vicario](https://github.com/nasa-ammos/vicario) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟣 |
 | [nasa-ammos/3DTilesRendererJS](https://github.com/nasa-ammos/3DTilesRendererJS) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-ui](https://github.com/nasa-ammos/plandev-ui) | 🟢 | 🟠 | 🟢 | 🟢 | 🟢 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/CameraModelUtilsJS](https://github.com/nasa-ammos/CameraModelUtilsJS) | 🟢 | 🟠 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -47,7 +47,6 @@
 | [nasa-ammos/plandev-ts-user-code-runner](https://github.com/nasa-ammos/plandev-ts-user-code-runner) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-pr-action](https://github.com/nasa-ammos/aerie-pr-action) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-cli](https://github.com/nasa-ammos/aerie-cli) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/synopsis](https://github.com/nasa-ammos/synopsis) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/AFIDS-POMM](https://github.com/nasa-ammos/AFIDS-POMM) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/VECTOR](https://github.com/nasa-ammos/VECTOR) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-simple-model-power](https://github.com/nasa-ammos/aerie-simple-model-power) | 🟢 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -65,7 +64,6 @@
 | [nasa-ammos/Unity3DTiles](https://github.com/nasa-ammos/Unity3DTiles) | 🟣 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/quickstart-ammos-smallsat-toolkit](https://github.com/nasa-ammos/quickstart-ammos-smallsat-toolkit) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/ampcs-dict-schemas](https://github.com/nasa-ammos/ampcs-dict-schemas) | 🟢 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🔴 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
-| [nasa-ammos/DECISION](https://github.com/nasa-ammos/DECISION) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/plandev-mission-model-template](https://github.com/nasa-ammos/plandev-mission-model-template) | 🔴 | 🟠 | 🟣 | 🟣 | 🟣 | 🟣 | 🟢 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/slim-starterkit-java](https://github.com/nasa-ammos/slim-starterkit-java) | 🟢 | 🟠 | 🟣 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | [nasa-ammos/aerie-docs](https://github.com/nasa-ammos/aerie-docs) | 🔴 | 🟠 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -99,27 +97,27 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Overall Best Practice Score (%) | 28.4 |
-| Additional Documentation Score (%) | 75.8 |
-| License Score (%) | 68.7 |
+| Overall Best Practice Score (%) | 28.6 |
+| Additional Documentation Score (%) | 75.3 |
+| License Score (%) | 69.1 |
 | Readme Score (%) | 52.2 |
-| Code of Conduct Score (%) | 43.1 |
-| Contributing Guide Score (%) | 41.8 |
-| Issue Templates Score (%) | 35.4 |
-| Changelog Score (%) | 31.0 |
-| PR Templates Score (%) | 30.5 |
-| Governance Model Score (%) | 13.2 |
-| Secrets Detection Score (%) | 4.4 |
+| Code of Conduct Score (%) | 43.5 |
+| Contributing Guide Score (%) | 42.1 |
+| Issue Templates Score (%) | 35.7 |
+| Changelog Score (%) | 31.2 |
+| PR Templates Score (%) | 30.6 |
+| Governance Model Score (%) | 13.5 |
+| Secrets Detection Score (%) | 4.5 |
 | GitHub: Code Scanning Alerts Score (%) | 1.1 |
-| Continuous Testing Plan Score (%) | 0.6 |
+| Continuous Testing Plan Score (%) | 0.8 |
 | GitHub: Vulnerability Alerts Score (%) | 0.0 |
 | GitHub: Secret Scanning Alerts Score (%) | 0.0 |
-| Repositories evaluated (count) | 91 |
+| Repositories evaluated (count) | 89 |
 | Best practices checked (count) | 14 |
-| YES (count) | 282 |
-| NO (count) | 750 |
-| PARTIAL (count) | 78 |
-| PR (count) | 164 |
+| YES (count) | 279 |
+| NO (count) | 736 |
+| PARTIAL (count) | 76 |
+| PR (count) | 155 |
 
 
 # Repository Check Explanation
